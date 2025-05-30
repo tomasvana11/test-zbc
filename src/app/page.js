@@ -418,7 +418,7 @@ export default async function Page() {
   action="https://formcarry.com/s/kY_1MuRL2um"
   method="POST"
   encType="multipart/form-data"
-  className="mx-auto p-6 space-y-6 w-full max-w-[850px]"
+  className="mx-auto p-6 space-y-4 w-full max-w-[850px]"
 >
   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div>
