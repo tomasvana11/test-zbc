@@ -212,7 +212,8 @@ export default async function Page() {
 
         <div className="flex flex-col md:flex-row w-full items-center max-w-[1392px] mx-auto">
 
-          <div className="w-full flex flex-col md:flex-row">
+          <div className="relative w-full flex flex-col md:flex-row">
+            <img src="/images/symbol-pattern-l.svg" alt="Symbol Pattern" className="hidden md:block absolute -left-[64px] -bottom-[64px] w-[420px] h-[420px]" />
 
             <h2 className="text-[28px] md:pt-16 md:text-[40px] pb-8 md:pb-10 md:w-1/4 lg:w-1/3 text-center md:text-left text-goldenBrown">{hp_numbers_title}</h2>
 
