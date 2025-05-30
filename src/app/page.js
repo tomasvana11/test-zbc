@@ -485,8 +485,8 @@ export default async function Page() {
       <div className="md:w-1/3 items-start"><img src="/images/zbc-logo-vertical.svg" alt="Symbol Gold" className="w-[125px]" /></div>
       <div className="md:w-2/3 items-start"><p className="text-silkBeige">Za bohatší Česko s.r.o<br />Jankovcova 1569/2c 170 00, Praha 7<br />+420 603 818 647 <br />info@zabohatsicesko.cz</p></div>
     </div>
-    <div className="md:w-1/2 items-start">
-      <h3 className="footer_h text-goldenBrown text-3xl text-end">Sledujte nás</h3>
+    <div className="md:w-1/2 items-end">
+      <h3 className="footer_h text-goldenBrown text-3xl text-right">Sledujte nás</h3>
     </div>
   </div>
   <hr className="border-darkDivGrey w-full max-w-[1392px] mx-auto"/>
