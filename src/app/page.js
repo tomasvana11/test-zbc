@@ -468,6 +468,7 @@ export default async function Page() {
     </button>
   </div>
 </form>
+<p className="text-goldenBrown">Odesláním formuláře berete na vědomí podmínky zpracování osobnich údajů uvedené v informaci o zpracování osobních údajů</p>
 
   </div>
 </section>
