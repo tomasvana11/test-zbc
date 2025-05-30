@@ -82,11 +82,11 @@ export default async function Page() {
   <div className="absolute bottom-0 left-0 w-full h-[500px] bg-gradient-to-t from-black/80 to-black/0 z-0" />
 
   {/* Symbol (plusek) – může přesahovat, ale nebude se deformovat */}
-  <div className="absolute bottom-20 md:bottom-12 left-4 md:left-12 z-10 overflow-visible">
+  <div className="absolute bottom-16 md:bottom-12 left-4 md:left-12 z-10 overflow-visible">
     <img
       src="/images/symbol-outline.svg"
       alt=""
-      className="w-[140vw] max-w-none md:w-[736px]" // přesahuje viewport
+      className="w-[135vw] max-w-none md:w-[736px]" // přesahuje viewport
     />
   </div>
 
@@ -214,7 +214,7 @@ export default async function Page() {
 
           <div className="w-full flex flex-col md:flex-row">
 
-            <h2 className="text-[28px] md:pt-12 md:text-[40px] pb-8 md:pb-10 md:w-1/4 lg:w-1/3 text-center md:text-left text-goldenBrown">{hp_numbers_title}</h2>
+            <h2 className="text-[28px] md:pt-16 md:text-[40px] pb-8 md:pb-10 md:w-1/4 lg:w-1/3 text-center md:text-left text-goldenBrown">{hp_numbers_title}</h2>
 
             <div className="w-full grid grid-cols-2 md:w-3/4 lg:w-2/3 md:grid-cols-3">
               <div className=" p-12 flex flex-col">
