@@ -214,7 +214,7 @@ export default async function Page() {
 
           <div className="w-full flex flex-col md:flex-row">
 
-            <h2 className="text-[28px] md:text-[40px] pb-8 md:pb-10 text-white md:w-1/4 lg:w-1/3 text-center md:text-left text-goldenBrown">{hp_numbers_title}</h2>
+            <h2 className="text-[28px] md:pt-12 md:text-[40px] pb-8 md:pb-10 md:w-1/4 lg:w-1/3 text-center md:text-left text-goldenBrown">{hp_numbers_title}</h2>
 
             <div className="w-full grid grid-cols-2 md:w-3/4 lg:w-2/3 md:grid-cols-3">
               <div className=" p-12 flex flex-col">
