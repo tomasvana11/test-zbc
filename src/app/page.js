@@ -419,6 +419,7 @@ export default async function Page() {
   method="POST"
   encType="multipart/form-data"
   className="mx-auto p-6 space-y-5 w-full max-w-[850px]"
+  target="_self" noValidate
 >
   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div>
