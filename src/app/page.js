@@ -468,7 +468,7 @@ export default async function Page() {
     </button>
   </div>
 </form>
-  <p className="text-cardGrey">Odesláním formuláře berete na vědomí podmínky zpracování osobnich údajů uvedené v informaci o zpracování osobních údajů</p>
+  <p className="text-cardGrey w-full max-w-[850px]">Odesláním formuláře berete na vědomí podmínky zpracování osobnich údajů uvedené v informaci o zpracování osobních údajů</p>
   </div>
 
 </section>
