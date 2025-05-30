@@ -487,7 +487,7 @@ export default async function Page() {
     </div>
     <div className="md:w-1/2 w-full items-start md:items-end">
       <h3 className="footer_h text-goldenBrown text-3xl text-left md:text-right">Sledujte nás</h3>
-      <div className="flex flex-row gap-2 items-start md:items-end">
+      <div className="flex flex-row gap-2 items-start md:justify-end">
         <div className="bg-socialDiv w-[36px] h-[36px] rounded">
           <a href="https://www.facebook.com/Zabohatsicesko"><img src="/images/icon_fb.svg" alt="Facebook" className="w-[36px] h-[36px]" /></a>
         </div>
