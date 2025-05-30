@@ -17,6 +17,7 @@ module.exports = {
         darkDivGrey: '#494847',
         inputLight: '#EEE9E6',
         inputPlaceholder: '#747271',
+        socialDiv: '#5C5A58',
       },
     },
   },

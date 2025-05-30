@@ -487,7 +487,11 @@ export default async function Page() {
     </div>
     <div className="md:w-1/2 w-full items-start md:items-end">
       <h3 className="footer_h text-goldenBrown text-3xl text-left md:text-right">Sledujte nás</h3>
-      <div></div>
+      <div>
+        <div className="bg-socialDiv w-[36px] h-[36px]">
+          <img src="/images/icon_fb.svg" alt="Facebook" className="w-[36px] h-[36px]" />
+        </div>
+      </div>
     </div>
   </div>
   <hr className="border-darkDivGrey w-full max-w-[1392px] mx-auto"/>
