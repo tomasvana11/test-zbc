@@ -208,9 +208,9 @@ export default async function Page() {
       </section>
 
 
-      <section className="relative bg-raisinBlack w-full  px-4 py-12 md:py-16">
-        <img src="/images/symbol-pattern-l.svg" alt="Symbol Pattern" className="overflow-hidden hidden lg:block absolute -left-[64px] -bottom-[64px] w-[420px] h-[420px]" />
-        <img src="/images/symbol-pattern-s.svg" alt="Symbol Pattern" className="overflow-hidden md:hidden absolute -right-[32px] -bottom-[32px] w-[205px] h-[205px]" />
+      <section className="relative bg-raisinBlack w-full  px-4 py-12 md:py-16 overflow-hidden">
+        <img src="/images/symbol-pattern-l.svg" alt="Symbol Pattern" className=" hidden lg:block absolute -left-[64px] -bottom-[64px] w-[420px] h-[420px]" />
+        <img src="/images/symbol-pattern-s.svg" alt="Symbol Pattern" className=" md:hidden absolute -right-[32px] -bottom-[32px] w-[205px] h-[205px]" />
 
         <div className="flex flex-col md:flex-row w-full items-center max-w-[1392px] mx-auto">
 
