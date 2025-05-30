@@ -481,7 +481,7 @@ export default async function Page() {
 
 <footer className="bg-raisinBlack w-full px-4">
   <div className="flex flex-col md:flex-row w-full items-center max-w-[1392px] mx-auto justify-between py-12 md:py-16">
-    <div className="flex flex-row md:w-1/2">
+    <div className="flex flex-row md:w-1/2 w-full justify-between">
       <div className="md:w-1/3 items-start"><img src="/images/zbc-logo-vertical.svg" alt="Symbol Gold" className="w-[125px]" /></div>
       <div className="md:w-2/3 items-start"><p className="text-silkBeige">Za bohatší Česko s.r.o<br />Jankovcova 1569/2c 170 00, Praha 7<br />+420 603 818 647 <br />info@zabohatsicesko.cz</p></div>
     </div>
