@@ -486,7 +486,7 @@ export default async function Page() {
       <div className="md:w-2/3 items-start pr-8"><p className="text-silkBeige pl-8">Za bohatší Česko s.r.o<br />Jankovcova 1569/2c 170 00, Praha 7<br />+420 603 818 647 <br />info@zabohatsicesko.cz</p></div>
     </div>
     <div className="md:w-1/2 w-full items-start md:items-end">
-      <h3 className="footer_h text-goldenBrown text-3xl text-left md:text-right">Sledujte nás</h3>
+      <h3 className="footer_h text-goldenBrown text-3xl text-left md:text-right pt-4 md:pt-0 pb-4">Sledujte nás</h3>
       <div className="flex flex-row gap-2 items-start md:justify-end">
         <div className="bg-socialDiv w-[36px] h-[36px] rounded">
           <a href="https://www.facebook.com/Zabohatsicesko"><img src="/images/icon_fb.svg" alt="Facebook" className="w-[36px] h-[36px]" /></a>
