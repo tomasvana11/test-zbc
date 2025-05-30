@@ -78,7 +78,42 @@ export default async function Page() {
   return (
     <main className="flex min-h-screen flex-col items-center bg-white">
 
-      <section className="relative w-full h-[600px] md:h-[800px] bg-[url('/images/heroimage.png')] bg-left bg-cover bg-no-repeat">
+      <section className="relative w-full min-h-[600px] md:min-h-[800px] bg-[url('/images/heroimage.png')] bg-left bg-cover bg-no-repeat">
+  {/* Horní gradient */}
+  <div className="absolute top-0 left-0 w-full h-[200px] bg-gradient-to-b from-black/80 to-black/0 z-0" />
+  {/* Dolní gradient */}
+  <div className="absolute bottom-0 left-0 w-full h-[500px] bg-gradient-to-t from-black/80 to-black/0 z-0" />
+
+  {/* Symbol (plusek) – může přesahovat, ale nebude se deformovat */}
+  <div className="absolute bottom-0 left-0 z-10 overflow-visible">
+    <img
+      src="/images/symbol-outline.svg"
+      alt=""
+      className="w-[120vw] max-w-none md:w-[736px]" // přesahuje viewport
+    />
+  </div>
+
+  {/* Logo a text */}
+  <div className="absolute inset-0 flex flex-col justify-between z-20">
+    <div className="relative z-10 w-full max-w-[1392px] mx-auto px-8 py-8">
+      <img src="/images/zbc-logo-horizontal-md.svg" alt="Logo" className="w-[256px]" />
+    </div>
+
+    <div className="relative z-10 flex px-4 flex-col md:flex-row w-full max-w-[1392px] mx-auto py-12 md:py-24">
+      <div>
+        <div className="max-w-[1000px]">
+          <h1 className="text-[44px] md:text-[70px] hero-h text-silkBeige">{brand_claim}</h1>
+        </div>
+        <button className="custom-btn py-3 px-4 mt-8 rounded bg-goldenBrown text-silkBeige">
+          Chci zjistit víc
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <section className="relative w-full min-h-[600px] md:min-h-[800px] bg-[url('/images/heroimage.png')] bg-left bg-cover bg-no-repeat">
         {/* Horní gradient */}
         <div className="absolute top-0 left-0 w-full h-[200px] bg-gradient-to-b from-black/80 to-black/0 z-0" />
         {/* Dolní gradient */}
