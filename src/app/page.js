@@ -269,23 +269,23 @@ export default async function Page() {
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               <div className="bg-cardBeige p-5 rounded-lg flex flex-col gap-5 items-center">
                 <img src="/images/icon-mag-glass.svg" alt="Symbol Gold" className="w-[68px] h-[68px]" />
-                <div className="mt-2 text-center card-heading-d text-raisinBlack" dangerouslySetInnerHTML={{ __html: hp_fp_card_1 }} />
+                <div className="mt-2 text-center card-text-fp text-goldenBrown" dangerouslySetInnerHTML={{ __html: hp_fp_card_1 }} />
               </div>
               <div className="bg-cardBeige p-5 rounded-lg flex flex-col gap-5 items-center">
                 <img src="/images/icon-graph.svg" alt="Symbol Silver" className="w-[68px] h-[68px]" />
-                <h4 className="card-heading-d text-raisinBlack mt-2 text-center">{hp_fp_card_2}</h4>
+                <div className="mt-2 text-center card-text-fp text-goldenBrown" dangerouslySetInnerHTML={{ __html: hp_fp_card_2 }} />
               </div>
               <div className="bg-cardBeige p-5 rounded-lg flex flex-col gap-5 items-center">
                 <img src="/images/icon-trust.svg" alt="Symbol Gold" className="w-[68px] h-[68px]" />
-                <h4 className="card-heading-d text-raisinBlack mt-2 text-center">{hp_fp_card_3}</h4>
+                <div className="mt-2 text-center card-text-fp text-goldenBrown" dangerouslySetInnerHTML={{ __html: hp_fp_card_3 }} />
               </div>
               <div className="bg-cardBeige p-5 rounded-lg flex flex-col gap-5 items-center">
                 <img src="/images/icon-mountain.svg" alt="Symbol Silver" className="w-[68px] h-[68px]" />
-                <h4 className="card-heading-d text-raisinBlack mt-2 text-center">{hp_fp_card_4}</h4>
+                <div className="mt-2 text-center card-text-fp text-goldenBrown" dangerouslySetInnerHTML={{ __html: hp_fp_card_4 }} />
               </div>
               <div className="bg-cardBeige p-5 rounded-lg flex flex-col gap-5 items-center">
                 <img src="/images/icon-certificate.svg" alt="Symbol Gold" className="w-[68px] h-[68px]" />
-                <h4 className="card-heading-d text-raisinBlack mt-2 text-center">{hp_fp_card_5}</h4>
+                <div className="mt-2 text-center card-text-fp text-goldenBrown" dangerouslySetInnerHTML={{ __html: hp_fp_card_5 }} />
               </div>
             </div>
             
