@@ -101,9 +101,7 @@ export default async function Page() {
         <div className="max-w-[1000px]">
           <h1 className="text-[44px] md:text-[70px] hero-h text-silkBeige">{brand_claim}</h1>
         </div>
-        <button className="custom-btn py-3 px-4 mt-8 rounded bg-goldenBrown text-silkBeige">
-          Chci zjistit víc
-        </button>
+        <a href="https://zabohatsicesko.cz/financni-plan" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Chci zjistit víc</a>
       </div>
     </div>
   </div>
@@ -123,9 +121,7 @@ export default async function Page() {
     <div className="w-full md:w-1/2 md:pl-12">
       <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">{hp_intro_title}</h2>
       <p className="text-raisinBlack">{hp_intro_detail}</p>
-      <button className="custom-btn py-3 px-4 mt-8 rounded bg-goldenBrown text-silkBeige">
-        Rezervovat konzultaci
-      </button>
+      <a href="https://zabohatsicesko.cz/kontak" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Rezervovat konzultaci</a>
 
       {/* Obrázek – na mobilu pod textem */}
       <div className="block md:hidden mt-8">
@@ -292,7 +288,7 @@ export default async function Page() {
               </div>
             </div>
             
-          <button className="custom-btn py-3 px-4 mt-8 rounded bg-goldenBrown text-silkBeige">Zjistit jak začít</button>
+          <a href="https://zabohatsicesko.cz/financni-plan" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Zjistit jak začít</a>
         </div>
         
 
@@ -330,9 +326,7 @@ export default async function Page() {
     </div>
   ))}
 </div>
-    <button className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8">
-      Přečíst více recenzí
-    </button>
+    <a href="https://zabohatsicesko.cz/recenze" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Přečíst více recenzí</a>
   </div>
 </section>
 <section className="px-4 w-full py-12 md:py-24">
@@ -401,12 +395,7 @@ export default async function Page() {
       })}
     </div>
 
-    <button className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8">
-      Zobrazit všechny epizody
-    </button>
-    <a href="https://zabohatsicesko.cz" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">
-      Zobrazit všechny epizody
-    </a>
+    <a href="https://www.youtube.com/@ZabohatsiCesko" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Zobrazit všechny epizody</a>
   </div>
 </section>
 
