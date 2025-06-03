@@ -113,7 +113,7 @@ export default async function Page() {
   <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto py-12 md:py-24">
     
     {/* Obrázek – na desktopu vlevo */}
-    <div className="hidden md:block w-full md:w-1/2 pr-6">
+    <div className="hidden md:inline-block md:mt-[64px] w-full md:w-1/2 pr-6">
       <img src="/images/intro-img.png" alt="Intro" className="w-full h-auto " />
     </div>
 
