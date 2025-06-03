@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import ContactForm from '../components/ContactForm';
+import ContactForm from './components/ContactForm';
 
 
 export default async function Page() {
