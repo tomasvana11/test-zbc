@@ -1,14 +1,44 @@
-export default function AboutPage() {
+export default function ContactPage() {
   return (
     <main>
+        <section className="px-4 w-full">
+        <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto py-12 md:py-24">
+            <div className="w-full max-w-screen-lg mx-auto">
+            <div className="flex flex-col md:grid md:grid-cols-2">
+                {/* Blok 1 */}
+                <div className="p-[64px_77px] border-b border-blue-500 md:border-b md:border-r border-blue-500">
+                <h2 className="mb-2">Nadpis 1</h2>
+                <p>Text 1</p>
+            </div>
+
+            {/* Blok 2 */}
+            <div className="p-[64px_77px] border-b border-blue-500 md:border-b border-blue-500">
+            <h2 className="mb-2">Nadpis 2</h2>
+            <p>Text 2</p>
+            </div>
+
+            {/* Blok 3 */}
+            <div className="p-[64px_77px] border-b border-blue-500 md:border-b md:border-r border-blue-500">
+            <h2 className="mb-2">Nadpis 3</h2>
+            <p>Text 3</p>
+            </div>
+
+            {/* Blok 4 */}
+            <div className="p-[64px_77px] border-b border-blue-500 md:border-b-0 border-blue-500">
+            <h2 className="mb-2">Nadpis 4</h2>
+            <p>Text 4</p>
+            </div>
+        </div>
+        </div>
+
+        </div>
+      </section>
+
         <section className="bg-silkBeige w-full py-12 md:py-16">
   <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center">Kontaktujte nás</h2>
   <p className="text-center text-raisinBlack">Chcete mít ve financích jasno a klid? <strong>Začněte tady.</strong></p>
   
   <div className="flex flex-col w-full max-w-[1392px] mx-auto py-4 md:py-8 justify-center">
-
-
-    
 
     <form
   action="https://formcarry.com/s/kY_1MuRL2um"
