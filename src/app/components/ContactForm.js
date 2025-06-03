@@ -93,18 +93,21 @@ export default function ContactForm() {
               <p className="text-red-500">Chyba: {error}</p>
             ) : (
               <select
-                id="teamMember"
-                name="teamMember"
-                className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage"
+                name="advisor"
+                id="advisor"
                 required
-              >
-                <option value="">Vyberte...</option>
-                {teamMembers.map((member) => (
-                  <option key={member.id} value={member.id}>
-                    {member.title.rendered}
-                  </option>
-                ))}
-              </select>
+                defaultValue=""
+                className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+                >
+                <option value="" disabled>
+                    Vyberte poradce
+                </option>
+                    {teamMembers.map((member) => (
+                <option key={member.id} value={member.slug}>
+                {member.title.rendered}
+                </option>
+  ))}
+</select>
             )}
           </div>
 
