@@ -1,8 +1,5 @@
-export async function ContactPage() {
-    const pageRes = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=homepage', {
-    cache: 'no-store',
-  });
-  const hp_m_title = page.acf?.hp_m_title || '';
+export default async function ContactPage() {
+  const recenze = await kontaktRes.json();
 
 
   return (
