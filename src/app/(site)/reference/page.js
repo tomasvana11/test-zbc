@@ -6,7 +6,7 @@ export default async function RefPage() {
 
   return (
     <main>
-      <section className="px-4 w-full py-12 md:py-24">
+      <section className="px-4 w-full -mt-12 md:-mt-16 md:pt-16pb-12 md:pb-24">
         <div className="w-full max-w-[1392px] mx-auto text-center">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {recenze.map((item) => {
