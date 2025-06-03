@@ -1,6 +1,4 @@
 import Image from 'next/image';
-import ContactForm from './components/ContactForm';
-
 
 export default async function Page() {
   // Fetch homepage
@@ -499,7 +497,6 @@ export default async function Page() {
   </div>
 
 </section>
-<ContactForm />
 
 
     </main>
