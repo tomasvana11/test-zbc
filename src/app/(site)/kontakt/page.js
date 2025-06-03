@@ -18,7 +18,7 @@ export default async function ContactPage() {
               </div>
 
               {/* Blok 3 */}
-              <div className="flex flex-col gap-1 md:gap-2 w-full md:pt-[64px] pt-[24px] pb-[24px] md:pb-[64px] md:pl-[77px] md:pr-[77px] border-b border-lightDivGrey md:border-white  md:border-b md:border-r border-lightDivGrey">
+              <div className="flex flex-col gap-1 md:gap-2 w-full pt-[24px] pb-[24px] md:pt-[64px] md:pb-[64px] md:pl-[77px] md:pr-[77px] border-b border-lightDivGrey md:border-b-0 md:border-r md:border-lightDivGrey">
                 <p className="text-goldenBrown text-bold text-[15px] md:text-[18px] mb-2 font-satoshi-bold">INFORMACE</p>
                 <h2 className="text-raisinBlack text-[24px] md:text-[32px]">Za bohatší Česko, s.r.o<br/>IČ: 17687799</h2>
               </div>
