@@ -50,7 +50,7 @@ h1, h2, .ep_num, .footer_h, .recife{
 .card-heading-d, .card-text-fp{
   font-size: 18px;
 }
-.card-text-fp strong{color:#171717;}
+.card-text-fp strong, .satoshi-bold{color:#171717;}
 .custom-btn, .kfp{
   font-family: 'SatoshiBold', sans-serif;
 }
