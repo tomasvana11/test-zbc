@@ -1,6 +1,6 @@
 export default function PageHeader({ title, description }) {
   return (
-    <section className="relative w-full bg-[url('/images/heroimage.png')] bg-[left_center] bg-cover bg-no-repeat">
+    <section className="relative w-full overflow-hidden bg-[url('/images/heroimage.png')] bg-[left_center] bg-cover bg-no-repeat pt-[100px]">
         {/* Gradient */}
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#343D3C]/10 to-[#97A7A5]/10 z-0" />
         {/* Symbol (plusek) – může přesahovat, ale nebude se deformovat */}
@@ -12,7 +12,7 @@ export default function PageHeader({ title, description }) {
             />
         </div>
         {/*Text*/}
-        <div className="flex flex-col gap-[32px] w-full max-w-[1392px] mx-auto py-12 items-center">
+        <div className="flex flex-col gap-[32px] w-full max-w-[1392px] mx-auto py-12 text-center mt-[64px] mb-[144px]">
             <h1 className="text-[56px] text-silkBeige text-center">{title}</h1>
             {description && <p className="text-silkBeige text-center max-w-[700px]">{description}</p>}
         </div>
