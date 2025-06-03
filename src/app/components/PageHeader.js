@@ -12,7 +12,7 @@ export default function PageHeader({ title, description }) {
       <div
         className="absolute top-0 left-0 w-full h-full z-0"
         style={{
-          background: 'linear-gradient(to bottom, rgba(52, 61, 60, 0.9), rgba(151, 167, 165, 0.9))',
+          background: 'linear-gradient(to bottom, rgba(52, 61, 60, 0.8), rgba(151, 167, 165, 0.8))',
         }}
       />
       {/* Symbol (plusek) */}
