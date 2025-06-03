@@ -133,7 +133,7 @@ export default async function Page() {
 </section>
 
 <section className="px-4 w-full bg-silkBeige">
-  <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto py-12 md:py-24 items-start">
+  <div className="flex flex-col pb-[60px] md:flex-row w-full max-w-[1392px] mx-auto py-12 md:py-24 items-start">
     
     {/* Obrázek – na desktopu vlevo */}
     <div className="hidden md:inline-block md:relative md:-bottom-16 w-full md:w-1/2 pr-6">
