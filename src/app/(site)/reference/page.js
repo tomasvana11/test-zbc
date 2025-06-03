@@ -6,9 +6,9 @@ export default async function RefPage() {
 
   return (
     <main>
-      <section className="px-4 w-full -mt-12 md:-mt-16 md:pt-16 pb-12 md:pb-24 z-100">
+      <section className="px-4 w-full -mt-12 md:-mt-16 pb-12 md:pb-24 z-100">
         <div className="w-full max-w-[1392px] mx-auto text-center">
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-4 md:gap-y-6">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-4 md:gap-y-8">
             {recenze.map((item) => {
               const imageUrl =
                 item._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
