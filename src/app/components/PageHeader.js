@@ -5,7 +5,7 @@ export default function PageHeader({ title, description }) {
       style={{
         backgroundImage: "url('/images/heroimage.png')",
         backgroundSize: '120% auto',
-        backgroundPosition: 'left center',
+        backgroundPosition: 'right center',
       }}
     >
       {/* Gradient */}
