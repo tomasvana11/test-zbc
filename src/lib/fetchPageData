@@ -1,0 +1,18 @@
+// /src/lib/fetchPageData.js
+
+export default async function fetchPageData(slug) {
+  const res = await fetch(`https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=${slug}&acf_format=standard`);
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch page data');
+  }
+
+  const data = await res.json();
+
+  // API vrací pole, takže vezmeme první item
+  if (data.length === 0) {
+    return null; // stránka nenalezena
+  }
+
+  return data[0];
+}
