@@ -154,6 +154,27 @@ export default async function Page() {
   </div>
 </section>
 
+{/*pokus*/}
+<section class="relative bg-blue-500 pt-12 pb-[60px] px-4">
+  <div class="max-w-[1392px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start relative z-10">
+    <!-- Sloupec 1: Fotka -->
+    <div class="relative">
+      <img src="/path/to/your-image.jpg" alt="Popis fotky"
+           class="w-full h-auto relative z-20">
+      <!-- Přetékající efekt -->
+      <div class="absolute bottom-[-90px] left-0 w-full h-[90px] z-20 bg-transparent"></div>
+    </div>
+
+    <!-- Sloupec 2: Text -->
+    <div class="flex flex-col justify-center text-white">
+      <h2 class="text-3xl font-bold mb-4">Nadpis sekce</h2>
+      <p class="mb-6">Popis nebo nějaký text, který doplňuje tuto sekci. Může být i delší.</p>
+      <a href="#" class="text-blue-100 underline hover:text-white transition">Více informací</a>
+    </div>
+  </div>
+</section>
+
+
 
 
 
