@@ -17,7 +17,7 @@ export default async function RefPage() {
               return (
                 <div
                   key={item.id}
-                  className="relative pt-10 pl-12 ml-2 md:ml-6 mb-2 md:mb-0 rounded-lg flex flex-row gap-5 items-start overflow-visible bg-gradient-to-b from-[#E2DBD5] to-[#D6D6D3]"
+                  className="relative pt-10 pl-10 ml-4 md:ml-6 mb-2 md:mb-0 rounded-lg flex flex-row gap-5 items-start overflow-visible bg-gradient-to-b from-[#E2DBD5] to-[#D6D6D3]"
                 >
                   {/* Dekorační obrázek */}
                   <img
