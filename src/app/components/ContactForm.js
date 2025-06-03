@@ -10,7 +10,7 @@ export default function ContactForm() {
   useEffect(() => {
     async function fetchTeam() {
       try {
-        const res = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/team');
+        const res = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/tym');
         if (!res.ok) throw new Error('Failed to fetch team members');
         const data = await res.json();
         setTeamMembers(data);
