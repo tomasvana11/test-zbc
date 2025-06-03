@@ -7,25 +7,25 @@ export default async function ContactPage() {
             <div className="flex flex-col md:grid md:grid-cols-2">
               {/* Blok 1 */}
               <div className="flex flex-col gap-1 md:gap-2 w-full md:pt-[64px] pt-[24px] pb-[24px] md:pb-[64px] md:pl-[77px] md:pr-[77px] border-b border-lightDivGrey md:border-b md:border-r border-lightDivGrey">
-                <p className="text-goldenBrown text-bold text-[15px] md:text-[18px] mb-2 satoshi-bold">TELEFON</p>
+                <p className="text-goldenBrown text-bold text-[15px] md:text-[18px] mb-2 font-satoshi-bold">TELEFON</p>
                 <h2 className="text-raisinBlack text-[24px] md:text-[32px]">+420 603 818 647</h2>
               </div>
 
               {/* Blok 2 */}
               <div className="flex flex-col gap-1 md:gap-2 w-full md:pt-[64px] pt-[24px] pb-[24px] md:pb-[64px] md:pl-[77px] md:pr-[77px] border-b border-lightDivGrey ">
-                <p className="text-goldenBrown text-bold text-[15px] md:text-[18px] mb-2 satoshi-bold">EMAIL</p>
+                <p className="text-goldenBrown text-bold text-[15px] md:text-[18px] mb-2 font-satoshi-bold">EMAIL</p>
                 <h2 className="text-raisinBlack text-[24px] md:text-[32px]">info@zabohatsicesko.cz</h2>
               </div>
 
               {/* Blok 3 */}
-              <div className="flex flex-col gap-1 md:gap-2 w-full md:pt-[64px] pt-[24px] pb-[24px] md:pb-[64px] md:pl-[77px] md:pr-[77px] border-b border-lightDivGrey md:border-b md:border-r border-lightDivGrey">
-                <p className="text-goldenBrown text-bold text-[15px] md:text-[18px] mb-2 satoshi-bold">INFORMACE</p>
+              <div className="flex flex-col gap-1 md:gap-2 w-full md:pt-[64px] pt-[24px] pb-[24px] md:pb-[64px] md:pl-[77px] md:pr-[77px] border-b border-lightDivGrey md:border-white  md:border-b md:border-r border-lightDivGrey">
+                <p className="text-goldenBrown text-bold text-[15px] md:text-[18px] mb-2 font-satoshi-bold">INFORMACE</p>
                 <h2 className="text-raisinBlack text-[24px] md:text-[32px]">Za bohatší Česko, s.r.o<br/>IČ: 17687799</h2>
               </div>
 
               {/* Blok 4 */}
-              <div className="flex flex-col gap-1 md:gap-2 w-full md:pt-[64px] pt-[24px] md:pb-[64px] md:pl-[77px] md:pr-[77px] md:border-b md:border-lightDivGrey">
-                <p className="text-goldenBrown text-bold text-[15px] md:text-[18px] mb-2 satoshi-bold">SÍDLO</p>
+              <div className="flex flex-col gap-1 md:gap-2 w-full md:pt-[64px] pt-[24px] md:pb-[64px] md:pl-[77px] md:pr-[77px] border-b border-lightDivGrey md:border-white">
+                <p className="text-goldenBrown text-bold text-[15px] md:text-[18px] mb-2 font-satoshi-bold">SÍDLO</p>
                 <h2 className="text-raisinBlack text-[24px] md:text-[32px]">SIRIUS FINANCE, a.s.<br/>Jankovcova 1569/2c<br/>170 00 Praha 7</h2>
               </div>
             </div>
