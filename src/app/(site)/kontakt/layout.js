@@ -1,5 +1,6 @@
-import { fetchPageData } from "@/lib/fetchPageData";
-import PageHeader from "@/components/PageHeader";
+import fetchPageData from '../../../lib/fetchPageData'
+import PageHeader from '../../../components/PageHeader'
+
 
 export default async function AboutLayout({ children }) {
   const page = await fetchPageData("about");
