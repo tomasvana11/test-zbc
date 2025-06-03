@@ -24,7 +24,7 @@ export default async function ContactPage() {
               </div>
 
               {/* Blok 4 */}
-              <div className="flex flex-col gap-1 md:gap-2 w-full md:pt-[64px] pt-[24px] md:pb-[64px] md:pl-[77px] md:pr-[77px] border-b border-lightDivGrey md:border-white">
+              <div className="flex flex-col gap-1 md:gap-2 w-full md:pt-[64px] pt-[24px] md:pb-[64px] md:pl-[77px] md:pr-[77px]">
                 <p className="text-goldenBrown text-bold text-[15px] md:text-[18px] mb-2 font-satoshi-bold">SÍDLO</p>
                 <h2 className="text-raisinBlack text-[24px] md:text-[32px]">SIRIUS FINANCE, a.s.<br/>Jankovcova 1569/2c<br/>170 00 Praha 7</h2>
               </div>
