@@ -1,5 +1,4 @@
 export default async function ContactPage() {
-  const recenze = await kontaktRes.json();
 
 
   return (
