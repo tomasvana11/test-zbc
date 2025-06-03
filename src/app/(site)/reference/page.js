@@ -1,12 +1,12 @@
 export default async function RefPage() {
   const recenzeRes = await fetch(
-    'https://api.zabohatsicesko.cz/wp-json/wp/v2/recenze?per_page=3&_embed'
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/recenze?per_page=100&_embed'
   );
   const recenze = await recenzeRes.json();
 
   return (
     <main>
-      <section className="px-4 w-full -mt-12 md:-mt-16 md:pt-16pb-12 md:pb-24">
+      <section className="px-4 w-full -mt-12 md:-mt-16 md:pt-16pb-12 md:pb-24 z-100">
         <div className="w-full max-w-[1392px] mx-auto text-center">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {recenze.map((item) => {
