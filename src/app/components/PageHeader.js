@@ -12,7 +12,7 @@ export default function PageHeader({ title, description }) {
             />
         </div>
         {/*Text*/}
-        <div className="flex flex-column gap-[32px] w-full max-w-[1392px] mx-auto py-12 items-center">
+        <div className="flex flex-col gap-[32px] w-full max-w-[1392px] mx-auto py-12 items-center">
             <h1 className="text-[56px] text-silkBeige text-center">{title}</h1>
             {description && <p className="text-silkBeige text-center max-w-[700px]">{description}</p>}
         </div>
