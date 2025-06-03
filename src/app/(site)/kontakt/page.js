@@ -18,7 +18,7 @@ export default function ContactPage() {
             </div>
 
             {/* Blok 3 */}
-            <div className="p-[64px_77px] border-b border-blue-500 md:border-b md:border-r border-blue-500">
+            <div className="p-[64px_77px] border-b border-blue-500 md:border-b-0 md:border-r border-blue-500">
             <h2 className="mb-2">Nadpis 3</h2>
             <p>Text 3</p>
             </div>
