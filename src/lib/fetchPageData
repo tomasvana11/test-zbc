@@ -1,7 +1,5 @@
-// src/lib/fetchPageData.js
-
 export default async function fetchPageData(slug) {
-  const res = await fetch(`https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=${slug}&acf_format=standard`);
+  const res = await fetch(`https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=${slug}&acf_format=standard`, { cache: 'no-store' });
 
   if (!res.ok) {
     throw new Error('Failed to fetch page data');
@@ -10,7 +8,7 @@ export default async function fetchPageData(slug) {
   const data = await res.json();
 
   if (data.length === 0) {
-    return null; // stránka nenalezena
+    return null;
   }
 
   return data[0];
