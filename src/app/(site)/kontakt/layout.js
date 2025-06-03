@@ -8,10 +8,10 @@ export default async function AboutLayout({ children }) {
     <div className="container mx-auto px-4">
       {page && (
         <PageHeader
-          title={page.acf?.title || page.title.rendered}
-          description={page.acf?.description}
+        title={page.acf?.page_name || page.title.rendered}
+        description={page.acf?.page_desc || null}
         />
-      )}
+    )}
       <main>{children}</main>
     </div>
   );
