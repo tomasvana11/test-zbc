@@ -6,7 +6,7 @@ export default async function RefPage() {
 
   return (
     <main className="relative z-100">
-      <section className="px-4 w-full -mt-12 md:-mt-16 pb-12 md:pb-24 z-100 relative">
+      <section className="px-4 w-full -mt-12 md:-mt-16 pb-12 md:pb-24 z-[100] relative">
         <div className="w-full max-w-[1392px] mx-auto text-center">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-4 md:gap-y-8">
             {recenze.map((item) => {
