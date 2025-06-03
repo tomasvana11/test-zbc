@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import ContactForm from '../components/ContactForm';
 
 
 export default async function Page() {
@@ -420,6 +421,8 @@ export default async function Page() {
 
 <section className="bg-silkBeige w-full py-12 md:py-16">
   <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center">Kontaktujte nás</h2>
+  <p className="text-center text-raisinBlack">Chcete mít ve financích jasno a klid? <strong>Začněte tady.</strong></p>
+  
   <div className="flex flex-col w-full max-w-[1392px] mx-auto py-12 md:py-16 justify-center">
 
 
@@ -496,6 +499,8 @@ export default async function Page() {
   </div>
 
 </section>
+<ContactForm />
+
 
     </main>
   );
