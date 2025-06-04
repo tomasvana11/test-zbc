@@ -144,7 +144,7 @@ export default async function Page() {
     </div>
   </div>
 </section>
-<section className="px-4 w-full -mt-[400px]">
+<section className="px-4 w-full -mt-[400px] mb-[400px]">
   <div className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto">
 
     {/* Obrázek – desktop vlevo */}
