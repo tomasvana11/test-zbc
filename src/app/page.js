@@ -139,12 +139,12 @@ export default async function Page() {
   <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto pt-12 md:pt-24">
 
     {/* Obrázek – desktop vlevo */}
-    <div className="hidden md:flex w-full md:w-1/2 pr-6 justify-center items-center">
+    <div className="hidden md:flex w-full md:w-1/2 pr-6 justify-center items-center z-10">
       <img src="/images/intro-img.png" alt="Intro" className="w-full h-auto" />
     </div>
 
     {/* Obsah */}
-    <div className="w-full md:w-1/2 md:pl-12 z-10">
+    <div className="w-full md:w-1/2 md:pl-12 z-11">
       <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">
         {hp_intro_title}
       </h2>
