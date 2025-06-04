@@ -144,8 +144,8 @@ export default async function Page() {
     </div>
   </div>
 </section>
-<section className="px-4 w-full -mt-[100px]">
-  <div className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto py-12 md:py-24">
+<section className="px-4 w-full -mt-[400px]">
+  <div className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto">
 
     {/* Obrázek – desktop vlevo */}
     <div className="hidden md:flex w-full md:w-1/2 pr-6 justify-center items-center">
