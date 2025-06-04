@@ -108,32 +108,7 @@ export default async function Page() {
 
     
 
-<section className="px-4 w-full bg-silkBeige relative">
-
-  <div className="hidden md:flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto absolute top-[300px] left-0">
-
-    {/* Obrázek – desktop vlevo */}
-    <div className="hidden md:flex w-full md:w-1/2 pr-6 justify-center items-center">
-      <img
-        src="/images/intro-img.png"
-        alt="Intro"
-        className="max-w-[90%] h-auto object-contain"
-      />
-    </div>
-
-    {/* Obsah */}
-    <div className="w-full md:w-1/2 md:pl-12">
-      {/* Obrázek – mobil verze */}
-      <div className="block md:hidden mt-8">
-        <img
-          src="/images/intro-img.png"
-          alt="Intro"
-          className="w-full h-auto object-contain"
-        />
-      </div>
-    </div>
-  </div>
-
+<section className="px-4 w-full bg-silkBeige">
 
   <div className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto py-12 md:py-24">
 
@@ -164,7 +139,7 @@ export default async function Page() {
         <img
           src="/images/intro-img.png"
           alt="Intro"
-          className="w-full h-auto object-contain"
+          className="w-full h-auto object-contain -mt-[100px]"
         />
       </div>
     </div>
