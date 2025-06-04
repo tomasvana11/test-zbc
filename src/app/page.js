@@ -135,16 +135,14 @@ export default async function Page() {
   </div>
 </section>
 
-<section className="px-4 w-full bg-silkBeige z-0 relative">
-  <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto pt-12 md:pt-24">
+<section className="px-4 w-full bg-silkBeige">
+  <div className="relative flex flex-col md:flex-row w-full max-w-[1392px] mx-auto py-12 md:py-24">
 
-    {/* Obrázek – desktop vlevo */}
-    <div className="hidden md:flex w-full md:w-1/2 pr-6 justify-center items-center z-10">
-      <img src="/images/intro-img.png" alt="Intro" className="w-full h-auto" />
-    </div>
+    {/* Wrapper pro obrázek – pozicovaný obrázek pomocí after */}
+    <div className="hidden md:block w-full md:w-1/2 relative after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[url('/images/intro-img.png')] after:bg-contain after:bg-no-repeat after:bg-left after:bg-top after:-z-10" />
 
     {/* Obsah */}
-    <div className="w-full md:w-1/2 md:pl-12 z-11">
+    <div className="w-full md:w-1/2 md:pl-12 z-10">
       <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">
         {hp_intro_title}
       </h2>
@@ -154,15 +152,14 @@ export default async function Page() {
         Rezervovat konzultaci
       </a>
 
-      {/* Obrázek – mobil verze */}
+      {/* Obrázek pro mobil */}
       <div className="block md:hidden mt-8">
         <img src="/images/intro-img.png" alt="Intro" className="w-full h-auto" />
       </div>
-
-      <div className="bg-white h-[64px] w-[100%] z-1 absolute left-0 bottom-0 "></div>
     </div>
   </div>
 </section>
+
 
 
 
