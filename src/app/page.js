@@ -139,7 +139,7 @@ export default async function Page() {
   <div className="relative flex flex-col md:flex-row w-full max-w-[1392px] mx-auto py-12 md:py-24">
 
     {/* Wrapper pro obrázek – pozicovaný obrázek pomocí after */}
-    <div className="hidden md:block w-full md:w-1/2 relative after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[url('/images/intro-img.png')] after:bg-contain after:bg-no-repeat after:bg-left after:bg-top after:-z-10" />
+    <div className="hidden md:block w-full md:w-1/2 relative after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[url('/images/intro-img.png')] after:bg-contain after:bg-no-repeat after:bg-left after:bg-top after:z-10" />
 
     {/* Obsah */}
     <div className="w-full md:w-1/2 md:pl-12 z-10">
