@@ -135,6 +135,33 @@ export default async function Page() {
   </div>
 </section>
 
+<section className="px-4 w-full bg-silkBeige">
+  <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto py-12 md:py-24">
+
+    {/* Obrázek – desktop vlevo */}
+    <div className="hidden md:flex w-full md:w-1/2 pr-6 justify-center items-center">
+      <img src="/images/intro-img.png" alt="Intro" className="w-full h-auto max-w-[90%]" />
+    </div>
+
+    {/* Obsah */}
+    <div className="w-full md:w-1/2 md:pl-12">
+      <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">
+        {hp_intro_title}
+      </h2>
+      <p className="text-raisinBlack">{hp_intro_detail}</p>
+      <a href="https://zabohatsicesko.cz/kontakt"
+         className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">
+        Rezervovat konzultaci
+      </a>
+
+      {/* Obrázek – mobil verze */}
+      <div className="block md:hidden mt-8">
+        <img src="/images/intro-img.png" alt="Intro" className="w-full h-auto" />
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 
@@ -159,26 +186,7 @@ export default async function Page() {
         </div>
       </section>
 
-      <section className="px-4 w-full">
-        <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto py-12 md:py-24">
-        <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
-          <div className="flex items-center justify-between mb-4 md:mb-6">
-            <h2 className="text-[28px] md:text-[40px] text-goldenBrown">{hp_m_title}</h2>
-            <img src="/images/IconMise.svg" alt="Ikona mise" className="w-[30px] h-[30px] md:w-[38px] md:h-[38px]" />
-          </div>
-          <hr className="border-lightDivGrey"/>
-          <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: hp_m_desc }} />
-        </div>
-        <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
-          <div className="flex items-center justify-between mb-4 md:mb-6">
-            <h2 className="text-[28px] md:text-[40px] text-goldenBrown">{hp_v_title}</h2>
-            <img src="/images/IconVize.svg" alt="Ikona Vize" className="w-[34px] h-[24px] md:w-[38px] md:h-[38px]" />
-          </div>
-          <hr className="border-lightDivGrey"/>
-          <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: hp_v_desc }} />
-        </div>
-        </div>
-      </section>
+      
 
       
 
