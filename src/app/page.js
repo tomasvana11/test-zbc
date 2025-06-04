@@ -112,8 +112,8 @@ export default async function Page() {
   <div className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto py-12 md:py-24">
 
     {/* Obrázek – desktop vlevo */}
-    <div className="hidden md:flex w-full md:w-1/2 pr-6 justify-center items-center">
-      <img src="/images/intro-img.png" alt="Intro" className="w-full h-auto max-w-[90%]" />
+    <div className="hidden md:flex w-full md:w-1/2 pr-6 justify-center items-center max-h-[100px] overflow-visible">
+      <img src="/images/intro-img.png" alt="Intro" className="w-full h-[250px] max-w-[90%]" />
     </div>
 
     {/* Obsah */}
