@@ -110,7 +110,7 @@ export default async function Page() {
 
 <section className="px-4 w-full bg-silkBeige relative">
 
-  <div className="hidden md:flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto absolute top-[144px] left-0">
+  <div className="hidden md:flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto absolute top-[300px] left-0">
 
     {/* Obrázek – desktop vlevo */}
     <div className="hidden md:flex w-full md:w-1/2 pr-6 justify-center items-center">
