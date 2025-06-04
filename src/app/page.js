@@ -108,32 +108,6 @@ export default async function Page() {
 
     
 
-      <section className="px-4 w-full bg-silkBeige">
-  <div className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto py-12 md:py-24">
-
-    {/* Obrázek – desktop vlevo */}
-    <div className="hidden md:flex w-full md:w-1/2 pr-6 justify-center items-center max-h-[100px] overflow-visible">
-      <img src="/images/intro-img.png" alt="Intro" className="w-full h-[250px] max-w-[90%]" />
-    </div>
-
-    {/* Obsah */}
-    <div className="w-full md:w-1/2 md:pl-12">
-      <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">
-        {hp_intro_title}
-      </h2>
-      <p className="text-raisinBlack">{hp_intro_detail}</p>
-      <a href="https://zabohatsicesko.cz/kontakt"
-         className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">
-        Rezervovat konzultaci
-      </a>
-
-      {/* Obrázek – mobil verze */}
-      <div className="block md:hidden mt-8">
-        <img src="/images/intro-img.png" alt="Intro" className="w-full h-auto" />
-      </div>
-    </div>
-  </div>
-</section>
 <section className="px-4 w-full bg-silkBeige">
   <div className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto py-12 md:py-24">
 
@@ -170,32 +144,33 @@ export default async function Page() {
     </div>
   </div>
 </section>
+<section className="px-4 w-full -mt-[100px]">
+  <div className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto py-12 md:py-24">
 
-
-<section className="px-4 w-full bg-silkBeige">
-  <div className="relative flex flex-col md:flex-row w-full max-w-[1392px] mx-auto py-12 md:py-24">
-
-    {/* Wrapper pro obrázek – pozicovaný obrázek pomocí after */}
-    <div className="hidden md:block w-full md:w-1/2 relative after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[url('/images/intro-img.png')] after:bg-contain after:bg-no-repeat after:bg-left after:bg-top after:z-10" />
+    {/* Obrázek – desktop vlevo */}
+    <div className="hidden md:flex w-full md:w-1/2 pr-6 justify-center items-center">
+      <img
+        src="/images/intro-img.png"
+        alt="Intro"
+        className="max-w-[90%] h-auto object-contain"
+      />
+    </div>
 
     {/* Obsah */}
-    <div className="w-full md:w-1/2 md:pl-12 z-10">
-      <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">
-        {hp_intro_title}
-      </h2>
-      <p className="text-raisinBlack">{hp_intro_detail}</p>
-      <a href="https://zabohatsicesko.cz/kontakt"
-         className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">
-        Rezervovat konzultaci
-      </a>
-
-      {/* Obrázek pro mobil */}
+    <div className="w-full md:w-1/2 md:pl-12">
+      {/* Obrázek – mobil verze */}
       <div className="block md:hidden mt-8">
-        <img src="/images/intro-img.png" alt="Intro" className="w-full h-auto" />
+        <img
+          src="/images/intro-img.png"
+          alt="Intro"
+          className="w-full h-auto object-contain"
+        />
       </div>
     </div>
   </div>
 </section>
+
+
 
 
 
