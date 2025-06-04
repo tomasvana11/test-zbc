@@ -136,27 +136,33 @@ export default async function Page() {
 </section>
 
 
-<section className="w-full">
-  <div className="flex flex-col pb-[60px] bg-silkBeige md:flex-row w-full max-w-[1392px] mx-auto py-12 px:4 md:py-24 items-start">
-    
-    {/* Obrázek – na desktopu vlevo */}
-    <div className="hidden md:inline-block md:relative md:-bottom-16 w-full md:w-1/2 pr-6">
-      <img src="/images/intro-img.png" alt="Intro" className="w-full h-auto" />
+<section className="px-4 w-full bg-silkBeige relative overflow-visible">
+  <div className="flex flex-col md:flex-row items-start w-full max-w-[1392px] mx-auto py-12 md:py-24 relative">
+
+    {/* Obrázek – absolutně pozicovaný */}
+    <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/4 z-0">
+      <img src="/images/intro-img.png" alt="Intro" className="w-[600px] h-auto" />
     </div>
 
     {/* Obsah */}
-    <div className="w-full md:w-1/2 md:pl-12">
-      <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">{hp_intro_title}</h2>
+    <div className="relative z-10 w-full md:w-1/2 md:ml-auto md:pl-12">
+      <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">
+        {hp_intro_title}
+      </h2>
       <p className="text-raisinBlack">{hp_intro_detail}</p>
-      <a href="https://zabohatsicesko.cz/kontakt" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Rezervovat konzultaci</a>
+      <a href="https://zabohatsicesko.cz/kontakt"
+         className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">
+        Rezervovat konzultaci
+      </a>
 
-      {/* Obrázek – na mobilu pod textem */}
+      {/* Mobil obrázek */}
       <div className="block md:hidden mt-8">
         <img src="/images/intro-img.png" alt="Intro" className="w-full h-auto" />
       </div>
     </div>
   </div>
 </section>
+
 
 
       <section className="px-4 w-full">
