@@ -513,20 +513,10 @@ export default async function Page() {
 
     
   </div>
-
-  <div>
-    <textarea
-      name="message"
-      id="message"
-      placeholder="Zpráva"
-      required
-      className="w-full h-40 bg-inputLight rounded p-2 resize-none focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-    ></textarea>
-  </div>
   <div>
     <button
       type="submit"
-      className="w-full bg-goldenBrown text-white py-2 px-4 rounded"
+      className="bg-goldenBrown text-white py-2 px-6 rounded"
     >
       Odeslat
     </button>
