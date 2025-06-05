@@ -2,7 +2,8 @@ export default async function karieraPage() {
   const karieraRes = await fetch(
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/kariera'
   );
-  const recenze = await karieraRes.json();
+  const recenzeRes = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/recenze?per_page=3&_embed');
+  const recenze = await recenzeRes.json();
 
   return (
     <main className="relative z-100">
