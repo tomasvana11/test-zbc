@@ -475,19 +475,19 @@ export default async function Page() {
       />
     </div>
   </div>
-  <div>
-    <select
-  name="role"
-  id="role"
-  required
-  className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage text-black placeholder-inputPlacehoder"
->
-  <option value="" disabled selected>Vyberte roli</option>
-  <option value="admin">Administrátor</option>
-  <option value="user">Uživatel</option>
-  <option value="guest">Host</option>
-</select>
-  </div>
+  <div className="w-full">
+  <select
+    name="role"
+    id="role"
+    required
+    className="w-full bg-inputLight text-black placeholder-inputPlacehoder rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage appearance-none"
+  >
+    <option value="" disabled selected>Vyberte roli</option>
+    <option value="admin">Administrátor</option>
+    <option value="user">Uživatel</option>
+    <option value="guest">Host</option>
+  </select>
+</div>
   <div>
     <textarea
       name="message"
