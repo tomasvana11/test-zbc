@@ -85,7 +85,7 @@ export default async function Page() {
     <img
       src="/images/symbol-outline.svg"
       alt=""
-      className="w-[125vw] max-w-none md:w-[650px]" // přesahuje viewport
+      className="w-[125vw] max-w-none sm:w-[100vw] md:w-[650px]" // přesahuje viewport
     />
   </div>
 
