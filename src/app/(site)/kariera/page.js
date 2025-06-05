@@ -82,7 +82,7 @@ export default async function karieraPage() {
     </select>
 
     <div
-      className="pointer-events-none absolute inset-y-[9px] right-[9px] flex items-center justify-center rounded"
+      className="pointer-events-none absolute inset-y-[9px] right-[9px] flex items-center justify-center rounded cursor-pointer"
       style={{
         width: '28px',
         height: '22px',
