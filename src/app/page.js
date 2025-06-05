@@ -474,25 +474,21 @@ export default async function Page() {
         className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
       />
     </div>
-    <div className="md:col-span-2 md:flex md:justify-center">
-    <input
-      type="text"
-      name="note"
-      id="note"
-      placeholder="Poznámka"
-      required
-      className="w-full md:w-1/2 bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-    />
+    <div class="custom-select-wrapper md:col-span-2 md:flex md:justify-center">
+      <select
+        name="poradce"
+        id="poradce"
+        class="custom-select w-full md:w-1/2 bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+        required
+        >
+        <option value="" disabled selected hidden>Vyberte roli</option>
+        <option value="admin">Administrátor</option>
+        <option value="user">Uživatel</option>
+        <option value="guest">Host</option>
+      </select>
+    </div>
+    
   </div>
-  </div>
-  <div class="custom-select-wrapper">
-  <select class="custom-select" required>
-    <option value="" disabled selected hidden>Vyberte roli</option>
-    <option value="admin">Administrátor</option>
-    <option value="user">Uživatel</option>
-    <option value="guest">Host</option>
-  </select>
-</div>
 
   <div>
     <textarea
