@@ -8,7 +8,7 @@ export default async function karieraPage() {
     <main className="relative z-100">
 
       <section className="bg-silkBeige w-full py-12 md:py-16">
-  <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center">Kontaktujte nás</h2>
+  <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center">Přidej se k nám!</h2>
   <p className="text-center text-raisinBlack">Chcete mít ve financích jasno a klid? <strong>Začněte tady.</strong></p>
   
   <div className="flex flex-col w-full max-w-[1392px] mx-auto py-4 md:py-8 justify-center">
