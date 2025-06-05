@@ -513,10 +513,10 @@ export default async function Page() {
 
     
   </div>
-  <div className="w-full justify-center">
+  <div className="w-full flex justify-center">
     <button
       type="submit"
-      className="w-full md:w-auto bg-goldenBrown text-white py-2 px-6 rounded font-satoshi-bold"
+      className="w-full md:w-auto md:pt-[64px] bg-goldenBrown text-white py-2 px-6 rounded font-satoshi-bold"
     >
       Kontaktujte mě
     </button>
