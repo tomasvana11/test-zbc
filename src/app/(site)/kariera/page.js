@@ -74,10 +74,11 @@ export default async function karieraPage() {
       className="w-full appearance-none bg-inputLight text-black rounded p-2 pr-12 focus:outline-none focus:ring-1 focus:ring-silverSage text-inputPlacehoder"
       style={{color:'#747271'}}
     >
-      <option value="" disabled selected hidden>Vyberte poradce</option>
-      <option value="admin">Václav Svatoš</option>
-      <option value="user">Sabina Vytisková</option>
-      <option value="guest">Monika Kvasničková</option>
+      <option value="" disabled selected hidden>Jaká role tě láká nejvíce? </option>
+      <option value="admin">Asistent/ka ředitele</option>
+      <option value="user">Hypoteční specialista</option>
+      <option value="guest">Finanční koncipient</option>
+      <option value="guest">Obchodník</option>
     </select>
 
     <div
