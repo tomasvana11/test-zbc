@@ -1,32 +1,62 @@
-// app/nas-tym/page.js
-
 export default async function TymPage() {
-  // 1. Fetch dat z API
+  // Fetch dat z REST API
   const res = await fetch(
-    'https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?per_page=100&_embed',
-    { next: { revalidate: 60 } } // optional: ISR, stránka se obnoví po 60s
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?per_page=100&_embed'
   );
 
   if (!res.ok) {
-    // Když fetch selže, můžeme hodit chybu nebo vrátit fallback
     throw new Error('Failed to fetch data');
   }
 
-  const tymPosts = await res.json();
+  const data = await res.json();
 
-  // 2. Render stránky s daty
+  // Připrav pole členů ve formátu { id, photo, name, role }
+  const members = data.slice(0, 6).map((item) => {
+    // Najdeme media z _embedded, pokud je
+    const media = item._embedded?.['wp:attachment']?.[0];
+    const photo = media?.source_url || '/placeholder.png';
+
+    return {
+      id: item.id,
+      photo,
+      name: item.title.rendered,
+      role: item.acf?.member_motto || '', // nebo jiný field, kde máš roli
+    };
+  });
+
   return (
-    <main>
-      <h1>Tým</h1>
-      {tymPosts.length === 0 && <p>Žádná data k zobrazení.</p>}
+    <main className="max-w-7xl mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-8 text-center">Náš tým</h1>
 
-      {tymPosts.map((post) => (
-        <article key={post.id}>
-          {/* V Next.js je potřeba použití dangerouslySetInnerHTML na HTML z WordPressu */}
-          <h2 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-          <div dangerouslySetInnerHTML={{ __html: post.content?.rendered || '' }} />
-        </article>
-      ))}
+      <div
+        className="
+          grid
+          grid-cols-2       /* mobile */
+          sm:grid-cols-3    /* small screens */
+          md:grid-cols-4    /* medium screens */
+          lg:grid-cols-6    /* large screens */
+          gap-6
+        "
+      >
+        {members.map((member) => (
+          <article
+            key={member.id}
+            className="bg-white rounded-lg shadow p-4 flex flex-col items-center"
+          >
+            <img
+              src={member.photo}
+              alt={member.name}
+              className="w-24 h-24 rounded-full object-cover mb-4"
+              loading="lazy"
+            />
+            <h3
+              className="text-lg font-semibold mb-1 text-center"
+              dangerouslySetInnerHTML={{ __html: member.name }}
+            />
+            <p className="text-gray-500 text-sm text-center">{member.role}</p>
+          </article>
+        ))}
+      </div>
     </main>
   );
 }
