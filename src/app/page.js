@@ -482,6 +482,7 @@ export default async function Page() {
       id="role"
       required
       className="w-full appearance-none bg-inputLight text-black rounded p-2 pr-12 focus:outline-none focus:ring-1 focus:ring-silverSage text-inputPlacehoder"
+      style={{color:'#747271'}}
     >
       <option value="" disabled selected hidden>Vyberte roli</option>
       <option value="admin">Václav Svatoš</option>
