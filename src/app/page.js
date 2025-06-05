@@ -481,21 +481,20 @@ export default async function Page() {
       name="role"
       id="role"
       required
-      className="w-full appearance-none bg-inputLight text-black rounded p-2 pr-12 focus:outline-none focus:ring-1 focus:ring-silverSage"
+      className="w-full appearance-none bg-inputLight text-black rounded p-2 pr-12 focus:outline-none focus:ring-1 focus:ring-silverSage text-inputPlacehoder"
     >
       <option value="" disabled selected hidden>Vyberte roli</option>
-      <option value="admin">Administrátor</option>
-      <option value="user">Uživatel</option>
-      <option value="guest">Host</option>
+      <option value="admin">Václav Svatoš</option>
+      <option value="user">Sabina Vytisková</option>
+      <option value="guest">Monika Kvasničková</option>
     </select>
 
     <div
-      className="pointer-events-none absolute inset-y-0 right-0 flex items-center justify-center rounded"
+      className="pointer-events-none absolute inset-y-[9px] right-[9px] flex items-center justify-center rounded"
       style={{
         width: '28px',
         height: '22px',
-        backgroundColor: '#A67B5B',  // příklad goldenBrown barvy
-        border: '2px solid #6B4C30'  // tmavší hnědý rámeček
+        backgroundColor: '#9D6219',
       }}
     >
       <img
