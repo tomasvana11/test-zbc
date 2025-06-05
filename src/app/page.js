@@ -474,6 +474,16 @@ export default async function Page() {
         className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
       />
     </div>
+    <div className="md:col-span-2 md:flex md:justify-center">
+    <input
+      type="text"
+      name="note"
+      id="note"
+      placeholder="Poznámka"
+      required
+      className="w-full md:w-1/2 bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+    />
+  </div>
   </div>
   <div class="custom-select-wrapper">
   <select class="custom-select" required>
