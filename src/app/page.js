@@ -85,7 +85,7 @@ export default async function Page() {
     <img
       src="/images/symbol-outline.svg"
       alt=""
-      className="w-[125vw] max-w-none md:w-[685px]" // přesahuje viewport
+      className="w-[125vw] max-w-none md:w-[625px]" // přesahuje viewport
     />
   </div>
 
@@ -98,7 +98,7 @@ export default async function Page() {
     <div className="relative z-10 flex px-4 flex-col md:flex-row w-full max-w-[1392px] mx-auto py-12 md:py-24">
       <div>
         <div className="max-w-[1000px]">
-          <h1 className="text-[44px] md:text-[70px] hero-h text-silkBeige">{brand_claim}</h1>
+          <h1 className="text-[44px] md:text-[70px] hero-h text-silkBeige md:leading-snug">{brand_claim}</h1>
         </div>
         <a href="https://zabohatsicesko.cz/financni-plan" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Chci zjistit víc</a>
       </div>
