@@ -281,24 +281,64 @@ export default async function Page() {
       </h2>
 
       {/* ČTVERCOVÁ MŘÍŽKA */}
-      <div className="w-full lg:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-px bg-white">
-        {[1, 2, 3, 4, 5].map((i) => (
-          <div
-            key={i}
-            className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center"
-          >
-            <span className="text-silkBeige text-[36px] md:text-[70px] recife">
-              {eval(`hp_number_${i}`)}
-            </span>
-            <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">
-              {eval(`hp_number_desc_${i}`)}
-            </h4>
-          </div>
-        ))}
+      <div className="w-full lg:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-px bg-darkDivGrey">
+        {/* Karta 1 */}
+        <div className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center">
+          <span className="text-silkBeige text-[36px] md:text-[70px] recife">
+            {hp_number_1}
+          </span>
+          <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">
+            {hp_number_desc_1}
+          </h4>
+        </div>
+
+        {/* Karta 2 */}
+        <div className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center">
+          <span className="text-silkBeige text-[36px] md:text-[70px] recife">
+            {hp_number_2}
+          </span>
+          <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">
+            {hp_number_desc_2}
+          </h4>
+        </div>
+
+        {/* Karta 3 */}
+        <div className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center">
+          <span className="text-silkBeige text-[36px] md:text-[70px] recife">
+            {hp_number_3}
+          </span>
+          <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">
+            {hp_number_desc_3}
+          </h4>
+        </div>
+
+        {/* Karta 4 */}
+        <div className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center">
+          <span className="text-silkBeige text-[36px] md:text-[70px] recife">
+            {hp_number_4}
+          </span>
+          <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">
+            {hp_number_desc_4}
+          </h4>
+        </div>
+
+        {/* Karta 5 */}
+        <div className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center">
+          <span className="text-silkBeige text-[36px] md:text-[70px] recife">
+            {hp_number_5}
+          </span>
+          <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">
+            {hp_number_desc_5}
+          </h4>
+        </div>
+
+        {/* Šestý doplňkový čtverec – skrytý obsah, ale tmavý pozadí */}
+        <div className="aspect-square bg-raisinBlack p-6 hidden md:flex" />
       </div>
     </div>
   </div>
 </section>
+
 
 
 
