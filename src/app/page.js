@@ -516,13 +516,13 @@ export default async function Page() {
   <div className="w-full flex justify-center">
     <button
       type="submit"
-      className="w-full md:w-auto md:pt-[64px] bg-goldenBrown text-white py-2 px-6 rounded font-satoshi-bold"
+      className="w-full md:w-auto md:mt-[64px] bg-goldenBrown text-white py-2 px-6 rounded font-satoshi-bold"
     >
       Kontaktujte mě
     </button>
   </div>
 </form>
-  <p className="text-cardGrey w-full max-w-[850px] p-6 m-auto">Odesláním formuláře berete na vědomí podmínky zpracování osobnich údajů uvedené v informaci o zpracování osobních údajů</p>
+  <p className="text-cardGrey w-full max-w-[850px] p-6 m-auto">Odesláním formuláře berete na vědomí podmínky zpracování osobních údajů uvedené v informaci o zpracování osobních údajů</p>
   </div>
 
 </section>
