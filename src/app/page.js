@@ -231,7 +231,7 @@ export default async function Page() {
   <img
     src="/images/symbol-pattern-s.svg"
     alt="Symbol Pattern"
-    className="md:hidden absolute -right-[32px] -bottom-[32px] w-[205px] h-[205px]"
+    className="lg:hidden absolute -right-[32px] -bottom-[32px] w-[320px] h-[320px]"
   />
 
   <div className="flex flex-col lg:flex-row w-full items-center max-w-[1392px] mx-auto">
