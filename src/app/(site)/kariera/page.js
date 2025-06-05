@@ -87,6 +87,7 @@ export default async function karieraPage() {
         width: '28px',
         height: '22px',
         backgroundColor: '#9D6219',
+        cursor: 'pointer',
       }}
     >
       <img
