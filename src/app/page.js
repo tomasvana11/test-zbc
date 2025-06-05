@@ -474,19 +474,29 @@ export default async function Page() {
         className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
       />
     </div>
-    <div class="custom-select-wrapper md:col-span-2 md:flex md:justify-center">
-      <select
-        name="poradce"
-        id="poradce"
-        class="custom-select w-full md:w-1/2 bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-        required
-        >
-        <option value="" disabled selected hidden>Vyberte roli</option>
-        <option value="admin">Administrátor</option>
-        <option value="user">Uživatel</option>
-        <option value="guest">Host</option>
-      </select>
-    </div>
+
+    <div className="relative w-full md:w-1/2">
+  <select
+    name="role"
+    id="role"
+    required
+    className="w-full appearance-none bg-inputLight text-black rounded p-2 pr-12 focus:outline-none focus:ring-1 focus:ring-silverSage"
+  >
+    <option value="" disabled selected hidden>Vyberte roli</option>
+    <option value="admin">Administrátor</option>
+    <option value="user">Uživatel</option>
+    <option value="guest">Host</option>
+  </select>
+
+  <div
+    className="pointer-events-none absolute inset-y-0 right-0 flex items-center justify-center rounded-r"
+    style={{ width: '28px', height: '22px', backgroundColor: 'goldenBrown' }}
+  >
+    <img src="/images/chevron-down.svg" alt="šipka" />
+  </div>
+
+</div>
+
     
   </div>
 
