@@ -81,11 +81,11 @@ export default async function Page() {
   <div className="absolute bottom-0 left-0 w-full h-[500px] bg-gradient-to-t from-black/80 to-black/0 z-0" />
 
   {/* Symbol (plusek) – může přesahovat, ale nebude se deformovat */}
-  <div className="absolute bottom-16 md:bottom-12 left-4 md:left-12 z-10 overflow-visible">
+  <div className="absolute bottom-16 md:top-20 left-4 md:left-12 z-10 overflow-visible">
     <img
       src="/images/symbol-outline.svg"
       alt=""
-      className="w-[135vw] max-w-none md:w-[685px]" // přesahuje viewport
+      className="w-[125vw] max-w-none md:w-[685px]" // přesahuje viewport
     />
   </div>
 
