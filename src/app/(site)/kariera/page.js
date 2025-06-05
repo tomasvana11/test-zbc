@@ -1,5 +1,5 @@
-export default async function RefPage() {
-  const recenzeRes = await fetch(
+export default async function karieraPage() {
+  const karieraRes = await fetch(
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/kariera'
   );
   const recenze = await karieraRes.json();
