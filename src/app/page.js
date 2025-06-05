@@ -333,7 +333,7 @@ export default async function Page() {
         </div>
 
         {/* Šestý doplňkový čtverec – skrytý obsah, ale tmavý pozadí */}
-        <div className="aspect-square bg-raisinBlack p-6 hidden md:flex" />
+        <div className="aspect-square bg-raisinBlack p-6 flex" />
       </div>
     </div>
   </div>
