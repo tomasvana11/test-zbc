@@ -38,7 +38,7 @@ export default async function karieraPage() {
     </div>
   ))}
 </div>
-    <a href="https://zabohatsicesko.cz/reference" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Přečíst více recenzí</a>
+    <a href="https://zabohatsicesko.cz/reference" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Přečíst více referencí</a>
   </div>
 </section>
 
