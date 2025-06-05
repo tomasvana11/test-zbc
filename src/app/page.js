@@ -262,45 +262,44 @@ export default async function Page() {
 
       </section>
       {/*experiment*/}
-      <section className="relative bg-raisinBlack w-full  px-4 py-12 md:py-16 overflow-hidden">
-        <img src="/images/symbol-pattern-l.svg" alt="Symbol Pattern" className=" hidden lg:block absolute -left-[64px] -bottom-[64px] w-[420px] h-[420px]" />
-        <img src="/images/symbol-pattern-s.svg" alt="Symbol Pattern" className=" md:hidden absolute -right-[32px] -bottom-[32px] w-[205px] h-[205px]" />
+      <section className="relative bg-raisinBlack w-full px-4 py-12 md:py-16 overflow-hidden">
+  <img
+    src="/images/symbol-pattern-l.svg"
+    alt="Symbol Pattern"
+    className="hidden lg:block absolute -left-[64px] -bottom-[64px] w-[420px] h-[420px]"
+  />
+  <img
+    src="/images/symbol-pattern-s.svg"
+    alt="Symbol Pattern"
+    className="md:hidden absolute -right-[32px] -bottom-[32px] w-[205px] h-[205px]"
+  />
 
-        <div className="flex flex-col lg:flex-row w-full items-center max-w-[1392px] mx-auto">
+  <div className="flex flex-col lg:flex-row w-full items-center max-w-[1392px] mx-auto">
+    <div className="w-full flex flex-col lg:flex-row">
+      <h2 className="text-[28px] md:pt-16 md:text-[40px] pb-8 md:pb-10 lg:w-1/3 text-center lg:text-left text-goldenBrown">
+        {hp_numbers_title}
+      </h2>
 
-          <div className="w-full flex flex-col lg:flex-row">
-
-
-            <h2 className="text-[28px] md:pt-16 md:text-[40px] pb-8 md:pb-10 lg:w-1/3 text-center md:text-left text-goldenBrown">{hp_numbers_title}</h2>
-
-            <div className="w-full grid grid-cols-2 lg:w-2/3 md:grid-cols-3">
-              <div className=" p-12 flex flex-col">
-                <span className="text-silkBeige text-[36px] md:text-[70px] recife">{hp_number_1}</span>
-                <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">{hp_number_desc_1}</h4>
-              </div>
-              <div className=" p-12 flex flex-col">
-                <span className="text-silkBeige text-[36px] md:text-[70px] recife">{hp_number_2}</span>
-                <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">{hp_number_desc_2}</h4>
-              </div>
-              <div className=" p-12 flex flex-col">
-                <span className="text-silkBeige text-[36px] md:text-[70px] recife">{hp_number_3}</span>
-                <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">{hp_number_desc_3}</h4>
-              </div>
-              <div className=" p-12 flex flex-col">
-                <span className="text-silkBeige text-[36px] md:text-[70px] recife">{hp_number_4}</span>
-                <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">{hp_number_desc_4}</h4>
-              </div>
-              <div className=" p-12 flex flex-col">
-                <span className="text-silkBeige text-[36px] md:text-[70px] recife">{hp_number_5}</span>
-                <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">{hp_number_desc_5}</h4>
-              </div>
-            </div>
-
+      {/* ČTVERCOVÁ MŘÍŽKA */}
+      <div className="w-full lg:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-px bg-white">
+        {[1, 2, 3, 4, 5].map((i) => (
+          <div
+            key={i}
+            className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center"
+          >
+            <span className="text-silkBeige text-[36px] md:text-[70px] recife">
+              {eval(`hp_number_${i}`)}
+            </span>
+            <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">
+              {eval(`hp_number_desc_${i}`)}
+            </h4>
           </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
-        </div>
-
-      </section>
 
 
       <section className="px-4 w-full py-12 md:py-24">
