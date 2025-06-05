@@ -475,19 +475,15 @@ export default async function Page() {
       />
     </div>
   </div>
-  <div className="w-full">
-  <select
-    name="role"
-    id="role"
-    required
-    className="w-full bg-inputLight text-black placeholder-inputPlacehoder rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage appearance-none"
-  >
-    <option value="" disabled selected>Vyberte roli</option>
+  <div class="custom-select-wrapper">
+  <select class="custom-select" required>
+    <option value="" disabled selected hidden>Vyberte roli</option>
     <option value="admin">Administrátor</option>
     <option value="user">Uživatel</option>
     <option value="guest">Host</option>
   </select>
 </div>
+
   <div>
     <textarea
       name="message"
