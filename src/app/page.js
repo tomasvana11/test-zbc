@@ -74,7 +74,7 @@ export default async function Page() {
   return (
     <main className="flex min-h-screen flex-col items-center bg-white">
 
-      <section className="relative w-full min-h-[600px] md:min-h-[800px] bg-[url('/images/heroimage.png')] bg-left bg-cover bg-no-repeat">
+      <section className="relative w-full min-h-[600px] md:min-h-[800px] bg-[url('/images/heroimage.png')] bg-left bg-cover bg-no-repeat overflow-hidden">
   {/* Horní gradient */}
   <div className="absolute top-0 left-0 w-full h-[200px] bg-gradient-to-b from-black/80 to-black/0 z-0" />
   {/* Dolní gradient */}
