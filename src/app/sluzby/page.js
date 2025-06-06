@@ -120,12 +120,12 @@ export default async function SluzbyPage() {
   <img
     src="/images/symbol-pattern-l.svg"
     alt="Symbol Pattern"
-    className="hidden lg:block absolute -left-[64px] -bottom-[64px] w-[300px] h-[300px]"
+    className="hidden lg:block absolute -left-[32px] -bottom-[32px] w-[300px] h-[300px]"
   />
   <img
     src="/images/symbol-pattern-s.svg"
     alt="Symbol Pattern"
-    className="mg:hidden absolute -right-[32px] -bottom-[32px] w-[180px] h-[180px]"
+    className="md:hidden absolute -right-[32px] -bottom-[32px] w-[180px] h-[180px]"
   />
 
   <div className="flex flex-col lg:flex-row w-full items-center max-w-[1392px] mx-auto">
