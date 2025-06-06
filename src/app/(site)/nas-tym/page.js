@@ -1,17 +1,16 @@
 export default async function TymPage() {
-  // Fetch dat z REST API
+  // 1. Fetch členů týmu
   const res = await fetch(
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?per_page=100&_embed',
-    { next: { revalidate: 60 } } // nebo cache: 'no-store' při SSR
+    { next: { revalidate: 60 } }
   );
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data');
+    throw new Error('Failed to fetch team members');
   }
 
   const data = await res.json();
 
-  // Připrav pole členů ve formátu { id, photo, name, role }
   const members = data.map((item) => {
     const media = item._embedded?.['wp:attachment']?.[0];
     const photo = media?.source_url || '/placeholder.png';
@@ -24,37 +23,56 @@ export default async function TymPage() {
     };
   });
 
+  // 2. Fetch ACF obsahu ze stránky /nas-tym
+  const pageRes = await fetch(
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=nas-tym&_embed',
+    { next: { revalidate: 60 } }
+  );
+
+  if (!pageRes.ok) {
+    throw new Error('Failed to fetch team page');
+  }
+
+  const pageData = await pageRes.json();
+  const page = pageData[0];
+
+  const introTitle = page.acf?.team_intro_title || '';
+  const introDesc = page.acf?.team_intro_desc || '';
+  const introImg = page.acf?.team_intro_img?.url || '/placeholder.png';
+  const introImgAlt = page.acf?.team_intro_img?.alt || 'Intro';
+
+  // 3. Render
   return (
     <main className="flex flex-col items-center">
-        <section className="px-4 w-full">
+      {/* Úvodní sekce */}
+      <section className="px-4 w-full">
+        <div className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto py-12 md:py-24">
+          {/* Obrázek vlevo */}
+          <div className="flex w-full md:w-1/2 pr-6 justify-center items-center">
+            <img
+              src={introImg}
+              alt={introImgAlt}
+              className="max-w-[90%] h-auto object-contain"
+            />
+          </div>
 
-  <div className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto py-12 md:py-24">
+          {/* Text vpravo */}
+          <div className="w-full md:w-1/2 md:pl-12">
+            <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">
+              {introTitle}
+            </h2>
+            <p className="text-raisinBlack">{introDesc}</p>
+            <a
+              href="https://zabohatsicesko.cz/kontakt"
+              className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center"
+            >
+              Rezervovat konzultaci
+            </a>
+          </div>
+        </div>
+      </section>
 
-    {/* Obrázek – desktop vlevo */}
-    <div className="flex w-full md:w-1/2 pr-6 justify-center items-center">
-      <img
-        src="/images/intro-img.png"
-        alt="Intro"
-        className="max-w-[90%] h-auto object-contain"
-      />
-    </div>
-
-    {/* Obsah */}
-    <div className="w-full md:w-1/2 md:pl-12">
-      <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">
-        h2
-      </h2>
-      <p className="text-raisinBlack">det</p>
-      <a
-        href="https://zabohatsicesko.cz/kontakt"
-        className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center"
-      >
-        Rezervovat konzultaci
-      </a>
-    </div>
-  </div>
-</section>
-
+      {/* Sekce členů týmu */}
       <section className="px-4 w-full py-12 md:py-24">
         <div className="max-w-[1392px] mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-10 gap-y-14">
           {members.map((member) => (
