@@ -36,9 +36,9 @@ export default async function TymPage() {
   const pageData = await pageRes.json();
   const page = pageData[0];
 
-  const introTitle = page.acf?.team_intro_title || '';
-  const introDesc = page.acf?.team_intro_desc || '';
-  const introImg = page.acf?.team_intro_img?.url || '/placeholder.png';
+  const team_intro_title = page.acf?.team_intro_title || '';
+  const team_intro_desc = page.acf?.team_intro_desc || '';
+  const team_intro_img = page.acf?.team_intro_img?.url || '/placeholder.png';
   const introImgAlt = page.acf?.team_intro_img?.alt || 'Intro';
 
   // 3. Render
