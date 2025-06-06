@@ -1,9 +1,16 @@
 export default async function TymPage() {
   // Fetch dat z REST API
-  const res = await fetch(
+  const page = await pageRes.json();
+
+  const tymRes = await fetch(
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?per_page=100&_embed',
     { next: { revalidate: 60 } } // nebo cache: 'no-store' při SSR
   );
+  const pageRes = await fetch(
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/nas-tym',
+    { next: { revalidate: 60 } } // nebo cache: 'no-store' při SSR
+  );
+  
 
   if (!res.ok) {
     throw new Error('Failed to fetch data');
