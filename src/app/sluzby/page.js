@@ -272,7 +272,7 @@ export default async function SluzbyPage() {
         </div>
         {/* Karta 2 */}
         <div className="flex flex-col md:flex-row gap-6">
-            <div className="shrink-0 rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
+            <div className="relative shrink-0 rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
             <img src="/images/symbol-golden-single.svg"
             alt="Symbol"
             className="absolute w-auto h-[32px] md:h-[48px] left-0 top-0 transform -translate-x-1/2 -translate-y-1/2"/>
@@ -285,7 +285,7 @@ export default async function SluzbyPage() {
         </div>
         {/* Karta 3 */}
         <div className="flex flex-col md:flex-row gap-6">
-            <div className="shrink-0 rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
+            <div className="relative shrink-0 rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
             <img src="/images/symbol-golden-single.svg"
             alt="Symbol"
             className="absolute w-auto h-[32px] md:h-[48px] left-0 top-0 transform -translate-x-1/2 -translate-y-1/2"/>
@@ -298,7 +298,7 @@ export default async function SluzbyPage() {
         </div>
         {/* Karta 4 */}
         <div className="flex flex-col md:flex-row gap-6">
-            <div className="shrink-0 rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
+            <div className="relative shrink-0 rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
             <img src="/images/symbol-golden-single.svg"
             alt="Symbol"
             className="absolute w-auto h-[32px] md:h-[48px] left-0 top-0 transform -translate-x-1/2 -translate-y-1/2"/>
