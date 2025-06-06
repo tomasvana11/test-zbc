@@ -40,6 +40,14 @@ export default async function SluzbyPage() {
   const doc_1_desc= page.acf?.doc_1_desc || '';
   const doc_2_desc= page.acf?.doc_2_desc || '';
   const process_title= page.acf?.process_title || '';
+  const step_1= page.acf?.step_1 || '';
+  const step_1_desc= page.acf?.step_1_desc || '';
+  const step_2 = page.acf?.step_2 || '';
+  const step_2_desc = page.acf?.step_2_desc || '';
+  const step_3 = page.acf?.step_3 || '';
+  const step_3_desc = page.acf?.step_3_desc || '';
+  const step_4 = page.acf?.step_4 || '';
+  const step_4_desc = page.acf?.step_4_desc || '';
   
   const homepageRes = await fetch(
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=homepage&_embed',
@@ -246,7 +254,7 @@ export default async function SluzbyPage() {
     className="lg:hidden absolute -right-[32px] -bottom-[32px] w-[180px] h-[180px]"
   />
 
-  <div className="flex flex-col lg:flex-row w-full items-center max-w-[1392px] mx-auto">
+  <div className="flex flex-col gap-6 md:gap-10 lg:flex-row w-full items-center max-w-[1392px] mx-auto">
     <div className="w-full flex flex-col lg:flex-row">
       <h2 className="text-[28px] md:pt-16 md:text-[40px] pb-8 md:pb-10 lg:w-1/3 text-center lg:text-left text-goldenBrown">
         {process_title}
@@ -259,14 +267,10 @@ export default async function SluzbyPage() {
             <div className="rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
             <span className="recife text-[28px] md:text-[36px] text-raisinBlack text-center">01</span>
             </div>
-
-            <img
-                src="/images/bank.svg"
-                alt="Ikona služby"
-                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px] mb-4"/>
-            <span className="text-silkBeige text-[24px] md:text-[32px] recife">
-            {serv_1}
-            </span>
+            <div>
+                <h3 className="recife text-goldenBrown text-[24px] md:text-[28px] mb-2">{step_1}</h3>
+                <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: step_1_desc || '' }}/>
+            </div>
         </div>
 
         
