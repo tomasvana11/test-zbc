@@ -120,7 +120,7 @@ export default async function SluzbyPage() {
   <img
     src="/images/symbol-pattern-l.svg"
     alt="Symbol Pattern"
-    className="hidden lg:block absolute -left-[32px] -bottom-[32px] w-[300px] h-[300px]"
+    className="hidden lg:block absolute -left-[44px] -bottom-[44px] w-[300px] h-[300px]"
   />
   <img
     src="/images/symbol-pattern-s.svg"
