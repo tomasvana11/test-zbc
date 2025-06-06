@@ -36,7 +36,7 @@ export default async function TymPage() {
                     <img
                         src={member.photo}
                         alt={member.name}
-                        className="w-24 h-24 rounded-full object-cover mb-4"
+                        className="w-full aspect-square rounded-full object-cover mb-4"
                         loading="lazy"
                     />
                     <h3
