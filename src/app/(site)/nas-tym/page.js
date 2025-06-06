@@ -36,14 +36,14 @@ export default async function TymPage() {
                     <img
                         src={member.photo}
                         alt={member.name}
-                        className="w-full aspect-square rounded-full object-cover mb-4"
+                        className="w-full aspect-square rounded-full object-cover mb-3"
                         loading="lazy"
                     />
                     <h3
                         className="text-[18px] md:text-[20px] text-goldenBrown recife mb-1 text-center"
                         dangerouslySetInnerHTML={{ __html: member.name }}
                     />
-                    <p className="text-gray-500 text-sm text-center">{member.role}</p>
+                    <p className="text-gray-500 text-sm text-center">{member.acf?.role}</p>
                 </article>
             ))}
         </div>
