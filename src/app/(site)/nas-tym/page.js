@@ -26,7 +26,7 @@ export default async function TymPage() {
 
   return (
     <main className="flex">
-      <section className="px-4 w-full">
+      <section className="px-4 w-full py-12 md:py-24">
         <div className="max-w-[1392px] mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-10 gap-y-14">
           {members.map((member) => (
             <article
