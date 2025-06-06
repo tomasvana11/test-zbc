@@ -88,60 +88,75 @@ export default async function TymPage() {
       </section>
 
       {/* Sekce podcasty */}
-      <section className="px-4 w-full py-12 md:py-24">
-        <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto">
-          <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-16">
-            {podcast_title && (
-              <h2 className="text-[28px] md:text-[40px] text-goldenBrown">
-                {podcast_title.split(' ')[0]}<br />
-                {podcast_title.split(' ').slice(1).join(' ')}
-              </h2>
-            )}
-          </div>
-          <div className="w-full md:w-1/2 md:pr-4 lg:pr-8 xl:pr-12 pb-10 md:pb-0">
-            <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: podcast_desc }} />
-          </div>
-        </div>
+      {/* Sekce podcasty */}
+<section className="px-4 w-full py-12 md:py-24">
+  <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto">
+    <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-16">
+      <div className="flex items-center justify-between mb-4 md:mb-6">
+        {podcast_title && (
+          <h2 className="text-[28px] md:text-[40px] text-goldenBrown">
+            {podcast_title.split(' ')[0]}<br />
+            {podcast_title.split(' ').slice(1).join(' ')}
+          </h2>
+        )}
+      </div>
+    </div>
+    <div className="w-full md:w-1/2 md:pr-4 lg:pr-8 xl:pr-12 pb-10 md:pb-0">
+      <div className="flex items-center justify-between mb-4 md:mb-6">
+        <div
+          className="mt-4 md:mt-6 text-raisinBlack"
+          dangerouslySetInnerHTML={{ __html: podcast_desc }}
+        />
+      </div>
+    </div>
+  </div>
 
-        <div className="w-full max-w-[1392px] mx-auto text-center">
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {podcastPosts.map((post) => {
-              const title = post.title?.rendered || 'Bez názvu';
-              const image = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.jpg';
-              const episodeNumber = post.acf?.episode_number || '';
-              const ytLink = post.acf?.episode_yt_link || '#';
+  <div className="w-full max-w-[1392px] mx-auto text-center">
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {podcastPosts.map((post) => {
+        const title = post.title?.rendered || 'Bez názvu';
+        const image =
+          post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.jpg';
+        const episodeNumber = post.acf?.episode_number || '';
+        const ytLink = post.acf?.episode_yt_link || '#';
 
-              return (
-                <a
-                  key={post.id}
-                  href={ytLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative rounded-lg overflow-hidden h-[300px] block"
-                >
-                  <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}></div>
-                  <div className="absolute inset-0 bg-gradient-to-b from-[rgba(35,35,35,0.5)] to-[rgba(0,0,0,0.7)]"></div>
-                  <div className="absolute top-1/2 left-1/2 w-[48px] h-[48px] -translate-x-1/2 -translate-y-1/2 bg-[#E2DBD5] rounded-full flex items-center justify-center">
-                    <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3 1L17 11L3 21V1Z" fill="#9D6219" />
-                    </svg>
-                  </div>
-                  <div className="relative z-10 flex flex-col justify-between items-start h-full p-5 text-left text-silkBeige">
-                    <span className="text-[28px] md:text-[40px] text-goldenBrown ep_num">#{episodeNumber}</span>
-                    <h4 className="card-heading-d text-base">{title}</h4>
-                  </div>
-                </a>
-              );
-            })}
-          </div>
+        return (
           <a
-            href="https://www.youtube.com/@ZabohatsiCesko"
-            className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center"
+            key={post.id}
+            href={ytLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative rounded-lg overflow-hidden h-[300px] block"
           >
-            Zobrazit všechny epizody
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${image})` }}
+            ></div>
+
+            <div className="absolute inset-0 bg-gradient-to-b from-[rgba(35,35,35,0.5)] to-[rgba(0,0,0,0.7)]"></div>
+
+            <div className="absolute top-1/2 left-1/2 w-[48px] h-[48px] -translate-x-1/2 -translate-y-1/2 bg-[#E2DBD5] rounded-full flex items-center justify-center">
+              <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 1L17 11L3 21V1Z" fill="#9D6219" />
+              </svg>
+            </div>
+
+            <div className="relative z-10 flex flex-col justify-between items-start h-full p-5 text-left text-silkBeige">
+              <span className="text-[28px] md:text-[40px] text-goldenBrown ep_num">
+                #{episodeNumber}
+              </span>
+              <h4 className="card-heading-d text-base">{title}</h4>
+            </div>
           </a>
-        </div>
-      </section>
+        );
+      })}
+    </div>
+
+    <a href="https://www.youtube.com/@ZabohatsiCesko" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">
+      Zobrazit všechny epizody
+    </a>
+  </div>
+</section>
     </main>
   );
 }
