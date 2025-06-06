@@ -35,8 +35,17 @@ export default async function SluzbyPage() {
   const serv_4= page.acf?.serv_4 || '';
   const serv_5= page.acf?.serv_5 || '';
   const serv_6= page.acf?.serv_6 || '';
-  const podcast_title = page.acf?.podcast_title || '';
-  const podcast_desc = page.acf?.podcast_desc || '';
+  
+  const homepageRes = await fetch(
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=homepage&_embed',
+    { next: { revalidate: 60 } }
+  );
+  if (!homepageRes.ok) throw new Error('Failed to fetch homepage');
+  const homepageData = await homepageRes.json();
+  const homepage = homepageData[0];
+
+  const podcast_title = homepage.acf?.podcast_title || '';
+  const podcast_desc = homepage.acf?.podcast_desc || '';
 
 
   const recenzeRes = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/recenze?per_page=3&_embed');
