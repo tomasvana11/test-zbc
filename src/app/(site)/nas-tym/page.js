@@ -50,7 +50,7 @@ export default async function TymPage() {
           {/* Obrázek vlevo */}
           <div className="flex w-full md:w-1/2 pr-6 justify-center items-center">
             <img
-              src={introImg}
+              src={team_intro_img}
               alt={introImgAlt}
               className="max-w-[90%] h-auto object-contain"
             />
@@ -59,9 +59,9 @@ export default async function TymPage() {
           {/* Text vpravo */}
           <div className="w-full md:w-1/2 md:pl-12">
             <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">
-              {introTitle}
+              {team_intro_title}
             </h2>
-            <p className="text-raisinBlack">{introDesc}</p>
+            <p className="text-raisinBlack">{team_intro_desc}</p>
             <a
               href="https://zabohatsicesko.cz/kontakt"
               className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center"
