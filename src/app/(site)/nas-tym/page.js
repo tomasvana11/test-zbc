@@ -46,9 +46,9 @@ export default async function TymPage() {
     <main className="flex flex-col items-center">
       {/* Úvodní sekce */}
       <section className="px-4 w-full -mt-8 md:-mt-20 z-[50]">
-        <div className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto">
+        <div className="flex flex-col lg:flex-row items-center w-full max-w-[1392px] mx-auto">
           {/* Obrázek vlevo */}
-          <div className="flex w-full md:w-1/2 pr-6 justify-center items-center">
+          <div className="flex w-full lg:w-1/2 pr-6 justify-center items-center">
             <img
               src={team_intro_img}
               alt={introImgAlt}
@@ -57,7 +57,7 @@ export default async function TymPage() {
           </div>
 
           {/* Text vpravo */}
-          <div className="w-full md:w-1/2 md:pl-12">
+          <div className="w-full lg:w-1/2 lg:pl-12">
             <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">
               {team_intro_title}
             </h2>
