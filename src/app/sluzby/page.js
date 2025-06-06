@@ -33,7 +33,7 @@ export default async function SluzbyPage() {
             <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">
               {serv_intro_title}
             </h2>
-            <p className="text-raisinBlack">{serv_intro_detail}</p>
+            <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: serv_intro_desc }}/>
             <a
               href="https://zabohatsicesko.cz/kontakt"
               className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center"
