@@ -27,7 +27,7 @@ export default async function TymPage() {
   return (
     <main className="max-w-7xl mx-auto px-4 py-8">
         <section className="px-4 w-full">
-        <div className="max-w-[1300px] mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-10">
+        <div className="max-w-[1392px] mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-10">
             {members.map((member) => (
                 <article
                     key={member.id}
