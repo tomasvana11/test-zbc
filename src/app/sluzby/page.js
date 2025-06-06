@@ -348,10 +348,11 @@ export default async function SluzbyPage() {
         <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
           <div className="flex items-center justify-between mb-4 md:mb-6">
             <h2 className="text-[28px] md:text-[40px] text-goldenBrown">{doc_1_title}</h2>
-            <a className="rounded py-3 bg-silkBeige px-5 flex flex-row gap-[10px] min-w-[132px]">
+            <a className="rounded py-3 bg-silkBeige px-5 flex flex-row gap-[10px] min-w-[132px]" href="https://api.zabohatsicesko.cz/wp-content/uploads/2025/06/checklist-co-zkontrolovat-pred-podpisem-smlouvy.pdf" download>
                 <img src="/images/download.svg" alt="Ikona stáhnout" className="w-[17px] h-[18px]]"/>
                 <span className="text-goldenBrown font-satoshi-bold">Stáhnout</span>
             </a>
+            
           </div>
           <hr className="border-lightDivGrey"/>
           <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: doc_1_desc }} />
@@ -359,7 +360,10 @@ export default async function SluzbyPage() {
         <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
           <div className="flex items-center justify-between mb-4 md:mb-6">
             <h2 className="text-[28px] md:text-[40px] text-goldenBrown">{doc_2_title}</h2>
-            <img src="/images/IconVize.svg" alt="Ikona Vize" className="w-[34px] h-[24px] md:w-[38px] md:h-[38px]" />
+            <a className="rounded py-3 bg-silkBeige px-5 flex flex-row gap-[10px] min-w-[132px]" href="https://api.zabohatsicesko.cz/wp-content/uploads/2025/06/Dokument-servisni-schuzky.pdf" download>
+                <img src="/images/download.svg" alt="Ikona stáhnout" className="w-[17px] h-[18px]]"/>
+                <span className="text-goldenBrown font-satoshi-bold">Stáhnout</span>
+            </a>
           </div>
           <hr className="border-lightDivGrey"/>
           <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: doc_2_desc }} />
