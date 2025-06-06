@@ -20,7 +20,7 @@ export default async function TymPage() {
       id: item.id,
       photo,
       name: item.title.rendered,
-      role: item.acf?.member_motto || '', // nebo jiný field, kde máš roli
+      role: item.acf?.role || ''
     };
   });
 
