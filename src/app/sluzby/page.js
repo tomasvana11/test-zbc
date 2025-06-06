@@ -39,6 +39,7 @@ export default async function SluzbyPage() {
   const doc_2_title= page.acf?.doc_2_title || '';
   const doc_1_desc= page.acf?.doc_1_desc || '';
   const doc_2_desc= page.acf?.doc_2_desc || '';
+  const process_title= page.acf?.process_title || '';
   
   const homepageRes = await fetch(
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=homepage&_embed',
@@ -233,6 +234,45 @@ export default async function SluzbyPage() {
   </div>
     </section>
 
+    <section className="relative bg-white w-full px-4 py-12 md:py-20 overflow-hidden">
+  <img
+    src="/images/symbol-pattern-l.svg"
+    alt="Symbol"
+    className="hidden lg:block absolute -left-[44px] -bottom-[44px] w-[300px] h-[300px]"
+  />
+  <img
+    src="/images/symbol-pattern-s.svg"
+    alt="Symbol Pattern"
+    className="lg:hidden absolute -right-[32px] -bottom-[32px] w-[180px] h-[180px]"
+  />
+
+  <div className="flex flex-col lg:flex-row w-full items-center max-w-[1392px] mx-auto">
+    <div className="w-full flex flex-col lg:flex-row">
+      <h2 className="text-[28px] md:pt-16 md:text-[40px] pb-8 md:pb-10 lg:w-1/3 text-center lg:text-left text-goldenBrown">
+        {process_title}
+      </h2>
+
+      {/*MŘÍŽKA*/}
+      <div className="w-full lg:w-2/3 grid grid-cols-1 gap-8 md:gap-10">
+        {/* Karta 1 */}
+        <div className="flex flex-col md:flex-row gap-6">
+            <span className="recife text-[28px] md:text-[36px] text-raisinBlack w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex align-center text-center justify-center"></span>
+            <img
+                src="/images/bank.svg"
+                alt="Ikona služby"
+                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px] mb-4"/>
+            <span className="text-silkBeige text-[24px] md:text-[32px] recife">
+            {serv_1}
+            </span>
+        </div>
+
+        
+
+      </div>
+    </div>
+  </div>
+    </section>
+
     <section className="px-4 w-full py-12 md:py-24 bg-silverSage recenze">
   <div className="w-full max-w-[1392px] mx-auto text-center">
 
@@ -356,11 +396,6 @@ export default async function SluzbyPage() {
           </div>
           <hr className="border-lightDivGrey hidden md:block"/>
           <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: doc_1_desc }} />
-        </div>
-        <div className="px-4 w-full md:hidden">
-        <div className="max-w-[1392px] mx-auto">
-          <hr className="w-full border-1 h-[1px] lightDivGrey" />
-        </div>
         </div>
         <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
           <div className="flex items-center justify-between mb-4 md:mb-6">
