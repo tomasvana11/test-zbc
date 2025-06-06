@@ -11,6 +11,10 @@ export default async function TymPage() {
 
   const data = await res.json();
 
+  
+  const team_intro_title = page.acf?.team_intro_title || '';
+  const team_intro_desc = page.acf?.team_intro_desc || '';
+  const team_intro_img = page.acf?.team_intro_img || '';
   // Připrav pole členů ve formátu { id, photo, name, role }
   const members = data.map((item) => {
     const media = item._embedded?.['wp:attachment']?.[0];
@@ -26,6 +30,35 @@ export default async function TymPage() {
 
   return (
     <main className="flex">
+        <section className="px-4 w-full">
+
+  <div className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto py-12 md:py-24">
+
+    {/* Obrázek – desktop vlevo */}
+    <div className="flex w-full md:w-1/2 pr-6 justify-center items-center">
+      <img
+        src="/images/intro-img.png"
+        alt="Intro"
+        className="max-w-[90%] h-auto object-contain"
+      />
+    </div>
+
+    {/* Obsah */}
+    <div className="w-full md:w-1/2 md:pl-12">
+      <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">
+        {team_intro_title}
+      </h2>
+      <p className="text-raisinBlack">{team_intro_desc}</p>
+      <a
+        href="https://zabohatsicesko.cz/kontakt"
+        className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center"
+      >
+        Rezervovat konzultaci
+      </a>
+    </div>
+  </div>
+</section>
+
       <section className="px-4 w-full py-12 md:py-24">
         <div className="max-w-[1392px] mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-10 gap-y-14">
           {members.map((member) => (
