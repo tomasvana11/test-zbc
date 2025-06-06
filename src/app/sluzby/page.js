@@ -35,6 +35,10 @@ export default async function SluzbyPage() {
   const serv_4= page.acf?.serv_4 || '';
   const serv_5= page.acf?.serv_5 || '';
   const serv_6= page.acf?.serv_6 || '';
+  const doc_1_title= page.acf?.doc_1_title || '';
+  const doc_2_title= page.acf?.doc_2_title || '';
+  const doc_1_desc= page.acf?.doc_1_desc || '';
+  const doc_2_desc= page.acf?.doc_2_desc || '';
   
   const homepageRes = await fetch(
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=homepage&_embed',
