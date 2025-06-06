@@ -244,14 +244,9 @@ export default async function SluzbyPage() {
 
     <section className="relative bg-white w-full px-4 py-12 md:py-20 overflow-hidden">
   <img
-    src="/images/symbol-pattern-l.svg"
+    src="/images/symbol-green-outline.svg"
     alt="Symbol"
-    className="hidden lg:block absolute -left-[44px] -bottom-[44px] w-[300px] h-[300px]"
-  />
-  <img
-    src="/images/symbol-pattern-s.svg"
-    alt="Symbol Pattern"
-    className="lg:hidden absolute -right-[32px] -bottom-[32px] w-[180px] h-[180px]"
+    className="hidden lg:block absolute -left-[120px] -bottom-1/2 w-[689px] h-[690px]"
   />
 
   <div className="flex flex-col gap-6 md:gap-10 lg:flex-row w-full items-center max-w-[1392px] mx-auto">
@@ -261,7 +256,7 @@ export default async function SluzbyPage() {
       </h2>
 
       {/*MŘÍŽKA*/}
-      <div className="w-full lg:w-2/3 grid grid-cols-1 gap-8 md:gap-10">
+      <div className="w-full lg:w-2/3 grid grid-cols-1 gap-8 md:gap-10 pl-4 md:pl-0">
         {/* Karta 1 */}
         <div className="flex flex-col md:flex-row gap-6">
             <div className="relative shrink-0 rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
@@ -278,6 +273,9 @@ export default async function SluzbyPage() {
         {/* Karta 2 */}
         <div className="flex flex-col md:flex-row gap-6">
             <div className="shrink-0 rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
+            <img src="/images/symbol-golden-single.svg"
+            alt="Symbol"
+            className="absolute w-auto h-[32px] md:h-[48px] left-0 top-0 transform -translate-x-1/2 -translate-y-1/2"/>
             <span className="recife text-[28px] md:text-[36px] text-raisinBlack text-center">02</span>
             </div>
             <div>
@@ -288,6 +286,9 @@ export default async function SluzbyPage() {
         {/* Karta 3 */}
         <div className="flex flex-col md:flex-row gap-6">
             <div className="shrink-0 rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
+            <img src="/images/symbol-golden-single.svg"
+            alt="Symbol"
+            className="absolute w-auto h-[32px] md:h-[48px] left-0 top-0 transform -translate-x-1/2 -translate-y-1/2"/>
             <span className="recife text-[28px] md:text-[36px] text-raisinBlack text-center">03</span>
             </div>
             <div>
@@ -298,6 +299,9 @@ export default async function SluzbyPage() {
         {/* Karta 4 */}
         <div className="flex flex-col md:flex-row gap-6">
             <div className="shrink-0 rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
+            <img src="/images/symbol-golden-single.svg"
+            alt="Symbol"
+            className="absolute w-auto h-[32px] md:h-[48px] left-0 top-0 transform -translate-x-1/2 -translate-y-1/2"/>
             <span className="recife text-[28px] md:text-[36px] text-raisinBlack text-center">04</span>
             </div>
             <div>
