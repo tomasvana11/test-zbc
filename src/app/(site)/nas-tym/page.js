@@ -43,7 +43,7 @@ export default async function TymPage() {
                 className="text-[18px] md:text-[20px] text-goldenBrown recife mb-1 text-center"
                 dangerouslySetInnerHTML={{ __html: member.name }}
               />
-              <p className="text-gray-500 text-sm text-center">
+              <p className="text-raisinBlack text-[15px] text-center">
                 {member.role}
               </p>
             </article>
