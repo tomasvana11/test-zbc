@@ -267,7 +267,7 @@ export default async function SluzbyPage() {
             <div className="relative shrink-0 rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
             <img src="/images/symbol-golden-single.svg"
             alt="Symbol"
-            className="absolute w-auto h-[32px] md:h-[48px] -left-1/2 -top-1/2 transform translate-x-1/2 translate-y-1/2"/>
+            className="absolute w-auto h-[32px] md:h-[48px] left-0 top-0 transform translate-x-1/2 translate-y-1/2"/>
             <span className="recife text-[28px] md:text-[36px] text-raisinBlack text-center">01</span>
             </div>
             <div>
