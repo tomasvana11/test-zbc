@@ -263,8 +263,8 @@ export default async function SluzbyPage() {
       {/*MŘÍŽKA*/}
       <div className="w-full lg:w-2/3 grid grid-cols-1 gap-8 md:gap-10">
         {/* Karta 1 */}
-        <div className="relative flex flex-col md:flex-row gap-6">
-            <div className="shrink-0 rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
+        <div className="flex flex-col md:flex-row gap-6">
+            <div className="relative shrink-0 rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
             <img src="/images/symbol-golden-single.svg"
             alt="Symbol"
             className="absolute w-auto h-[32px] md:h-[48px] left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"/>
