@@ -4,7 +4,6 @@ export default async function TymPage() {
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?per_page=100&_embed',
     { next: { revalidate: 60 } } // nebo cache: 'no-store' při SSR
   );
-  
 
   if (!res.ok) {
     throw new Error('Failed to fetch data');
@@ -47,9 +46,9 @@ export default async function TymPage() {
     {/* Obsah */}
     <div className="w-full md:w-1/2 md:pl-12">
       <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">
-        {team_intro_title}
+        h2
       </h2>
-      <p className="text-raisinBlack">{team_intro_desc}</p>
+      <p className="text-raisinBlack">det</p>
       <a
         href="https://zabohatsicesko.cz/kontakt"
         className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center"
