@@ -1,15 +1,8 @@
-import PageHeader from '../../components/PageHeader';
+import fetchPageData from '../../lib/fetchPageData';
+import PageHeader from '../components/PageHeader';
 
 export default async function SluzbyLayout({ children }) {
-  const res = await fetch(
-    'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=sluzby&_embed',
-    { next: { revalidate: 60 } }
-  );
-
-  if (!res.ok) throw new Error('Failed to fetch Služby page data');
-
-  const data = await res.json();
-  const page = data[0];
+  const page = await fetchPageData('sluzby');
 
   return (
     <>
