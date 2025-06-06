@@ -116,16 +116,16 @@ export default async function SluzbyPage() {
 
       </section>
 
-      <section className="relative bg-raisinBlack w-full px-4 py-12 md:py-16 overflow-hidden">
+      <section className="relative bg-raisinBlack w-full px-4 pt-12 pb-24 md:py-16 overflow-hidden">
   <img
     src="/images/symbol-pattern-l.svg"
     alt="Symbol Pattern"
-    className="hidden lg:block absolute -left-[64px] -bottom-[64px] w-[420px] h-[420px]"
+    className="hidden lg:block absolute -left-[64px] -bottom-[64px] w-[300px] h-[300px]"
   />
   <img
     src="/images/symbol-pattern-s.svg"
     alt="Symbol Pattern"
-    className="lg:hidden absolute -right-[32px] -bottom-[32px] w-[205px] h-[205px] md:w-[280px] md:h-[280px]"
+    className="mg:hidden absolute -right-[32px] -bottom-[32px] w-[180px] h-[180px]"
   />
 
   <div className="flex flex-col lg:flex-row w-full items-center max-w-[1392px] mx-auto">
