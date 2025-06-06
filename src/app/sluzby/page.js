@@ -1,6 +1,9 @@
 'use client';
 
-import { useSluzbyData } from './SluzbyContext';
+import fetchPageData from '../../../../lib/fetchPageData';
+import PageHeader from '../../components/PageHeader';
+import { SluzbyContext } from './SluzbyContext';
+
 
 export default function SluzbyPage() {
   const page = useSluzbyData();
