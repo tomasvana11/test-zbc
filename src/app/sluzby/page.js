@@ -256,7 +256,7 @@ export default async function SluzbyPage() {
       <div className="w-full lg:w-2/3 grid grid-cols-1 gap-8 md:gap-10">
         {/* Karta 1 */}
         <div className="flex flex-col md:flex-row gap-6">
-            <span className="recife text-[28px] md:text-[36px] text-raisinBlack w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex align-center text-center justify-center"></span>
+            <span className="rounded-br-[12px] recife text-[28px] md:text-[36px] text-raisinBlack w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex align-center text-center justify-center">01</span>
             <img
                 src="/images/bank.svg"
                 alt="Ikona služby"
