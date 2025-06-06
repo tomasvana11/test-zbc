@@ -73,7 +73,7 @@ export default async function TymPage() {
       {/*divider*/}
         <section className="px-4 w-full">
             <div className="max-w-[1392px] mx-auto">
-                <hr className="w-full border-0 h-[1px] lightDivGrey"/>
+                <hr className="w-full border-1 h-[1px] lightDivGrey"/>
             </div>
         </section>
     
