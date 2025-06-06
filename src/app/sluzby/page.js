@@ -333,6 +333,36 @@ export default async function SluzbyPage() {
   </div>
     </section>
 
+    <section className="px-4 w-full">
+        <div className="max-w-[1392px] mx-auto">
+          <hr className="w-full border-1 h-[1px] lightDivGrey" />
+        </div>
+    </section>
+
+    <section className="px-4 w-full">
+        <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto py-12 md:py-24">
+        <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
+          <div className="flex items-center justify-between mb-4 md:mb-6">
+            <h2 className="text-[28px] md:text-[40px] text-goldenBrown">{doc_1_title}</h2>
+            <a className="rounded py-3 bg-silkBeige px-5 flex flex-row gap-[10px]">
+                <img src="/images/download.svg" alt="Ikona stáhnout" className="w-[17px] h-[18px]]"/>
+                <span className="text-goldenBrown font-satoshi-bold">Stáhnout</span>
+            </a>
+          </div>
+          <hr className="border-lightDivGrey"/>
+          <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: doc_1_desc }} />
+        </div>
+        <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
+          <div className="flex items-center justify-between mb-4 md:mb-6">
+            <h2 className="text-[28px] md:text-[40px] text-goldenBrown">{doc_2_title}</h2>
+            <img src="/images/IconVize.svg" alt="Ikona Vize" className="w-[34px] h-[24px] md:w-[38px] md:h-[38px]" />
+          </div>
+          <hr className="border-lightDivGrey"/>
+          <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: doc_2_desc }} />
+        </div>
+        </div>
+      </section>
+
     <section className="bg-silkBeige w-full py-12 md:py-16">
   <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center">Kontaktujte nás</h2>
   <p className="text-center text-raisinBlack">Chcete mít ve financích jasno a klid? <strong>Začněte tady.</strong></p>
@@ -441,7 +471,7 @@ export default async function SluzbyPage() {
   <p className="text-cardGrey text-center w-full max-w-[850px] p-6 m-auto">Odesláním formuláře berete na vědomí podmínky zpracování osobních údajů uvedené v informaci o zpracování osobních údajů</p>
   </div>
 
-</section>
+    </section>
 
 
     </main>
