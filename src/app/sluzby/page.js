@@ -354,8 +354,13 @@ export default async function SluzbyPage() {
             </a>
             
           </div>
-          <hr className="border-lightDivGrey"/>
+          <hr className="border-lightDivGrey hidden md:block"/>
           <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: doc_1_desc }} />
+        </div>
+        <div className="px-4 w-full md:hidden">
+        <div className="max-w-[1392px] mx-auto">
+          <hr className="w-full border-1 h-[1px] lightDivGrey" />
+        </div>
         </div>
         <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
           <div className="flex items-center justify-between mb-4 md:mb-6">
@@ -365,7 +370,7 @@ export default async function SluzbyPage() {
                 <span className="text-goldenBrown font-satoshi-bold">Stáhnout</span>
             </a>
           </div>
-          <hr className="border-lightDivGrey"/>
+          <hr className="border-lightDivGrey hidden md:block"/>
           <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: doc_2_desc }} />
         </div>
         </div>
