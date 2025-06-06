@@ -13,7 +13,7 @@ export default async function SluzbyPage() {
 
   // Z ACF polí vezmi, co potřebuješ
   const serv_intro_title = page.acf?.serv_intro_title || '';
-  const serv_intro_detail = page.acf?.serv_intro_detail || '';
+  const serv_intro_desc = page.acf?.serv_intro_desc || '';
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-white">
