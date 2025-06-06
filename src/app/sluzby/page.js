@@ -27,11 +27,11 @@ export default async function SluzbyPage() {
   const serv_adv_5_desc= page.acf?.serv_adv_5_desc || '';
   const serv_title= page.acf?.serv_title || '';
   const serv_1= page.acf?.serv_1 || '';
-  const serv_2= page.acf?.serv_1 || '';
-  const serv_3= page.acf?.serv_1 || '';
-  const serv_4= page.acf?.serv_1 || '';
-  const serv_5= page.acf?.serv_1 || '';
-  const serv_6= page.acf?.serv_1 || '';
+  const serv_2= page.acf?.serv_2 || '';
+  const serv_3= page.acf?.serv_3 || '';
+  const serv_4= page.acf?.serv_4 || '';
+  const serv_5= page.acf?.serv_5 || '';
+  const serv_6= page.acf?.serv_6 || '';
 
 
   return (
@@ -141,7 +141,7 @@ export default async function SluzbyPage() {
             <img
                 src="/images/bank.svg"
                 alt="Ikona služby"
-                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px]"/>
+                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px] mb-4"/>
             <span className="text-silkBeige text-[24px] md:text-[32px] recife">
             {serv_1}
             </span>
@@ -152,7 +152,7 @@ export default async function SluzbyPage() {
             <img
                 src="/images/presentation-chart-02.svg"
                 alt="Ikona služby"
-                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px]"/>
+                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px] mb-4"/>
           <span className="text-silkBeige text-[24px] md:text-[32px] recife">
             
             {serv_2}
@@ -164,7 +164,7 @@ export default async function SluzbyPage() {
             <img
                 src="/images/wallet-02.svg"
                 alt="Ikona služby"
-                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px]"/>
+                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px] mb-4"/>
           <span className="text-silkBeige text-[24px] md:text-[32px] recife">
             {serv_3}
           </span>
@@ -175,7 +175,7 @@ export default async function SluzbyPage() {
             <img
                 src="/images/piggy-bank-01.svg"
                 alt="Ikona služby"
-                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px]"/>
+                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px] mb-4"/>
           <span className="text-silkBeige text-[24px] md:text-[32px] recife">
             {serv_4}
           </span>
@@ -186,7 +186,7 @@ export default async function SluzbyPage() {
             <img
                 src="/images/shield-03.svg"
                 alt="Ikona služby"
-                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px]"/>
+                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px] mb-4"/>
           <span className="text-silkBeige text-[24px] md:text-[32px] recife">
             {serv_5}
           </span>
@@ -197,7 +197,7 @@ export default async function SluzbyPage() {
             <img
                 src="/images/coins-hand.svg"
                 alt="Ikona služby"
-                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px]"/>
+                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px] mb-4"/>
           <span className="text-silkBeige text-[24px] md:text-[32px] recife">
             {serv_6}
           </span>
