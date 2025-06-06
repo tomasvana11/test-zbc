@@ -45,8 +45,8 @@ export default async function TymPage() {
   return (
     <main className="flex flex-col items-center">
       {/* Úvodní sekce */}
-      <section className="px-4 w-full">
-        <div className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto py-12 md:py-24">
+      <section className="px-4 w-full -mt-8 md:-mt-22">
+        <div className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto">
           {/* Obrázek vlevo */}
           <div className="flex w-full md:w-1/2 pr-6 justify-center items-center">
             <img
@@ -67,7 +67,7 @@ export default async function TymPage() {
       </section>
 
       {/* Sekce členů týmu */}
-      <section className="px-4 w-full -mt-8 md:-mt-22">
+      <section className="px-4 w-full py-12 md:py-24">
         <div className="max-w-[1392px] mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-10 gap-y-14">
           {members.map((member) => (
             <article
