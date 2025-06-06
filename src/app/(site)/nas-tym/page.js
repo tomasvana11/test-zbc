@@ -11,10 +11,6 @@ export default async function TymPage() {
 
   const data = await res.json();
 
-  
-  const team_intro_title = page.acf?.team_intro_title || '';
-  const team_intro_desc = page.acf?.team_intro_desc || '';
-  const team_intro_img = page.acf?.team_intro_img || '';
   // Připrav pole členů ve formátu { id, photo, name, role }
   const members = data.map((item) => {
     const media = item._embedded?.['wp:attachment']?.[0];
