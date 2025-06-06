@@ -1,7 +1,8 @@
 export default async function TymPage() {
   // Fetch dat z REST API
   const res = await fetch(
-    'https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?per_page=100&_embed'
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?per_page=100&_embed',
+    { next: { revalidate: 60 } } // nebo cache: 'no-store' při SSR
   );
 
   if (!res.ok) {
@@ -12,7 +13,6 @@ export default async function TymPage() {
 
   // Připrav pole členů ve formátu { id, photo, name, role }
   const members = data.slice(0, 6).map((item) => {
-    // Najdeme media z _embedded, pokud je
     const media = item._embedded?.['wp:attachment']?.[0];
     const photo = media?.source_url || '/placeholder.png';
 
@@ -20,34 +20,36 @@ export default async function TymPage() {
       id: item.id,
       photo,
       name: item.title.rendered,
-      role: item.acf?.role || ''
+      role: item.acf?.role || '',
     };
   });
 
   return (
     <main className="flex">
-        <section className="px-4 w-full">
+      <section className="px-4 w-full">
         <div className="max-w-[1392px] mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-10">
-            {members.map((member) => (
-                <article
-                    key={member.id}
-                    className="flex flex-col w-full items-center"
-                >
-                    <img
-                        src={member.photo}
-                        alt={member.name}
-                        className="w-full aspect-square rounded-full object-cover mb-3"
-                        loading="lazy"
-                    />
-                    <h3
-                        className="text-[18px] md:text-[20px] text-goldenBrown recife mb-1 text-center"
-                        dangerouslySetInnerHTML={{ __html: member.name }}
-                    />
-                    <p className="text-gray-500 text-sm text-center">{member.acf?.role}</p>
-                </article>
-            ))}
+          {members.map((member) => (
+            <article
+              key={member.id}
+              className="flex flex-col w-full items-center"
+            >
+              <img
+                src={member.photo}
+                alt={member.name}
+                className="w-full aspect-square rounded-full object-cover mb-3"
+                loading="lazy"
+              />
+              <h3
+                className="text-[18px] md:text-[20px] text-goldenBrown recife mb-1 text-center"
+                dangerouslySetInnerHTML={{ __html: member.name }}
+              />
+              <p className="text-gray-500 text-sm text-center">
+                {member.role}
+              </p>
+            </article>
+          ))}
         </div>
-        </section>
+      </section>
     </main>
   );
 }
