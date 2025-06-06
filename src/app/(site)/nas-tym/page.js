@@ -61,7 +61,7 @@ export default async function TymPage() {
             <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">
               {team_intro_title}
             </h2>
-            <p className="text-raisinBlack">{team_intro_desc}</p>
+            <div className="text-raisinBlack" dangerouslySetInnerHTML={{ __html: team_intro_desc }}/>
             <a
               href="https://zabohatsicesko.cz/kontakt"
               className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center"
