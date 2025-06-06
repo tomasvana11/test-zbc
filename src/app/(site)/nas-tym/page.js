@@ -25,7 +25,7 @@ export default async function TymPage() {
   });
 
   return (
-    <main className="flex">
+    <main className="flex flex-col items-center">
         <section className="px-4 w-full">
 
   <div className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto py-12 md:py-24">
