@@ -12,7 +12,7 @@ export default async function TymPage() {
   const data = await res.json();
 
   // Připrav pole členů ve formátu { id, photo, name, role }
-  const members = data.slice(0, 6).map((item) => {
+  const members = data.map((item) => {
     const media = item._embedded?.['wp:attachment']?.[0];
     const photo = media?.source_url || '/placeholder.png';
 
