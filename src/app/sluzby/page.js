@@ -256,7 +256,7 @@ export default async function SluzbyPage() {
 
   <div className="flex flex-col gap-6 md:gap-10 lg:flex-row w-full items-center max-w-[1392px] mx-auto">
     <div className="w-full flex flex-col lg:flex-row">
-      <h2 className="text-[28px] md:pt-16 md:text-[40px] pb-8 md:pb-10 lg:w-1/3 text-center lg:text-left text-goldenBrown">
+      <h2 className="text-[28px] md:pt-16 md:text-[40px] pb-8 md:pb-10 lg:w-1/3 text-left text-goldenBrown">
         {process_title}
       </h2>
 
@@ -268,8 +268,38 @@ export default async function SluzbyPage() {
             <span className="recife text-[28px] md:text-[36px] text-raisinBlack text-center">01</span>
             </div>
             <div>
-                <h3 className="recife text-goldenBrown text-[24px] md:text-[28px] mb-2">{step_1}</h3>
-                <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: step_1_desc || '' }}/>
+                <h3 className="recife text-goldenBrown text-[24px] md:text-[28px] mb-2 md:mt-2">{step_1}</h3>
+                <div className="text-raisinBlack" dangerouslySetInnerHTML={{ __html: step_1_desc || '' }}/>
+            </div>
+        </div>
+        {/* Karta 2 */}
+        <div className="flex flex-col md:flex-row gap-6">
+            <div className="rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
+            <span className="recife text-[28px] md:text-[36px] text-raisinBlack text-center">02</span>
+            </div>
+            <div>
+                <h3 className="recife text-goldenBrown text-[24px] md:text-[28px] mb-2 md:mt-2">{step_2}</h3>
+                <div className="text-raisinBlack" dangerouslySetInnerHTML={{ __html: step_2_desc || '' }}/>
+            </div>
+        </div>
+        {/* Karta 3 */}
+        <div className="flex flex-col md:flex-row gap-6">
+            <div className="rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
+            <span className="recife text-[28px] md:text-[36px] text-raisinBlack text-center">03</span>
+            </div>
+            <div>
+                <h3 className="recife text-goldenBrown text-[24px] md:text-[28px] mb-2 md:mt-2">{step_3}</h3>
+                <div className="text-raisinBlack" dangerouslySetInnerHTML={{ __html: step_3_desc || '' }}/>
+            </div>
+        </div>
+        {/* Karta 4 */}
+        <div className="flex flex-col md:flex-row gap-6">
+            <div className="rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
+            <span className="recife text-[28px] md:text-[36px] text-raisinBlack text-center">04</span>
+            </div>
+            <div>
+                <h3 className="recife text-goldenBrown text-[24px] md:text-[28px] mb-2 md:mt-2">{step_4}</h3>
+                <div className="text-raisinBlack" dangerouslySetInnerHTML={{ __html: step_4_desc || '' }}/>
             </div>
         </div>
 
