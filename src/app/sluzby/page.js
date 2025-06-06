@@ -3,6 +3,9 @@ export default async function SluzbyPage() {
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=sluzby&_embed',
     { next: { revalidate: 60 } }
   );
+  const pageRes = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=homepage', {
+    cache: 'no-store',
+  });
 
   if (!res.ok) {
     throw new Error('Failed to fetch služby page data');
