@@ -52,7 +52,7 @@ export default async function TymPage() {
             <img
               src={team_intro_img}
               alt={introImgAlt}
-              className="max-w-[90%] h-auto object-contain"
+              className="w-full h-auto object-contain"
             />
           </div>
 
