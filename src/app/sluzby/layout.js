@@ -1,20 +1,25 @@
 // src/app/(site)/sluzby/layout.js
 
-import fetchPageData from '../../../lib/fetchPageData';
 import PageHeader from '../../components/PageHeader';
-import { SluzbyContext } from './SluzbyContext';
 
 export default async function SluzbyLayout({ children }) {
-  const page = await fetchPageData('sluzby');
-  const title = page?.acf?.page_name || page?.title?.rendered || 'Služby';
-  const description = page?.acf?.page_desc || null;
+  // Fetchni ACF data pro stránku "sluzby"
+  const res = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=sluzby&_embed', {
+    next: { revalidate: 60 }, // ISR: revalidace každých 60s
+  });
+
+  if (!res.ok) throw new Error('Failed to fetch Služby page data');
+
+  const data = await res.json();
+  const page = data[0];
 
   return (
     <>
-      <PageHeader title={title} description={description} />
-      <SluzbyContext.Provider value={page}>
-        <main>{children}</main>
-      </SluzbyContext.Provider>
+      <PageHeader
+        title={page?.acf?.page_name || page?.title?.rendered || 'Služby'}
+        description={page?.acf?.page_desc || null}
+      />
+      <main>{children}</main>
     </>
   );
 }
