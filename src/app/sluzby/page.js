@@ -34,6 +34,10 @@ export default async function SluzbyPage() {
   const serv_6= page.acf?.serv_6 || '';
 
 
+  const recenzeRes = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/recenze?per_page=3&_embed');
+  const recenze = await recenzeRes.json();
+
+
   return (
     <main className="flex min-h-screen flex-col items-center bg-white">
       <section className="px-4 w-full bg-silkBeige">
@@ -207,6 +211,40 @@ export default async function SluzbyPage() {
     </div>
   </div>
     </section>
+
+    <section className="px-4 w-full py-12 md:py-24 bg-silverSage recenze">
+  <div className="w-full max-w-[1392px] mx-auto text-center">
+
+    <h2 className="text-[28px] md:text-[40px] pb-8 md:pb-10 text-white text-center">Co o nás říkají naši klienti?</h2>
+
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  {recenze.map((item) => (
+    <div
+      key={item.id}
+      className="relative bg-gradient-to-b pt-10 pl-10 ml-2 md:ml-6 mb-2 md:mb-0 rounded-lg flex flex-row gap-5 items-start overflow-visible"
+    >
+      {/* Nový absolutní obrázek */}
+      <img
+        src="/images/symbol-golden-s.svg" // ← nahraď svým obrázkem
+        alt="Dekorace"
+        className="absolute top-0 left-0 w-[46px] h-[46px] -translate-x-1/2 -translate-y-1/2 z-10"
+      />
+
+      <p className="text-left text-raisinBlack w-1/2">
+        {item.acf?.citation || 'Bez citace'}
+      </p>
+
+      <img
+        src={item._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.jpg'}
+        alt="Recenze"
+        className="w-[200px] mt-[-80px] h-auto object-contain align-middle"
+      />
+    </div>
+  ))}
+</div>
+    <a href="https://zabohatsicesko.cz/reference" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Přečíst více recenzí</a>
+  </div>
+</section>
 
 
     </main>
