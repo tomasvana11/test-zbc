@@ -1,29 +1,38 @@
 export default async function TymPage() {
-  // 1. Fetch týmových členů
+  // 1. Fetch tým
   const tymRes = await fetch(
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?per_page=100&_embed',
     { next: { revalidate: 60 } }
   );
 
-  // 2. Fetch stránky s úvodem
+  if (!tymRes.ok) {
+    console.error('Chyba při fetchi týmu:', tymRes.status);
+    throw new Error('Chyba při fetchi týmu');
+  }
+
+  const teamData = await tymRes.json();
+
+  // 2. Fetch obsah stránky "Náš tým"
   const pageRes = await fetch(
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/nas-tym',
     { next: { revalidate: 60 } }
   );
 
-  if (!tymRes.ok || !pageRes.ok) {
-    throw new Error('Failed to fetch data');
+  if (!pageRes.ok) {
+    console.error('Chyba při fetchi stránky:', pageRes.status);
+    throw new Error('Chyba při fetchi stránky');
   }
 
-  const data = await tymRes.json();
-  const pageData = await pageRes.json();
-  const page = Array.isArray(pageData) ? pageData[0] : pageData;
+  const pageJson = await pageRes.json();
+  const page = Array.isArray(pageJson) ? pageJson[0] : pageJson;
 
+  // 3. Bezpečný přístup k ACF datům
   const team_intro_title = page?.acf?.team_intro_title || '';
   const team_intro_desc = page?.acf?.team_intro_desc || '';
   const team_intro_img = page?.acf?.team_intro_img || '';
 
-  const members = data.map((item) => {
+  // 4. Mapuj členy
+  const members = teamData.map((item) => {
     const media = item._embedded?.['wp:attachment']?.[0];
     const photo = media?.source_url || '/placeholder.png';
 
@@ -35,10 +44,12 @@ export default async function TymPage() {
     };
   });
 
+  // 5. Renderuj komponentu
   return (
     <main className="flex flex-col">
       <section className="px-4 w-full">
         <div className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto py-12 md:py-24">
+          {/* Obrázek */}
           <div className="flex w-full md:w-1/2 pr-6 justify-center items-center">
             <img
               src={team_intro_img || '/images/intro-img.png'}
@@ -46,13 +57,15 @@ export default async function TymPage() {
               className="max-w-[90%] h-auto object-contain"
             />
           </div>
+
+          {/* Text */}
           <div className="w-full md:w-1/2 md:pl-12">
             <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">
               {team_intro_title}
             </h2>
             <p className="text-raisinBlack">{team_intro_desc}</p>
             <a
-              href="https://zabohatsicesko.cz/kontakt"
+              href="/kontakt"
               className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center"
             >
               Rezervovat konzultaci
