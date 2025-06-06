@@ -256,14 +256,17 @@ export default async function SluzbyPage() {
 
   <div className="flex flex-col gap-6 md:gap-10 lg:flex-row w-full items-center max-w-[1392px] mx-auto">
     <div className="w-full flex flex-col lg:flex-row">
-      <h2 className="text-[28px] md:pt-16 md:text-[40px] pb-8 md:pb-10 lg:w-1/3 text-left text-goldenBrown">
+      <h2 className="text-[28px] md:pt-8 md:text-[40px] pb-8 md:pb-10 lg:mr-10 lg:w-1/3 text-left text-goldenBrown">
         {process_title}
       </h2>
 
       {/*MŘÍŽKA*/}
       <div className="w-full lg:w-2/3 grid grid-cols-1 gap-8 md:gap-10">
         {/* Karta 1 */}
-        <div className="flex flex-col md:flex-row gap-6">
+        <div className="relative flex flex-col md:flex-row gap-6">
+            <img src="/images/symbol-golden-single.svg"
+            alt="Symbol"
+            className="absolute w-auto h-[32px] md:h-[48px] left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"/>
             <div className="shrink-0 rounded-br-[12px] w-[64px] h-[64px] md:w-[80px] md:h-[80px] bg-silkBeige flex items-center justify-center">
             <span className="recife text-[28px] md:text-[36px] text-raisinBlack text-center">01</span>
             </div>
