@@ -62,12 +62,6 @@ export default async function TymPage() {
               {team_intro_title}
             </h2>
             <div className="text-raisinBlack" dangerouslySetInnerHTML={{ __html: team_intro_desc }}/>
-            <a
-              href="https://zabohatsicesko.cz/kontakt"
-              className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center"
-            >
-              Rezervovat konzultaci
-            </a>
           </div>
         </div>
       </section>
