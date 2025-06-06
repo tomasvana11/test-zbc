@@ -348,7 +348,7 @@ export default async function SluzbyPage() {
         <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
           <div className="flex items-center justify-between mb-4 md:mb-6">
             <h2 className="text-[28px] md:text-[40px] text-goldenBrown">{doc_1_title}</h2>
-            <a className="rounded py-3 bg-silkBeige px-5 flex flex-row gap-[10px]">
+            <a className="rounded py-3 bg-silkBeige px-5 flex flex-row gap-[10px] min-w-[132px]">
                 <img src="/images/download.svg" alt="Ikona stáhnout" className="w-[17px] h-[18px]]"/>
                 <span className="text-goldenBrown font-satoshi-bold">Stáhnout</span>
             </a>
