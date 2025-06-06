@@ -31,7 +31,7 @@ export default async function TymPage() {
             {members.map((member) => (
                 <article
                     key={member.id}
-                    className="flex flex-col items-center"
+                    className="flex flex-col w-full items-center"
                 >
                     <img
                         src={member.photo}
