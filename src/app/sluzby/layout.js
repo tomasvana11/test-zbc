@@ -1,12 +1,10 @@
-// src/app/(site)/sluzby/layout.js
-
 import PageHeader from '../../components/PageHeader';
 
 export default async function SluzbyLayout({ children }) {
-  // Fetchni ACF data pro stránku "sluzby"
-  const res = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=sluzby&_embed', {
-    next: { revalidate: 60 }, // ISR: revalidace každých 60s
-  });
+  const res = await fetch(
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=sluzby&_embed',
+    { next: { revalidate: 60 } }
+  );
 
   if (!res.ok) throw new Error('Failed to fetch Služby page data');
 
