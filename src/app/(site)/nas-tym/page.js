@@ -70,6 +70,14 @@ export default async function TymPage() {
         </div>
       </section>
 
+      {/*divider*/}
+        <section className="px-4 w-full">
+            <div className="max-w-[1392px] mx-auto">
+                <hr className="w-full border-0 h-[1px] lightDividerGrey"/>
+            </div>
+        </section>
+    
+
       {/* Sekce podcasty */}
       <section className="px-4 w-full py-12 md:py-24">
         <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto">
