@@ -24,6 +24,9 @@
   font-weight: normal;
   font-style: normal;
 }
+html, body {
+  overflow-x: hidden;
+}
 
 .font-recife {
   font-family: 'RecifeDisplay', sans-serif;
