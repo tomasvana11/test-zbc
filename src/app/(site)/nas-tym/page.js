@@ -17,23 +17,33 @@ export default async function TymPage() {
     };
   });
 
-  // 2. Fetch ACF ze stránky /nas-tym
-  const pageRes = await fetch(
+  // 2. Fetch ACF ze stránky /nas-tym (pro tým)
+  const nasTymRes = await fetch(
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=nas-tym&_embed',
     { next: { revalidate: 60 } }
   );
-  if (!pageRes.ok) throw new Error('Failed to fetch team page');
-  const pageData = await pageRes.json();
-  const page = pageData[0];
-  const team_intro_title = page.acf?.team_intro_title || '';
-  const team_intro_desc = page.acf?.team_intro_desc || '';
-  const team_intro_img = page.acf?.team_intro_img?.url || '/placeholder.png';
-  const introImgAlt = page.acf?.team_intro_img?.alt || 'Intro';
+  if (!nasTymRes.ok) throw new Error('Failed to fetch team page');
+  const nasTymData = await nasTymRes.json();
+  const nasTymPage = nasTymData[0];
 
-  const podcast_title = page.acf?.podcast_title || '';
-  const podcast_desc = page.acf?.podcast_desc || '';
+  const team_intro_title = nasTymPage.acf?.team_intro_title || '';
+  const team_intro_desc = nasTymPage.acf?.team_intro_desc || '';
+  const team_intro_img = nasTymPage.acf?.team_intro_img?.url || '/placeholder.png';
+  const introImgAlt = nasTymPage.acf?.team_intro_img?.alt || 'Intro';
 
-  // 3. Fetch poslední 3 podcasty
+  // 3. Fetch ACF ze stránky /homepage (pro podcasty)
+  const homepageRes = await fetch(
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=homepage&_embed',
+    { next: { revalidate: 60 } }
+  );
+  if (!homepageRes.ok) throw new Error('Failed to fetch homepage');
+  const homepageData = await homepageRes.json();
+  const homepage = homepageData[0];
+
+  const podcast_title = homepage.acf?.podcast_title || '';
+  const podcast_desc = homepage.acf?.podcast_desc || '';
+
+  // 4. Fetch poslední 3 podcasty
   const podcastRes = await fetch(
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/podcast?per_page=3&_embed',
     { next: { revalidate: 60 } }
@@ -41,7 +51,7 @@ export default async function TymPage() {
   if (!podcastRes.ok) throw new Error('Failed to fetch podcast posts');
   const podcastPosts = await podcastRes.json();
 
-  // 4. Render
+  // 5. Render
   return (
     <main className="flex flex-col items-center">
       {/* Úvodní sekce */}
@@ -70,13 +80,12 @@ export default async function TymPage() {
         </div>
       </section>
 
-      {/*divider*/}
-        <section className="px-4 w-full">
-            <div className="max-w-[1392px] mx-auto">
-                <hr className="w-full border-1 h-[1px] lightDivGrey"/>
-            </div>
-        </section>
-    
+      {/* Divider */}
+      <section className="px-4 w-full">
+        <div className="max-w-[1392px] mx-auto">
+          <hr className="w-full border-1 h-[1px] lightDivGrey" />
+        </div>
+      </section>
 
       {/* Sekce podcasty */}
       <section className="px-4 w-full py-12 md:py-24">
@@ -103,7 +112,13 @@ export default async function TymPage() {
               const ytLink = post.acf?.episode_yt_link || '#';
 
               return (
-                <a key={post.id} href={ytLink} target="_blank" rel="noopener noreferrer" className="relative rounded-lg overflow-hidden h-[300px] block">
+                <a
+                  key={post.id}
+                  href={ytLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative rounded-lg overflow-hidden h-[300px] block"
+                >
                   <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}></div>
                   <div className="absolute inset-0 bg-gradient-to-b from-[rgba(35,35,35,0.5)] to-[rgba(0,0,0,0.7)]"></div>
                   <div className="absolute top-1/2 left-1/2 w-[48px] h-[48px] -translate-x-1/2 -translate-y-1/2 bg-[#E2DBD5] rounded-full flex items-center justify-center">
@@ -119,7 +134,10 @@ export default async function TymPage() {
               );
             })}
           </div>
-          <a href="https://www.youtube.com/@ZabohatsiCesko" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">
+          <a
+            href="https://www.youtube.com/@ZabohatsiCesko"
+            className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center"
+          >
             Zobrazit všechny epizody
           </a>
         </div>
