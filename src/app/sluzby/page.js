@@ -25,6 +25,13 @@ export default async function SluzbyPage() {
   const serv_adv_4_desc= page.acf?.serv_adv_4_desc || '';
   const serv_adv_5= page.acf?.serv_adv_5 || '';
   const serv_adv_5_desc= page.acf?.serv_adv_5_desc || '';
+  const serv_title= page.acf?.serv_title || '';
+  const serv_1= page.acf?.serv_1 || '';
+  const serv_2= page.acf?.serv_1 || '';
+  const serv_3= page.acf?.serv_1 || '';
+  const serv_4= page.acf?.serv_1 || '';
+  const serv_5= page.acf?.serv_1 || '';
+  const serv_6= page.acf?.serv_1 || '';
 
 
   return (
@@ -108,6 +115,98 @@ export default async function SluzbyPage() {
         </div>
 
       </section>
+
+      <section className="relative bg-raisinBlack w-full px-4 py-12 md:py-16 overflow-hidden">
+  <img
+    src="/images/symbol-pattern-l.svg"
+    alt="Symbol Pattern"
+    className="hidden lg:block absolute -left-[64px] -bottom-[64px] w-[420px] h-[420px]"
+  />
+  <img
+    src="/images/symbol-pattern-s.svg"
+    alt="Symbol Pattern"
+    className="lg:hidden absolute -right-[32px] -bottom-[32px] w-[205px] h-[205px] md:w-[280px] md:h-[280px]"
+  />
+
+  <div className="flex flex-col lg:flex-row w-full items-center max-w-[1392px] mx-auto">
+    <div className="w-full flex flex-col lg:flex-row">
+      <h2 className="text-[28px] md:pt-16 md:text-[40px] pb-8 md:pb-10 lg:w-1/3 text-center lg:text-left text-goldenBrown">
+        {serv_title}
+      </h2>
+
+      {/* ČTVERCOVÁ MŘÍŽKA */}
+      <div className="w-full lg:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-px bg-darkDivGrey">
+        {/* Karta 1 */}
+        <div className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center">
+            <img
+                src="/images/bank.svg"
+                alt="Ikona služby"
+                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px]"/>
+            <span className="text-silkBeige text-[24px] md:text-[32px] recife">
+            {serv_1}
+            </span>
+        </div>
+
+        {/* Karta 2 */}
+        <div className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center">
+            <img
+                src="/images/presentation-chart-02.svg"
+                alt="Ikona služby"
+                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px]"/>
+          <span className="text-silkBeige text-[24px] md:text-[32px] recife">
+            
+            {serv_2}
+          </span>
+        </div>
+
+        {/* Karta 3 */}
+        <div className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center">
+            <img
+                src="/images/wallet-02.svg"
+                alt="Ikona služby"
+                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px]"/>
+          <span className="text-silkBeige text-[24px] md:text-[32px] recife">
+            {serv_3}
+          </span>
+        </div>
+
+        {/* Karta 4 */}
+        <div className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center">
+            <img
+                src="/images/piggy-bank-01.svg"
+                alt="Ikona služby"
+                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px]"/>
+          <span className="text-silkBeige text-[24px] md:text-[32px] recife">
+            {serv_4}
+          </span>
+        </div>
+
+        {/* Karta 5 */}
+        <div className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center">
+            <img
+                src="/images/shield-03.svg"
+                alt="Ikona služby"
+                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px]"/>
+          <span className="text-silkBeige text-[24px] md:text-[32px] recife">
+            {serv_5}
+          </span>
+        </div>
+
+        {/* Karta 6 */}
+        <div className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center">
+            <img
+                src="/images/coins-hand.svg"
+                alt="Ikona služby"
+                className="h-[36px] w-[36px] md:h-[44px] md:w-[44px]"/>
+          <span className="text-silkBeige text-[24px] md:text-[32px] recife">
+            {serv_6}
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+    </section>
 
 
     </main>
