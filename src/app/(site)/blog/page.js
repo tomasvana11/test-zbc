@@ -1,6 +1,7 @@
 // src/app/(site)/blog/page.js
 
 import PageHeader from '../../components/PageHeader';
+import Link from 'next/link';
 
 export default async function BlogPage() {
   // 1. Fetch ACF ze stránky /blog
@@ -43,9 +44,10 @@ export default async function BlogPage() {
         <div className="max-w-[1392px] w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {posts.map((post) => (
-                <div
+                <Link
                     key={post.id}
-                    className="flex flex-col bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden"
+                    href={`/blog/${post.slug}`}
+                    className="flex flex-col bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden group"
                 >
                     <img
                     src={post.image}
@@ -54,7 +56,7 @@ export default async function BlogPage() {
                     />
                     <div className="p-4 flex flex-col flex-grow">
                     <h3
-                        className="text-lg text-raisinBlack font-semibold mb-2"
+                        className="text-lg text-raisinBlack font-semibold mb-2 group-hover:underline"
                         dangerouslySetInnerHTML={{ __html: post.title }}
                     />
                     <div
@@ -63,13 +65,11 @@ export default async function BlogPage() {
                     />
                     <hr className="border-t border-gray-200 my-2" />
                     <div className="mt-auto flex justify-between items-center text-sm text-blue-600">
-                        <a href={`/blog/${post.slug}`} className="hover:underline">
-                        Otevřít článek
-                        </a>
+                        <span className="hover:underline">Otevřít článek</span>
                         <span className="text-gray-400">{post.date}</span>
                     </div>
                     </div>
-                </div>
+                </Link>
                 ))}
 
           </div>
