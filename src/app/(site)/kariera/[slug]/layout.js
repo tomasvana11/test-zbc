@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import PageHeader from '../../../components/PageHeader';
 
 export default async function PoziceLayout({ children, params }) {
