@@ -2,12 +2,11 @@ import Link from 'next/link';
 
 export default async function KarieraPage() {
   const karieraRes = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/kariera');
+  const kariera = await karieraRes.json();
   const recenzeRes = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/recenze?per_page=3&_embed');
   const poziceRes = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/pracovni-pozice');
 
-  const career_intro_title = page.acf?.career_intro_title || '';
-  const career_intro_detail = page.acf?.career_intro_detail || ''; 
-  const career_intro_img = page.acf?.career_intro_img || '';
+  const { career_intro_title, career_intro_detail, career_intro_img } = kariera.acf;
 
   const recenze = await recenzeRes.json();
   const pozice = await poziceRes.json();
