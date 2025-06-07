@@ -40,7 +40,6 @@ export default function BlogPostPage({ params }) {
 
   return (
     <section className="px-4 w-full">
-        <h2>test</h2>
         <div className="flex flex-col md:flex-row items-center w-full max-w-[1000px] mx-auto py-12 md:py-24">
             <article
                 className="prose max-w-full article"
