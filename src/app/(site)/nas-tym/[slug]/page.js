@@ -1,18 +1,11 @@
 import PageHeader from '../../../components/PageHeader';
 
-export default async function MemberPage({ params }) {
+export default async function MemberDetailPage({ params }) {
   const { slug } = params;
 
-  // Na začátek pro test fetchni člena podle slug
-  const res = await fetch(
-    `https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?slug=${slug}&_embed`,
-    { next: { revalidate: 60 } }
-  );
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch team member');
-  }
-
+  // Fetch dat člena podle slugu
+  const res = await fetch(`https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?slug=${slug}&_embed`);
+  if (!res.ok) throw new Error('Failed to fetch team member');
   const data = await res.json();
   const member = data[0];
 
@@ -20,14 +13,23 @@ export default async function MemberPage({ params }) {
     return <p>Člen týmu nenalezen</p>;
   }
 
-  const title = member.title?.rendered || 'Člen týmu';
-  const description = member.acf?.short_bio || 'Popis není dostupný';
+  const photo = member._embedded?.['wp:attachment']?.[0]?.source_url || '/placeholder.png';
+  const name = member.title.rendered;
+  const role = member.acf?.role || '';
 
   return (
     <>
-      <PageHeader title={title} description={description} />
-      <main className="max-w-[800px] mx-auto px-4 py-12 text-center">
-        <p>Toto je zatím prázdná stránka pro člena týmu s slug: <strong>{slug}</strong></p>
+      <PageHeader
+        title={name}
+        description={role}
+      />
+
+      <main className="flex flex-col items-center px-4 py-12 max-w-[1392px] mx-auto">
+        <img src={photo} alt={name} className="w-64 h-64 rounded-full object-cover mb-6" />
+        <h2 className="text-3xl text-goldenBrown mb-2" dangerouslySetInnerHTML={{ __html: name }} />
+        <p className="text-raisinBlack mb-6">{role}</p>
+
+        {/* Tady můžeš přidat další detaily člena */}
       </main>
     </>
   );
