@@ -10,9 +10,9 @@ export default async function MemberDetailPage({ params }) {
     return <p>Člen týmu nenalezen</p>;
   }
 
-  const photo = member._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.png';
+  const photo = member.acf?.team_member_photo || '/placeholder.png';
   const name = member.title.rendered;
-  const role = member.acf?.team_member_photo || '';
+  const role = member.acf?.role || '';
 
   return (
     <div className="flex flex-col items-center px-4 py-12 max-w-[1392px] mx-auto">
