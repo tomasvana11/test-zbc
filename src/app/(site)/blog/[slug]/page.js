@@ -39,15 +39,13 @@ export default function BlogPostPage({ params }) {
   const articleContent = post.acf?.article_content || '<p>Obsah není k dispozici.</p>';
 
   return (
-    <div className="flex flex-col items-center px-4 py-12 max-w-[800px] mx-auto">
-      <h1
-        className="text-4xl font-bold text-goldenBrown mb-6 text-center"
-        dangerouslySetInnerHTML={{ __html: title }}
-      />
-      <article
-        className="prose max-w-full"
-        dangerouslySetInnerHTML={{ __html: articleContent }}
-      />
-    </div>
+    <section className="px-4 w-full">
+        <div className="flex flex-col md:flex-row items-center w-full max-w-[1000px] mx-auto py-12 md:py-24">
+            <article
+                className="prose max-w-full article"
+                dangerouslySetInnerHTML={{ __html: articleContent }}
+            />
+        </div>
+    </section>
   );
 }
