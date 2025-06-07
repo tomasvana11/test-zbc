@@ -35,6 +35,8 @@ export default function BlogPostPage({ params }) {
   }
 
   const title = post.title?.rendered || 'Článek';
+  // Předpokládám, že pole ACF se jmenuje article_content
+  const articleContent = post.acf?.article_content || '<p>Obsah není k dispozici.</p>';
 
   return (
     <div className="flex flex-col items-center px-4 py-12 max-w-[800px] mx-auto">
@@ -42,7 +44,10 @@ export default function BlogPostPage({ params }) {
         className="text-4xl font-bold text-goldenBrown mb-6 text-center"
         dangerouslySetInnerHTML={{ __html: title }}
       />
-      {/* Sem přijde později obsah článku */}
+      <article
+        className="prose max-w-full"
+        dangerouslySetInnerHTML={{ __html: articleContent }}
+      />
     </div>
   );
 }
