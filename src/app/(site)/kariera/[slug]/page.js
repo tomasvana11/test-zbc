@@ -1,34 +1,28 @@
-export async function generateStaticParams() {
-  const res = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/pracovni-pozice');
+import PageHeader from '../../components/PageHeader';
+
+export default async function PoziceDetailPage({ params }) {
+  const { slug } = params;
+
+  // Fetch dat pozice podle slug
+  const res = await fetch(`https://api.zabohatsicesko.cz/wp-json/wp/v2/pracovni-pozice?slug=${slug}`);
   const pozice = await res.json();
 
-  return pozice.map((p) => ({
-    slug: p.slug,
-  }));
-}
+  if (!pozice.length) {
+    return <p>Pozice nenalezena</p>;
+  }
 
-export default async function PozicePage({ params }) {
-  const res = await fetch(
-    `https://api.zabohatsicesko.cz/wp-json/wp/v2/pracovni-pozice?slug=${params.slug}`,
-    { next: { revalidate: 60 } } // nebo cache: 'no-store' pro čerstvá data
-  );
-  const data = await res.json();
-  const pozice = data[0];
-
-  if (!pozice) return <div>Pozice nenalezena.</div>;
+  const data = pozice[0];
 
   return (
-    <main className="max-w-[800px] mx-auto py-12">
-      <h1 className="text-[32px] text-goldenBrown text-center">
-        {pozice.title.rendered}
-      </h1>
-      {pozice.acf?.lokalita && (
-        <p className="text-center text-gray-500 mt-2">{pozice.acf.lokalita}</p>
-      )}
-      <div className="mt-8 text-center text-raisinBlack">
-        {/* Můžeš zobrazit i pozice.content.rendered */}
-        (Tady bude detail pozice…)
-      </div>
-    </main>
+    <>
+      <PageHeader
+        title={data.title?.rendered || 'Detail pozice'}
+        description={data.acf?.popis || null} // pokud máš nějaký popis v ACF
+      />
+      <main className="max-w-[1392px] mx-auto px-4 py-12">
+        <h2 dangerouslySetInnerHTML={{ __html: data.title.rendered }} className="text-3xl mb-6" />
+        <div dangerouslySetInnerHTML={{ __html: data.content.rendered }} />
+      </main>
+    </>
   );
 }
