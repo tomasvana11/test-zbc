@@ -25,7 +25,7 @@ export default async function PostLayout({ children, params }) {
 
   return (
     <>
-      <PageHeader title={title} date={date} />
+      <PageHeader title={title} date={date} imageUrl={imageUrl} />
       <main>{children}</main>
     </>
   );
