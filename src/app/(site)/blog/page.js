@@ -21,14 +21,16 @@ export default async function BlogPage() {
   const postsData = await postsRes.json();
 
   const posts = postsData.map((post) => {
-    const image = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.png';
-    return {
-      id: post.id,
-      slug: post.slug,
-      title: post.title.rendered,
-      image,
-    };
-  });
+  const image = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.png';
+  return {
+    id: post.id,
+    slug: post.slug,
+    title: post.title.rendered,
+    image,
+    excerpt: post.excerpt.rendered,
+    date: new Date(post.date).toLocaleDateString('cs-CZ'), // lokalizované datum
+  };
+});
 
   return (
     <div>
@@ -41,24 +43,35 @@ export default async function BlogPage() {
         <div className="max-w-[1392px] w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {posts.map((post) => (
-              <a
-                key={post.id}
-                href={`/blog/${post.slug}`}
-                className="block bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden"
-              >
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-52 object-cover"
-                />
-                <div className="p-4">
-                  <h3
-                    className="text-lg text-raisinBlack font-semibold"
-                    dangerouslySetInnerHTML={{ __html: post.title }}
-                  />
+                <div
+                    key={post.id}
+                    className="flex flex-col bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden"
+                >
+                    <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-52 object-cover"
+                    />
+                    <div className="p-4 flex flex-col flex-grow">
+                    <h3
+                        className="text-lg text-raisinBlack font-semibold mb-2"
+                        dangerouslySetInnerHTML={{ __html: post.title }}
+                    />
+                    <div
+                        className="text-sm text-gray-600 mb-4"
+                        dangerouslySetInnerHTML={{ __html: post.excerpt }}
+                    />
+                    <hr className="border-t border-gray-200 my-2" />
+                    <div className="mt-auto flex justify-between items-center text-sm text-blue-600">
+                        <a href={`/blog/${post.slug}`} className="hover:underline">
+                        Otevřít článek
+                        </a>
+                        <span className="text-gray-400">{post.date}</span>
+                    </div>
+                    </div>
                 </div>
-              </a>
-            ))}
+                ))}
+
           </div>
         </div>
       </main>
