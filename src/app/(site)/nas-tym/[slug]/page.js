@@ -10,7 +10,8 @@ export default async function MemberDetailPage({ params }) {
     return <p>Člen týmu nenalezen</p>;
   }
 
-  const photo = member.acf?.team_member_photo || '/placeholder.png';
+  // Z ACF objektu získáš URL
+  const photo = member.acf?.team_member_photo?.url || '/placeholder.png';
   const name = member.title.rendered;
   const role = member.acf?.role || '';
 
