@@ -1,28 +1,17 @@
-export default async function karieraPage() {
-  let pozice = [];
-  let recenze = [];
+import Link from 'next/link';
 
-  try {
-    const [recenzeRes, poziceRes] = await Promise.all([
-      fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/recenze?per_page=3&_embed'),
-      fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/pracovni-pozice', {
-        cache: 'no-store',
-      }),
-    ]);
+export default async function KarieraPage() {
+  const karieraRes = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/kariera');
+  const recenzeRes = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/recenze?per_page=3&_embed');
+  const poziceRes = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/pracovni-pozice');
 
-    if (!recenzeRes.ok || !poziceRes.ok) {
-      throw new Error('Chyba při načítání dat');
-    }
-
-    recenze = await recenzeRes.json();
-    pozice = await poziceRes.json();
-  } catch (err) {
-    console.error('Chyba:', err);
-  }
+  const recenze = await recenzeRes.json();
+  const pozice = await poziceRes.json();
 
   return (
     <main className="relative z-100">
-      {/* Recenze sekce */}
+
+      {/* Sekce: Recenze */}
       <section className="px-4 w-full py-12 md:py-24 bg-silverSage recenze">
         <div className="w-full max-w-[1392px] mx-auto text-center">
           <h2 className="text-[28px] md:text-[40px] pb-8 md:pb-10 text-white text-center">
@@ -46,10 +35,7 @@ export default async function karieraPage() {
                 </p>
 
                 <img
-                  src={
-                    item._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
-                    '/placeholder.jpg'
-                  }
+                  src={item._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.jpg'}
                   alt="Recenze"
                   className="w-[200px] mt-[-80px] h-auto object-contain align-middle"
                 />
@@ -66,34 +52,120 @@ export default async function karieraPage() {
         </div>
       </section>
 
-      {/* Pracovní pozice sekce */}
+      {/* Sekce: Pracovní pozice */}
       <section className="bg-silkBeige w-full py-12 md:py-16">
-        <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center">
+        <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center mb-4">
           Přidej se k nám!
         </h2>
-        <p className="text-center text-raisinBlack mb-6">
-          Aktuálně hledáme kolegy na tyto pozice:
+        <p className="text-center text-raisinBlack mb-8">
+          Chcete mít ve financích jasno a klid? <strong>Začněte tady.</strong>
         </p>
 
-        <div className="max-w-[800px] mx-auto mb-12">
-          {pozice.length === 0 ? (
-            <p className="text-center text-gray-500">
-              Momentálně nemáme žádné otevřené pozice.
-            </p>
-          ) : (
-            <ul className="list-disc list-inside text-raisinBlack text-lg space-y-2">
-              {pozice.map((item) => (
-                <li key={item.id}>
-                  {item.title?.rendered || 'Bez názvu'}
-                  {item.acf?.lokalita && ` — ${item.acf.lokalita}`}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+        <div className="flex flex-col w-full max-w-[1392px] mx-auto justify-center">
 
-        {/* Sem patří tvůj formulář – nezměněný */}
-        {/* ... */}
+          {/* Výpis pozic */}
+          <ul className="list-disc list-inside text-raisinBlack text-lg space-y-4 max-w-[700px] mx-auto mb-12">
+            {pozice.map((item) => (
+              <li key={item.id}>
+                <Link
+                  href={`/kariera/${item.slug}`}
+                  className="text-goldenBrown hover:underline"
+                >
+                  {item.title?.rendered || 'Bez názvu'}
+                </Link>
+                {item.acf?.lokalita && ` — ${item.acf.lokalita}`}
+              </li>
+            ))}
+          </ul>
+
+          {/* Formulář */}
+          <form
+            action="https://formcarry.com/s/kY_1MuRL2um"
+            method="POST"
+            encType="multipart/form-data"
+            className="mx-auto p-6 space-y-5 w-full max-w-[850px]"
+            target="_self"
+            noValidate
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input
+                type="text"
+                name="firstName"
+                placeholder="Jméno"
+                required
+                className="w-full bg-inputLight rounded p-2 placeholder-inputPlacehoder"
+              />
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Příjmení"
+                required
+                className="w-full bg-inputLight rounded p-2 placeholder-inputPlacehoder"
+              />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Telefon"
+                required
+                className="w-full bg-inputLight rounded p-2 placeholder-inputPlacehoder"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                className="w-full bg-inputLight rounded p-2 placeholder-inputPlacehoder"
+              />
+
+              <div className="md:col-span-2 md:flex md:justify-center">
+                <div className="relative w-full md:w-1/2">
+                  <select
+                    name="role"
+                    required
+                    className="w-full appearance-none bg-inputLight text-black rounded p-2 pr-12 text-inputPlacehoder"
+                    style={{ color: '#747271' }}
+                  >
+                    <option value="" disabled selected hidden>
+                      Jaká role tě láká nejvíce?
+                    </option>
+                    <option value="admin">Asistent/ka ředitele</option>
+                    <option value="user">Hypoteční specialista</option>
+                    <option value="guest">Finanční koncipient</option>
+                    <option value="guest">Obchodník</option>
+                  </select>
+
+                  <div
+                    className="pointer-events-none absolute inset-y-[9px] right-[9px] flex items-center justify-center rounded cursor-pointer"
+                    style={{
+                      width: '28px',
+                      height: '22px',
+                      backgroundColor: '#9D6219',
+                    }}
+                  >
+                    <img
+                      src="/images/chevron-down.svg"
+                      alt="šipka"
+                      className="w-4 h-4"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="w-full flex justify-center">
+              <button
+                type="submit"
+                className="w-full md:w-auto md:mt-[24px] bg-goldenBrown text-white py-2 px-6 rounded font-satoshi-bold"
+              >
+                Kontaktujte mě
+              </button>
+            </div>
+          </form>
+
+          <p className="text-cardGrey text-center w-full max-w-[850px] p-6 m-auto">
+            Odesláním formuláře berete na vědomí podmínky zpracování osobních údajů uvedené v informaci o zpracování osobních údajů
+          </p>
+        </div>
       </section>
     </main>
   );
