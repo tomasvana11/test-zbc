@@ -13,11 +13,17 @@ export default async function PostLayout({ children, params }) {
   }
 
   const title = post.title?.rendered || 'Článek';
-  const excerpt = post.excerpt?.rendered?.replace(/<[^>]+>/g, '') || '';
+
+  // Formatuj datum (např. na "7. června 2025")
+  const date = new Date(post.date).toLocaleDateString('cs-CZ', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
 
   return (
     <>
-      <PageHeader title={title} description={excerpt} />
+      <PageHeader title={title} date={date} />
       <main>{children}</main>
     </>
   );
