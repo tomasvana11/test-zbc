@@ -39,10 +39,6 @@ export default async function BlogPage() {
 
       <main className="flex flex-col items-center px-4 py-16">
         <div className="max-w-[1392px] w-full">
-          <h2 className="text-[28px] lg:text-[36px] text-goldenBrown mb-10 text-center">
-            Nejnovější články
-          </h2>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {posts.map((post) => (
               <a
