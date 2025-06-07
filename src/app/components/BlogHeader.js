@@ -1,7 +1,7 @@
 export default function PageHeader({ title, date, imageUrl }) {
   return (
     <section
-      className="relative w-full overflow-hidden bg-[url('/images/heroimage.png')] bg-no-repeat bg-cover md:bg-[length:120%_auto] bg-[right_center] pt-[76px] md:pt-[100px] px-4"
+      className="relative w-full min-h-[500px] overflow-hidden bg-[url('/images/heroimage.png')] bg-no-repeat bg-cover bg-center pt-[76px] md:pt-[100px] px-4"
     >
       {/* Gradient */}
       <div
