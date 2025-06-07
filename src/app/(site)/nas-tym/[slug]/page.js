@@ -10,7 +10,7 @@ export default async function MemberDetailPage({ params }) {
     return <p>Člen týmu nenalezen</p>;
   }
 
-  const photo = member._embedded?.['wp:attachment']?.[0]?.source_url || '/placeholder.png';
+  const photo = member._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.png';
   const name = member.title.rendered;
   const role = member.acf?.role || '';
 
