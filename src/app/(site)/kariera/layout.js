@@ -1,17 +1,19 @@
-// src/app/(site)/reference/layout.js
+'use client';
 
-import fetchPageData from '../../../lib/fetchPageData';
+import { usePathname } from 'next/navigation';
 import PageHeader from '../../components/PageHeader';
 
-export default async function KarieraLayout({ children }) {
-  const page = await fetchPageData('kariera');
+export default function KarieraLayout({ children }) {
+  const pathname = usePathname();
+
+  // Pokud je detail pozice (např. /kariera/asistentka), nevykresluj header zde
+  const isSlugPage = pathname !== '/kariera' && pathname.startsWith('/kariera');
 
   return (
     <>
-      <PageHeader
-        title={page?.acf?.page_name || page?.title?.rendered || 'Kariéra'}
-        description={page?.acf?.page_desc || null}
-      />
+      {!isSlugPage && (
+        <PageHeader title="Kariéra" description="Popis kariéry..." />
+      )}
       <main>{children}</main>
     </>
   );
