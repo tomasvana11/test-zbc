@@ -16,7 +16,7 @@ export default function PageHeader({ title, date, imageUrl }) {
         <img
           src="/images/symbol-outline.svg"
           alt=""
-          className="max-w-none w-[450px] md:w-[736px]"
+          className="max-w-none w-[130vw] md:w-[736px]"
         />
       </div>
 
