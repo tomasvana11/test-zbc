@@ -1,25 +1,26 @@
 import PageHeader from '../../../components/PageHeader';
 
-export default async function MemberLayout({ children, params }) {
+export default async function BlogLayout({ children, params }) {
   const { slug } = params;
 
-  const res = await fetch(`https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?slug=${slug}&_embed`);
-  if (!res.ok) throw new Error('Failed to fetch team member');
+  // Načti článek podle slugu
+  const res = await fetch(`https://api.zabohatsicesko.cz/wp-json/wp/v2/blog?slug=${slug}&_embed`);
+  if (!res.ok) throw new Error('Failed to fetch blog post');
   const data = await res.json();
-  const member = data[0];
+  const post = data[0];
 
-  if (!member) {
-    return <p>Člen týmu nenalezen</p>;
+  if (!post) {
+    return <p>Článek nebyl nalezen.</p>;
   }
 
-  const name = member.title.rendered;
-  const role = member.acf?.role || '';
+  const title = post.title?.rendered || 'Článek';
+  const excerpt = post.excerpt?.rendered?.replace(/<[^>]+>/g, '') || '';
 
   return (
     <>
       <PageHeader
-        title={name}
-        description={role}
+        title={title}
+        description={excerpt}
       />
       <main>{children}</main>
     </>

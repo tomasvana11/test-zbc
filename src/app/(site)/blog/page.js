@@ -1,95 +1,71 @@
-// src/app/(site)/nas-tym/page.js
+// src/app/(site)/blog/page.js
 
 import PageHeader from '../../components/PageHeader';
-import fetchPageData from '../../../lib/fetchPageData';
 
-export default async function TymPage() {
-
-  // 1. Fetch členů týmu
-  const res = await fetch(
-    'https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?per_page=100&_embed',
+export default async function BlogPage() {
+  // 1. Fetch ACF ze stránky /blog
+  const blogPageRes = await fetch(
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=blog&_embed',
     { next: { revalidate: 60 } }
   );
-  if (!res.ok) throw new Error('Failed to fetch team members');
-  const data = await res.json();
-  const members = data.map((item) => {
-    const media = item._embedded?.['wp:attachment']?.[0];
-    const photo = media?.source_url || '/placeholder.png';
+  if (!blogPageRes.ok) throw new Error('Failed to fetch blog page');
+  const blogPageData = await blogPageRes.json();
+  const blogPage = blogPageData[0];
+
+  // 2. Fetch 3 nejnovější články
+  const postsRes = await fetch(
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/blog?per_page=3&_embed',
+    { next: { revalidate: 60 } }
+  );
+  if (!postsRes.ok) throw new Error('Failed to fetch blog posts');
+  const postsData = await postsRes.json();
+
+  const posts = postsData.map((post) => {
+    const image = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.png';
     return {
-      id: item.id,
-      slug: item.slug,             // přidáno slug
-      photo,
-      name: item.title.rendered,
-      role: item.acf?.role || '',
+      id: post.id,
+      slug: post.slug,
+      title: post.title.rendered,
+      image,
     };
   });
-
-  // 2. Fetch ACF ze stránky /nas-tym (pro tým)
-  const nasTymRes = await fetch(
-    'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=nas-tym&_embed',
-    { next: { revalidate: 60 } }
-  );
-  if (!nasTymRes.ok) throw new Error('Failed to fetch team page');
-  const nasTymData = await nasTymRes.json();
-  const nasTymPage = nasTymData[0];
-
-  const team_intro_title = nasTymPage.acf?.team_intro_title || '';
-  const team_intro_desc = nasTymPage.acf?.team_intro_desc || '';
-  const team_intro_img = nasTymPage.acf?.team_intro_img?.url || '/placeholder.png';
-  const introImgAlt = nasTymPage.acf?.team_intro_img?.alt || 'Intro';
 
   return (
     <div>
       <PageHeader
-  title={nasTymPage?.acf?.page_name || nasTymPage?.title?.rendered || 'Náš tým'}
-  description={nasTymPage?.acf?.page_desc || null}
-/>
-    <main className="flex flex-col items-center">
-      {/* Úvodní sekce */}
-      <section className="px-4 w-full -mt-8 md:-mt-20 z-[50]">
-        <div className="flex flex-col lg:flex-row items-end w-full max-w-[1392px] mx-auto bg-white xl:bg-transparent">
-          <div className="flex w-full lg:w-1/2 mr-0 xl:mr-6 justify-center items-center bg-white xl:bg-transparent">
-            <img
-              src={team_intro_img}
-              alt={introImgAlt}
-              className="w-full h-auto object-contain"
-            />
-          </div>
-          <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:pl-12 lg:mb-12">
-            <h2 className="text-[28px] lg:text-[40px] mb-4 text-goldenBrown">{team_intro_title}</h2>
-            <div
-              className="text-raisinBlack"
-              dangerouslySetInnerHTML={{ __html: team_intro_desc }}
-            />
-          </div>
-        </div>
-      </section>
+        title={blogPage?.acf?.page_name || blogPage?.title?.rendered || 'Blog'}
+        description={blogPage?.acf?.page_desc || null}
+      />
 
-      {/* Sekce členů týmu */}
-      <section className="px-4 w-full py-12 md:py-24">
-        <div className="max-w-[1392px] mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-10 gap-y-14">
-          {members.map((member) => (
-            <a
-              key={member.id}
-              href={`/nas-tym/${member.slug}`}
-              className="flex flex-col w-full items-center no-underline hover:opacity-80"
-            >
-              <img
-                src={member.photo}
-                alt={member.name}
-                className="w-full aspect-square rounded-full object-cover mb-3"
-                loading="lazy"
-              />
-              <h3
-                className="text-[18px] md:text-[20px] text-goldenBrown recife mb-1 text-center"
-                dangerouslySetInnerHTML={{ __html: member.name }}
-              />
-              <p className="text-raisinBlack text-[15px] text-center">{member.role}</p>
-            </a>
-          ))}
+      <main className="flex flex-col items-center px-4 py-16">
+        <div className="max-w-[1392px] w-full">
+          <h2 className="text-[28px] lg:text-[36px] text-goldenBrown mb-10 text-center">
+            Nejnovější články
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {posts.map((post) => (
+              <a
+                key={post.id}
+                href={`/blog/${post.slug}`}
+                className="block bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden"
+              >
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-52 object-cover"
+                />
+                <div className="p-4">
+                  <h3
+                    className="text-lg text-raisinBlack font-semibold"
+                    dangerouslySetInnerHTML={{ __html: post.title }}
+                  />
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
-      </section>
-    </main>
+      </main>
     </div>
   );
 }
