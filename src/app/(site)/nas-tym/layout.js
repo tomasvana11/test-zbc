@@ -3,21 +3,19 @@ import fetchPageData from '../../../lib/fetchPageData';
 import PageHeader from '../../components/PageHeader';
 
 export default async function TymLayout({ children, params }) {
-  // Pokud máme params.slug, znamená to, že jsme v detailu člena
-  if (params?.slug) {
-    // V detailu nechceme zobrazovat obecný header, protože ho zobrazí stránka detailu člena
-    return <main>{children}</main>;
-  }
+  // params.slug bude undefined pokud jsi na /nas-tym, bude definované pokud jsi na /nas-tym/[slug]
 
-  // Jinak fetchujeme data pro obecný týmový header
-  const page = await fetchPageData('nas-tym');
+  // Fetch page data jen pokud jsi na root týmu, protože detailní stránka použije svůj vlastní header
+  const page = !params.slug ? await fetchPageData('nas-tym') : null;
 
   return (
     <>
-      <PageHeader
-        title={page?.acf?.page_name || page?.title?.rendered || 'Náš tým'}
-        description={page?.acf?.page_desc || null}
-      />
+      {!params.slug && (
+        <PageHeader
+          title={page?.acf?.page_name || page?.title?.rendered || 'Náš tým'}
+          description={page?.acf?.page_desc || null}
+        />
+      )}
       <main>{children}</main>
     </>
   );
