@@ -1,4 +1,4 @@
-import PageHeader from '../../../components/PageHeader';
+import PageHeader from '../../../components/BlogHeader';
 
 export default async function PostLayout({ children, params }) {
   const { slug } = params;
