@@ -4,12 +4,14 @@ import { useEffect, useState } from 'react';
 export default function BlogPostPage({ params }) {
   const { slug } = params;
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
   const [post, setPost] = useState(null);
   const [error, setError] = useState(null);
+  const [articleUrl, setArticleUrl] = useState('');
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setArticleUrl(window.location.href); // ← bezpečně až na klientovi
+  }, []);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -26,17 +28,11 @@ export default function BlogPostPage({ params }) {
     fetchPost();
   }, [slug]);
 
-  if (error) {
-    return <p className="text-red-600 text-center">{error}</p>;
-  }
-
-  if (!post) {
-    return <p className="text-center">Načítání článku…</p>;
-  }
+  if (error) return <p className="text-red-600 text-center">{error}</p>;
+  if (!post) return <p className="text-center">Načítání článku…</p>;
 
   const title = post.title?.rendered || 'Článek';
   const articleContent = post.acf?.article_content || '<p>Obsah není k dispozici.</p>';
-  const articleUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   const handleCopy = async () => {
     try {
@@ -57,7 +53,6 @@ export default function BlogPostPage({ params }) {
 
         {/* Sdílecí tlačítka */}
         <div className="mt-10 flex flex-wrap gap-4">
-          {/* Facebook */}
           <a
             href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`}
             target="_blank"
@@ -66,8 +61,6 @@ export default function BlogPostPage({ params }) {
           >
             Facebook
           </a>
-
-          {/* WhatsApp */}
           <a
             href={`https://wa.me/?text=${encodeURIComponent(articleUrl)}`}
             target="_blank"
@@ -76,8 +69,6 @@ export default function BlogPostPage({ params }) {
           >
             WhatsApp
           </a>
-
-          {/* LinkedIn */}
           <a
             href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(articleUrl)}`}
             target="_blank"
@@ -86,8 +77,6 @@ export default function BlogPostPage({ params }) {
           >
             LinkedIn
           </a>
-
-          {/* Copy link */}
           <button
             onClick={handleCopy}
             className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800 transition"
