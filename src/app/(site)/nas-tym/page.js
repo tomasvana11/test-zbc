@@ -1,6 +1,10 @@
 // src/app/(site)/nas-tym/page.js
 
+import PageHeader from '../../components/PageHeader';
+import fetchPageData from '../../../lib/fetchPageData';
+
 export default async function TymPage() {
+
   // 1. Fetch členů týmu
   const res = await fetch(
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?per_page=100&_embed',
@@ -35,6 +39,11 @@ export default async function TymPage() {
   const introImgAlt = nasTymPage.acf?.team_intro_img?.alt || 'Intro';
 
   return (
+    <div>
+      <PageHeader
+      title={page?.acf?.page_name || page?.title?.rendered || 'Náš tým'}
+      description={page?.acf?.page_desc || null}
+    />
     <main className="flex flex-col items-center">
       {/* Úvodní sekce */}
       <section className="px-4 w-full -mt-8 md:-mt-20 z-[50]">
@@ -81,5 +90,6 @@ export default async function TymPage() {
         </div>
       </section>
     </main>
+    </div>
   );
 }
