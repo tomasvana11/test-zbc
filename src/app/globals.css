@@ -38,6 +38,14 @@ html {
 @media (max-width:768px){.article h2{font-size: 28px}}
 .article h3{font-size:24px}
 .article h2, .article h3{color:#9D6219}
+ul {
+  list-style-type: disc; /* bullet */
+  padding-left: 1.5rem;   /* trochu odsazení */
+}
+
+li {
+  margin-bottom: 0.5rem; /* volitelně mezera mezi odrážkami */
+}
 
 .font-recife {
   font-family: 'RecifeDisplay', sans-serif;
