@@ -6,7 +6,7 @@ export default async function BlogPage() {
   // 1. Fetch ACF ze stránky /blog
   const blogPageRes = await fetch(
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=blog&_embed',
-    { next: { revalidate: 60 } }
+    { cache: 'no-store' } // ← TADY
   );
   if (!blogPageRes.ok) throw new Error('Failed to fetch blog page');
   const blogPageData = await blogPageRes.json();
@@ -15,7 +15,7 @@ export default async function BlogPage() {
   // 2. Fetch 3 nejnovější články
   const postsRes = await fetch(
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/blog?per_page=3&_embed',
-    { next: { revalidate: 60 } }
+    { cache: 'no-store' } // ← A TADY
   );
   if (!postsRes.ok) throw new Error('Failed to fetch blog posts');
   const postsData = await postsRes.json();
