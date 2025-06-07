@@ -41,9 +41,9 @@ export default async function TymPage() {
   return (
     <div>
       <PageHeader
-      title={page?.acf?.page_name || page?.title?.rendered || 'Náš tým'}
-      description={page?.acf?.page_desc || null}
-    />
+  title={nasTymPage?.acf?.page_name || nasTymPage?.title?.rendered || 'Náš tým'}
+  description={nasTymPage?.acf?.page_desc || null}
+/>
     <main className="flex flex-col items-center">
       {/* Úvodní sekce */}
       <section className="px-4 w-full -mt-8 md:-mt-20 z-[50]">
