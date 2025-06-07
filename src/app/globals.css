@@ -31,9 +31,9 @@ html {
     touch-action: pan-y;
     overscroll-behavior-x: none;
 }
-.article p{font-size: 18px;}
+.article p{font-size: 18px;} .article li{font-size: 18px;}
 @media (max-width:768px){.article p{font-size: 16px}}
-.article strong,.article p b{color: #232323}
+.article strong,.article p b,.article li b{color: #232323}
 .article h2{font-size:32px}
 @media (max-width:768px){.article h2{font-size: 28px}}
 .article h3{font-size:24px}
