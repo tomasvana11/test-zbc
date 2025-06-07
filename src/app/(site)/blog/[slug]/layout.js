@@ -1,9 +1,8 @@
 import PageHeader from '../../../components/PageHeader';
 
-export default async function BlogLayout({ children, params }) {
+export default async function PostLayout({ children, params }) {
   const { slug } = params;
 
-  // Načti článek podle slugu
   const res = await fetch(`https://api.zabohatsicesko.cz/wp-json/wp/v2/blog?slug=${slug}&_embed`);
   if (!res.ok) throw new Error('Failed to fetch blog post');
   const data = await res.json();
@@ -18,10 +17,7 @@ export default async function BlogLayout({ children, params }) {
 
   return (
     <>
-      <PageHeader
-        title={title}
-        description={excerpt}
-      />
+      <PageHeader title={title} description={excerpt} />
       <main>{children}</main>
     </>
   );
