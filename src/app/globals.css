@@ -33,7 +33,7 @@ html {
 }
 .article p{font-size: 18px;opacity: 0.8;} .article li{font-size: 18px;opacity: 0.8;}
 @media (max-width:768px){.article p,.article li{font-size: 16px}}
-.article strong,.article p b,.article li b{color: #232323;opacity: 0.9;}
+.article strong,.article p b,.article li b{color: #232323;}
 .article h2{font-size:32px; margin-top: 32px; margin-bottom: 16px;}
 @media (max-width:768px){.article h2{font-size: 28px; margin-top: 24px; margin-bottom: 12px;}}
 .article h3{font-family: 'RecifeDisplay', sans-serif;font-size:24px; margin-top: 24px; margin-bottom: 12px;}
