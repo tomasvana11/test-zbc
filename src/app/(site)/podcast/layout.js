@@ -4,7 +4,7 @@ import fetchPageData from '../../../lib/fetchPageData';
 import PageHeader from '../../components/PageHeader';
 
 export default async function TymLayout({ children }) {
-  const page = await fetchPageData('nas-tym');
+  const page = await fetchPageData('podcast');
 
   return (
     <>
