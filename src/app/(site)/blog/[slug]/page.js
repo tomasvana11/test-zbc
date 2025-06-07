@@ -37,7 +37,6 @@ export default function BlogPostPage({ params }) {
   const title = post.title?.rendered || 'Článek';
   // Předpokládám, že pole ACF se jmenuje article_content
   const articleContent = post.acf?.article_content || '<p>Obsah není k dispozici.</p>';
-  //test koment
 
   return (
     <section className="px-4 w-full">
