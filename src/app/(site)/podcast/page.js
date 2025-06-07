@@ -11,6 +11,14 @@ export default async function PodcastPage() {
   const podcast_title = homepage.acf?.podcast_title || '';
   const podcast_desc = homepage.acf?.podcast_desc || '';
 
+  // 2. Fetch ACF ze stránky /podcast
+  const ppodcastRes = await fetch(
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=podcast&_embed',
+    { next: { revalidate: 60 } }
+  );
+  if (!ppodcastRes.ok) throw new Error('Failed to fetch team page');
+  const ppodcastData = await ppodcastRes.json();
+
   // 2. Fetch poslední 3 podcasty
   const podcastRes = await fetch(
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/podcast?per_page=3&_embed',
