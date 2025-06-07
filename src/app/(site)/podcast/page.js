@@ -24,27 +24,6 @@ export default async function PodcastPage() {
     <main className="flex flex-col items-center">
       {/* Sekce podcasty */}
 <section className="px-4 w-full py-12 md:py-24">
-  <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto">
-    <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-16">
-      <div className="flex items-center justify-between mb-4 md:mb-6">
-        {podcast_title && (
-          <h2 className="text-[28px] md:text-[40px] text-goldenBrown">
-            {podcast_title.split(' ')[0]}<br />
-            {podcast_title.split(' ').slice(1).join(' ')}
-          </h2>
-        )}
-      </div>
-    </div>
-    <div className="w-full md:w-1/2 md:pr-4 lg:pr-8 xl:pr-12 pb-10 md:pb-0">
-      <div className="flex items-center justify-between mb-4 md:mb-6">
-        <div
-          className="mt-4 md:mt-6 text-raisinBlack"
-          dangerouslySetInnerHTML={{ __html: podcast_desc }}
-        />
-      </div>
-    </div>
-  </div>
-
   <div className="w-full max-w-[1392px] mx-auto text-center">
     <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {podcastPosts.map((post) => {
