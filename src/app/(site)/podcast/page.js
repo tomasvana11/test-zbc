@@ -13,7 +13,7 @@ export default async function PodcastPage() {
 
   // 2. Fetch poslední 3 podcasty
   const podcastRes = await fetch(
-    'https://api.zabohatsicesko.cz/wp-json/wp/v2/podcast?per_page=3&_embed',
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/podcast?per_page=100&_embed',
     { next: { revalidate: 60 } }
   );
   if (!podcastRes.ok) throw new Error('Failed to fetch podcast posts');
@@ -64,10 +64,6 @@ export default async function PodcastPage() {
         );
       })}
     </div>
-
-    <a href="https://www.youtube.com/@ZabohatsiCesko" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">
-      Zobrazit všechny epizody
-    </a>
   </div>
 </section>
     </main>
