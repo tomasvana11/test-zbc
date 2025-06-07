@@ -36,7 +36,7 @@ html {
 .article strong,.article p b,.article li b{color: #232323}
 .article h2{font-size:32px; margin-top: 32px; margin-bottom: 16px;}
 @media (max-width:768px){.article h2{font-size: 28px; margin-top: 24px; margin-bottom: 12px;}}
-.article h3{font-size:24px; margin-top: 24px; margin-bottom: 12px;}
+.article h3{font-family: 'RecifeDisplay', sans-serif;font-size:24px; margin-top: 24px; margin-bottom: 12px;}
 .article h2, .article h3{color:#9D6219}
 ul {
   list-style-type: disc; /* bullet */
