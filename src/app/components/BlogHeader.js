@@ -23,7 +23,7 @@ export default function PageHeader({ title, date, imageUrl }) {
       {/* Text */}
       <div className="relative z-20 flex flex-row gap-[24px] md:gap-[48px] w-full max-w-[1392px] mx-auto py-8 md:py-12 items-start mt-[56px] md:mt-[64px] mb-[100px] md:mb-[144px]">
 
-        <div className="w-full flex flex-col gap-6">
+        <div className="w-3/5 flex flex-col gap-6">
             <h1 className="text-[48px] md:text-[56px] text-silkBeige text-left">{title}</h1>
             <div className="w-full flex flex-col gap-4">
                 <hr className="w-full border-1 h-[1px] silkBeige opacity-50" />
@@ -35,7 +35,7 @@ export default function PageHeader({ title, date, imageUrl }) {
         </div>
 
         {imageUrl && (
-          <div className="w-[600px] h-[200px] overflow-hidden rounded-xl shadow-lg">
+          <div className="w-2/5 overflow-hidden rounded-lg">
             <img
               src={imageUrl}
               alt={title}
