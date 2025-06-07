@@ -72,7 +72,7 @@ h1, h2, .ep_num, .footer_h, .recife{
 body {
   font-family: 'SatoshiMedium', sans-serif;
 }
-body b, body strong{
+body b, strong:not(.article strong){
   color: #9D6219;
 }
 
