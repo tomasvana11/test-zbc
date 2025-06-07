@@ -21,6 +21,8 @@ export default async function PostLayout({ children, params }) {
     year: 'numeric',
   });
 
+  const imageUrl = post?._embedded?.['wp:featuredmedia']?.[0]?.source_url || null;
+
   return (
     <>
       <PageHeader title={title} date={date} />

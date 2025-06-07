@@ -1,4 +1,4 @@
-export default function PageHeader({ title, date }) {
+export default function PageHeader({ title, date, imageUrl }) {
   return (
     <section
       className="relative w-full overflow-hidden bg-[url('/images/heroimage.png')] bg-no-repeat bg-cover md:bg-[length:120%_auto] bg-[right_center] pt-[76px] md:pt-[100px] px-4"
@@ -21,17 +21,29 @@ export default function PageHeader({ title, date }) {
       </div>
 
       {/* Text */}
-      <div className="relative z-20 flex flex-col gap-[24px] md:gap-[32px] w-full max-w-[1392px] mx-auto py-8 md:py-12 items-start mt-[56px] md:mt-[64px] mb-[100px] md:mb-[144px]">
+      <div className="relative z-20 flex flex-row gap-[24px] md:gap-[48px] w-full max-w-[1392px] mx-auto py-8 md:py-12 items-start mt-[56px] md:mt-[64px] mb-[100px] md:mb-[144px]">
+
         <div className="w-full flex flex-col gap-6">
             <h1 className="text-[48px] md:text-[56px] text-silkBeige text-left">{title}</h1>
             <div className="w-full flex flex-col gap-4">
-                <hr className="w-full border-1 h-[1px] silkBeige" />
+                <hr className="w-full border-1 h-[1px] silkBeige opacity-50" />
                 {date && (
                     <p className="text-silkBeige text-left max-w-[700px]">{date}</p>
                 )}
-                <hr className="w-full border-1 h-[1px] silkBeige" />
+                <hr className="w-full border-1 h-[1px] silkBeige opacity-50" />
             </div>
         </div>
+
+        {imageUrl && (
+          <div className="w-[600px] h-[200px] overflow-hidden rounded-xl shadow-lg">
+            <img
+              src={imageUrl}
+              alt={title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        )}
+
       </div>
     </section>
   );
