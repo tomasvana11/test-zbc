@@ -38,6 +38,8 @@ export default function BlogPostPage({ params }) {
   // Předpokládám, že pole ACF se jmenuje article_content
   const articleContent = post.acf?.article_content || '<p>Obsah není k dispozici.</p>';
 
+  // new comment, deploy test 
+
   return (
     <section className="px-4 w-full">
         <div className="flex flex-col md:flex-row items-center w-full max-w-[1000px] mx-auto py-12 md:py-24">
