@@ -50,10 +50,63 @@ export default function KarieraPozicePage({ params }) {
     );
   }
 
+  // Extrahuj ACF pole (můžeš to ošetřit, když by náhodou nebyla ACF)
+  const {
+    career_responsibility,
+    career_expectation,
+    career_offer,
+    career_place,
+  } = post.acf || {};
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center py-24">
-      <h1 className="text-3xl font-bold">{post.title.rendered}</h1>
-      {/* Tady bude zbytek obsahu (nabízíme, požadujeme, formulář…) */}
+    <main className="flex min-h-screen flex-col items-center px-4 py-12">
+      <section className="w-full max-w-[1000px] mx-auto space-y-10">
+        
+        {career_responsibility && (
+          <div>
+            <h2 className="text-2xl font-semibold mb-2">Co bude náplní práce</h2>
+            <div
+              className="prose max-w-full"
+              dangerouslySetInnerHTML={{ __html: career_responsibility }}
+            />
+          </div>
+        )}
+
+        {career_expectation && (
+          <div>
+            <h2 className="text-2xl font-semibold mb-2">Co od vás očekáváme</h2>
+            <div
+              className="prose max-w-full"
+              dangerouslySetInnerHTML={{ __html: career_expectation }}
+            />
+          </div>
+        )}
+
+        {career_offer && (
+          <div>
+            <h2 className="text-2xl font-semibold mb-2">Co nabízíme</h2>
+            <div
+              className="prose max-w-full"
+              dangerouslySetInnerHTML={{ __html: career_offer }}
+            />
+          </div>
+        )}
+
+        {career_place && (
+          <div>
+            <h2 className="text-2xl font-semibold mb-2">Místo výkonu práce</h2>
+            <div
+              className="prose max-w-full"
+              dangerouslySetInnerHTML={{ __html: career_place }}
+            />
+          </div>
+        )}
+
+      </section>
+
+      <section className="w-full max-w-[1392px] mx-auto mt-16">
+        <hr className="w-full border-1 h-[1px] lightDivGrey" />
+      </section>
     </main>
   );
 }
