@@ -141,12 +141,15 @@ export default async function KarieraPage() {
                     style={{ color: '#747271' }}
                   >
                     <option value="" disabled selected hidden>
-                      Jaká role tě láká nejvíce?
-                    </option>
-                    <option value="admin">Asistent/ka ředitele</option>
-                    <option value="user">Hypoteční specialista</option>
-                    <option value="guest">Finanční koncipient</option>
-                    <option value="guest">Obchodník</option>
+  Jaká role tě láká nejvíce?
+</option>
+{pozice.map((item) => (
+  <option key={item.id} value={item.title?.rendered}>
+    {item.title?.rendered}
+    {item.acf?.lokalita ? ` — ${item.acf.lokalita}` : ''}
+  </option>
+))}
+
                   </select>
 
                   <div
