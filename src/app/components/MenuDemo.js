@@ -10,14 +10,9 @@ export default function MenuDemo() {
   const [isNewsOpen, setIsNewsOpen] = useState(false);
   const menuRef = useRef();
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const toggleDropdown = (name) => {
+    setOpenDropdown(openDropdown === name ? null : name);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -27,21 +22,37 @@ export default function MenuDemo() {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target) &&
+        e.target.id !== 'main-menu-button'
+      ) {
         setOpenDropdown(null);
         setIsServicesOpen(false);
         setIsNewsOpen(false);
       }
     };
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
     <div
       style={{
         position: 'fixed',
-        top: isMobile ? 0 : scrolled ? 16 : 32,
+        top: isMobile || scrolled ? 0 : 16,
         left: isMobile ? 0 : 16,
         right: isMobile ? 0 : 16,
         zIndex: 1000,
@@ -52,7 +63,7 @@ export default function MenuDemo() {
         ref={menuRef}
         style={{
           maxWidth: isMobile ? '100%' : '1392px',
-          margin: isMobile ? '0' : '0 auto',
+          margin: '0 auto',
           padding: isMobile ? '16px' : '24px',
           display: 'flex',
           justifyContent: 'space-between',
@@ -72,7 +83,7 @@ export default function MenuDemo() {
           </Link>
         </div>
 
-        {/* Desktop navigace */}
+        {/* Desktop menu */}
         {!isMobile && (
           <ul
             style={{
@@ -89,9 +100,8 @@ export default function MenuDemo() {
             <li>
               <Link href="/">Domů</Link>
             </li>
-
             <li style={{ position: 'relative', cursor: 'pointer' }}>
-              <div onClick={() => setOpenDropdown(openDropdown === 'sluzby' ? null : 'sluzby')} style={{ display: 'flex', alignItems: 'center' }}>
+              <div onClick={() => toggleDropdown('sluzby')} style={{ display: 'flex', alignItems: 'center' }}>
                 Služby
                 <img src="/images/menu-chevron-down.svg" alt="šipka" style={{ marginLeft: 8, height: 24 }} />
               </div>
@@ -101,7 +111,7 @@ export default function MenuDemo() {
                     position: 'absolute',
                     top: '100%',
                     left: 0,
-                    backgroundColor: 'rgba(226, 219, 213, 0.8)',
+                    backgroundColor: '#E2DBD5',
                     color: '#232323',
                     boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
                     padding: '8px 0',
@@ -113,25 +123,19 @@ export default function MenuDemo() {
                   }}
                 >
                   <li>
-                    <Link href="/sluzby/sluzba-1">
-                      <a style={{ padding: '8px 20px', display: 'block' }}>Služba 1</a>
-                    </Link>
+                    <Link href="/sluzby/sluzba-1"><a style={{ padding: '8px 20px', display: 'block' }}>Služba 1</a></Link>
                   </li>
                   <li>
-                    <Link href="/sluzby/sluzba-2">
-                      <a style={{ padding: '8px 20px', display: 'block' }}>Služba 2</a>
-                    </Link>
+                    <Link href="/sluzby/sluzba-2"><a style={{ padding: '8px 20px', display: 'block' }}>Služba 2</a></Link>
                   </li>
                 </ul>
               )}
             </li>
-
             <li>
               <Link href="/reference">Reference</Link>
             </li>
-
             <li style={{ position: 'relative', cursor: 'pointer' }}>
-              <div onClick={() => setOpenDropdown(openDropdown === 'novinky' ? null : 'novinky')} style={{ display: 'flex', alignItems: 'center' }}>
+              <div onClick={() => toggleDropdown('novinky')} style={{ display: 'flex', alignItems: 'center' }}>
                 Novinky a vzdělávání
                 <img src="/images/menu-chevron-down.svg" alt="šipka" style={{ marginLeft: 8, height: 24 }} />
               </div>
@@ -141,7 +145,7 @@ export default function MenuDemo() {
                     position: 'absolute',
                     top: '100%',
                     left: 0,
-                    backgroundColor: 'rgba(226, 219, 213, 0.8)',
+                    backgroundColor: '#E2DBD5',
                     color: '#232323',
                     boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
                     padding: '8px 0',
@@ -153,19 +157,14 @@ export default function MenuDemo() {
                   }}
                 >
                   <li>
-                    <Link href="/novinky/novinka-1">
-                      <a style={{ padding: '8px 20px', display: 'block' }}>Novinka 1</a>
-                    </Link>
+                    <Link href="/novinky/novinka-1"><a style={{ padding: '8px 20px', display: 'block' }}>Novinka 1</a></Link>
                   </li>
                   <li>
-                    <Link href="/vzdelavani/vzdelavani-1">
-                      <a style={{ padding: '8px 20px', display: 'block' }}>Vzdělávání 1</a>
-                    </Link>
+                    <Link href="/vzdelavani/vzdelavani-1"><a style={{ padding: '8px 20px', display: 'block' }}>Vzdělávání 1</a></Link>
                   </li>
                 </ul>
               )}
             </li>
-
             <li>
               <Link href="/kontakt">Kontakt</Link>
             </li>
@@ -175,21 +174,22 @@ export default function MenuDemo() {
         {/* Mobile menu button */}
         {isMobile && (
           <button
-            onClick={() => setOpenDropdown(openDropdown === 'mainMenu' ? null : 'mainMenu')}
+            id="main-menu-button"
+            onClick={() => toggleDropdown('mainMenu')}
             style={{
-              display: 'flex',
-              alignItems: 'center',
               backgroundColor: '#9D6219',
-              color: 'white',
-              padding: '0 16px',
               border: 'none',
               borderRadius: 4,
+              color: '#fff',
+              padding: '0 16px',
               height: 44,
-              fontSize: 16,
+              display: 'flex',
+              alignItems: 'center',
               cursor: 'pointer',
+              fontSize: 16,
             }}
           >
-            <img src="/images/menu-icon.svg" alt="Menu icon" style={{ marginRight: 8, height: 20 }} />
+            <img src="/images/menu-icon.svg" alt="menu" style={{ height: 20, marginRight: 8 }} />
             Menu
           </button>
         )}
@@ -204,7 +204,7 @@ export default function MenuDemo() {
             top: '100%',
             right: 0,
             left: 0,
-            backgroundColor: 'rgba(226, 219, 213, 0.9)',
+            backgroundColor: '#E2DBD5', // full opacity
             color: '#232323',
             boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
             padding: '8px 0',
@@ -213,14 +213,13 @@ export default function MenuDemo() {
             margin: 0,
           }}
         >
-          <li>
-            <Link href="/">
-              <a style={{ padding: '8px 20px', display: 'block' }}>Domů</a>
-            </Link>
-          </li>
+          <li><Link href="/"><a style={{ padding: '8px 20px', display: 'block' }}>Domů</a></Link></li>
 
           <li
-            onClick={() => setIsServicesOpen(!isServicesOpen)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsServicesOpen(!isServicesOpen);
+            }}
             style={{ padding: '8px 20px', display: 'flex', justifyContent: 'space-between', cursor: 'pointer' }}
           >
             <span>Služby</span>
@@ -236,27 +235,18 @@ export default function MenuDemo() {
           </li>
           {isServicesOpen && (
             <>
-              <li>
-                <Link href="/sluzby/sluzba-1">
-                  <a style={{ padding: '8px 40px', display: 'block' }}>Služba 1</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/sluzby/sluzba-2">
-                  <a style={{ padding: '8px 40px', display: 'block' }}>Služba 2</a>
-                </Link>
-              </li>
+              <li><Link href="/sluzby/sluzba-1"><a style={{ padding: '8px 40px', display: 'block' }}>Služba 1</a></Link></li>
+              <li><Link href="/sluzby/sluzba-2"><a style={{ padding: '8px 40px', display: 'block' }}>Služba 2</a></Link></li>
             </>
           )}
 
-          <li>
-            <Link href="/reference">
-              <a style={{ padding: '8px 20px', display: 'block' }}>Reference</a>
-            </Link>
-          </li>
+          <li><Link href="/reference"><a style={{ padding: '8px 20px', display: 'block' }}>Reference</a></Link></li>
 
           <li
-            onClick={() => setIsNewsOpen(!isNewsOpen)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsNewsOpen(!isNewsOpen);
+            }}
             style={{ padding: '8px 20px', display: 'flex', justifyContent: 'space-between', cursor: 'pointer' }}
           >
             <span>Novinky a vzdělávání</span>
@@ -272,24 +262,12 @@ export default function MenuDemo() {
           </li>
           {isNewsOpen && (
             <>
-              <li>
-                <Link href="/novinky/novinka-1">
-                  <a style={{ padding: '8px 40px', display: 'block' }}>Novinka 1</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/vzdelavani/vzdelavani-1">
-                  <a style={{ padding: '8px 40px', display: 'block' }}>Vzdělávání 1</a>
-                </Link>
-              </li>
+              <li><Link href="/novinky/novinka-1"><a style={{ padding: '8px 40px', display: 'block' }}>Novinka 1</a></Link></li>
+              <li><Link href="/vzdelavani/vzdelavani-1"><a style={{ padding: '8px 40px', display: 'block' }}>Vzdělávání 1</a></Link></li>
             </>
           )}
 
-          <li>
-            <Link href="/kontakt">
-              <a style={{ padding: '8px 20px', display: 'block' }}>Kontakt</a>
-            </Link>
-          </li>
+          <li><Link href="/kontakt"><a style={{ padding: '8px 20px', display: 'block' }}>Kontakt</a></Link></li>
         </ul>
       )}
     </div>
