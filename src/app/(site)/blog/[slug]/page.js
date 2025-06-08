@@ -1,6 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { Hourglass } from 'ldrs/react';
+import 'ldrs/react/Hourglass.css';
+
 
 export default function BlogPostPage({ params }) {
   const { slug } = params;
@@ -59,8 +62,18 @@ export default function BlogPostPage({ params }) {
   }
 
   if (!post) {
-    return <p className="text-center">Načítání článku…</p>;
-  }
+  return (
+    <div className="flex items-center justify-center w-screen h-screen">
+      <Hourglass
+        size="50"
+        bgOpacity="0.1"
+        speed="1.75"
+        color="#9D6219" // zlatohnědá z tvého designu
+      />
+    </div>
+  );
+}
+
 
   const articleContent = post.acf?.article_content || '<p>Obsah není k dispozici.</p>';
 
