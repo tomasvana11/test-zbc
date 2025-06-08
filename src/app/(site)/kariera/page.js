@@ -50,11 +50,11 @@ export default async function CareerPage() {
   const career_why_vid = careerPage.acf?.career_why_vid || '';
   const career_ben_vid = careerPage.acf?.career_ben_vid || ''; 
   const career_ben_title = careerPage.acf?.career_ben_title || '';
-  const career_ben_card_1 = page.acf?.career_ben_card_1 || '';
-  const career_ben_card_2 = page.acf?.career_ben_card_2 || '';  
-  const career_ben_card_3 = page.acf?.career_ben_card_3 || '';  
-  const career_ben_card_4 = page.acf?.career_ben_card_4 || '';  
-  const career_ben_card_5 = page.acf?.career_ben_card_5 || '';    
+  const career_ben_card_1 = careerPage.acf?.career_ben_card_1 || '';
+  const career_ben_card_2 = careerPage.acf?.career_ben_card_2 || '';  
+  const career_ben_card_3 = careerPage.acf?.career_ben_card_3 || '';  
+  const career_ben_card_4 = careerPage.acf?.career_ben_card_4 || '';  
+  const career_ben_card_5 = careerPage.acf?.career_ben_card_5 || '';    
 
   return (
     <div>
