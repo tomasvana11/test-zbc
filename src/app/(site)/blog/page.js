@@ -47,26 +47,28 @@ export default async function BlogPage() {
                 <Link
                     key={post.id}
                     href={`/blog/${post.slug}`}
-                    className="flex flex-col bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden group"
+                    className="flex flex-col bg-silkBeige/50 rounded-lg shadow hover:shadow-lg transition overflow-hidden group"
                 >
                     <img
                     src={post.image}
                     alt={post.title}
                     className="w-full h-52 object-cover"
                     />
-                    <div className="p-4 flex flex-col flex-grow">
+                    <div className="px-6 pt-8 flex flex-col flex-grow">
                     <h3
-                        className="text-lg text-raisinBlack font-semibold mb-2 group-hover:underline"
+                        className="text-lg text-goldenBrown text-[22px] mb-5 group-hover:underline"
                         dangerouslySetInnerHTML={{ __html: post.title }}
                     />
                     <div
-                        className="text-sm text-gray-600 mb-4"
+                        className="text-raisinBlack"
                         dangerouslySetInnerHTML={{ __html: post.excerpt }}
                     />
-                    <hr className="border-t border-gray-200 my-2" />
-                    <div className="mt-auto flex justify-between items-center text-sm text-blue-600">
-                        <span className="hover:underline">Otevřít článek</span>
-                        <span className="text-gray-400">{post.date}</span>
+                    <div className="flex flex-col gap-5 pt-5 pb-6">
+                        <hr className="border-t border-lightDivGrey" />
+                        <div className="mt-auto flex justify-between items-center text-goldenBrown">
+                            <span className="hover:underline">Otevřít článek</span>
+                            <span className="text-raisinBlack/20">{post.date}</span>
+                        </div>
                     </div>
                     </div>
                 </Link>
