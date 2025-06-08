@@ -6,6 +6,7 @@ export default function MenuDemo() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isTabletOrMobile, setIsTabletOrMobile] = useState(false);
   const menuRef = useRef();
 
   const toggleDropdown = (name) => {
@@ -29,12 +30,13 @@ export default function MenuDemo() {
   }, []);
 
   useEffect(() => {
-    function checkMobile() {
+    function checkSizes() {
       setIsMobile(window.innerWidth <= 640);
+      setIsTabletOrMobile(window.innerWidth <= 1024);
     }
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    checkSizes();
+    window.addEventListener('resize', checkSizes);
+    return () => window.removeEventListener('resize', checkSizes);
   }, []);
 
   const wrapperStyle = {
@@ -59,6 +61,27 @@ export default function MenuDemo() {
     transition: 'background-color 0.3s ease, backdrop-filter 0.3s ease',
   };
 
+  // Styl pro menu button (zobrazený pod 1024px)
+  const menuButtonStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: '#9D6219',
+    borderRadius: 4,
+    height: 44,
+    padding: '0 16px',
+    cursor: 'pointer',
+    color: 'white',
+    border: 'none',
+    fontWeight: '600',
+    fontSize: 16,
+  };
+
+  const iconStyle = {
+    marginRight: 8,
+    height: 20,
+    width: 20,
+  };
+
   return (
     <div style={wrapperStyle}>
       <div ref={menuRef} style={containerStyle}>
@@ -71,36 +94,27 @@ export default function MenuDemo() {
           </Link>
         </div>
 
-        {/* Odkazy vpravo */}
-        <ul
-          style={{
-            display: 'flex',
-            gap: 44,
-            listStyle: 'none',
-            padding: 0,
-            margin: 0,
-            alignItems: 'center',
-            fontWeight: 'normal',
-            color: '#E2DBD5',
-          }}
-        >
-          <li>
-            <Link href="/">Domů</Link>
-          </li>
+        {/* Pokud je pod 1024px, zobrazíme jen menu button */}
+        {isTabletOrMobile ? (
+          <>
+            <button
+              onClick={() => toggleDropdown('mainMenu')}
+              style={menuButtonStyle}
+              aria-expanded={openDropdown === 'mainMenu'}
+              aria-controls="main-menu-dropdown"
+            >
+              <img src="/images/menu-icon.svg" alt="Menu icon" style={iconStyle} />
+              Menu
+            </button>
 
-          {/* Dropdown: Služby */}
-          <li style={{ position: 'relative', cursor: 'pointer' }}>
-            <div onClick={() => toggleDropdown('sluzby')} style={{ display: 'flex', alignItems: 'center' }}>
-              Služby
-              <img src="/images/menu-chevron-down.svg" alt="šipka" style={{ marginLeft: 8, height: 24 }} />
-            </div>
-            {openDropdown === 'sluzby' && (
+            {openDropdown === 'mainMenu' && (
               <ul
+                id="main-menu-dropdown"
                 style={{
                   position: 'absolute',
                   top: '100%',
-                  left: 0,
-                  backgroundColor: 'rgba(226, 219, 213, 0.8)',
+                  right: 0,
+                  backgroundColor: 'rgba(226, 219, 213, 0.9)',
                   color: '#232323',
                   boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
                   padding: '8px 0',
@@ -112,6 +126,12 @@ export default function MenuDemo() {
                 }}
               >
                 <li>
+                  <Link href="/">
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Domů</a>
+                  </Link>
+                </li>
+
+                <li>
                   <Link href="/sluzby/sluzba-1">
                     <a style={{ padding: '8px 20px', display: 'block' }}>Služba 1</a>
                   </Link>
@@ -121,37 +141,13 @@ export default function MenuDemo() {
                     <a style={{ padding: '8px 20px', display: 'block' }}>Služba 2</a>
                   </Link>
                 </li>
-              </ul>
-            )}
-          </li>
 
-          <li>
-            <Link href="/reference">Reference</Link>
-          </li>
+                <li>
+                  <Link href="/reference">
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Reference</a>
+                  </Link>
+                </li>
 
-          {/* Dropdown: Novinky a vzdělávání */}
-          <li style={{ position: 'relative', cursor: 'pointer' }}>
-            <div onClick={() => toggleDropdown('novinky')} style={{ display: 'flex', alignItems: 'center' }}>
-              Novinky a vzdělávání
-              <img src="/images/menu-chevron-down.svg" alt="šipka" style={{ marginLeft: 8, height: 24 }} />
-            </div>
-            {openDropdown === 'novinky' && (
-              <ul
-                style={{
-                  position: 'absolute',
-                  top: '100%',
-                  left: 0,
-                  backgroundColor: 'rgba(226, 219, 213, 0.8)',
-                  color: '#232323',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-                  padding: '8px 0',
-                  borderRadius: 4,
-                  zIndex: 2000,
-                  minWidth: 220,
-                  listStyle: 'none',
-                  margin: 0,
-                }}
-              >
                 <li>
                   <Link href="/novinky/novinka-1">
                     <a style={{ padding: '8px 20px', display: 'block' }}>Novinka 1</a>
@@ -162,14 +158,116 @@ export default function MenuDemo() {
                     <a style={{ padding: '8px 20px', display: 'block' }}>Vzdělávání 1</a>
                   </Link>
                 </li>
+
+                <li>
+                  <Link href="/kontakt">
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Kontakt</a>
+                  </Link>
+                </li>
               </ul>
             )}
-          </li>
+          </>
+        ) : (
+          // Desktop/nad 1024px: klasická navigace
+          <ul
+            style={{
+              display: 'flex',
+              gap: 44,
+              listStyle: 'none',
+              padding: 0,
+              margin: 0,
+              alignItems: 'center',
+              fontWeight: 'normal',
+              color: '#E2DBD5',
+            }}
+          >
+            <li>
+              <Link href="/">Domů</Link>
+            </li>
 
-          <li>
-            <Link href="/kontakt">Kontakt</Link>
-          </li>
-        </ul>
+            {/* Dropdown: Služby */}
+            <li style={{ position: 'relative', cursor: 'pointer' }}>
+              <div onClick={() => toggleDropdown('sluzby')} style={{ display: 'flex', alignItems: 'center' }}>
+                Služby
+                <img src="/images/menu-chevron-down.svg" alt="šipka" style={{ marginLeft: 8, height: 24 }} />
+              </div>
+              {openDropdown === 'sluzby' && (
+                <ul
+                  style={{
+                    position: 'absolute',
+                    top: '100%',
+                    left: 0,
+                    backgroundColor: 'rgba(226, 219, 213, 0.8)',
+                    color: '#232323',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                    padding: '8px 0',
+                    borderRadius: 4,
+                    zIndex: 2000,
+                    minWidth: 160,
+                    listStyle: 'none',
+                    margin: 0,
+                  }}
+                >
+                  <li>
+                    <Link href="/sluzby/sluzba-1">
+                      <a style={{ padding: '8px 20px', display: 'block' }}>Služba 1</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/sluzby/sluzba-2">
+                      <a style={{ padding: '8px 20px', display: 'block' }}>Služba 2</a>
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+
+            <li>
+              <Link href="/reference">Reference</Link>
+            </li>
+
+            {/* Dropdown: Novinky a vzdělávání */}
+            <li style={{ position: 'relative', cursor: 'pointer' }}>
+              <div onClick={() => toggleDropdown('novinky')} style={{ display: 'flex', alignItems: 'center' }}>
+                Novinky a vzdělávání
+                <img src="/images/menu-chevron-down.svg" alt="šipka" style={{ marginLeft: 8, height: 24 }} />
+              </div>
+              {openDropdown === 'novinky' && (
+                <ul
+                  style={{
+                    position: 'absolute',
+                    top: '100%',
+                    left: 0,
+                    backgroundColor: 'rgba(226, 219, 213, 0.8)',
+                    color: '#232323',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                    padding: '8px 0',
+                    borderRadius: 4,
+                    zIndex: 2000,
+                    minWidth: 220,
+                    listStyle: 'none',
+                    margin: 0,
+                  }}
+                >
+                  <li>
+                    <Link href="/novinky/novinka-1">
+                      <a style={{ padding: '8px 20px', display: 'block' }}>Novinka 1</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/vzdelavani/vzdelavani-1">
+                      <a style={{ padding: '8px 20px', display: 'block' }}>Vzdělávání 1</a>
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+
+            <li>
+              <Link href="/kontakt">Kontakt</Link>
+            </li>
+          </ul>
+        )}
       </div>
     </div>
   );
