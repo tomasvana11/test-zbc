@@ -1,95 +1,140 @@
 'use client'
+
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Menu() {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState(null)
 
-  const toggleMenu = () => setMenuOpen(!menuOpen)
+  const toggleMobile = () => {
+    setMobileOpen(!mobileOpen)
+    setOpenDropdown(null)
+  }
+
+  const toggleDropdown = (id) => {
+    setOpenDropdown(openDropdown === id ? null : id)
+  }
+
+  const menuItems = [
+    { label: 'O nás', href: '/about' },
+    {
+      label: 'Služby',
+      id: 'services',
+      children: [
+        { label: 'Finanční plánování', href: '/sluzby/planovani' },
+        { label: 'Investice', href: '/sluzby/investice' },
+      ],
+    },
+    {
+      label: 'Poradci',
+      id: 'advisors',
+      children: [
+        { label: 'Václav Svatoš', href: '/poradci/vaclav' },
+        { label: 'Sabina Vytisková', href: '/poradci/sabina' },
+      ],
+    },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Kontakt', href: '/kontakt' },
+  ]
 
   return (
-    <nav className="absolute top-0 left-0 w-full z-50">
-      <div className="max-w-[1392px] mx-auto flex justify-between items-center px-4 py-3 md:py-4">
-        {/* Logo */}
-        <Link href="/" className="text-xl font-bold text-white">
-          <img src="/images/logo.svg" alt="Logo" className="h-8" />
+    <nav className="absolute top-0 left-0 w-full z-[200]">
+      <div className="flex justify-between items-center px-4 md:px-8 py-4 bg-transparent">
+        {/* Logo vlevo */}
+        <Link href="/">
+          <Image src="/images/logo.svg" alt="logo" width={160} height={32} />
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-6 text-white">
-          <Link href="/o-nas" className="hover:underline">
-            O nás
-          </Link>
-          <div className="relative group">
-            <button className="hover:underline">Služby</button>
-            <div className="absolute top-full left-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded p-2 text-black">
-              <Link href="/sluzby/poradenstvi" className="block px-4 py-2 hover:bg-gray-100">
-                Poradenství
-              </Link>
-              <Link href="/sluzby/planovani" className="block px-4 py-2 hover:bg-gray-100">
-                Plánování
-              </Link>
-            </div>
-          </div>
-          <div className="relative group">
-            <button className="hover:underline">Blog</button>
-            <div className="absolute top-full left-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded p-2 text-black">
-              <Link href="/blog/aktuality" className="block px-4 py-2 hover:bg-gray-100">
-                Aktuality
-              </Link>
-              <Link href="/blog/poradenstvi" className="block px-4 py-2 hover:bg-gray-100">
-                Poradenství
-              </Link>
-            </div>
-          </div>
-          <Link href="/kontakt" className="hover:underline">
-            Kontakt
-          </Link>
-        </div>
-
-        {/* Mobile menu toggle */}
-        <button
-          className="md:hidden flex items-center"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          <img src="/images/menu-icon.svg" alt="menu" className="h-6 w-6 invert" />
+        {/* Mobilní toggle */}
+        <button onClick={toggleMobile} className="md:hidden flex items-center gap-2">
+          <Image
+            src={mobileOpen ? '/images/close.svg' : '/images/menu.svg'}
+            alt="toggle"
+            width={24}
+            height={24}
+          />
+          <span className="text-silkBeige text-lg">
+            {mobileOpen ? 'Zavřít' : 'Menu'}
+          </span>
         </button>
+
+        {/* Desktop menu */}
+        <ul className="hidden md:flex gap-6 items-center text-silkBeige text-lg">
+          {menuItems.map((item) =>
+            item.children ? (
+              <li key={item.id} className="group relative cursor-pointer">
+                <div className="flex items-center gap-1">
+                  <span>{item.label}</span>
+                  <Image
+                    src="/images/chevron-down.svg"
+                    alt="dropdown"
+                    width={12}
+                    height={12}
+                    className="transition-transform group-hover:rotate-180"
+                  />
+                </div>
+                <ul className="absolute top-full left-0 bg-white text-raisinBlack shadow-md rounded mt-2 hidden group-hover:block min-w-[180px] z-50">
+                  {item.children.map((child) => (
+                    <li key={child.href} className="hover:bg-gray-100 px-4 py-2">
+                      <Link href={child.href}>{child.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ) : (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            )
+          )}
+        </ul>
       </div>
 
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-white/95 text-black">
-          <div className="flex flex-col px-4 py-2 gap-2">
-            <Link href="/o-nas" className="py-2 border-b" onClick={toggleMenu}>
-              O nás
-            </Link>
-            <details>
-              <summary className="py-2 border-b cursor-pointer">Služby</summary>
-              <div className="pl-4">
-                <Link href="/sluzby/poradenstvi" className="block py-1" onClick={toggleMenu}>
-                  Poradenství
-                </Link>
-                <Link href="/sluzby/planovani" className="block py-1" onClick={toggleMenu}>
-                  Plánování
-                </Link>
-              </div>
-            </details>
-            <details>
-              <summary className="py-2 border-b cursor-pointer">Blog</summary>
-              <div className="pl-4">
-                <Link href="/blog/aktuality" className="block py-1" onClick={toggleMenu}>
-                  Aktuality
-                </Link>
-                <Link href="/blog/poradenstvi" className="block py-1" onClick={toggleMenu}>
-                  Poradenství
-                </Link>
-              </div>
-            </details>
-            <Link href="/kontakt" className="py-2 border-b" onClick={toggleMenu}>
-              Kontakt
-            </Link>
+      {/* Mobilní menu (po otevření) */}
+      {mobileOpen && (
+        <div className="md:hidden bg-silkBeige text-raisinBlack min-h-screen w-full p-6 z-[200] relative">
+          <div className="absolute top-6 right-6">
+            <Image src="/images/logo-alt.svg" alt="logo mobile" width={100} height={28} />
           </div>
+
+          <ul className="flex flex-col gap-6 mt-10">
+            {menuItems.map((item) =>
+              item.children ? (
+                <li key={item.id}>
+                  <button
+                    onClick={() => toggleDropdown(item.id)}
+                    className="flex justify-between items-center w-full text-left"
+                  >
+                    {item.label}
+                    <Image
+                      src="/images/chevron-down.svg"
+                      alt="dropdown"
+                      width={16}
+                      height={16}
+                      className={`transition-transform ${
+                        openDropdown === item.id ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                  {openDropdown === item.id && (
+                    <ul className="pl-4 mt-2 flex flex-col gap-2">
+                      {item.children.map((child) => (
+                        <li key={child.href}>
+                          <Link href={child.href}>{child.label}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ) : (
+                <li key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
+                </li>
+              )
+            )}
+          </ul>
         </div>
       )}
     </nav>
