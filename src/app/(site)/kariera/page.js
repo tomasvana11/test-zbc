@@ -70,10 +70,8 @@ export default async function CareerPage() {
                 className="text-raisinBlack"
                 dangerouslySetInnerHTML={{ __html: career_intro_detail }}
               />
-              <Link href="/nas-tym">
-              <a className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">
+              <Link href="/nas-tym" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">
                 Chci poznat celý tým
-              </a>
               </Link>
             </div>
           </div>
