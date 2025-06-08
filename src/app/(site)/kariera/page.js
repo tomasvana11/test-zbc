@@ -48,6 +48,7 @@ export default async function CareerPage() {
   const career_why_img = careerPage.acf?.career_why_img?.url|| '';
   const career_why_imgAlt = careerPage.acf?.career_why_img?.alt || 'Intro obrázek';
   const career_why_vid = careerPage.acf?.career_why_vid || '';
+  const career_ben_vid = careerPage.acf?.career_ben_vid || ''; 
 
   return (
     <div>
@@ -145,8 +146,34 @@ export default async function CareerPage() {
   </div>
 </div>
 
-      </section>
+        </section>
         {/*Benefity*/}
+        <section className="relative bg-silkBeige w-full px-4 pb-24 md:pb-32 overflow-hidden">
+  <img
+    src="/images/symbol-pattern-l-rev.svg"
+    alt="Symbol Pattern"
+    className="hidden lg:block absolute -right-[55px] -bottom-[55px] w-[380px] h-[380px]"
+  />
+  <img
+    src="/images/symbol-pattern-s-rev.svg"
+    alt="Symbol Pattern"
+    className="lg:hidden absolute -left-[32px] -bottom-[32px] w-[205px] h-[205px] md:w-[280px] md:h-[280px]"
+  />
+
+  <div className="flex flex-col lg:flex-row w-full items-center max-w-[800px] mx-auto">
+  <div className="w-full rounded-[8px] overflow-hidden relative z-[50] aspect-video">
+    <iframe
+      className="w-full h-full"
+      src={`https://www.youtube.com/embed/${career_ben_vid?.split('v=')[1]}`}
+      title="YouTube video"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    />
+  </div>
+</div>
+
+        </section>
         {/*Pozice*/}
         <section className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto px-4 py-12 md:py-24">
           <div className="max-w-[1392px] w-full">
