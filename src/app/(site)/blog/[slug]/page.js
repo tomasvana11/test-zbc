@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import LatestPostsSection from '../../../components/LatestPostsSection';
 
 export default function BlogPostPage({ params }) {
   const { slug } = params;
@@ -37,6 +38,35 @@ export default function BlogPostPage({ params }) {
   const title = post.title?.rendered || 'Článek';
   // Předpokládám, že pole ACF se jmenuje article_content
   const articleContent = post.acf?.article_content || '<p>Obsah není k dispozici.</p>';
+
+  const [latestPosts, setLatestPosts] = useState([]);
+const [latestError, setLatestError] = useState(null);
+
+useEffect(() => {
+  const fetchLatestPosts = async () => {
+    try {
+      const res = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/blog?per_page=4&_embed');
+      if (!res.ok) throw new Error('Nepodařilo se načíst články');
+      const data = await res.json();
+      const posts = data.map((post) => ({
+        id: post.id,
+        slug: post.slug,
+        title: post.title.rendered,
+        excerpt: post.excerpt.rendered,
+        image: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.png',
+        date: new Date(post.date).toLocaleDateString('cs-CZ'),
+      }));
+      setLatestPosts(posts);
+    } catch (err) {
+      setLatestError(err.message);
+    }
+  };
+
+  fetchLatestPosts();
+}, []);
+
+{latestError && <p className="text-red-600 text-center">{latestError}</p>}
+{latestPosts.length > 0 && <LatestPostsSection posts={latestPosts} />}
 
   // new comment, deploy test 
 
@@ -159,6 +189,7 @@ export default function BlogPostPage({ params }) {
   </div>
 
     </section>
+    <LatestPostsSection posts={posts} />
     </main>
     
   );
