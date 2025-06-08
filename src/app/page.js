@@ -91,10 +91,10 @@ export default async function Page() {
 
   {/* Logo a text */}
   <div className="absolute inset-0 flex flex-col justify-between z-20">
-    {/*}
+    
     <div className="relative z-10 w-full max-w-[1392px] mx-auto px-8 py-8">
       <img src="/images/zbc-logo-horizontal-md.svg" alt="Logo" className="w-[256px]" />
-    </div>*/}
+    </div>
 
     <div className="relative z-10 flex px-4 flex-col md:flex-row w-full max-w-[1392px] mx-auto py-12 md:py-24">
       <div>
