@@ -81,8 +81,8 @@ export default function KarieraPozicePage({ params }) {
   } = post.acf || {};
 
   return (
-    <main className="flex min-h-screen flex-col items-center px-4 py-12">
-      <section className="w-full max-w-[1000px] mx-auto space-y-10">
+    <main className="flex min-h-screen flex-col items-center py-12">
+      <section className="w-full max-w-[1000px] mx-auto px-4 space-y-10">
         
         {career_responsibility && (
           <div>
@@ -126,7 +126,7 @@ export default function KarieraPozicePage({ params }) {
       </section>
 
       {/* Formulář sekce */}
-      <section className="bg-silkBeige w-full py-12 md:py-16 mt-16">
+      <section className="bg-silkBeige w-full px-4 py-12 md:py-16 mt-16">
         <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center mb-4">
           Přidej se k nám!
         </h2>
