@@ -45,6 +45,8 @@ export default async function CareerPage() {
   const why_4_desc = careerPage.acf?.why_4_desc || '';
   const why_5 = careerPage.acf?.why_5 || '';
   const why_5_desc = careerPage.acf?.why_5_desc || '';
+  const career_why_img = careerPage.acf?.career_intro_img?.url|| '';
+  const career_why_imgAlt = careerPage.acf?.career_intro_img?.alt || 'Intro obrázek';
 
   return (
     <div>
@@ -116,7 +118,29 @@ export default async function CareerPage() {
           </div>
 
         </div>
+        </section>
+        <section className="relative bg-raisinBlack w-full px-4 py-12 md:py-16 overflow-hidden">
+  <img
+    src="/images/symbol-pattern-l.svg"
+    alt="Symbol Pattern"
+    className="hidden lg:block absolute -left-[64px] -bottom-[64px] w-[420px] h-[420px]"
+  />
+  <img
+    src="/images/symbol-pattern-s.svg"
+    alt="Symbol Pattern"
+    className="lg:hidden absolute -right-[32px] -bottom-[32px] w-[205px] h-[205px] md:w-[280px] md:h-[280px]"
+  />
+
+  <div className="flex flex-col lg:flex-row w-full items-center max-w-[800px] mx-auto">
+    <div className="w-full">
+      <img
+      src={career_why_img}
+      alt={career_why_imgAlt}
+      className="w-full h-auto object-contain"/>
+    </div>
+  </div>
       </section>
+        {/*Benefity*/}
         {/*Pozice*/}
         <section className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto px-4 py-12 md:py-24">
           <div className="max-w-[1392px] w-full">

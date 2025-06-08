@@ -5,7 +5,7 @@ export default function MenuDemo() {
     <nav>
       <ul style={{ display: 'flex', gap: '20px', listStyle: 'none', padding: 0, margin: 0 }}>
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/" >Home</Link>
         </li>
         <li>
           <Link href="/blog">Blog</Link>
