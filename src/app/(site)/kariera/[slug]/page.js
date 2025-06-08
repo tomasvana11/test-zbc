@@ -226,10 +226,6 @@ export default function KarieraPozicePage({ params }) {
           </p>
         </div>
       </section>
-
-      <section className="w-full max-w-[1392px] mx-auto mt-16">
-        <hr className="w-full border-1 h-[1px] lightDivGrey" />
-      </section>
     </main>
   );
 }
