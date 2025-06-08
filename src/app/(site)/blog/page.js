@@ -47,12 +47,12 @@ export default async function BlogPage() {
                 <Link
                     key={post.id}
                     href={`/blog/${post.slug}`}
-                    className="flex flex-col bg-silkBeige/50 rounded-lg shadow hover:shadow-lg transition overflow-hidden group"
+                    className="flex flex-col bg-silkBeige/30 rounded-lg hover:shadow-lg transition overflow-hidden group"
                 >
                     <img
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-52 object-cover"
+                    className="w-full h-52 object-cover rounded-lg"
                     />
                     <div className="px-6 pt-8 flex flex-col flex-grow">
                     <h3
