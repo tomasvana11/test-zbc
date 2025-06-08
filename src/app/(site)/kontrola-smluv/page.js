@@ -1,12 +1,18 @@
 "use client";
 
-import { useState } from 'react';
-import PageHeader from '../../components/PageHeader';
+import { useState } from "react";
+import PageHeader from "../../components/PageHeader";
 
 export default function KontrolaSmluvPage() {
   const [step, setStep] = useState(1);
   const [contracts, setContracts] = useState([1]);
   const [nextContractId, setNextContractId] = useState(2);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+  });
 
   const addContract = () => {
     if (contracts.length < 6) {
@@ -51,7 +57,8 @@ export default function KontrolaSmluvPage() {
                   for (let id of contracts) {
                     const type = form[`contractType${id}`]?.value?.trim();
                     const file = form[`contractFile${id}`]?.files?.[0];
-                    const expect = form[`contractExpectation${id}`]?.value?.trim();
+                    const expect =
+                      form[`contractExpectation${id}`]?.value?.trim();
 
                     if (!type || !file || !expect) {
                       e.preventDefault();
@@ -62,6 +69,24 @@ export default function KontrolaSmluvPage() {
                 }
               }}
             >
+              {/* Hidden inputy pro odeslání z kroku 1 */}
+              {step === 2 && (
+                <>
+                  <input
+                    type="hidden"
+                    name="firstName"
+                    value={formData.firstName}
+                  />
+                  <input
+                    type="hidden"
+                    name="lastName"
+                    value={formData.lastName}
+                  />
+                  <input type="hidden" name="phone" value={formData.phone} />
+                  <input type="hidden" name="email" value={formData.email} />
+                </>
+              )}
+
               {/* Krok 1 */}
               {step === 1 && (
                 <>
@@ -71,6 +96,10 @@ export default function KontrolaSmluvPage() {
                       name="firstName"
                       placeholder="Jméno"
                       required
+                      value={formData.firstName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, firstName: e.target.value })
+                      }
                       className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
                     />
                     <input
@@ -78,6 +107,10 @@ export default function KontrolaSmluvPage() {
                       name="lastName"
                       placeholder="Příjmení"
                       required
+                      value={formData.lastName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, lastName: e.target.value })
+                      }
                       className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
                     />
                     <input
@@ -85,6 +118,10 @@ export default function KontrolaSmluvPage() {
                       name="phone"
                       placeholder="Telefon"
                       required
+                      value={formData.phone}
+                      onChange={(e) =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
                       className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
                     />
                     <input
@@ -92,6 +129,10 @@ export default function KontrolaSmluvPage() {
                       name="email"
                       placeholder="Email"
                       required
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                       className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
                     />
                   </div>
@@ -115,7 +156,9 @@ export default function KontrolaSmluvPage() {
                       key={id}
                       className="mb-6 border p-4 rounded bg-white shadow-sm relative"
                     >
-                      <h3 className="mb-2 font-semibold">Smlouva {index + 1}</h3>
+                      <h3 className="mb-2 font-semibold">
+                        Smlouva {index + 1}
+                      </h3>
 
                       <input
                         type="text"
@@ -158,7 +201,11 @@ export default function KontrolaSmluvPage() {
                       type="button"
                       onClick={addContract}
                       disabled={contracts.length >= 6}
-                      className={`bg-silverSage text-white py-2 px-4 rounded font-satoshi-bold ${contracts.length >= 6 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                      className={`bg-silverSage text-white py-2 px-4 rounded font-satoshi-bold ${
+                        contracts.length >= 6
+                          ? "opacity-50 cursor-not-allowed"
+                          : ""
+                      }`}
                     >
                       Přidat smlouvu
                     </button>
@@ -185,7 +232,8 @@ export default function KontrolaSmluvPage() {
             </form>
 
             <p className="text-cardGrey text-center w-full max-w-[850px] p-6 m-auto">
-              Odesláním formuláře berete na vědomí podmínky zpracování osobních údajů uvedené v informaci o zpracování osobních údajů.
+              Odesláním formuláře berete na vědomí podmínky zpracování osobních
+              údajů uvedené v informaci o zpracování osobních údajů.
             </p>
           </div>
         </section>
