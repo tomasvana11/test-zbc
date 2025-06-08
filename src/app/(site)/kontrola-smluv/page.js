@@ -57,39 +57,6 @@ export default function KontrolaSmluvPage() {
                   className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
                 />
 
-                <div className="md:col-span-2 md:flex md:justify-center">
-                  <div className="relative w-full md:w-1/2">
-                    <select
-                      name="role"
-                      required
-                      className="w-full appearance-none bg-inputLight text-black rounded p-2 pr-12 focus:outline-none focus:ring-1 focus:ring-silverSage text-inputPlacehoder"
-                      style={{ color: '#747271' }}
-                      defaultValue=""
-                    >
-                      <option value="" disabled hidden>
-                        Jaká role tě láká nejvíce?
-                      </option>
-                      {/* Pokud nemáš `positions`, můžeš tyto options nahradit staticky */}
-                      <option value="Role 1">Role 1</option>
-                      <option value="Role 2">Role 2</option>
-                    </select>
-
-                    <div
-                      className="pointer-events-none absolute inset-y-[9px] right-[9px] flex items-center justify-center rounded cursor-pointer"
-                      style={{
-                        width: '28px',
-                        height: '22px',
-                        backgroundColor: '#9D6219',
-                      }}
-                    >
-                      <img
-                        src="/images/chevron-down.svg"
-                        alt="šipka"
-                        className="w-4 h-4"
-                      />
-                    </div>
-                  </div>
-                </div>
               </div>
 
               <div className="w-full flex justify-center">
