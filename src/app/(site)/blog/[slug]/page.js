@@ -18,7 +18,7 @@ export default function BlogPostPage({ params }) {
   setShowLoader(true);
   const timer = setTimeout(() => {
     setShowLoader(false);
-  }, 500); // minimálně 500 ms
+  }, 500); // min 500 ms
 
   return () => clearTimeout(timer);
 }, [post]);
