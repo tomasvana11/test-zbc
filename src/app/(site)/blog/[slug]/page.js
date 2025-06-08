@@ -74,6 +74,57 @@ export default function BlogPostPage({ params }) {
           />
         </div>
       </section>
+      <section className="px-4 w-full">
+        <div className="max-w-[1392px] mx-auto">
+          <hr className="w-full border-1 h-[1px] lightDivGrey" />
+        </div>
+    </section>
+
+      {/* Nejnovější články */}
+      {latestPosts.length > 0 && (
+        <section className="flex flex-col items-center px-4 mx-auto py-12 md:py-24">
+          <div className="max-w-[1392px] w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {latestPosts.map((post) => (
+                <Link
+                  key={post.id}
+                  href={`/blog/${post.slug}`}
+                  className="flex flex-col bg-silkBeige/30 rounded-lg hover:shadow-lg transition overflow-hidden group"
+                >
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-52 object-cover rounded-lg"
+                  />
+                  <div className="px-5 md:px-6 pt-5 md:pt-8 flex flex-col flex-grow justify-between">
+                    <div>
+                      <h3
+                        className="text-lg text-goldenBrown text-[22px] md:text-[22px] font-satoshi-bold mb-4 md:mb-5 group-hover:underline"
+                        dangerouslySetInnerHTML={{ __html: post.title }}
+                      />
+                      <div
+                        className="text-raisinBlack"
+                        dangerouslySetInnerHTML={{ __html: post.excerpt }}
+                      />
+                    </div>
+                    <div className="flex flex-col gap-5 pt-5 pb-5 md:gap-5 md:pt-5 md:pb-6">
+                      <hr className="border-t border-raisinBlack/10" />
+                      <div className="mt-auto flex justify-between items-center text-goldenBrown">
+                        <span className="group-hover:underline">Otevřít článek</span>
+                        <span className="text-raisinBlack/20">{post.date}</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {latestError && (
+        <p className="text-red-600 text-center mt-4">{latestError}</p>
+      )}
 
       <section className="bg-silkBeige w-full py-12 md:py-16">
         <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center">Kontaktujte nás</h2>
@@ -160,51 +211,6 @@ export default function BlogPostPage({ params }) {
         </div>
       </section>
 
-      {/* Nejnovější články */}
-      {latestPosts.length > 0 && (
-        <section className="flex flex-col items-center px-4 -mt-12 md:-mt-16 pb-12 md:pb-24 z-[100] relative">
-          <div className="max-w-[1392px] w-full">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {latestPosts.map((post) => (
-                <Link
-                  key={post.id}
-                  href={`/blog/${post.slug}`}
-                  className="flex flex-col bg-silkBeige/30 rounded-lg hover:shadow-lg transition overflow-hidden group"
-                >
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-52 object-cover rounded-lg"
-                  />
-                  <div className="px-5 md:px-6 pt-5 md:pt-8 flex flex-col flex-grow justify-between">
-                    <div>
-                      <h3
-                        className="text-lg text-goldenBrown text-[22px] md:text-[22px] font-satoshi-bold mb-4 md:mb-5 group-hover:underline"
-                        dangerouslySetInnerHTML={{ __html: post.title }}
-                      />
-                      <div
-                        className="text-raisinBlack"
-                        dangerouslySetInnerHTML={{ __html: post.excerpt }}
-                      />
-                    </div>
-                    <div className="flex flex-col gap-5 pt-5 pb-5 md:gap-5 md:pt-5 md:pb-6">
-                      <hr className="border-t border-raisinBlack/10" />
-                      <div className="mt-auto flex justify-between items-center text-goldenBrown">
-                        <span className="group-hover:underline">Otevřít článek</span>
-                        <span className="text-raisinBlack/20">{post.date}</span>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {latestError && (
-        <p className="text-red-600 text-center mt-4">{latestError}</p>
-      )}
     </main>
   );
 }
