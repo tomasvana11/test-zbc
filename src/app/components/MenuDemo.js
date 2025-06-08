@@ -1,7 +1,6 @@
 'use client';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import clsx from 'clsx';
 
 export default function MenuDemo() {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -12,14 +11,14 @@ export default function MenuDemo() {
     setOpenDropdown(openDropdown === name ? null : name);
   };
 
-  // scroll efekt
+  // scroll detekce
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // klik mimo dropdown
+  // kliknutí mimo dropdown
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -32,23 +31,17 @@ export default function MenuDemo() {
 
   return (
     <div
-      className={clsx(
-        'fixed z-50 transition-all',
-        scrolled ? 'top-4 sm:top-4' : 'top-8 sm:top-0',
-        'left-0 right-0 sm:left-4 sm:right-4'
-      )}
+      className={`fixed z-50 transition-all ${
+        scrolled ? 'top-4 sm:top-4' : 'top-8 sm:top-0'
+      } left-0 right-0 sm:left-4 sm:right-4`}
     >
       <div
         ref={menuRef}
-        className={clsx(
-          'flex justify-between items-center transition-all',
-          'backdrop-blur-xl',
-          scrolled ? 'bg-zinc-900/75' : 'bg-transparent',
-          'p-4 sm:p-6',
-          'w-full sm:max-w-screen-xl',
-          'mx-0 sm:mx-auto',
-          'rounded-none sm:rounded-xl'
-        )}
+        className={`flex justify-between items-center transition-all backdrop-blur-xl ${
+          scrolled ? 'bg-zinc-900/75' : 'bg-transparent'
+        } ${'p-4 sm:p-6'} w-full sm:max-w-screen-xl ${
+          'mx-0 sm:mx-auto'
+        } rounded-none sm:rounded-xl`}
       >
         {/* Logo */}
         <div className="shrink-0">
@@ -59,7 +52,7 @@ export default function MenuDemo() {
           </Link>
         </div>
 
-        {/* Odkazy */}
+        {/* Navigace */}
         <ul className="flex gap-11 items-center text-[#E2DBD5] font-normal list-none m-0 p-0">
           <li>
             <Link href="/">Domů</Link>
