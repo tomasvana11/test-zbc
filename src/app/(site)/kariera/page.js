@@ -300,7 +300,7 @@ export default async function CareerPage() {
 
       {/* Výpis pozic */}
       <ul className="list-disc list-inside text-raisinBlack text-lg space-y-4 max-w-[700px] mx-auto mb-12">
-        {pozice.map((item) => (
+        {positions.map((item) => (
           <li key={item.id}>
             <Link
               href={`/kariera/${item.slug}`}
@@ -363,7 +363,7 @@ export default async function CareerPage() {
                 <option value="" disabled selected hidden>
                   Jaká role tě láká nejvíce?
                 </option>
-                {pozice.map((item) => (
+                {positions.map((item) => (
                   <option key={item.id} value={item.title?.rendered}>
                     {item.title?.rendered}
                     {item.acf?.lokalita ? ` — ${item.acf.lokalita}` : ''}
