@@ -18,7 +18,7 @@ export default function MenuDemo() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Kliknutí mimo dropdown
+  // Klik mimo zavře dropdown
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -54,7 +54,7 @@ export default function MenuDemo() {
           alignItems: 'center',
         }}
       >
-        {/* LOGO vlevo */}
+        {/* Logo vlevo */}
         <div style={{ flexShrink: 0 }}>
           <Link href="/" passHref>
             <a>
@@ -63,16 +63,17 @@ export default function MenuDemo() {
           </Link>
         </div>
 
-        {/* Menu odkazy */}
+        {/* Odkazy vpravo */}
         <ul
           style={{
             display: 'flex',
-            gap: '24px',
+            gap: '44px',
             listStyle: 'none',
             padding: 0,
             margin: 0,
             alignItems: 'center',
             fontWeight: 'normal',
+            color: '#E2DBD5',
           }}
         >
           <li>
@@ -80,11 +81,8 @@ export default function MenuDemo() {
           </li>
 
           {/* Dropdown: Služby */}
-          <li style={{ position: 'relative' }}>
-            <div
-              onClick={() => toggleDropdown('sluzby')}
-              style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
-            >
+          <li style={{ position: 'relative', cursor: 'pointer' }}>
+            <div onClick={() => toggleDropdown('sluzby')} style={{ display: 'flex', alignItems: 'center' }}>
               Služby
               <img src="/images/menu-chevron-down.svg" alt="šipka" style={{ marginLeft: 8, height: 24 }} />
             </div>
@@ -94,8 +92,8 @@ export default function MenuDemo() {
                   position: 'absolute',
                   top: '100%',
                   left: 0,
-                  backgroundColor: 'white',
-                  color: 'black',
+                  backgroundColor: 'rgba(226, 219, 213, 0.8)',
+                  color: '#232323',
                   boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
                   padding: '8px 0',
                   borderRadius: 4,
@@ -124,11 +122,8 @@ export default function MenuDemo() {
           </li>
 
           {/* Dropdown: Novinky a vzdělávání */}
-          <li style={{ position: 'relative' }}>
-            <div
-              onClick={() => toggleDropdown('novinky')}
-              style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
-            >
+          <li style={{ position: 'relative', cursor: 'pointer' }}>
+            <div onClick={() => toggleDropdown('novinky')} style={{ display: 'flex', alignItems: 'center' }}>
               Novinky a vzdělávání
               <img src="/images/menu-chevron-down.svg" alt="šipka" style={{ marginLeft: 8, height: 24 }} />
             </div>
@@ -138,8 +133,8 @@ export default function MenuDemo() {
                   position: 'absolute',
                   top: '100%',
                   left: 0,
-                  backgroundColor: 'white',
-                  color: 'black',
+                  backgroundColor: 'rgba(226, 219, 213, 0.8)',
+                  color: '#232323',
                   boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
                   padding: '8px 0',
                   borderRadius: 4,
