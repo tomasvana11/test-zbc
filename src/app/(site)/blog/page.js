@@ -40,7 +40,8 @@ export default async function BlogPage() {
         description={blogPage?.acf?.page_desc || null}
       />
 
-      <main className="flex flex-col items-center px-4 -mt-12 md:-mt-16 pb-12 md:pb-24 z-[100] relative">
+      <main className="flex min-h-screen flex-col items-center">
+        <section className="flex flex-col items-center px-4 -mt-12 md:-mt-16 pb-12 md:pb-24 z-[100] relative">
         <div className="max-w-[1392px] w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {posts.map((post) => (
@@ -78,6 +79,7 @@ export default async function BlogPage() {
 
           </div>
         </div>
+        </section>
         <section className="bg-silkBeige w-full py-12 md:py-16">
   <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center">Kontaktujte nás</h2>
   <p className="text-center text-raisinBlack">Chcete mít ve financích jasno a klid? <strong>Začněte tady.</strong></p>
@@ -187,6 +189,7 @@ export default async function BlogPage() {
   </div>
 
     </section>
+        
       </main>
     </div>
   );
