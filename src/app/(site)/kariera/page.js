@@ -39,8 +39,7 @@ export default async function CareerPage() {
       />
 
       <main className="flex min-h-screen flex-col items-center">
-        <section className="flex flex-col items-center px-4 -mt-12 md:-mt-16 pb-12 md:pb-24 z-[100] relative">
-          <div className="max-w-[1392px] w-full">
+        <section className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto py-12 md:py-24">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {positions.map((position) => (
                 <Link
@@ -75,7 +74,6 @@ export default async function CareerPage() {
                 </Link>
               ))}
             </div>
-          </div>
         </section>
 
         {/* ...zbytek s kontaktním formulářem necháváš beze změny */}
