@@ -45,8 +45,8 @@ export default async function CareerPage() {
   const why_4_desc = careerPage.acf?.why_4_desc || '';
   const why_5 = careerPage.acf?.why_5 || '';
   const why_5_desc = careerPage.acf?.why_5_desc || '';
-  const career_why_img = careerPage.acf?.career_intro_img?.url|| '';
-  const career_why_imgAlt = careerPage.acf?.career_intro_img?.alt || 'Intro obrázek';
+  const career_why_img = careerPage.acf?.career_why_img?.url|| '';
+  const career_why_imgAlt = careerPage.acf?.career_why_img?.alt || 'Intro obrázek';
 
   return (
     <div>
@@ -132,7 +132,7 @@ export default async function CareerPage() {
   />
 
   <div className="flex flex-col lg:flex-row w-full items-center max-w-[800px] mx-auto">
-    <div className="w-full">
+    <div className="w-full rounded-sm overflow-hidden relative z-[50]">
       <img
       src={career_why_img}
       alt={career_why_imgAlt}
