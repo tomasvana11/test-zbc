@@ -39,7 +39,7 @@ export default function MenuDemo() {
       <div style={{ flexShrink: 0 }}>
         <Link href="/" passHref>
           <a>
-            <img src="/logo.svg" alt="Logo" style={{ height: 40 }} />
+            <img src="/images/menu-zbc-logo-l.svg" alt="Logo" style={{ height: 32 }} />
           </a>
         </Link>
       </div>
@@ -68,7 +68,7 @@ export default function MenuDemo() {
           >
             Služby
             {/* 👇 Tvoje vlastní SVG šipka */}
-            <img src="/images/chevron-down.svg" alt="šipka" style={{ marginLeft: 6, height: 10 }} />
+            <img src="/images/menu-chevron-down.svg" alt="šipka" style={{ marginLeft: 6, height: 10 }} />
           </div>
           {openDropdown === 'sluzby' && (
             <ul
