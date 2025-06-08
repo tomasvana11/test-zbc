@@ -84,7 +84,7 @@ export default function BlogPostPage({ params }) {
       {latestPosts.length > 0 && (
         <section className="flex flex-col items-center px-4 mx-auto py-12 md:py-24">
           <div className="max-w-[1392px] w-full">
-            <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown"></h2>
+            <h2 className="text-[28px] md:text-[40px] mb-4 text-goldenBrown">vdvsv</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {latestPosts.map((post) => (
                 <Link
