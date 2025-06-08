@@ -5,12 +5,14 @@ import Link from 'next/link';
 export default function BlogPostPage({ params }) {
   const { slug } = params;
 
+  const [post, setPost] = useState(null);
+  const [error, setError] = useState(null);
+  const [latestPosts, setLatestPosts] = useState([]);
+  const [latestError, setLatestError] = useState(null);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
-
-  const [post, setPost] = useState(null);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -40,8 +42,6 @@ export default function BlogPostPage({ params }) {
   const articleContent = post.acf?.article_content || '<p>Obsah není k dispozici.</p>';
 
   // Fetch next posts
-  const [latestPosts, setLatestPosts] = useState([]);
-const [latestError, setLatestError] = useState(null);
 
 useEffect(() => {
   const fetchLatestPosts = async () => {
