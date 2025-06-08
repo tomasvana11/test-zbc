@@ -61,35 +61,38 @@ export default function Menu() {
         </button>
 
         {/* Desktop menu */}
-        <ul className="hidden md:flex gap-6 items-center text-silkBeige text-lg">
-          {menuItems.map((item) =>
-            item.children ? (
-              <li key={item.id} className="group relative cursor-pointer">
-                <div className="flex items-center gap-1">
-                  <span>{item.label}</span>
-                  <Image
-                    src="/images/chevron-down.svg"
-                    alt="dropdown"
-                    width={12}
-                    height={12}
-                    className="transition-transform group-hover:rotate-180"
-                  />
-                </div>
-                <ul className="absolute top-full left-0 bg-white text-raisinBlack shadow-md rounded mt-2 hidden group-hover:block min-w-[180px] z-50">
-                  {item.children.map((child) => (
-                    <li key={child.href} className="hover:bg-gray-100 px-4 py-2">
-                      <Link href={child.href}>{child.label}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ) : (
-              <li key={item.href}>
-                <Link href={item.href}>{item.label}</Link>
-              </li>
-            )
-          )}
+        <ul className="hidden md:flex gap-6 items-center text-silkBeige text-lg relative">
+  {menuItems.map((item) =>
+    item.children ? (
+      <li key={item.id} className="relative group cursor-pointer">
+        <div className="flex items-center gap-1">
+          <span>{item.label}</span>
+          {/* Chevron ONLY for desktop – no rotation */}
+          <Image
+            src="/images/chevron-down.svg"
+            alt="dropdown"
+            width={12}
+            height={12}
+            className="ml-1"
+          />
+        </div>
+        {/* Dropdown – stays open on hover */}
+        <ul className="absolute left-0 top-full bg-white text-raisinBlack shadow-md rounded mt-2 min-w-[180px] z-50 hidden group-hover:block group-focus-within:block">
+          {item.children.map((child) => (
+            <li key={child.href} className="hover:bg-gray-100 px-4 py-2 whitespace-nowrap">
+              <Link href={child.href}>{child.label}</Link>
+            </li>
+          ))}
         </ul>
+      </li>
+    ) : (
+      <li key={item.href}>
+        <Link href={item.href}>{item.label}</Link>
+      </li>
+    )
+  )}
+</ul>
+
       </div>
 
       {/* Mobilní menu (po otevření) */}
