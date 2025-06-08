@@ -56,7 +56,7 @@ export default async function CareerPage() {
       <main className="flex min-h-screen flex-col items-center">
         {/* Úvodní intro sekce */}
         <section className="px-4 w-full -mt-8 md:-mt-20 z-[50]">
-          <div className="flex flex-col lg:flex-row items-end w-full max-w-[1392px] mx-auto bg-white xl:bg-transparent">
+          <div className="flex flex-col lg:flex-row items-end w-full max-w-[1392px] mx-auto bg-white xl:bg-transparent pb-12 md:pb-16">
             <div className="flex w-full lg:w-1/2 mr-0 xl:mr-6 justify-center items-center bg-white xl:bg-transparent">
               <img
                 src={career_intro_img}
