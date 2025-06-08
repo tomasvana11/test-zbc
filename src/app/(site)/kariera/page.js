@@ -30,6 +30,11 @@ export default async function CareerPage() {
     };
   });
 
+  const career_intro_title = careerPage.acf?.career_intro_title || '';
+  const career_intro_detail = careerPage.acf?.career_intro_detail || '';
+  const career_intro_img = careerPage.acf?.career_intro_img || '';
+  const introImgAlt = careerPage.acf?.career_intro_img?.alt || 'Intro obrázek';
+
   return (
     <div>
       <PageHeader
@@ -38,7 +43,26 @@ export default async function CareerPage() {
       />
 
       <main className="flex min-h-screen flex-col items-center">
-        <section className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto py-12 md:py-24">
+        {/* Úvodní intro sekce */}
+        <section className="px-4 w-full -mt-8 md:-mt-20 z-[50]">
+          <div className="flex flex-col lg:flex-row items-end w-full max-w-[1392px] mx-auto bg-white xl:bg-transparent">
+            <div className="flex w-full lg:w-1/2 mr-0 xl:mr-6 justify-center items-center bg-white xl:bg-transparent">
+              <img
+                src={introImg}
+                alt={introImgAlt}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+            <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:pl-12 lg:mb-12">
+              <h2 className="text-[28px] lg:text-[40px] mb-4 text-goldenBrown">{career_intro_title}</h2>
+              <div
+                className="text-raisinBlack"
+                dangerouslySetInnerHTML={{ __html: career_intro_detail }}
+              />
+            </div>
+          </div>
+        </section>
+        <section className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto px-4 py-12 md:py-24">
           <div className="max-w-[1392px] w-full">
             <h2 className="text-[28px] md:text-[40px] mb-6 md:mb-12 text-center text-goldenBrown">Koho hledáme?</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
