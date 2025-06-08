@@ -1,4 +1,4 @@
-export default function CareerLayout({ children }) {
+export default function CheckLayout({ children }) {
   return (
     <>
       <main>{children}</main>
