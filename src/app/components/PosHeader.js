@@ -28,8 +28,12 @@ export default function PageHeader({ title, excerpt, imageUrl }) {
             <div className="w-full flex flex-col gap-4">
                 <hr className="w-full border-1 h-[1px] silkBeige opacity-50" />
                 {excerpt && (
-                    <p className="text-silkBeige text-left max-w-[700px]">{excerpt}</p>
+                    <div
+                        className="text-silkBeige text-left max-w-[700px]"
+                        dangerouslySetInnerHTML={{ __html: excerpt }}
+                    />
                 )}
+
                 <hr className="w-full border-1 h-[1px] silkBeige opacity-50" />
             </div>
         </div>
