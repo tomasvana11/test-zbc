@@ -5,11 +5,13 @@ import PageHeader from '../../components/PageHeader';
 
 export default function KontrolaSmluvPage() {
   const [step, setStep] = useState(1);
-  const [contracts, setContracts] = useState([0]);
+  const [contracts, setContracts] = useState([1]);
+  const [nextContractId, setNextContractId] = useState(2);
 
   const addContract = () => {
     if (contracts.length < 6) {
-      setContracts([...contracts, Date.now()]);
+      setContracts([...contracts, nextContractId]);
+      setNextContractId(nextContractId + 1);
     }
   };
 
@@ -53,7 +55,7 @@ export default function KontrolaSmluvPage() {
 
                     if (!type || !file || !expect) {
                       e.preventDefault();
-                      alert('Prosím vyplňte všechna pole u každé smlouvy.');
+                      alert(`Prosím vyplňte všechna pole u smlouvy č. ${id}.`);
                       return;
                     }
                   }
@@ -61,47 +63,49 @@ export default function KontrolaSmluvPage() {
               }}
             >
               {/* Krok 1 */}
-              <div className={step === 1 ? '' : 'hidden'}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    name="firstName"
-                    placeholder="Jméno"
-                    required
-                    className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-                  />
-                  <input
-                    type="text"
-                    name="lastName"
-                    placeholder="Příjmení"
-                    required
-                    className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-                  />
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Telefon"
-                    required
-                    className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    required
-                    className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-                  />
-                </div>
+              {step === 1 && (
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input
+                      type="text"
+                      name="firstName"
+                      placeholder="Jméno"
+                      required
+                      className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+                    />
+                    <input
+                      type="text"
+                      name="lastName"
+                      placeholder="Příjmení"
+                      required
+                      className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+                    />
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Telefon"
+                      required
+                      className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      required
+                      className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+                    />
+                  </div>
 
-                <div className="w-full flex justify-center">
-                  <button
-                    type="submit"
-                    className="w-full md:w-auto md:mt-[24px] bg-goldenBrown text-white py-2 px-6 rounded font-satoshi-bold"
-                  >
-                    Další krok
-                  </button>
-                </div>
-              </div>
+                  <div className="w-full flex justify-center">
+                    <button
+                      type="submit"
+                      className="w-full md:w-auto md:mt-[24px] bg-goldenBrown text-white py-2 px-6 rounded font-satoshi-bold"
+                    >
+                      Další krok
+                    </button>
+                  </div>
+                </>
+              )}
 
               {/* Krok 2 */}
               {step === 2 && (
