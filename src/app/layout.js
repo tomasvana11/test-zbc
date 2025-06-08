@@ -6,7 +6,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="cs">
       <body>
-        <Menu />     {/* přidej Menu sem */}
         <main>{children}</main>
         <Footer />
       </body>
