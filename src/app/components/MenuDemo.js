@@ -11,14 +11,14 @@ export default function MenuDemo() {
     setOpenDropdown(openDropdown === name ? null : name);
   };
 
-  // scroll detekce
+  // scroll barva
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // kliknutí mimo dropdown
+  // klik mimo zavře dropdown
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -31,49 +31,87 @@ export default function MenuDemo() {
 
   return (
     <div
-      className={`fixed z-50 transition-all ${
-        scrolled ? 'top-4 sm:top-4' : 'top-8 sm:top-0'
-      } left-0 right-0 sm:left-4 sm:right-4`}
+      style={{
+        position: 'fixed',
+        top: scrolled ? 16 : 32,
+        left: 16,
+        right: 16,
+        zIndex: 1000,
+        transition: 'top 0.3s ease',
+      }}
     >
       <div
         ref={menuRef}
-        className={`flex justify-between items-center transition-all backdrop-blur-xl ${
-          scrolled ? 'bg-zinc-900/75' : 'bg-transparent'
-        } ${'p-4 sm:p-6'} w-full sm:max-w-screen-xl ${
-          'mx-0 sm:mx-auto'
-        } rounded-none sm:rounded-xl`}
+        style={{
+          maxWidth: '1392px',
+          margin: '0 auto',
+          padding: '24px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          backgroundColor: scrolled ? 'rgba(35, 35, 35, 0.75)' : 'transparent',
+          borderRadius: '8px',
+          backdropFilter: scrolled ? 'blur(20px)' : 'none',
+          transition: 'background-color 0.3s ease, backdrop-filter 0.3s ease',
+        }}
       >
-        {/* Logo */}
-        <div className="shrink-0">
-          <Link href="/">
+        {/* Logo vlevo */}
+        <div style={{ flexShrink: 0 }}>
+          <Link href="/" passHref>
             <a>
-              <img src="/images/menu-zbc-logo-l.svg" alt="Logo" className="h-8" />
+              <img src="/images/menu-zbc-logo-l.svg" alt="Logo" style={{ height: 32 }} />
             </a>
           </Link>
         </div>
 
-        {/* Navigace */}
-        <ul className="flex gap-11 items-center text-[#E2DBD5] font-normal list-none m-0 p-0">
+        {/* Odkazy vpravo */}
+        <ul
+          style={{
+            display: 'flex',
+            gap: '44px',
+            listStyle: 'none',
+            padding: 0,
+            margin: 0,
+            alignItems: 'center',
+            fontWeight: 'normal',
+            color: '#E2DBD5',
+          }}
+        >
           <li>
             <Link href="/">Domů</Link>
           </li>
 
           {/* Dropdown: Služby */}
-          <li className="relative cursor-pointer">
-            <div onClick={() => toggleDropdown('sluzby')} className="flex items-center">
+          <li style={{ position: 'relative', cursor: 'pointer' }}>
+            <div onClick={() => toggleDropdown('sluzby')} style={{ display: 'flex', alignItems: 'center' }}>
               Služby
-              <img src="/images/menu-chevron-down.svg" alt="šipka" className="ml-2 h-6" />
+              <img src="/images/menu-chevron-down.svg" alt="šipka" style={{ marginLeft: 8, height: 24 }} />
             </div>
             {openDropdown === 'sluzby' && (
-              <ul className="absolute top-full left-0 bg-[#E2DBD5]/80 text-[#232323] shadow-lg py-2 rounded min-w-[160px] z-50">
+              <ul
+                style={{
+                  position: 'absolute',
+                  top: '100%',
+                  left: 0,
+                  backgroundColor: 'rgba(226, 219, 213, 0.8)',
+                  color: '#232323',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                  padding: '8px 0',
+                  borderRadius: 4,
+                  zIndex: 2000,
+                  minWidth: 160,
+                  listStyle: 'none',
+                  margin: 0,
+                }}
+              >
                 <li>
                   <Link href="/sluzby/sluzba-1">
-                    <a className="block px-5 py-2">Služba 1</a>
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Služba 1</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/sluzby/sluzba-2">
-                    <a className="block px-5 py-2">Služba 2</a>
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Služba 2</a>
                   </Link>
                 </li>
               </ul>
@@ -84,22 +122,37 @@ export default function MenuDemo() {
             <Link href="/reference">Reference</Link>
           </li>
 
-          {/* Dropdown: Novinky */}
-          <li className="relative cursor-pointer">
-            <div onClick={() => toggleDropdown('novinky')} className="flex items-center">
+          {/* Dropdown: Novinky a vzdělávání */}
+          <li style={{ position: 'relative', cursor: 'pointer' }}>
+            <div onClick={() => toggleDropdown('novinky')} style={{ display: 'flex', alignItems: 'center' }}>
               Novinky a vzdělávání
-              <img src="/images/menu-chevron-down.svg" alt="šipka" className="ml-2 h-6" />
+              <img src="/images/menu-chevron-down.svg" alt="šipka" style={{ marginLeft: 8, height: 24 }} />
             </div>
             {openDropdown === 'novinky' && (
-              <ul className="absolute top-full left-0 bg-[#E2DBD5]/80 text-[#232323] shadow-lg py-2 rounded min-w-[220px] z-50">
+              <ul
+                style={{
+                  position: 'absolute',
+                  top: '100%',
+                  left: 0,
+                  backgroundColor: 'rgba(226, 219, 213, 0.8)',
+                  color: '#232323',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                  padding: '8px 0',
+                  borderRadius: 4,
+                  zIndex: 2000,
+                  minWidth: 220,
+                  listStyle: 'none',
+                  margin: 0,
+                }}
+              >
                 <li>
                   <Link href="/novinky/novinka-1">
-                    <a className="block px-5 py-2">Novinka 1</a>
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Novinka 1</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/vzdelavani/vzdelavani-1">
-                    <a className="block px-5 py-2">Vzdělávání 1</a>
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Vzdělávání 1</a>
                   </Link>
                 </li>
               </ul>
