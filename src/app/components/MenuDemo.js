@@ -41,27 +41,26 @@ export default function MenuDemo() {
 
   const wrapperStyle = {
     position: 'fixed',
-    top: isMobile ? 0 : scrolled ? 16 : 32,
-    left: isMobile ? 0 : 16,
-    right: isMobile ? 0 : 16,
+    top: isTabletOrMobile ? 0 : scrolled ? 16 : 32,
+    left: isTabletOrMobile ? 0 : 16,
+    right: isTabletOrMobile ? 0 : 16,
     zIndex: 1000,
     transition: 'top 0.3s ease',
   };
 
   const containerStyle = {
-    maxWidth: isMobile ? '100%' : '1392px',
-    margin: isMobile ? 0 : '0 auto',
-    padding: isMobile ? 16 : 24,
+    maxWidth: isTabletOrMobile ? '100%' : '1392px',
+    margin: isTabletOrMobile ? 0 : '0 auto',
+    padding: isTabletOrMobile ? 16 : 24,
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: scrolled ? 'rgba(35, 35, 35, 0.75)' : 'transparent',
-    borderRadius: isMobile ? 0 : 8,
+    borderRadius: isTabletOrMobile ? 0 : 8,
     backdropFilter: scrolled ? 'blur(20px)' : 'none',
     transition: 'background-color 0.3s ease, backdrop-filter 0.3s ease',
   };
 
-  // Styl pro menu button (zobrazený pod 1024px)
   const menuButtonStyle = {
     display: 'flex',
     alignItems: 'center',
@@ -94,7 +93,6 @@ export default function MenuDemo() {
           </Link>
         </div>
 
-        {/* Pokud je pod 1024px, zobrazíme jen menu button */}
         {isTabletOrMobile ? (
           <>
             <button
@@ -168,7 +166,6 @@ export default function MenuDemo() {
             )}
           </>
         ) : (
-          // Desktop/nad 1024px: klasická navigace
           <ul
             style={{
               display: 'flex',
@@ -185,7 +182,6 @@ export default function MenuDemo() {
               <Link href="/">Domů</Link>
             </li>
 
-            {/* Dropdown: Služby */}
             <li style={{ position: 'relative', cursor: 'pointer' }}>
               <div onClick={() => toggleDropdown('sluzby')} style={{ display: 'flex', alignItems: 'center' }}>
                 Služby
@@ -226,7 +222,6 @@ export default function MenuDemo() {
               <Link href="/reference">Reference</Link>
             </li>
 
-            {/* Dropdown: Novinky a vzdělávání */}
             <li style={{ position: 'relative', cursor: 'pointer' }}>
               <div onClick={() => toggleDropdown('novinky')} style={{ display: 'flex', alignItems: 'center' }}>
                 Novinky a vzdělávání
