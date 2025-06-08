@@ -32,7 +32,7 @@ export default async function CareerPage() {
 
   const career_intro_title = careerPage.acf?.career_intro_title || '';
   const career_intro_detail = careerPage.acf?.career_intro_detail || '';
-  const career_intro_img = careerPage.acf?.career_intro_img || '';
+  const career_intro_img = careerPage.acf?.career_intro_img?.url || '';
   const career_intro_imgAlt = careerPage.acf?.career_intro_img?.alt || 'Intro obrázek';
 
   return (
