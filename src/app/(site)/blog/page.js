@@ -54,10 +54,10 @@ export default async function BlogPage() {
                     alt={post.title}
                     className="w-full h-52 object-cover rounded-lg"
                     />
-                    <div className="px-6 pt-8 flex flex-col flex-grow justify-between">
+                    <div className="px-5 md:px-6 pt-5 md:pt-8 flex flex-col flex-grow justify-between">
                         <div>
                             <h3
-                            className="text-lg text-goldenBrown text-[22px] font-satoshi-bold mb-5 group-hover:underline"
+                            className="text-lg text-goldenBrown text-[22px] md:text-[22px] font-satoshi-bold mb-4 md:mb-5 group-hover:underline"
                             dangerouslySetInnerHTML={{ __html: post.title }}
                             />
                             <div
@@ -65,7 +65,7 @@ export default async function BlogPage() {
                             dangerouslySetInnerHTML={{ __html: post.excerpt }}
                             />
                         </div>
-                        <div className="flex flex-col gap-5 pt-5 pb-6">
+                        <div className="flex flex-col gap-5 pt-5 pb-5 md:gap-5 md:pt-5 md:pb-6">
                             <hr className="border-t border-raisinBlack/10" />
                             <div className="mt-auto flex justify-between items-center text-goldenBrown">
                                 <span className="hover:underline">Otevřít článek</span>
