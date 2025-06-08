@@ -17,17 +17,7 @@ export default async function KarieraPage() {
   return (
     <main className="relative z-100">
 
-      <section className="px-4 w-full -mt-8 md:-mt-20 z-[50]">
-        <div className="flex flex-col lg:flex-row items-end w-full max-w-[1392px] mx-auto bg-white xl:bg-transparent">
-          <div className="flex w-full lg:w-1/2 mr-0 xl:mr-6 justify-center items-center bg-white xl:bg-transparent">
-            <img src={career_intro_img} alt={career_intro_img.alt} className="w-full h-auto object-contain" />
-          </div>
-          <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:pl-12 lg:mb-12">
-            <h2 className="text-[28px] lg:text-[40px] mb-4 text-goldenBrown">{career_intro_title}</h2>
-            <div className="text-raisinBlack" dangerouslySetInnerHTML={{ __html: career_intro_detail }} />
-          </div>
-        </div>
-      </section>
+      
 
       {/* Sekce: Recenze */}
       <section className="px-4 w-full py-12 md:py-24 bg-silverSage recenze">
