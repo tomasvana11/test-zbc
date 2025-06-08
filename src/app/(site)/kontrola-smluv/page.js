@@ -5,7 +5,7 @@ import PageHeader from '../../components/PageHeader';
 
 export default function KontrolaSmluvPage() {
   const [step, setStep] = useState(1);
-  const [contracts, setContracts] = useState([0]); // jen indexy pro mapování smluv
+  const [contracts, setContracts] = useState([0]);
 
   const addContract = () => {
     if (contracts.length < 6) {
@@ -41,50 +41,50 @@ export default function KontrolaSmluvPage() {
                 }
               }}
             >
-              {step === 1 && (
-                <>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input
-                      type="text"
-                      name="firstName"
-                      placeholder="Jméno"
-                      required
-                      className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-                    />
-                    <input
-                      type="text"
-                      name="lastName"
-                      placeholder="Příjmení"
-                      required
-                      className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-                    />
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="Telefon"
-                      required
-                      className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-                    />
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Email"
-                      required
-                      className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-                    />
-                  </div>
+              {/* KROK 1: OSOBNÍ ÚDAJE – zůstává i ve 2. kroku, ale skrytý */}
+              <div className={step === 1 ? '' : 'hidden'}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    name="firstName"
+                    placeholder="Jméno"
+                    required
+                    className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+                  />
+                  <input
+                    type="text"
+                    name="lastName"
+                    placeholder="Příjmení"
+                    required
+                    className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+                  />
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Telefon"
+                    required
+                    className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                    className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+                  />
+                </div>
 
-                  <div className="w-full flex justify-center">
-                    <button
-                      type="submit"
-                      className="w-full md:w-auto md:mt-[24px] bg-goldenBrown text-white py-2 px-6 rounded font-satoshi-bold"
-                    >
-                      Další krok
-                    </button>
-                  </div>
-                </>
-              )}
+                <div className="w-full flex justify-center">
+                  <button
+                    type="submit"
+                    className="w-full md:w-auto md:mt-[24px] bg-goldenBrown text-white py-2 px-6 rounded font-satoshi-bold"
+                  >
+                    Další krok
+                  </button>
+                </div>
+              </div>
 
+              {/* KROK 2: SMLUVNÍ ÚDAJE */}
               {step === 2 && (
                 <>
                   {contracts.map((i) => (
@@ -149,7 +149,7 @@ export default function KontrolaSmluvPage() {
             </form>
 
             <p className="text-cardGrey text-center w-full max-w-[850px] p-6 m-auto">
-              Odesláním formuláře berete na vědomí podmínky zpracování osobních údajů uvedené v informaci o zpracování osobních údajů
+              Odesláním formuláře berete na vědomí podmínky zpracování osobních údajů uvedené v informaci o zpracování osobních údajů.
             </p>
           </div>
         </section>
