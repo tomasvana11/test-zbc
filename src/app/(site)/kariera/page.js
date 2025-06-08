@@ -8,8 +8,19 @@ export default async function KarieraPage() {
   cache: 'no-store',
 });
 
+const homepageRes = await fetch(
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=homepage&_embed',
+    { next: { revalidate: 60 } }
+  );
+  if (!homepageRes.ok) throw new Error('Failed to fetch homepage');
+  const homepageData = await homepageRes.json();
+  const homepage = homepageData[0];
 
-  const { career_intro_title = '', career_intro_detail = '', career_intro_img = '' } = kariera.acf || {};
+  const hp_m_title = page.acf?.hp_m_title || '';
+  const hp_m_desc = page.acf?.hp_m_desc || '';
+  const hp_v_title = page.acf?.hp_v_title || '';
+  const hp_v_desc = page.acf?.hp_v_desc || ''; 
+
 
   const recenze = await recenzeRes.json();
   const pozice = await poziceRes.json();
@@ -17,7 +28,26 @@ export default async function KarieraPage() {
   return (
     <main className="relative z-100">
 
-      
+      <section className="px-4 w-full">
+        <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto py-12 md:py-24">
+        <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
+          <div className="flex items-center justify-between mb-4 md:mb-6">
+            <h2 className="text-[28px] md:text-[40px] text-goldenBrown">{hp_m_title}</h2>
+            <img src="/images/IconMise.svg" alt="Ikona mise" className="w-[30px] h-[30px] md:w-[38px] md:h-[38px]" />
+          </div>
+          <hr className="border-lightDivGrey"/>
+          <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: hp_m_desc }} />
+        </div>
+        <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
+          <div className="flex items-center justify-between mb-4 md:mb-6">
+            <h2 className="text-[28px] md:text-[40px] text-goldenBrown">{hp_v_title}</h2>
+            <img src="/images/IconVize.svg" alt="Ikona Vize" className="w-[34px] h-[24px] md:w-[38px] md:h-[38px]" />
+          </div>
+          <hr className="border-lightDivGrey"/>
+          <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: hp_v_desc }} />
+        </div>
+        </div>
+      </section>
 
       {/* Sekce: Recenze */}
       <section className="px-4 w-full py-12 md:py-24 bg-silverSage recenze">
