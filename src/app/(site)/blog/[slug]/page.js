@@ -12,6 +12,18 @@ export default function BlogPostPage({ params }) {
   const [error, setError] = useState(null);
   const [latestPosts, setLatestPosts] = useState([]);
   const [latestError, setLatestError] = useState(null);
+  const [showLoader, setShowLoader] = useState(false);
+
+  useEffect(() => {
+  setShowLoader(true);
+  const timer = setTimeout(() => {
+    setShowLoader(false);
+  }, 500); // minimálně 500 ms
+
+  return () => clearTimeout(timer);
+}, [post]);
+
+
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -61,7 +73,7 @@ export default function BlogPostPage({ params }) {
     return <p className="text-red-600 text-center">{error}</p>;
   }
 
-  if (!post) {
+  if (!post || showLoader) {
   return (
     <div className="fixed inset-0 flex flex-col items-center justify-center bg-white z-50">
       <Hourglass size="60" bgOpacity="0.1" speed="1.75" color="black" />
@@ -69,6 +81,7 @@ export default function BlogPostPage({ params }) {
     </div>
   );
 }
+
 
 
 
