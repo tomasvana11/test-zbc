@@ -50,7 +50,7 @@ export default function BlogPostPage({ params }) {
             />
         </div>
     </section>
-    <section className="bg-silkBeige w-full px-4 py-12 md:py-16">
+    <section className="bg-silkBeige w-full py-12 md:py-16">
   <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center">Kontaktujte nás</h2>
   <p className="text-center text-raisinBlack">Chcete mít ve financích jasno a klid? <strong>Začněte tady.</strong></p>
   
