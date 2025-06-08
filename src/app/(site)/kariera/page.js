@@ -1,3 +1,6 @@
+import PageHeader from '../../components/PageHeader';
+import Link from 'next/link';
+
 export default async function CareerPage() {
   // Fetch stránky kariera
   const careerPageRes = await fetch(
