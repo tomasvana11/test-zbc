@@ -47,6 +47,7 @@ export default async function CareerPage() {
   const why_5_desc = careerPage.acf?.why_5_desc || '';
   const career_why_img = careerPage.acf?.career_why_img?.url|| '';
   const career_why_imgAlt = careerPage.acf?.career_why_img?.alt || 'Intro obrázek';
+  const career_why_vid = careerPage.acf?.career_why_vid || '';
 
   return (
     <div>
@@ -139,6 +140,19 @@ export default async function CareerPage() {
       className="w-full h-auto object-contain"/>
     </div>
   </div>
+  <div className="flex flex-col lg:flex-row w-full items-center max-w-[800px] mx-auto">
+  <div className="w-full rounded-sm overflow-hidden relative z-[50] aspect-video">
+    <iframe
+      className="w-full h-full"
+      src={`https://www.youtube.com/embed/${career_why_vid?.split('v=')[1]}`}
+      title="YouTube video"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    />
+  </div>
+</div>
+
       </section>
         {/*Benefity*/}
         {/*Pozice*/}
