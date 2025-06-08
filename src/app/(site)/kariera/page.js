@@ -33,7 +33,7 @@ export default async function CareerPage() {
   const career_intro_title = careerPage.acf?.career_intro_title || '';
   const career_intro_detail = careerPage.acf?.career_intro_detail || '';
   const career_intro_img = careerPage.acf?.career_intro_img || '';
-  const introImgAlt = careerPage.acf?.career_intro_img?.alt || 'Intro obrázek';
+  const career_intro_imgAlt = careerPage.acf?.career_intro_img?.alt || 'Intro obrázek';
 
   return (
     <div>
@@ -48,8 +48,8 @@ export default async function CareerPage() {
           <div className="flex flex-col lg:flex-row items-end w-full max-w-[1392px] mx-auto bg-white xl:bg-transparent">
             <div className="flex w-full lg:w-1/2 mr-0 xl:mr-6 justify-center items-center bg-white xl:bg-transparent">
               <img
-                src={introImg}
-                alt={introImgAlt}
+                src={career_intro_img}
+                alt={career_intro_imgAlt}
                 className="w-full h-auto object-contain"
               />
             </div>
