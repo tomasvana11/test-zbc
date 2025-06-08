@@ -49,6 +49,12 @@ export default async function CareerPage() {
   const career_why_imgAlt = careerPage.acf?.career_why_img?.alt || 'Intro obrázek';
   const career_why_vid = careerPage.acf?.career_why_vid || '';
   const career_ben_vid = careerPage.acf?.career_ben_vid || ''; 
+  const career_ben_title = careerPage.acf?.career_ben_title || '';
+  const career_ben_card_1 = page.acf?.career_ben_card_1 || '';
+  const career_ben_card_2 = page.acf?.career_ben_card_2 || '';  
+  const career_ben_card_3 = page.acf?.career_ben_card_3 || '';  
+  const career_ben_card_4 = page.acf?.career_ben_card_4 || '';  
+  const career_ben_card_5 = page.acf?.career_ben_card_5 || '';    
 
   return (
     <div>
@@ -148,6 +154,38 @@ export default async function CareerPage() {
 
         </section>
         {/*Benefity*/}
+        <section className="bg-silkBeige px-4 w-full py-12 md:py-16">
+        
+        <div className="w-full max-w-[1392px] mx-auto text-center">
+          <h2 className="text-[28px] md:text-[40px] pb-8 md:pb-10 text-white text-center">{career_ben_title}</h2>
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+              <div className="bg-cardBeige p-5 rounded-lg flex flex-col gap-5 items-center">
+                <img src="/images/icon-mag-glass.svg" alt="Symbol Gold" className="w-[68px] h-[68px]" />
+                <div className="mt-2 text-center card-text-fp text-goldenBrown" dangerouslySetInnerHTML={{ __html: career_ben_card_1 }} />
+              </div>
+              <div className="bg-cardBeige p-5 rounded-lg flex flex-col gap-5 items-center">
+                <img src="/images/icon-graph.svg" alt="Symbol Silver" className="w-[68px] h-[68px]" />
+                <div className="mt-2 text-center card-text-fp text-goldenBrown" dangerouslySetInnerHTML={{ __html: career_ben_card_2 }} />
+              </div>
+              <div className="bg-cardBeige p-5 rounded-lg flex flex-col gap-5 items-center">
+                <img src="/images/icon-trust.svg" alt="Symbol Gold" className="w-[68px] h-[68px]" />
+                <div className="mt-2 text-center card-text-fp text-goldenBrown" dangerouslySetInnerHTML={{ __html: career_ben_card_3 }} />
+              </div>
+              <div className="bg-cardBeige p-5 rounded-lg flex flex-col gap-5 items-center">
+                <img src="/images/icon-mountain.svg" alt="Symbol Silver" className="w-[68px] h-[68px]" />
+                <div className="mt-2 text-center card-text-fp text-goldenBrown" dangerouslySetInnerHTML={{ __html: career_ben_card_4 }} />
+              </div>
+              <div className="bg-cardBeige p-5 rounded-lg flex flex-col gap-5 items-center">
+                <img src="/images/icon-certificate.svg" alt="Symbol Gold" className="w-[68px] h-[68px]" />
+                <div className="mt-2 text-center card-text-fp text-goldenBrown" dangerouslySetInnerHTML={{ __html: career_ben_card_5 }} />
+              </div>
+            </div>
+            
+          <a href="https://zabohatsicesko.cz/financni-plan" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Zjistit jak začít</a>
+        </div>
+        
+
+        </section>
         <section className="relative bg-silkBeige w-full px-4 pb-24 md:pb-32 overflow-hidden">
   <img
     src="/images/symbol-pattern-l-rev.svg"
