@@ -12,14 +12,12 @@ export default function MenuDemo() {
     setOpenDropdown(openDropdown === name ? null : name);
   };
 
-  // scroll barva
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // klik mimo zavře dropdown
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -30,7 +28,6 @@ export default function MenuDemo() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // detekce mobilu podle šířky okna (např. max-width 640px)
   useEffect(() => {
     function checkMobile() {
       setIsMobile(window.innerWidth <= 640);
@@ -40,17 +37,15 @@ export default function MenuDemo() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // styly wrapperu (fixed div)
   const wrapperStyle = {
     position: 'fixed',
-    top: scrolled ? 16 : 16, // margin top 16px i při ne-scrollu
+    top: isMobile ? 0 : scrolled ? 16 : 32,
     left: isMobile ? 0 : 16,
     right: isMobile ? 0 : 16,
     zIndex: 1000,
     transition: 'top 0.3s ease',
   };
 
-  // styly rámečku (vnitřní div)
   const containerStyle = {
     maxWidth: isMobile ? '100%' : '1392px',
     margin: isMobile ? 0 : '0 auto',
