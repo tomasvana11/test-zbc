@@ -1,128 +1,147 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+
+const menuItems = [
+  {
+    id: 'o-nas',
+    label: 'O nás',
+    children: [
+      { label: 'Náš tým', href: '/tym' },
+      { label: 'Historie', href: '/historie' },
+    ],
+  },
+  {
+    id: 'sluzby',
+    label: 'Služby',
+    children: [
+      { label: 'Konzultace', href: '/konzultace' },
+      { label: 'Realizace', href: '/realizace' },
+    ],
+  },
+  {
+    label: 'Blog',
+    href: '/blog',
+  },
+  {
+    label: 'Kontakt',
+    href: '/kontakt',
+  },
+];
 
 export default function Menu() {
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const [openDropdown, setOpenDropdown] = useState(null)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const toggleMobile = () => {
-    setMobileOpen(!mobileOpen)
-    setOpenDropdown(null)
-  }
-
-  const toggleDropdown = (id) => {
-    setOpenDropdown(openDropdown === id ? null : id)
-  }
-
-  const menuItems = [
-    { label: 'O nás', href: '/about' },
-    {
-      label: 'Služby',
-      id: 'services',
-      children: [
-        { label: 'Finanční plánování', href: '/sluzby/planovani' },
-        { label: 'Investice', href: '/sluzby/investice' },
-      ],
-    },
-    {
-      label: 'Poradci',
-      id: 'advisors',
-      children: [
-        { label: 'Václav Svatoš', href: '/poradci/vaclav' },
-        { label: 'Sabina Vytisková', href: '/poradci/sabina' },
-      ],
-    },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Kontakt', href: '/kontakt' },
-  ]
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize(); // initialize
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
-    <nav className="absolute top-0 left-0 w-full z-[200]">
-      <div className="flex justify-between items-center px-4 md:px-8 py-4 bg-transparent">
-        {/* Logo vlevo */}
+    <nav className="absolute top-0 left-0 w-full z-50">
+      <div className="max-w-[1392px] mx-auto px-4 py-4 flex items-center justify-between">
+        {/* Logo (switches when mobile menu open) */}
         <Link href="/">
-          <Image src="/images/logo.svg" alt="logo" width={160} height={32} />
+          <Image
+            src={isMenuOpen && isMobile ? '/images/logo-white.svg' : '/images/logo.svg'}
+            alt="Logo"
+            width={150}
+            height={40}
+            priority
+          />
         </Link>
 
-        {/* Mobilní toggle */}
-        <button onClick={toggleMobile} className="md:hidden flex items-center gap-2">
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex items-center gap-10 text-silkBeige text-lg">
+          {menuItems.map((item) =>
+            item.children ? (
+              <li
+                key={item.id}
+                className="relative group"
+                onMouseEnter={() => setOpenDropdown(item.id)}
+                onMouseLeave={() => setOpenDropdown(null)}
+              >
+                <div className="flex items-center gap-2 cursor-pointer">
+                  <span>{item.label}</span>
+                  <Image
+                    src="/images/chevron-down.svg"
+                    alt=""
+                    width={12}
+                    height={12}
+                  />
+                </div>
+                {/* Dropdown */}
+                {openDropdown === item.id && (
+                  <ul className="absolute top-full left-0 mt-2 bg-white text-raisinBlack shadow-lg rounded px-4 py-2 z-50 min-w-[160px]">
+                    {item.children.map((child) => (
+                      <li key={child.href} className="py-1 hover:underline">
+                        <Link href={child.href}>{child.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ) : (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            )
+          )}
+        </ul>
+
+        {/* Mobile Toggle */}
+        <div
+          className="md:hidden flex items-center gap-2 cursor-pointer z-50"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
           <Image
-            src={mobileOpen ? '/images/close.svg' : '/images/menu.svg'}
-            alt="toggle"
+            src={isMenuOpen ? '/images/close.svg' : '/images/menu.svg'}
+            alt={isMenuOpen ? 'Zavřít' : 'Menu'}
             width={24}
             height={24}
           />
-          <span className="text-silkBeige text-lg">
-            {mobileOpen ? 'Zavřít' : 'Menu'}
+          <span className="text-silkBeige font-medium uppercase text-lg">
+            {isMenuOpen ? 'Zavřít' : 'Menu'}
           </span>
-        </button>
-
-        {/* Desktop menu */}
-        <ul className="hidden md:flex gap-6 items-center text-silkBeige text-lg relative">
-  {menuItems.map((item) =>
-    item.children ? (
-      <li key={item.id} className="relative group cursor-pointer">
-        <div className="flex items-center gap-1">
-          <span>{item.label}</span>
-          {/* Chevron ONLY for desktop – no rotation */}
-          <Image
-            src="/images/chevron-down.svg"
-            alt="dropdown"
-            width={12}
-            height={12}
-            className="ml-1"
-          />
         </div>
-        {/* Dropdown – stays open on hover */}
-        <ul className="absolute left-0 top-full bg-white text-raisinBlack shadow-md rounded mt-2 min-w-[180px] z-50 hidden group-hover:block group-focus-within:block">
-          {item.children.map((child) => (
-            <li key={child.href} className="hover:bg-gray-100 px-4 py-2 whitespace-nowrap">
-              <Link href={child.href}>{child.label}</Link>
-            </li>
-          ))}
-        </ul>
-      </li>
-    ) : (
-      <li key={item.href}>
-        <Link href={item.href}>{item.label}</Link>
-      </li>
-    )
-  )}
-</ul>
-
       </div>
 
-      {/* Mobilní menu (po otevření) */}
-      {mobileOpen && (
-        <div className="md:hidden bg-silkBeige text-raisinBlack min-h-screen w-full p-6 z-[200] relative">
-          <div className="absolute top-6 right-6">
-            <Image src="/images/logo-alt.svg" alt="logo mobile" width={100} height={28} />
-          </div>
-
-          <ul className="flex flex-col gap-6 mt-10">
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-[200] bg-silkBeige text-raisinBlack flex flex-col items-center justify-center px-8 py-20">
+          <ul className="flex flex-col gap-6 items-center text-xl w-full max-w-[320px]">
             {menuItems.map((item) =>
               item.children ? (
-                <li key={item.id}>
-                  <button
-                    onClick={() => toggleDropdown(item.id)}
-                    className="flex justify-between items-center w-full text-left"
+                <li key={item.id} className="w-full">
+                  <div
+                    className="flex items-center justify-between w-full cursor-pointer"
+                    onClick={() =>
+                      setOpenDropdown((prev) =>
+                        prev === item.id ? null : item.id
+                      )
+                    }
                   >
-                    {item.label}
+                    <span>{item.label}</span>
                     <Image
                       src="/images/chevron-down.svg"
                       alt="dropdown"
                       width={16}
                       height={16}
-                      className={`transition-transform ${
+                      className={`transition-transform duration-300 ${
                         openDropdown === item.id ? 'rotate-180' : ''
                       }`}
                     />
-                  </button>
+                  </div>
                   {openDropdown === item.id && (
-                    <ul className="pl-4 mt-2 flex flex-col gap-2">
+                    <ul className="mt-2 ml-2 flex flex-col gap-2">
                       {item.children.map((child) => (
                         <li key={child.href}>
                           <Link href={child.href}>{child.label}</Link>
@@ -132,7 +151,7 @@ export default function Menu() {
                   )}
                 </li>
               ) : (
-                <li key={item.href}>
+                <li key={item.href} className="w-full text-center">
                   <Link href={item.href}>{item.label}</Link>
                 </li>
               )
@@ -141,5 +160,5 @@ export default function Menu() {
         </div>
       )}
     </nav>
-  )
+  );
 }
