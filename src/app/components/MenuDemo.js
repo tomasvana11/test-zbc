@@ -11,14 +11,14 @@ export default function MenuDemo() {
     setOpenDropdown(openDropdown === name ? null : name);
   };
 
-  // Scroll barva
+  // scroll barva
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Klik mimo zavře dropdown
+  // klik mimo zavře dropdown
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -33,13 +33,11 @@ export default function MenuDemo() {
     <div
       style={{
         position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        marginTop: '32px',
+        top: scrolled ? 16 : 32,
+        left: 16,
+        right: 16,
         zIndex: 1000,
-        backgroundColor: scrolled ? '#c00' : 'transparent',
-        transition: 'background-color 0.3s ease',
+        transition: 'top 0.3s ease',
       }}
     >
       <div
@@ -47,11 +45,14 @@ export default function MenuDemo() {
         style={{
           maxWidth: '1392px',
           margin: '0 auto',
-          padding: '0 16px',
-          height: '60px',
+          padding: '24px',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          backgroundColor: scrolled ? 'rgba(35, 35, 35, 0.75)' : 'transparent',
+          borderRadius: '8px',
+          backdropFilter: scrolled ? 'blur(20px)' : 'none',
+          transition: 'background-color 0.3s ease, backdrop-filter 0.3s ease',
         }}
       >
         {/* Logo vlevo */}
