@@ -68,7 +68,7 @@ export default async function BlogPage() {
                         <div className="flex flex-col gap-5 pt-5 pb-5 md:gap-5 md:pt-5 md:pb-6">
                             <hr className="border-t border-raisinBlack/10" />
                             <div className="mt-auto flex justify-between items-center text-goldenBrown">
-                                <span className="hover:underline">Otevřít článek</span>
+                                <span className="group-hover:underline">Otevřít článek</span>
                                 <span className="text-raisinBlack/20">{post.date}</span>
                             </div>
                         </div>
