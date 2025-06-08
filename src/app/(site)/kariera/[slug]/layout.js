@@ -1,10 +1,13 @@
-import PageHeader from '../../../components/PosHeader';
+import PageHeader from '../../../components/BlogHeader';
 
 export default async function PostLayout({ children, params }) {
   const { slug } = params;
 
-  const res = await fetch(`https://api.zabohatsicesko.cz/wp-json/wp/v2/blog?slug=${slug}&_embed`);
-  if (!res.ok) throw new Error('Failed to fetch job post');
+  const res = await fetch(`https://api.zabohatsicesko.cz/wp-json/wp/v2/pracovni-pozice?slug=${slug}&_embed`, {
+    next: { revalidate: 60 }, // ISR - pokud chceš refresh každou minutu
+  });
+
+  if (!res.ok) throw new Error('Nepodařilo se načíst pracovní pozici.');
   const data = await res.json();
   const post = data[0];
 
@@ -13,12 +16,7 @@ export default async function PostLayout({ children, params }) {
   }
 
   const title = post.title?.rendered || 'Pozice';
-
-  const excerpt = post.excerpt?.rendered || 'Popis';
-
-
-
-
+  const excerpt = post.excerpt?.rendered || '';
   const imageUrl = post?._embedded?.['wp:featuredmedia']?.[0]?.source_url || null;
 
   return (

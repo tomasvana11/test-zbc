@@ -314,28 +314,28 @@ export default async function CareerPage() {
           name="firstName"
           placeholder="Jméno"
           required
-          className="w-full bg-inputLight rounded p-2 placeholder-inputPlacehoder"
+          className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
         />
         <input
           type="text"
           name="lastName"
           placeholder="Příjmení"
           required
-          className="w-full bg-inputLight rounded p-2 placeholder-inputPlacehoder"
+          className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
         />
         <input
           type="tel"
           name="phone"
           placeholder="Telefon"
           required
-          className="w-full bg-inputLight rounded p-2 placeholder-inputPlacehoder"
+          className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
         />
         <input
           type="email"
           name="email"
           placeholder="Email"
           required
-          className="w-full bg-inputLight rounded p-2 placeholder-inputPlacehoder"
+          className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
         />
 
         <div className="md:col-span-2 md:flex md:justify-center">
@@ -343,7 +343,7 @@ export default async function CareerPage() {
             <select
               name="role"
               required
-              className="w-full appearance-none bg-inputLight text-black rounded p-2 pr-12 text-inputPlacehoder"
+              className="w-full appearance-none bg-inputLight text-black rounded p-2 pr-12 focus:outline-none focus:ring-1 focus:ring-silverSage text-inputPlacehoder"
               style={{ color: '#747271' }}
               defaultValue=""
             >

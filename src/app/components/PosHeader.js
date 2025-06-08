@@ -1,4 +1,4 @@
-export default function PageHeader({ title, date, imageUrl }) {
+export default function PageHeader({ title, excerpt, imageUrl }) {
   return (
     <section
       className="relative w-full min-h-[500px] overflow-hidden bg-[url('/images/heroimage.png')] bg-no-repeat bg-cover bg-center pt-[76px] md:pt-[100px] px-4"
