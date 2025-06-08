@@ -64,7 +64,7 @@ export default async function CareerPage() {
                 className="w-full h-auto object-contain"
               />
             </div>
-            <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:pl-12 l:mb-12">
+            <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:pl-12 lg:mb-12">
               <h2 className="text-[28px] lg:text-[40px] mb-4 text-goldenBrown">{career_intro_title}</h2>
               <div
                 className="text-raisinBlack"
