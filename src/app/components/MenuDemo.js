@@ -99,6 +99,10 @@ export default function MenuDemo() {
           )}
         </li>
 
+        <li>
+          <Link href="/reference">Reference</Link>
+        </li>
+
         {/* Dropdown: Novinky a vzdělávání */}
         <li style={{ position: 'relative' }}>
           <div
