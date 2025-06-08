@@ -34,6 +34,17 @@ export default async function CareerPage() {
   const career_intro_detail = careerPage.acf?.career_intro_detail || '';
   const career_intro_img = careerPage.acf?.career_intro_img?.url || '';
   const career_intro_imgAlt = careerPage.acf?.career_intro_img?.alt || 'Intro obrázek';
+  const career_hodnoty_title = careerPage.acf?.career_hodnoty_title || ''; 
+  const why_1 = careerPage.acf?.why_1 || '';
+  const why_1_desc = careerPage.acf?.why_1_desc || ''; 
+  const why_2 = careerPage.acf?.why_2 || '';
+  const why_2_desc = careerPage.acf?.why_2_desc || '';
+  const why_3 = careerPage.acf?.why_3 || '';
+  const why_3_desc = careerPage.acf?.why_3_desc || '';
+  const why_4 = careerPage.acf?.why_4 || '';
+  const why_4_desc = careerPage.acf?.why_4_desc || '';
+  const why_5 = careerPage.acf?.why_5 || '';
+  const why_5_desc = careerPage.acf?.why_5_desc || '';
 
   return (
     <div>
@@ -66,6 +77,48 @@ export default async function CareerPage() {
             </div>
           </div>
         </section>
+        {/*Proč*/}
+        <section className="bg-raisinBlack w-full  px-4 py-12 md:py-16">
+
+        <div className="flex flex-col md:flex-row w-full items-center max-w-[1392px] mx-auto">
+
+          <div className="w-full">
+
+            <h2 className="text-[28px] md:text-[40px] pb-8 md:pb-10 text-white text-center">{career_hodnoty_title}</h2>
+
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+              <div className="bg-cardGrey p-5 rounded-lg flex flex-col gap-3">
+                <img src="/images/zbc-symbol-golden.svg" alt="Symbol Gold" className="w-[32px] h-[32px]" />
+                <h4 className="card-heading text-goldenBrown mt-2">{why_1}</h4>
+                <p className="text-silkBeige">{why_1_desc}</p>
+              </div>
+              <div className="bg-cardGrey p-5 rounded-lg flex flex-col gap-3">
+                <img src="/images/zbc-symbol-silver.svg" alt="Symbol Silver" className="w-[32px] h-[32px]" />
+                <h4 className="card-heading text-silverSage mt-2">{why_2}</h4>
+                <p className="text-silkBeige">{why_2_desc}</p>
+              </div>
+              <div className="bg-cardGrey p-5 rounded-lg flex flex-col gap-3">
+                <img src="/images/zbc-symbol-golden.svg" alt="Symbol Gold" className="w-[32px] h-[32px]" />
+                <h4 className="card-heading text-goldenBrown mt-2">{why_3}</h4>
+                <p className="text-silkBeige">{why_3_desc}</p>
+              </div>
+              <div className="bg-cardGrey p-5 rounded-lg flex flex-col gap-3">
+                <img src="/images/zbc-symbol-silver.svg" alt="Symbol Silver" className="w-[32px] h-[32px]" />
+                <h4 className="card-heading text-silverSage mt-2">{why_4}</h4>
+                <p className="text-silkBeige">{why_4_desc}</p>
+              </div>
+              <div className="bg-cardGrey p-5 rounded-lg flex flex-col gap-3">
+                <img src="/images/zbc-symbol-golden.svg" alt="Symbol Gold" className="w-[32px] h-[32px]" />
+                <h4 className="card-heading text-goldenBrown mt-2">{why_5}</h4>
+                <p className="text-silkBeige">{why_5_desc}</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+        {/*Pozice*/}
         <section className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto px-4 py-12 md:py-24">
           <div className="max-w-[1392px] w-full">
             <h2 className="text-[28px] md:text-[40px] mb-6 md:mb-12 text-center text-goldenBrown">Koho hledáme?</h2>
