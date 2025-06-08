@@ -27,7 +27,6 @@ export default async function CareerPage() {
       title: position.title.rendered,
       image,
       excerpt: position.excerpt?.rendered || '',  // Pokud existuje excerpt
-      date: position.date ? new Date(position.date).toLocaleDateString('cs-CZ') : null,
     };
   });
 
@@ -67,9 +66,8 @@ export default async function CareerPage() {
                     </div>
                     <div className="flex flex-col gap-5 pt-5 pb-5 md:gap-5 md:pt-5 md:pb-6">
                       <hr className="border-t border-raisinBlack/10" />
-                      <div className="mt-auto flex justify-between items-center text-goldenBrown">
-                        <span className="group-hover:underline">Otevřít pozici</span>
-                        <span className="text-raisinBlack/20">{position.date}</span>
+                      <div className="mt-auto flex items-start text-goldenBrown">
+                        <span className="group-hover:underline">Detail pozice</span>
                       </div>
                     </div>
                   </div>
