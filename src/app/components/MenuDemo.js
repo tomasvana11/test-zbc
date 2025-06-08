@@ -6,140 +6,269 @@ export default function MenuDemo() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isTabletOrMobile, setIsTabletOrMobile] = useState(false);
   const menuRef = useRef();
 
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 1024);
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const toggleDropdown = (name) => {
+    setOpenDropdown(openDropdown === name ? null : name);
+  };
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
         setOpenDropdown(null);
-        setMenuOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const renderDropdownItems = (items) => (
-    <ul style={{ listStyle: 'none', paddingLeft: 16 }}>
-      {items.map(({ href, label }) => (
-        <li key={href}>
-          <Link href={href}><a style={{ display: 'block', padding: '8px 0' }}>{label}</a></Link>
-        </li>
-      ))}
-    </ul>
-  );
+  useEffect(() => {
+    function checkSizes() {
+      setIsMobile(window.innerWidth <= 640);
+      setIsTabletOrMobile(window.innerWidth <= 1024);
+    }
+    checkSizes();
+    window.addEventListener('resize', checkSizes);
+    return () => window.removeEventListener('resize', checkSizes);
+  }, []);
 
-  const dropdownItems = {
-    sluzby: [
-      { href: '/sluzby/sluzba-1', label: 'Služba 1' },
-      { href: '/sluzby/sluzba-2', label: 'Služba 2' },
-    ],
-    novinky: [
-      { href: '/novinky/novinka-1', label: 'Novinka 1' },
-      { href: '/vzdelavani/vzdelavani-1', label: 'Vzdělávání 1' },
-    ]
+  const wrapperStyle = {
+    position: 'fixed',
+    top: isMobile ? 0 : scrolled ? 16 : 32,
+    left: isMobile ? 0 : 16,
+    right: isMobile ? 0 : 16,
+    zIndex: 1000,
+    transition: 'top 0.3s ease',
+  };
+
+  const containerStyle = {
+    maxWidth: isMobile ? '100%' : '1392px',
+    margin: isMobile ? 0 : '0 auto',
+    padding: isMobile ? 16 : 24,
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: scrolled ? 'rgba(35, 35, 35, 0.75)' : 'transparent',
+    borderRadius: isMobile ? 0 : 8,
+    backdropFilter: scrolled ? 'blur(20px)' : 'none',
+    transition: 'background-color 0.3s ease, backdrop-filter 0.3s ease',
+  };
+
+  // Styl pro menu button (zobrazený pod 1024px)
+  const menuButtonStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: '#9D6219',
+    borderRadius: 4,
+    height: 44,
+    padding: '0 16px',
+    cursor: 'pointer',
+    color: 'white',
+    border: 'none',
+    fontWeight: '600',
+    fontSize: 16,
+  };
+
+  const iconStyle = {
+    marginRight: 8,
+    height: 20,
+    width: 20,
   };
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 1000,
-      }}
-    >
-      <div
-        ref={menuRef}
-        style={{
-          backgroundColor: isMobile || scrolled ? '#232323' : 'transparent',
-          color: '#E2DBD5',
-          padding: '16px',
-          borderRadius: isMobile ? 0 : 8,
-          maxWidth: isMobile ? '100%' : '1392px',
-          margin: '0 auto',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
-        <Link href="/">
-          <a><img src="/images/menu-zbc-logo-l.svg" alt="Logo" style={{ height: 32 }} /></a>
-        </Link>
+    <div style={wrapperStyle}>
+      <div ref={menuRef} style={containerStyle}>
+        {/* Logo vlevo */}
+        <div style={{ flexShrink: 0 }}>
+          <Link href="/" passHref>
+            <a>
+              <img src="/images/menu-zbc-logo-l.svg" alt="Logo" style={{ height: 32 }} />
+            </a>
+          </Link>
+        </div>
 
-        {!isMobile ? (
-          <ul style={{ display: 'flex', gap: 32, listStyle: 'none' }}>
-            <li><Link href="/">Domů</Link></li>
-            <li onMouseEnter={() => setOpenDropdown('sluzby')} onMouseLeave={() => setOpenDropdown(null)}>
-              <span>Služby</span>
-              {openDropdown === 'sluzby' && renderDropdownItems(dropdownItems.sluzby)}
-            </li>
-            <li><Link href="/reference">Reference</Link></li>
-            <li onMouseEnter={() => setOpenDropdown('novinky')} onMouseLeave={() => setOpenDropdown(null)}>
-              <span>Novinky a vzdělávání</span>
-              {openDropdown === 'novinky' && renderDropdownItems(dropdownItems.novinky)}
-            </li>
-            <li><Link href="/kontakt">Kontakt</Link></li>
-          </ul>
+        {/* Pokud je pod 1024px, zobrazíme jen menu button */}
+        {isTabletOrMobile ? (
+          <>
+            <button
+              onClick={() => toggleDropdown('mainMenu')}
+              style={menuButtonStyle}
+              aria-expanded={openDropdown === 'mainMenu'}
+              aria-controls="main-menu-dropdown"
+            >
+              <img src="/images/menu-icon.svg" alt="Menu icon" style={iconStyle} />
+              Menu
+            </button>
+
+            {openDropdown === 'mainMenu' && (
+              <ul
+                id="main-menu-dropdown"
+                style={{
+                  position: 'absolute',
+                  top: '100%',
+                  right: 0,
+                  backgroundColor: 'rgba(226, 219, 213, 0.9)',
+                  color: '#232323',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                  padding: '8px 0',
+                  borderRadius: 4,
+                  zIndex: 2000,
+                  minWidth: 160,
+                  listStyle: 'none',
+                  margin: 0,
+                }}
+              >
+                <li>
+                  <Link href="/">
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Domů</a>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/sluzby/sluzba-1">
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Služba 1</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/sluzby/sluzba-2">
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Služba 2</a>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/reference">
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Reference</a>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/novinky/novinka-1">
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Novinka 1</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/vzdelavani/vzdelavani-1">
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Vzdělávání 1</a>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/kontakt">
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Kontakt</a>
+                  </Link>
+                </li>
+              </ul>
+            )}
+          </>
         ) : (
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
+          // Desktop/nad 1024px: klasická navigace
+          <ul
             style={{
-              backgroundColor: '#9D6219',
-              border: 'none',
-              borderRadius: 4,
-              color: '#fff',
-              padding: '0 16px',
-              height: 44,
               display: 'flex',
+              gap: 44,
+              listStyle: 'none',
+              padding: 0,
+              margin: 0,
               alignItems: 'center',
-              cursor: 'pointer'
+              fontWeight: 'normal',
+              color: '#E2DBD5',
             }}
           >
-            <img src="/images/menu-icon.svg" alt="menu" style={{ height: 20, marginRight: 8 }} />
-            Menu
-          </button>
+            <li>
+              <Link href="/">Domů</Link>
+            </li>
+
+            {/* Dropdown: Služby */}
+            <li style={{ position: 'relative', cursor: 'pointer' }}>
+              <div onClick={() => toggleDropdown('sluzby')} style={{ display: 'flex', alignItems: 'center' }}>
+                Služby
+                <img src="/images/menu-chevron-down.svg" alt="šipka" style={{ marginLeft: 8, height: 24 }} />
+              </div>
+              {openDropdown === 'sluzby' && (
+                <ul
+                  style={{
+                    position: 'absolute',
+                    top: '100%',
+                    left: 0,
+                    backgroundColor: 'rgba(226, 219, 213, 0.8)',
+                    color: '#232323',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                    padding: '8px 0',
+                    borderRadius: 4,
+                    zIndex: 2000,
+                    minWidth: 160,
+                    listStyle: 'none',
+                    margin: 0,
+                  }}
+                >
+                  <li>
+                    <Link href="/sluzby/sluzba-1">
+                      <a style={{ padding: '8px 20px', display: 'block' }}>Služba 1</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/sluzby/sluzba-2">
+                      <a style={{ padding: '8px 20px', display: 'block' }}>Služba 2</a>
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+
+            <li>
+              <Link href="/reference">Reference</Link>
+            </li>
+
+            {/* Dropdown: Novinky a vzdělávání */}
+            <li style={{ position: 'relative', cursor: 'pointer' }}>
+              <div onClick={() => toggleDropdown('novinky')} style={{ display: 'flex', alignItems: 'center' }}>
+                Novinky a vzdělávání
+                <img src="/images/menu-chevron-down.svg" alt="šipka" style={{ marginLeft: 8, height: 24 }} />
+              </div>
+              {openDropdown === 'novinky' && (
+                <ul
+                  style={{
+                    position: 'absolute',
+                    top: '100%',
+                    left: 0,
+                    backgroundColor: 'rgba(226, 219, 213, 0.8)',
+                    color: '#232323',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                    padding: '8px 0',
+                    borderRadius: 4,
+                    zIndex: 2000,
+                    minWidth: 220,
+                    listStyle: 'none',
+                    margin: 0,
+                  }}
+                >
+                  <li>
+                    <Link href="/novinky/novinka-1">
+                      <a style={{ padding: '8px 20px', display: 'block' }}>Novinka 1</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/vzdelavani/vzdelavani-1">
+                      <a style={{ padding: '8px 20px', display: 'block' }}>Vzdělávání 1</a>
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+
+            <li>
+              <Link href="/kontakt">Kontakt</Link>
+            </li>
+          </ul>
         )}
       </div>
-
-      {isMobile && menuOpen && (
-        <div style={{ backgroundColor: '#E2DBD5', padding: '16px' }}>
-          <ul style={{ listStyle: 'none', padding: 0 }}>
-            <li><Link href="/"><a>Domů</a></Link></li>
-            <li>
-              <button
-                onClick={() => setOpenDropdown(openDropdown === 'sluzby' ? null : 'sluzby')}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px 0' }}
-              >Služby</button>
-              {openDropdown === 'sluzby' && renderDropdownItems(dropdownItems.sluzby)}
-            </li>
-            <li><Link href="/reference"><a>Reference</a></Link></li>
-            <li>
-              <button
-                onClick={() => setOpenDropdown(openDropdown === 'novinky' ? null : 'novinky')}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px 0' }}
-              >Novinky a vzdělávání</button>
-              {openDropdown === 'novinky' && renderDropdownItems(dropdownItems.novinky)}
-            </li>
-            <li><Link href="/kontakt"><a>Kontakt</a></Link></li>
-          </ul>
-        </div>
-      )}
     </div>
   );
 }
