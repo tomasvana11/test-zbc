@@ -2,7 +2,6 @@ import Link from 'next/link';
 
 export default async function KarieraPage() {
   const karieraRes = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/kariera');
-  const kariera = await karieraRes.json();
   const recenzeRes = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/recenze?per_page=3&_embed');
   const poziceRes = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/pracovni-pozice', {
   cache: 'no-store',
