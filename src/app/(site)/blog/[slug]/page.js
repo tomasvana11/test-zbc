@@ -191,7 +191,7 @@ useEffect(() => {
     <section className="flex flex-col items-center px-4 -mt-12 md:-mt-16 pb-12 md:pb-24 z-[100] relative">
         <div className="max-w-[1392px] w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {posts.map((post) => (
+            {latestPosts.map((post) => (
                 <Link
                     key={post.id}
                     href={`/blog/${post.slug}`}
