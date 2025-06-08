@@ -68,7 +68,7 @@ export default function MenuDemo() {
           >
             Služby
             {/* 👇 Tvoje vlastní SVG šipka */}
-            <img src="/images/menu-chevron-down.svg" alt="šipka" style={{ marginLeft: 6, height: 10 }} />
+            <img src="/images/menu-chevron-down.svg" alt="šipka" style={{ marginLeft: 8, height: 24 }} />
           </div>
           {openDropdown === 'sluzby' && (
             <ul
@@ -107,7 +107,7 @@ export default function MenuDemo() {
           >
             Novinky a vzdělávání
             {/* 👇 Tvoje vlastní SVG šipka */}
-            <img src="/images/chevron-down.svg" alt="šipka" style={{ marginLeft: 6, height: 10 }} />
+            <img src="/images/menu-chevron-down.svg" alt="šipka" style={{ marginLeft: 8, height: 24 }} />
           </div>
           {openDropdown === 'novinky' && (
             <ul
