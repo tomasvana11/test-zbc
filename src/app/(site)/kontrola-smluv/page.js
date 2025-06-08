@@ -9,7 +9,13 @@ export default function KontrolaSmluvPage() {
 
   const addContract = () => {
     if (contracts.length < 6) {
-      setContracts([...contracts, contracts.length]);
+      setContracts([...contracts, Date.now()]); // unikátní ID
+    }
+  };
+
+  const removeContract = (indexToRemove) => {
+    if (contracts.length > 1) {
+      setContracts(contracts.filter((_, index) => index !== indexToRemove));
     }
   };
 
@@ -41,7 +47,7 @@ export default function KontrolaSmluvPage() {
                 }
               }}
             >
-              {/* KROK 1: OSOBNÍ ÚDAJE – zůstává i ve 2. kroku, ale skrytý */}
+              {/* Krok 1 – osobní údaje (zůstávají i v kroku 2, jen jsou skryté) */}
               <div className={step === 1 ? '' : 'hidden'}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <input
@@ -84,16 +90,19 @@ export default function KontrolaSmluvPage() {
                 </div>
               </div>
 
-              {/* KROK 2: SMLUVNÍ ÚDAJE */}
+              {/* Krok 2 – smlouvy */}
               {step === 2 && (
                 <>
-                  {contracts.map((i) => (
-                    <div key={i} className="mb-6 border p-4 rounded bg-white shadow-sm">
-                      <h3 className="mb-2 font-semibold">Smlouva {i + 1}</h3>
+                  {contracts.map((id, index) => (
+                    <div
+                      key={id}
+                      className="mb-6 border p-4 rounded bg-white shadow-sm relative"
+                    >
+                      <h3 className="mb-2 font-semibold">Smlouva {index + 1}</h3>
 
                       <input
                         type="text"
-                        name={`contractType${i}`}
+                        name={`contractType${id}`}
                         placeholder="Typ smlouvy"
                         required
                         className="w-full mb-2 bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage"
@@ -101,19 +110,29 @@ export default function KontrolaSmluvPage() {
 
                       <input
                         type="file"
-                        name={`contractFile${i}`}
+                        name={`contractFile${id}`}
                         accept=".pdf,.doc,.docx"
                         required
                         className="w-full mb-2"
                       />
 
                       <textarea
-                        name={`contractExpectation${i}`}
+                        name={`contractExpectation${id}`}
                         placeholder="Co od této smlouvy čekáte?"
                         required
                         className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage"
                         rows={3}
                       />
+
+                      {index > 0 && (
+                        <button
+                          type="button"
+                          onClick={() => removeContract(index)}
+                          className="absolute top-2 right-2 text-sm bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+                        >
+                          Odebrat
+                        </button>
+                      )}
                     </div>
                   ))}
 
