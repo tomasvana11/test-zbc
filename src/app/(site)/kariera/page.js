@@ -124,7 +124,7 @@ export default async function CareerPage() {
   <img
     src="/images/symbol-pattern-l.svg"
     alt="Symbol Pattern"
-    className="hidden lg:block absolute -left-[30px] -bottom-[64px] w-[200px] h-[200px] md:-left-[55px] md:-bottom-[55px] md:w-[380px] md:h-[380px]"
+    className="absolute -left-[30px] -bottom-[64px] w-[200px] h-[200px] md:-left-[55px] md:-bottom-[55px] md:w-[380px] md:h-[380px]"
   />
   <img
     src="/images/symbol-pattern-s.svg"
