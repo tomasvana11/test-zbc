@@ -4,38 +4,18 @@ import { useState } from 'react';
 import PageHeader from '../../components/PageHeader';
 
 export default function KontrolaSmluvPage() {
-  // krok formuláře: 1 = základní údaje, 2 = smlouvy
   const [step, setStep] = useState(1);
-  
-  // pole smluv, každá smlouva = { type, file, expectation }
-  const [contracts, setContracts] = useState([
-    { type: '', file: null, expectation: '' },
-  ]);
+  const [contracts, setContracts] = useState([0]); // jen indexy pro mapování smluv
 
-  // handler změny smlouvy
-  const handleContractChange = (index, field, value) => {
-    const updated = [...contracts];
-    updated[index][field] = value;
-    setContracts(updated);
-  };
-
-  // přidání smlouvy
   const addContract = () => {
     if (contracts.length < 6) {
-      setContracts([...contracts, { type: '', file: null, expectation: '' }]);
+      setContracts([...contracts, contracts.length]);
     }
   };
 
-  // odebrání smlouvy (pokud chceš možnost, zatím není požadováno)
-
-  // odeslání - nechám standardní submit, akorát se form postne až ve druhém kroku
-
   return (
     <div>
-      <PageHeader
-        title="Kontrola smluv"
-        description={null}
-      />
+      <PageHeader title="Kontrola smluv" description={null} />
 
       <main className="flex min-h-screen flex-col items-center">
         <section className="bg-silkBeige w-full py-12 md:py-16">
@@ -54,13 +34,11 @@ export default function KontrolaSmluvPage() {
               className="mx-auto p-6 space-y-5 w-full max-w-[850px]"
               target="_self"
               noValidate
-              onSubmit={e => {
-                // pokud jsme v kroku 1, neodesílat formulář
+              onSubmit={(e) => {
                 if (step === 1) {
                   e.preventDefault();
                   setStep(2);
                 }
-                // pokud ve 2. kroku, odešle se normálně
               }}
             >
               {step === 1 && (
@@ -109,31 +87,29 @@ export default function KontrolaSmluvPage() {
 
               {step === 2 && (
                 <>
-                  {contracts.map((contract, i) => (
+                  {contracts.map((i) => (
                     <div key={i} className="mb-6 border p-4 rounded bg-white shadow-sm">
                       <h3 className="mb-2 font-semibold">Smlouva {i + 1}</h3>
+
                       <input
                         type="text"
                         name={`contractType${i}`}
                         placeholder="Typ smlouvy"
-                        value={contract.type}
-                        onChange={e => handleContractChange(i, 'type', e.target.value)}
                         required
                         className="w-full mb-2 bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage"
                       />
+
                       <input
                         type="file"
                         name={`contractFile${i}`}
                         accept=".pdf,.doc,.docx"
-                        onChange={e => handleContractChange(i, 'file', e.target.files[0])}
                         required
                         className="w-full mb-2"
                       />
+
                       <textarea
                         name={`contractExpectation${i}`}
                         placeholder="Co od této smlouvy čekáte?"
-                        value={contract.expectation}
-                        onChange={e => handleContractChange(i, 'expectation', e.target.value)}
                         required
                         className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage"
                         rows={3}
@@ -141,7 +117,7 @@ export default function KontrolaSmluvPage() {
                     </div>
                   ))}
 
-                  <div className="flex justify-between items-center mb-6">
+                  <div className="flex justify-between items-center mb-6 flex-wrap gap-4">
                     <button
                       type="button"
                       onClick={addContract}
