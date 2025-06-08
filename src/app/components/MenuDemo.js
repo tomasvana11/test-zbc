@@ -131,14 +131,15 @@ export default function MenuDemo() {
                   </Link>
                 </li>
 
+                {/* Upravené služby */}
                 <li>
-                  <Link href="/sluzby/sluzba-1">
-                    <a style={{ padding: '8px 20px', display: 'block' }}>Služba 1</a>
+                  <Link href="/sluzby">
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Komplexní finanční plán</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/sluzby/sluzba-2">
-                    <a style={{ padding: '8px 20px', display: 'block' }}>Služba 2</a>
+                  <Link href="/kontrola-smluv">
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Kontrola smluv</a>
                   </Link>
                 </li>
 
@@ -148,14 +149,15 @@ export default function MenuDemo() {
                   </Link>
                 </li>
 
+                {/* Upravené novinky a vzdělávání */}
                 <li>
-                  <Link href="/novinky/novinka-1">
-                    <a style={{ padding: '8px 20px', display: 'block' }}>Novinka 1</a>
+                  <Link href="/blog">
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Blog</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/vzdelavani/vzdelavani-1">
-                    <a style={{ padding: '8px 20px', display: 'block' }}>Vzdělávání 1</a>
+                  <Link href="/podcast">
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Podcast</a>
                   </Link>
                 </li>
 
@@ -203,19 +205,19 @@ export default function MenuDemo() {
                     padding: '8px 0',
                     borderRadius: 4,
                     zIndex: 2000,
-                    minWidth: 160,
+                    minWidth: 200,
                     listStyle: 'none',
                     margin: 0,
                   }}
                 >
                   <li>
-                    <Link href="/sluzby/sluzba-1">
-                      <a style={{ padding: '8px 20px', display: 'block' }}>Služba 1</a>
+                    <Link href="/sluzby">
+                      <a style={{ padding: '8px 20px', display: 'block' }}>Komplexní finanční plán</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/sluzby/sluzba-2">
-                      <a style={{ padding: '8px 20px', display: 'block' }}>Služba 2</a>
+                    <Link href="/kontrola-smluv">
+                      <a style={{ padding: '8px 20px', display: 'block' }}>Kontrola smluv</a>
                     </Link>
                   </li>
                 </ul>
@@ -244,19 +246,19 @@ export default function MenuDemo() {
                     padding: '8px 0',
                     borderRadius: 4,
                     zIndex: 2000,
-                    minWidth: 220,
+                    minWidth: 200,
                     listStyle: 'none',
                     margin: 0,
                   }}
                 >
                   <li>
-                    <Link href="/novinky/novinka-1">
-                      <a style={{ padding: '8px 20px', display: 'block' }}>Novinka 1</a>
+                    <Link href="/blog">
+                      <a style={{ padding: '8px 20px', display: 'block' }}>Blog</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/vzdelavani/vzdelavani-1">
-                      <a style={{ padding: '8px 20px', display: 'block' }}>Vzdělávání 1</a>
+                    <Link href="/podcast">
+                      <a style={{ padding: '8px 20px', display: 'block' }}>Podcast</a>
                     </Link>
                   </li>
                 </ul>
