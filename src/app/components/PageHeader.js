@@ -1,8 +1,11 @@
+import Menu from './Menu'
 export default function PageHeader({ title, description }) {
   return (
     <section
       className="relative w-full overflow-hidden bg-[url('/images/heroimage.png')] bg-no-repeat bg-cover md:bg-[length:120%_auto] bg-[right_center] pt-[76px] md:pt-[100px] px-4"
     >
+      {/* Menu nav */}
+      <Menu />
       {/* Gradient */}
       <div
         className="absolute top-0 left-0 w-full h-full z-0"
