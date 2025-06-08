@@ -1,4 +1,3 @@
-import Menu from './Menu'
 export default function PageHeader({ title, description }) {
   return (
     <section
