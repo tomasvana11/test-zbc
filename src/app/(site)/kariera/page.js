@@ -120,11 +120,11 @@ export default async function CareerPage() {
 
         </div>
         </section>
-        <section className="relative bg-raisinBlack w-full px-4 py-12 md:py-16 overflow-hidden">
+        <section className="relative bg-raisinBlack w-full px-4 pb-16 md:pb-20 overflow-hidden">
   <img
     src="/images/symbol-pattern-l.svg"
     alt="Symbol Pattern"
-    className="hidden lg:block absolute -left-[64px] -bottom-[64px] w-[420px] h-[420px]"
+    className="hidden lg:block absolute -left-[30px] -bottom-[64px] w-[200px] h-[200px] md:-left-[55px] md:-bottom-[55px] md:w-[380px] md:h-[380px]"
   />
   <img
     src="/images/symbol-pattern-s.svg"
@@ -133,15 +133,7 @@ export default async function CareerPage() {
   />
 
   <div className="flex flex-col lg:flex-row w-full items-center max-w-[800px] mx-auto">
-    <div className="w-full rounded-sm overflow-hidden relative z-[50]">
-      <img
-      src={career_why_img}
-      alt={career_why_imgAlt}
-      className="w-full h-auto object-contain"/>
-    </div>
-  </div>
-  <div className="flex flex-col lg:flex-row w-full items-center max-w-[800px] mx-auto">
-  <div className="w-full rounded-sm overflow-hidden relative z-[50] aspect-video">
+  <div className="w-full rounded-[8px] overflow-hidden relative z-[50] aspect-video">
     <iframe
       className="w-full h-full"
       src={`https://www.youtube.com/embed/${career_why_vid?.split('v=')[1]}`}
