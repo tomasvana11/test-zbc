@@ -120,11 +120,11 @@ export default async function CareerPage() {
 
         </div>
         </section>
-        <section className="relative bg-raisinBlack w-full px-4 pb-16 md:pb-20 overflow-hidden">
+        <section className="relative bg-raisinBlack w-full px-4 pb-24 md:pb-32 overflow-hidden">
   <img
     src="/images/symbol-pattern-l.svg"
     alt="Symbol Pattern"
-    className="absolute -left-[30px] -bottom-[64px] w-[200px] h-[200px] md:-left-[55px] md:-bottom-[55px] md:w-[380px] md:h-[380px]"
+    className="hidden lg:block absolute -left-[55px] -bottom-[55px] w-[380px] h-[380px]"
   />
   <img
     src="/images/symbol-pattern-s.svg"
