@@ -299,21 +299,6 @@ export default async function CareerPage() {
 
   <div className="flex flex-col w-full max-w-[1392px] mx-auto justify-center">
 
-    {/* Výpis pozic */}
-    <ul className="list-disc list-inside text-raisinBlack text-lg space-y-4 max-w-[700px] mx-auto mb-12">
-      {positions.map((item) => (
-        <li key={item.id}>
-          <Link
-            href={`/kariera/${item.slug}`}
-            className="text-goldenBrown hover:underline"
-          >
-            {item.title || 'Bez názvu'}
-          </Link>
-          {/* Pokud chceš lokalitu a máš ji v položce acf (nevidím ji přímo v positions, možná bys to musel přidat) */}
-        </li>
-      ))}
-    </ul>
-
     {/* Formulář */}
     <form
       action="https://formcarry.com/s/kY_1MuRL2um"
