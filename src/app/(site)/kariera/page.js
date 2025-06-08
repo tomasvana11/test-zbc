@@ -157,7 +157,7 @@ export default async function CareerPage() {
         <section className="bg-silkBeige px-4 w-full py-12 md:py-16">
         
         <div className="w-full max-w-[1392px] mx-auto text-center">
-          <h2 className="text-[28px] md:text-[40px] pb-8 md:pb-10 text-white text-center">{career_ben_title}</h2>
+          <h2 className="text-[28px] md:text-[40px] pb-8 md:pb-10 text-goldenBrown text-center">{career_ben_title}</h2>
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               <div className="bg-cardBeige p-5 rounded-lg flex flex-col gap-5 items-center">
                 <img src="/images/icon-mag-glass.svg" alt="Symbol Gold" className="w-[68px] h-[68px]" />
