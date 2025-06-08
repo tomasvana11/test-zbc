@@ -188,7 +188,7 @@ export default async function BlogPage() {
   <p className="text-cardGrey text-center w-full max-w-[850px] p-6 m-auto">Odesláním formuláře berete na vědomí podmínky zpracování osobních údajů uvedené v informaci o zpracování osobních údajů</p>
   </div>
 
-    </section>
+        </section>
         
       </main>
     </div>
