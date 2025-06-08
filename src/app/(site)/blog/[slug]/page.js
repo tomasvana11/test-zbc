@@ -63,16 +63,14 @@ export default function BlogPostPage({ params }) {
 
   if (!post) {
   return (
-    <div className="flex items-center justify-center w-screen h-screen">
-      <Hourglass
-        size="50"
-        bgOpacity="0.1"
-        speed="1.75"
-        color="#9D6219" // zlatohnědá z tvého designu
-      />
+    <div className="fixed inset-0 flex flex-col items-center justify-center bg-white z-50">
+      <Hourglass size="60" bgOpacity="0.1" speed="1.75" color="black" />
+      <p className="mt-4 text-lg font-semibold text-gray-700">Načítání…</p>
     </div>
   );
 }
+
+
 
 
   const articleContent = post.acf?.article_content || '<p>Obsah není k dispozici.</p>';
