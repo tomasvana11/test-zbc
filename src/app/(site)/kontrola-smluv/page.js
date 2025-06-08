@@ -9,7 +9,7 @@ export default function KontrolaSmluvPage() {
 
   const addContract = () => {
     if (contracts.length < 6) {
-      setContracts([...contracts, Date.now()]); // unikátní ID
+      setContracts([...contracts, Date.now()]);
     }
   };
 
@@ -44,10 +44,23 @@ export default function KontrolaSmluvPage() {
                 if (step === 1) {
                   e.preventDefault();
                   setStep(2);
+                } else {
+                  const form = e.target;
+                  for (let id of contracts) {
+                    const type = form[`contractType${id}`]?.value?.trim();
+                    const file = form[`contractFile${id}`]?.files?.[0];
+                    const expect = form[`contractExpectation${id}`]?.value?.trim();
+
+                    if (!type || !file || !expect) {
+                      e.preventDefault();
+                      alert('Prosím vyplňte všechna pole u každé smlouvy.');
+                      return;
+                    }
+                  }
                 }
               }}
             >
-              {/* Krok 1 – osobní údaje (zůstávají i v kroku 2, jen jsou skryté) */}
+              {/* Krok 1 */}
               <div className={step === 1 ? '' : 'hidden'}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <input
@@ -90,7 +103,7 @@ export default function KontrolaSmluvPage() {
                 </div>
               </div>
 
-              {/* Krok 2 – smlouvy */}
+              {/* Krok 2 */}
               {step === 2 && (
                 <>
                   {contracts.map((id, index) => (
