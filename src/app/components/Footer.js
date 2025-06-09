@@ -39,8 +39,8 @@ export default function Footer() {
       <div className="flex flex-col md:flex-row w-full items-center max-w-[1392px] mx-auto py-8 md:py-12 ">
         <p className="text-silkBeige text-center mx-auto">
           © 2025 Za bohatší Česko | Všechna práva vyhrazena |{" "}
-          <a href="https://www.zabohatsicesko.cz/ochrana-osobnich-udaju/">Ochrana osobních údajů</a> |{" "}
-          <a href="https://www.zabohatsicesko.cz/ochrana-osobnich-udaju/">Cookies</a>
+          <a href="https://test-zbc-ten.vercel.app/gdpr">Ochrana osobních údajů</a> |{" "}
+          <a href="https://test-zbc-ten.vercel.app/gdpr#cookies">Cookies</a>
         </p>
       </div>
     </footer>
