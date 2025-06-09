@@ -1,11 +1,13 @@
 import fetchPageData from '../../../lib/fetchPageData';
 import PageHeader from '../../components/PageHeader';
+import Menu from '../../components/Menu';
 
 export default async function GDPRLayout({ children }) {
   const page = await fetchPageData('gdpr');
 
   return (
     <>
+      <Menu/>
       <PageHeader
         title={page?.acf?.page_name || page?.title?.rendered || 'GDPR'}
         description={page?.acf?.page_desc || ''}
