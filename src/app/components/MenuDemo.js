@@ -61,7 +61,6 @@ export default function MenuDemo() {
     transition: 'background-color 0.3s ease, backdrop-filter 0.3s ease',
   };
 
-  // Styl pro menu button (zobrazený pod 1024px)
   const menuButtonStyle = {
     display: 'flex',
     alignItems: 'center',
@@ -87,14 +86,13 @@ export default function MenuDemo() {
       <div ref={menuRef} style={containerStyle}>
         {/* Logo vlevo */}
         <div style={{ flexShrink: 0 }}>
-          <Link href="/" passHref>
+          <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/" passHref>
             <a>
               <img src="/images/menu-zbc-logo-l.svg" alt="Logo" style={{ height: 32 }} />
             </a>
           </Link>
         </div>
 
-        {/* Pokud je pod 1024px, zobrazíme jen menu button */}
         {isTabletOrMobile ? (
           <>
             <button
@@ -126,43 +124,37 @@ export default function MenuDemo() {
                 }}
               >
                 <li>
-                  <Link href="/">
+                  <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/">
                     <a style={{ padding: '8px 20px', display: 'block' }}>Domů</a>
                   </Link>
                 </li>
-
-                {/* Upravené služby */}
                 <li>
-                  <Link href="/sluzby">
+                  <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/sluzby">
                     <a style={{ padding: '8px 20px', display: 'block' }}>Komplexní finanční plán</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/kontrola-smluv">
+                  <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/kontrola-smluv">
                     <a style={{ padding: '8px 20px', display: 'block' }}>Kontrola smluv</a>
                   </Link>
                 </li>
-
                 <li>
-                  <Link href="/reference">
+                  <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/reference">
                     <a style={{ padding: '8px 20px', display: 'block' }}>Reference</a>
                   </Link>
                 </li>
-
-                {/* Upravené novinky a vzdělávání */}
                 <li>
-                  <Link href="/blog">
+                  <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/blog">
                     <a style={{ padding: '8px 20px', display: 'block' }}>Blog</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/podcast">
+                  <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/podcast">
                     <a style={{ padding: '8px 20px', display: 'block' }}>Podcast</a>
                   </Link>
                 </li>
-
                 <li>
-                  <Link href="/kontakt">
+                  <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/kontakt">
                     <a style={{ padding: '8px 20px', display: 'block' }}>Kontakt</a>
                   </Link>
                 </li>
@@ -170,7 +162,6 @@ export default function MenuDemo() {
             )}
           </>
         ) : (
-          // Desktop/nad 1024px: klasická navigace
           <ul
             style={{
               display: 'flex',
@@ -184,10 +175,9 @@ export default function MenuDemo() {
             }}
           >
             <li>
-              <Link href="/">Domů</Link>
+              <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/">Domů</Link>
             </li>
 
-            {/* Dropdown: Služby */}
             <li style={{ position: 'relative', cursor: 'pointer' }}>
               <div onClick={() => toggleDropdown('sluzby')} style={{ display: 'flex', alignItems: 'center' }}>
                 Služby
@@ -211,12 +201,12 @@ export default function MenuDemo() {
                   }}
                 >
                   <li>
-                    <Link href="/sluzby">
+                    <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/sluzby">
                       <a style={{ padding: '8px 20px', display: 'block' }}>Komplexní finanční plán</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/kontrola-smluv">
+                    <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/kontrola-smluv">
                       <a style={{ padding: '8px 20px', display: 'block' }}>Kontrola smluv</a>
                     </Link>
                   </li>
@@ -225,10 +215,9 @@ export default function MenuDemo() {
             </li>
 
             <li>
-              <Link href="/reference">Reference</Link>
+              <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/reference">Reference</Link>
             </li>
 
-            {/* Dropdown: Novinky a vzdělávání */}
             <li style={{ position: 'relative', cursor: 'pointer' }}>
               <div onClick={() => toggleDropdown('novinky')} style={{ display: 'flex', alignItems: 'center' }}>
                 Novinky a vzdělávání
@@ -252,12 +241,12 @@ export default function MenuDemo() {
                   }}
                 >
                   <li>
-                    <Link href="/blog">
+                    <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/blog">
                       <a style={{ padding: '8px 20px', display: 'block' }}>Blog</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/podcast">
+                    <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/podcast">
                       <a style={{ padding: '8px 20px', display: 'block' }}>Podcast</a>
                     </Link>
                   </li>
@@ -266,7 +255,7 @@ export default function MenuDemo() {
             </li>
 
             <li>
-              <Link href="/kontakt">Kontakt</Link>
+              <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/kontakt">Kontakt</Link>
             </li>
           </ul>
         )}
