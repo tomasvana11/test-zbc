@@ -101,7 +101,7 @@ export default async function Page() {
         <div className="max-w-[1000px]">
           <h1 className="text-[44px] md:text-[70px] hero-h text-silkBeige md:leading-snug">{brand_claim}</h1>
         </div>
-        <a href="https://test-zbc-ten.vercel.app/sluzby" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Chci zjistit víc</a>
+        <a href="https://www.zabohatsicesko.cz/sluzby" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Chci zjistit víc</a>
       </div>
     </div>
   </div>
@@ -129,7 +129,7 @@ export default async function Page() {
       </h2>
       <p className="text-raisinBlack">{hp_intro_detail}</p>
       <a
-        href="https://test-zbc-ten.vercel.app/kontakt/kontakt"
+        href="https://www.zabohatsicesko.cz/kontakt"
         className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center"
       >
         Rezervovat konzultaci
@@ -146,10 +146,6 @@ export default async function Page() {
     </div>
   </div>
 </section>
-
-
-
-
 
 
 
@@ -344,7 +340,7 @@ export default async function Page() {
               </div>
             </div>
             
-          <a href="https://test-zbc-ten.vercel.app/sluzby" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Zjistit jak začít</a>
+          <a href="https://www.zabohatsicesko.cz/sluzby" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Zjistit jak začít</a>
         </div>
         
 
@@ -382,7 +378,7 @@ export default async function Page() {
     </div>
   ))}
 </div>
-    <a href="https://test-zbc-ten.vercel.app/kontakt/reference" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Přečíst více recenzí</a>
+    <a href="https://www.zabohatsicesko.cz/reference" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Přečíst více recenzí</a>
   </div>
 </section>
 <section className="px-4 w-full py-12 md:py-24">

@@ -88,7 +88,7 @@ export default async function SluzbyPage() {
             </h2>
             <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: serv_intro_desc || '' }}/>
             <a
-              href="https://test-zbc-ten.vercel.app/kontakt"
+              href="https://zabohatsicesko.cz/sluzby#formular"
               className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center"
             >
               Rezervovat konzultaci
@@ -348,7 +348,7 @@ export default async function SluzbyPage() {
     </div>
   ))}
 </div>
-    <a href="https://test-zbc-ten.vercel.app/reference" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Přečíst více recenzí</a>
+    <a href="https://www.zabohatsicesko.cz/reference" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center">Přečíst více recenzí</a>
   </div>
     </section>
 
@@ -456,7 +456,7 @@ export default async function SluzbyPage() {
         </div>
       </section>
 
-    <section className="bg-silkBeige w-full py-12 md:py-16">
+    <section id="formular" className="bg-silkBeige w-full py-12 md:py-16">
   <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center">Kontaktujte nás</h2>
   <p className="text-center text-raisinBlack">Chcete mít ve financích jasno a klid? <strong>Začněte tady.</strong></p>
   

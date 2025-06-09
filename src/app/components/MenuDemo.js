@@ -81,7 +81,7 @@ export default function MenuDemo() {
     width: 20,
   };
 
-  const baseUrl = 'https://test-zbc-ten.vercel.app';
+  const baseUrl = 'https://www.zabohatsicesko.cz';
 
   return (
     <div style={wrapperStyle}>
