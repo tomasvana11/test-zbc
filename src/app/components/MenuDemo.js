@@ -124,12 +124,9 @@ export default function MenuDemo() {
                 }}
               >
                 <li>
-                  <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/" prefetch={false}> 
+                  <Link href="/" prefetch={false}> 
                     <a style={{ padding: '8px 20px', display: 'block' }}>Domů</a>
                   </Link>
-                </li>
-                <li>
-                    <a href="https://test-zbc-tomas-vanas-projects.vercel.app/">DOmů</a>
                 </li>
                 <li>
                   <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/sluzby">
