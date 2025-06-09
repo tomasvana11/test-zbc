@@ -129,7 +129,7 @@ export default function MenuDemo() {
                   </Link>
                 </li>
                 <li>
-                    <a href="/">DOmů</a>
+                    <a href="https://test-zbc-tomas-vanas-projects.vercel.app/">DOmů</a>
                 </li>
                 <li>
                   <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/sluzby">
