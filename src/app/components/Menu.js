@@ -1,61 +1,97 @@
 'use client';
 
 import { useState } from 'react';
+import { ChevronDown, X } from 'lucide-react';
 
-export default function Menu() {
+export default function MobileMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  const toggleDropdown = (name) => {
+    setOpenDropdown((prev) => (prev === name ? null : name));
+  };
 
   return (
-    <header className="w-full fixed flex items-center justify-between p-4 bg-white shadow-md">
-      {/* Logo */}
-      <div className="flex items-center">
-        <img src="/logo.svg" alt="Logo" className="h-8 w-auto" />
-      </div>
-
-      {/* Menu Toggle Button */}
+    <>
+      {/* Trigger button */}
       <button
-        onClick={() => setMenuOpen(!menuOpen)}
-        className="md:hidden text-gray-700 focus:outline-none"
-        aria-label="Toggle menu"
-        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen(true)}
+        className="p-2 text-orange-800"
+        aria-label="Otevřít menu"
       >
         ☰
       </button>
 
-      {/* Navigation */}
-      <nav className={`absolute right-4 top-16 bg-white border rounded-lg shadow-md p-4 space-y-2 w-48 z-50 ${menuOpen ? 'block' : 'hidden'} md:block md:static md:bg-transparent md:p-0 md:shadow-none md:w-auto md:flex md:items-center md:space-x-6 md:space-y-0`}>
-        {/* Link 1 */}
-        <a href="https://zabohatsicesko.cz" className="block text-gray-800 hover:text-blue-600">
-          Link 1
-        </a>
+      {/* Fullscreen overlay */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-50 bg-white text-orange-800 p-6 sm:p-8">
+          {/* Header */}
+          <div className="flex items-center justify-between mb-6">
+            <h1 className="text-xl font-bold text-black">
+              za boha<span className="text-orange-700 font-extrabold">+</span>ší česko
+            </h1>
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-1 bg-orange-700 text-white px-3 py-2 rounded hover:bg-orange-800"
+            >
+              <X className="w-4 h-4" />
+              Zavřít
+            </button>
+          </div>
 
-        {/* Link 2 */}
-        <a href="https://zabohatsicesko.cz" className="block text-gray-800 hover:text-blue-600">
-          Link 2
-        </a>
-
-        {/* Dropdown */}
-        <div className="relative">
-          <button
-            onClick={() => setDropdownOpen(!dropdownOpen)}
-            className="block w-full text-left text-gray-800 hover:text-blue-600 focus:outline-none"
-          >
-            Dropdown ▼
-          </button>
-
-          {dropdownOpen && (
-            <div className="mt-2 bg-white border rounded shadow-md absolute right-0 w-40 z-50">
-              <a href="https://zabohatsicesko.cz" className="block px-4 py-2 hover:bg-gray-100 text-gray-700">
-                Item 1
-              </a>
-              <a href="https://zabohatsicesko.cz" className="block px-4 py-2 hover:bg-gray-100 text-gray-700">
-                Item 2
-              </a>
-            </div>
-          )}
+          {/* Links */}
+          <nav className="space-y-4 text-lg font-medium">
+            <MenuLink label="Domů" href="/" />
+            <Dropdown label="Služby" isOpen={openDropdown === 'sluzby'} onClick={() => toggleDropdown('sluzby')}>
+              <SubLink label="Poradenství" href="/sluzby/poradenstvi" />
+              <SubLink label="Strategie" href="/sluzby/strategie" />
+            </Dropdown>
+            <MenuLink label="Náš tým" href="/nas-tym" />
+            <MenuLink label="Reference" href="/reference" />
+            <Dropdown label="Novinky a vzdělávání" isOpen={openDropdown === 'novinky'} onClick={() => toggleDropdown('novinky')}>
+              <SubLink label="Blog" href="/novinky/blog" />
+              <SubLink label="Workshopy" href="/novinky/workshopy" />
+            </Dropdown>
+            <MenuLink label="Kontakt" href="/kontakt" />
+          </nav>
         </div>
-      </nav>
-    </header>
+      )}
+    </>
+  );
+}
+
+function MenuLink({ label, href }) {
+  return (
+    <div className="border-t border-gray-300 pt-3">
+      <a href={href} className="block hover:text-black">
+        {label}
+      </a>
+    </div>
+  );
+}
+
+function Dropdown({ label, isOpen, onClick, children }) {
+  return (
+    <div className="border-t border-gray-300 pt-3">
+      <button
+        onClick={onClick}
+        className="flex justify-between items-center w-full hover:text-black"
+        aria-expanded={isOpen}
+      >
+        {label}
+        <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+      {isOpen && (
+        <div className="mt-2 ml-4 space-y-2 text-base text-orange-700">{children}</div>
+      )}
+    </div>
+  );
+}
+
+function SubLink({ label, href }) {
+  return (
+    <a href={href} className="block hover:underline">
+      {label}
+    </a>
   );
 }
