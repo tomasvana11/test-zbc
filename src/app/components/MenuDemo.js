@@ -129,6 +129,9 @@ export default function MenuDemo() {
                   </Link>
                 </li>
                 <li>
+                    <a href="/">DOmů</a>
+                </li>
+                <li>
                   <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/sluzby">
                     <a style={{ padding: '8px 20px', display: 'block' }}>Komplexní finanční plán</a>
                   </Link>
