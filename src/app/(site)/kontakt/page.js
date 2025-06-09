@@ -1,4 +1,4 @@
-export default async function ContactPage() {
+export default function ContactPage() {
   return (
     <main>
       <section className="px-4 w-full">
