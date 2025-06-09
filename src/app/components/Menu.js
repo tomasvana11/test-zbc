@@ -26,12 +26,12 @@ export default function Menu() {
       {/* Navigation */}
       <nav className={`absolute right-4 top-16 bg-white border rounded-lg shadow-md p-4 space-y-2 w-48 z-50 ${menuOpen ? 'block' : 'hidden'} md:block md:static md:bg-transparent md:p-0 md:shadow-none md:w-auto md:flex md:items-center md:space-x-6 md:space-y-0`}>
         {/* Link 1 */}
-        <a href="/link1" className="block text-gray-800 hover:text-blue-600">
+        <a href="https://zabohatsicesko.cz" className="block text-gray-800 hover:text-blue-600">
           Link 1
         </a>
 
         {/* Link 2 */}
-        <a href="/link2" className="block text-gray-800 hover:text-blue-600">
+        <a href="https://zabohatsicesko.cz" className="block text-gray-800 hover:text-blue-600">
           Link 2
         </a>
 
@@ -46,10 +46,10 @@ export default function Menu() {
 
           {dropdownOpen && (
             <div className="mt-2 bg-white border rounded shadow-md absolute right-0 w-40 z-50">
-              <a href="/dropdown/item1" className="block px-4 py-2 hover:bg-gray-100 text-gray-700">
+              <a href="https://zabohatsicesko.cz" className="block px-4 py-2 hover:bg-gray-100 text-gray-700">
                 Item 1
               </a>
-              <a href="/dropdown/item2" className="block px-4 py-2 hover:bg-gray-100 text-gray-700">
+              <a href="https://zabohatsicesko.cz" className="block px-4 py-2 hover:bg-gray-100 text-gray-700">
                 Item 2
               </a>
             </div>
