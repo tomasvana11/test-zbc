@@ -81,12 +81,14 @@ export default function MenuDemo() {
     width: 20,
   };
 
+  const baseUrl = 'https://test-zbc-ten.vercel.app';
+
   return (
     <div style={wrapperStyle}>
       <div ref={menuRef} style={containerStyle}>
         {/* Logo vlevo */}
         <div style={{ flexShrink: 0 }}>
-          <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/" passHref>
+          <Link href={`${baseUrl}/`} passHref>
             <a>
               <img src="/images/menu-zbc-logo-l.svg" alt="Logo" style={{ height: 32 }} />
             </a>
@@ -124,37 +126,37 @@ export default function MenuDemo() {
                 }}
               >
                 <li>
-                  <Link href="/" prefetch={false}> 
+                  <Link href={`${baseUrl}/`} prefetch={false}>
                     <a style={{ padding: '8px 20px', display: 'block' }}>Domů</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/sluzby">
+                  <Link href={`${baseUrl}/sluzby`}>
                     <a style={{ padding: '8px 20px', display: 'block' }}>Komplexní finanční plán</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/kontrola-smluv">
+                  <Link href={`${baseUrl}/kontrola-smluv`}>
                     <a style={{ padding: '8px 20px', display: 'block' }}>Kontrola smluv</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/reference">
+                  <Link href={`${baseUrl}/reference`}>
                     <a style={{ padding: '8px 20px', display: 'block' }}>Reference</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/blog">
+                  <Link href={`${baseUrl}/blog`}>
                     <a style={{ padding: '8px 20px', display: 'block' }}>Blog</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/podcast">
+                  <Link href={`${baseUrl}/podcast`}>
                     <a style={{ padding: '8px 20px', display: 'block' }}>Podcast</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/kontakt">
+                  <Link href={`${baseUrl}/kontakt`}>
                     <a style={{ padding: '8px 20px', display: 'block' }}>Kontakt</a>
                   </Link>
                 </li>
@@ -175,7 +177,7 @@ export default function MenuDemo() {
             }}
           >
             <li>
-              <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/">Domů</Link>
+              <Link href={`${baseUrl}/`}>Domů</Link>
             </li>
 
             <li style={{ position: 'relative', cursor: 'pointer' }}>
@@ -201,12 +203,12 @@ export default function MenuDemo() {
                   }}
                 >
                   <li>
-                    <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/sluzby">
+                    <Link href={`${baseUrl}/sluzby`}>
                       <a style={{ padding: '8px 20px', display: 'block' }}>Komplexní finanční plán</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/kontrola-smluv">
+                    <Link href={`${baseUrl}/kontrola-smluv`}>
                       <a style={{ padding: '8px 20px', display: 'block' }}>Kontrola smluv</a>
                     </Link>
                   </li>
@@ -215,7 +217,7 @@ export default function MenuDemo() {
             </li>
 
             <li>
-              <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/reference">Reference</Link>
+              <Link href={`${baseUrl}/reference`}>Reference</Link>
             </li>
 
             <li style={{ position: 'relative', cursor: 'pointer' }}>
@@ -241,12 +243,12 @@ export default function MenuDemo() {
                   }}
                 >
                   <li>
-                    <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/blog">
+                    <Link href={`${baseUrl}/blog`}>
                       <a style={{ padding: '8px 20px', display: 'block' }}>Blog</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/podcast">
+                    <Link href={`${baseUrl}/podcast`}>
                       <a style={{ padding: '8px 20px', display: 'block' }}>Podcast</a>
                     </Link>
                   </li>
@@ -255,7 +257,7 @@ export default function MenuDemo() {
             </li>
 
             <li>
-              <Link href="https://test-zbc-tomas-vanas-projects.vercel.app/kontakt">Kontakt</Link>
+              <Link href={`${baseUrl}/kontakt`}>Kontakt</Link>
             </li>
           </ul>
         )}
