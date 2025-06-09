@@ -1,4 +1,6 @@
 import PageHeader from '../../../components/PageHeader';
+import Menu from '../../components/Menu';
+
 
 export default async function MemberLayout({ children, params }) {
   const { slug } = params;
@@ -17,6 +19,7 @@ export default async function MemberLayout({ children, params }) {
 
   return (
     <>
+      <Menu/>
       <PageHeader
         title={name}
         description={role}
