@@ -206,9 +206,9 @@ export default function BlogPostPage({ params }) {
                     <option value="" disabled selected hidden>
                       Vyberte poradce
                     </option>
-                    <option value="admin">Václav Svatoš</option>
-                    <option value="user">Sabina Vytisková</option>
-                    <option value="guest">Monika Kvasničková</option>
+                    <option value="vaclav_svatos">Václav Svatoš</option>
+                    <option value="sabina_vytiskova">Sabina Vytisková</option>
+                    <option value="monika_kvasnickova">Monika Kvasničková</option>
                   </select>
                   <div
                     className="pointer-events-none absolute inset-y-[9px] right-[9px] flex items-center justify-center rounded"

@@ -524,9 +524,9 @@ export default async function SluzbyPage() {
       style={{color:'#747271'}}
     >
       <option value="" disabled selected hidden>Vyberte poradce</option>
-      <option value="admin">Václav Svatoš</option>
-      <option value="user">Sabina Vytisková</option>
-      <option value="guest">Monika Kvasničková</option>
+      <option value="vaclav_svatos">Václav Svatoš</option>
+      <option value="sabina_vytiskova">Sabina Vytisková</option>
+      <option value="monika_kvasnickova">Monika Kvasničková</option>
     </select>
 
     <div
