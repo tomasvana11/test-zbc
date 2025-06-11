@@ -1,3 +1,8 @@
+export const metadata = {
+  title: 'Kontakt | Za bohatší Česko',
+  description: 'Spojte se s námi – telefon, email, sídlo a další kontaktní informace.',
+};
+
 export default function ContactPage() {
   return (
     <main>
