@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Kontakt | Za bohatší Česko',
-  description: 'Spojte se s námi – telefon, email, sídlo a další kontaktní informace.',
+  description: 'Za bohatší Česko – veškeré kontaktní údaje na náš tým: telefon, e-mail, sociální sítě i sídlo. Ozvěte se nám pro spolupráci!',
 };
 
 export default function ContactPage() {
