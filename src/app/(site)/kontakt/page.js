@@ -1,9 +1,41 @@
-export const metadata = {
-  title: 'Kontakt | Za bohatší Česko',
-  description: 'Za bohatší Česko – veškeré kontaktní údaje na náš tým: telefon, e-mail, sociální sítě i sídlo. Ozvěte se nám pro spolupráci!',
-};
+async function fetchPageData() {
+  const res = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=kontakt&_embed', { cache: 'no-store' });
+  const data = await res.json();
+  const featuredImage = data[0]?._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/default-og.jpg';
+  const title = data[0]?.title?.rendered || 'Kontakt | Za bohatší Česko';
+  const description = data[0]?.excerpt?.rendered.replace(/(<([^>]+)>)/gi, '') || 'Za bohatší Česko – kontakty...';
+  return { title, description, featuredImage };
+}
 
-export default function ContactPage() {
+// 2. generateMetadata místo export const metadata
+export async function generateMetadata() {
+  const { title, description, featuredImage } = await fetchPageData();
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [featuredImage],
+      type: 'website',
+      url: 'https://zabohatsicesko.cz/kontakt',
+      locale: 'cs_CZ',
+      siteName: 'Za bohatší Česko',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [featuredImage],
+      site: '@zabohatsicesko',
+    },
+  };
+}
+
+export default async function ContactPage() {
+
+  const { title, description, featuredImage } = await fetchPageData();
   return (
     <main>
       <section className="px-4 w-full">
