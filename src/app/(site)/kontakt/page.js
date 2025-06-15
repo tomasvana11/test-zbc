@@ -1,3 +1,33 @@
+// 1. Načti data z WP REST API
+async function fetchPageData() {
+  const res = await fetch(
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=kontakt&_embed',
+    { cache: 'no-store' }
+  );
+  const data = await res.json();
+  const page = data[0];
+
+  const acf = page?.acf || {};
+  const featuredImage =
+    page?._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/default-og.jpg';
+
+  const rawDescription = acf.seo_description || page?.excerpt?.rendered || '';
+  const description = rawDescription.replace(/(<([^>]+)>)/gi, '').trim();
+
+  const title =
+    acf.seo_title || page?.title?.rendered || 'Kontakt | Za bohatší Česko';
+
+  const canonicalUrl = 'https://zabohatsicesko.cz/kontakt';
+
+  return {
+    title,
+    description,
+    featuredImage,
+    canonicalUrl,
+  };
+}
+
+// 2. generateMetadata pro Next.js
 export async function generateMetadata() {
   const {
     title,
@@ -37,6 +67,7 @@ export async function generateMetadata() {
     },
   };
 }
+
 
 
 
