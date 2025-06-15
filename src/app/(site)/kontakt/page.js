@@ -1,8 +1,8 @@
-// 1. Načti data z WP REST API
+// WP REST API
 async function fetchPageData() {
   const res = await fetch(
     'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=kontakt&_embed',
-    { cache: 'no-store' }
+    { next: { revalidate: 60 } }
   );
   const data = await res.json();
   const page = data[0];
@@ -27,7 +27,7 @@ async function fetchPageData() {
   };
 }
 
-// 2. generateMetadata pro Next.js
+// generate metadata
 export async function generateMetadata() {
   const {
     title,
