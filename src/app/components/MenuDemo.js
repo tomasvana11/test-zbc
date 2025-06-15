@@ -89,7 +89,7 @@ export default function MenuDemo() {
         {/* Logo vlevo */}
         <div style={{ flexShrink: 0 }}>
           <Link href={`${baseUrl}/`} passHref>
-            <a>
+            <a href={`${baseUrl}/`}>
               <img src="/images/menu-zbc-logo-l.svg" alt="Logo" style={{ height: 32 }} />
             </a>
           </Link>
