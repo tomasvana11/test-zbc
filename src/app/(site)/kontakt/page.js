@@ -1,27 +1,32 @@
-async function fetchPageData() {
-  const res = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=kontakt&_embed', { cache: 'no-store' });
-  const data = await res.json();
-  const featuredImage = data[0]?._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/default-og.jpg';
-  const title = data[0]?.title?.rendered || 'Kontakt | Za bohatší Česko';
-  const description = data[0]?.excerpt?.rendered.replace(/(<([^>]+)>)/gi, '') || 'Za bohatší Česko – kontakty...';
-  return { title, description, featuredImage };
-}
-
-// 2. generateMetadata místo export const metadata
 export async function generateMetadata() {
-  const { title, description, featuredImage } = await fetchPageData();
+  const {
+    title,
+    description,
+    featuredImage,
+    canonicalUrl,
+  } = await fetchPageData();
 
   return {
     title,
     description,
+    metadataBase: new URL('https://zabohatsicesko.cz'),
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      nocache: false,
+      googleBot: 'index, follow',
+    },
     openGraph: {
       title,
       description,
-      images: [featuredImage],
       type: 'website',
-      url: 'https://zabohatsicesko.cz/kontakt',
-      locale: 'cs_CZ',
       siteName: 'Za bohatší Česko',
+      locale: 'cs_CZ',
+      url: canonicalUrl,
+      images: [featuredImage],
     },
     twitter: {
       card: 'summary_large_image',
@@ -32,6 +37,8 @@ export async function generateMetadata() {
     },
   };
 }
+
+
 
 export default async function ContactPage() {
 
