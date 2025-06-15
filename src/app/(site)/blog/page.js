@@ -2,6 +2,7 @@
 
 import PageHeader from '../../components/PageHeader';
 import Link from 'next/link';
+import Head from 'next/head';
 
 
 // WP REST API
@@ -106,6 +107,14 @@ export default async function BlogPage() {
 
   return (
     <div>
+      <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/heroimage.webp"
+          type="image/webp"
+        />
+      </Head>
       <PageHeader
         title={blogPage?.acf?.page_name || blogPage?.title?.rendered || 'Blog'}
         description={blogPage?.acf?.page_desc || null}
