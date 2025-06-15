@@ -1,6 +1,76 @@
 import PageHeader from '../../components/PageHeader';
 import Link from 'next/link';
 
+// WP REST API
+async function fetchPageData() {
+  const res = await fetch(
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=kariera&_embed',
+    { next: { revalidate: 60 } }
+  );
+  const data = await res.json();
+  const page = data[0];
+
+  const acf = page?.acf || {};
+  const featuredImage =
+    page?._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/default-og.jpg';
+
+  const rawDescription = acf.seo_description || page?.excerpt?.rendered || '';
+  const description = rawDescription.replace(/(<([^>]+)>)/gi, '').trim();
+
+  const title =
+    acf.seo_title || page?.title?.rendered || 'Kariéra | Za bohatší Česko';
+
+  const canonicalUrl = 'https://zabohatsicesko.cz/kariera';
+
+  return {
+    title,
+    description,
+    featuredImage,
+    canonicalUrl,
+  };
+}
+
+// generate metadata
+export async function generateMetadata() {
+  const {
+    title,
+    description,
+    featuredImage,
+    canonicalUrl,
+  } = await fetchPageData();
+
+  return {
+    title,
+    description,
+    metadataBase: new URL('https://zabohatsicesko.cz'),
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      nocache: false,
+      googleBot: 'index, follow',
+    },
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      siteName: 'Za bohatší Česko',
+      locale: 'cs_CZ',
+      url: canonicalUrl,
+      images: [featuredImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [featuredImage],
+      site: '@zabohatsicesko',
+    },
+  };
+}
+
 export default async function CareerPage() {
   // Fetch stránky kariera
   const careerPageRes = await fetch(
