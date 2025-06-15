@@ -6,7 +6,7 @@ import fetchPageData from '../../../lib/fetchPageData';
 // WP REST API
 async function fetchMetaPageData() {
   const res = await fetch(
-    'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=podcast&_embed',
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=nas-tym&_embed',
     { next: { revalidate: 60 } }
   );
   const data = await res.json();
@@ -22,7 +22,7 @@ async function fetchMetaPageData() {
   const title =
     acf.seo_title || page?.title?.rendered || 'Podcast | Za bohatší Česko';
 
-  const canonicalUrl = 'https://zabohatsicesko.cz/podcast';
+  const canonicalUrl = 'https://zabohatsicesko.cz/nas-tym';
 
   return {
     title,
