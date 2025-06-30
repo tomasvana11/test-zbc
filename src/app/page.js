@@ -544,6 +544,7 @@ export default async function Page() {
       name="typ"
       id="typ"
       required
+      className="hidden"
     >
       <option value="klient" selected></option>
     </select>
