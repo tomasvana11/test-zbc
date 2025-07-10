@@ -242,16 +242,24 @@ export default async function MemberDetailPage({ params }) {
         <h2 className="text-3xl text-goldenBrown mb-2" dangerouslySetInnerHTML={{ __html: name }} />
         <p className="text-raisinBlack mb-4">{role}</p>
 
-        <h2>Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h2>
+        <h3 className="text-2xl text-goldenBrown mb-2">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
         {team_member_story && <p>{team_member_story}</p>}
-        {team_member_proud && <p><strong>Hrdost:</strong> {team_member_proud}</p>}
-        {team_member_motto && <p><strong>Motto:</strong> {team_member_motto}</p>}
-        {team_member_lesson && <p><strong>Životní lekce:</strong> {team_member_lesson}</p>}
-        {team_member_meaning && <p><strong>Význam práce:</strong> {team_member_meaning}</p>}
-        {team_member_friends && <p><strong>Co říkají přátelé:</strong> {team_member_friends}</p>}
-        {team_member_signature && <p><strong>Podpis:</strong> {team_member_signature}</p>}
-        {team_member_location && <p><strong>Lokace:</strong> {team_member_location}</p>}
-        {team_member_online && <p><strong>Online spolupráce:</strong> {team_member_online}</p>}
+        <h3 className="text-2xl text-goldenBrown mb-2"></h3>
+        {team_member_proud && <p>{team_member_proud}</p>}
+        <h3 className="text-2xl text-goldenBrown mb-2"></h3>
+        {team_member_motto && <p> {team_member_motto}</p>}
+        <h3 className="text-2xl text-goldenBrown mb-2"></h3>
+        {team_member_lesson && <p>{team_member_lesson}</p>}
+        <h3 className="text-2xl text-goldenBrown mb-2"></h3>
+        {team_member_meaning && <p>{team_member_meaning}</p>}
+        <h3 className="text-2xl text-goldenBrown mb-2"></h3>
+        {team_member_friends && <p>{team_member_friends}</p>}
+        <h3 className="text-2xl text-goldenBrown mb-2"></h3>
+        {team_member_signature && <p>{team_member_signature}</p>}
+        <h3 className="text-2xl text-goldenBrown mb-2"></h3>
+        {team_member_location && <p>{team_member_location}</p>}
+        <h3 className="text-2xl text-goldenBrown mb-2"></h3>
+        {team_member_online && <p>{team_member_online}</p>}
       </section>
 
       <section className="bg-silkBeige w-full py-12 md:py-16">
