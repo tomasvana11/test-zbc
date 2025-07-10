@@ -167,13 +167,12 @@ export default async function CareerPage() {
           <div className="w-full">
 
             <h2 className="text-[28px] md:text-[40px] pb-8 md:pb-10 text-white text-center">{career_hodnoty_title}</h2>
-
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              <div className="bg-cardGrey p-5 rounded-lg flex flex-col gap-3">
+            <div className="bg-cardGrey p-5 rounded-lg flex flex-col gap-3">
                 <img src="/images/zbc-symbol-golden.svg" alt="Symbol Gold" className="w-[32px] h-[32px]" />
-                <h4 className="card-heading text-goldenBrown mt-2">{why_1}</h4>
-                <p className="text-silkBeige">{why_1_desc}</p>
+                <h4 className="card-heading text-goldenBrown mt-2">{why_5}</h4>
+                <p className="text-silkBeige">{why_5_desc}</p>
               </div>
+            
               <div className="bg-cardGrey p-5 rounded-lg flex flex-col gap-3">
                 <img src="/images/zbc-symbol-silver.svg" alt="Symbol Silver" className="w-[32px] h-[32px]" />
                 <h4 className="card-heading text-silverSage mt-2">{why_2}</h4>
@@ -189,10 +188,12 @@ export default async function CareerPage() {
                 <h4 className="card-heading text-silverSage mt-2">{why_4}</h4>
                 <p className="text-silkBeige">{why_4_desc}</p>
               </div>
+              
+              <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               <div className="bg-cardGrey p-5 rounded-lg flex flex-col gap-3">
                 <img src="/images/zbc-symbol-golden.svg" alt="Symbol Gold" className="w-[32px] h-[32px]" />
-                <h4 className="card-heading text-goldenBrown mt-2">{why_5}</h4>
-                <p className="text-silkBeige">{why_5_desc}</p>
+                <h4 className="card-heading text-goldenBrown mt-2">{why_1}</h4>
+                <p className="text-silkBeige">{why_1_desc}</p>
               </div>
             </div>
 
