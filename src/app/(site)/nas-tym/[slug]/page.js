@@ -293,21 +293,36 @@ export default async function MemberDetailPage({ params }) {
 }
 */
 
-import { useState } from 'react';
+// app/tym/[slug]/page.jsx
+import React from 'react';
+
+async function fetchMember(slug) {
+  const res = await fetch(`https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?slug=${slug}&_embed`, { cache: 'no-store' });
+  if (!res.ok) throw new Error('Failed to fetch team member');
+  const data = await res.json();
+  return data[0];
+}
+
+async function fetchMembers() {
+  const res = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?_embed&per_page=100', { cache: 'no-store' });
+  if (!res.ok) throw new Error('Failed to fetch team members list');
+  const data = await res.json();
+  return data.map(m => ({
+    id: m.id,
+    slug: m.slug,
+    name: m.title.rendered.replace(/(<([^>]+)>)/gi, ''),
+  }));
+}
 
 export default async function MemberDetailPage({ params }) {
   const { slug } = params;
 
-  // Fetch detail člena
-  const res = await fetch(`https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?slug=${slug}&_embed`);
-  if (!res.ok) throw new Error('Failed to fetch team member');
-
-  const data = await res.json();
-  const member = data[0];
-
+  const member = await fetchMember(slug);
   if (!member) {
     return <p>Člen týmu nenalezen</p>;
   }
+
+  const members = await fetchMembers();
 
   const photo = member.acf?.team_member_photo?.url || 'https://via.placeholder.com/300';
   const name = member.title.rendered;
@@ -324,26 +339,6 @@ export default async function MemberDetailPage({ params }) {
     team_member_location,
     team_member_online,
   } = member.acf || {};
-
-  // ** Nyní fetchujeme i všechny members kvůli selectu ve formuláři **
-  // Pozn.: Tento fetch by šel ideálně dělat ve getStaticProps/getServerSideProps, ale držíme se async funkce
-
-  const resMembers = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?_embed&per_page=100');
-  if (!resMembers.ok) throw new Error('Failed to fetch team members list');
-
-  const membersData = await resMembers.json();
-
-  // Převedeme na pole členů s id, slug a jménem bez tagů
-  const members = membersData.map(m => ({
-    id: m.id,
-    slug: m.slug,
-    name: m.title.rendered.replace(/(<([^>]+)>)/gi, ''),
-  }));
-
-  // Stav pro vybraného poradce ve formuláři (volitelně, pokud chceš že react ovládá ten select)
-  // Pokud chceš controlled select, můžeš to přidat:
-  // const [selectedRole, setSelectedRole] = useState(slug); // třeba default na slug z url
-  // ale teď necháme uncontrolled, protože action formcarry je klasický POST.
 
   return (
     <div className="flex flex-col items-center px-4 py-12 max-w-[1392px] mx-auto">
@@ -435,7 +430,7 @@ export default async function MemberDetailPage({ params }) {
                     required
                     className="w-full appearance-none bg-inputLight text-black rounded p-2 pr-12 focus:outline-none focus:ring-1 focus:ring-silverSage text-inputPlacehoder"
                     style={{ color: '#747271' }}
-                    defaultValue="" // vybráno nic, musí vybrat uživatel
+                    defaultValue=""
                   >
                     <option value="" disabled hidden>Vyberte poradce</option>
                     {members.map((m) => (
