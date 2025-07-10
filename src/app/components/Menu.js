@@ -47,6 +47,7 @@ export default function MobileMenu() {
             </Dropdown>
             <MenuLink label="Náš tým" href="/nas-tym" />
             <MenuLink label="Reference" href="/reference" />
+            <MenuLink label="Kariéra" href="/kariera" />
             <Dropdown
               label="Novinky a vzdělávání"
               isOpen={openDropdown === 'novinky'}
