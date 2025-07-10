@@ -47,12 +47,14 @@ export default async function MemberDetailPage({ params }) {
 
   return (
     <div className="flex flex-col items-center ">
-      <section className='px-4 max-w-[1392px] mx-auto py-12'>
+      <section className='px-4 max-w-[1392px] mx-auto py-12 flex flex-row gap-8'>
+        <div className='flex flex-col shrink-0'>
         <img src={photo} alt={name} className="w-64 h-64 rounded-full object-cover mb-6" />
         <h2 className="text-3xl text-goldenBrown mb-2" dangerouslySetInnerHTML={{ __html: name }} />
         <p className="text-raisinBlack mb-4">{role}</p>
+        </div>
 
-        <div className='flex flex-col gap-2'> 
+        <div className='flex flex-col gap-2 w-full max-w-[800px]'> 
 
         <h3 className="text-2xl text-goldenBrown mt-4 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
         {team_member_story && <p>{team_member_story}</p>}
