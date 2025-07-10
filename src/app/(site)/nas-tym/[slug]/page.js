@@ -242,24 +242,27 @@ export default async function MemberDetailPage({ params }) {
         <h2 className="text-3xl text-goldenBrown mb-2" dangerouslySetInnerHTML={{ __html: name }} />
         <p className="text-raisinBlack mb-4">{role}</p>
 
-        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
+        <div className='flex flex-col gap-2'> 
+
+        <h3 className="text-2xl text-goldenBrown mt-4 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
         {team_member_story && <p>{team_member_story}</p>}
-        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
+        <h3 className="text-2xl text-goldenBrown mt-4 font-recife">Na co jsem v životě fakt pyšný?</h3>
         {team_member_proud && <p>{team_member_proud}</p>}
-        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
+        <h3 className="text-2xl text-goldenBrown mt-4 font-recife">Věta, která mě drží i ve chvíli, kdy je toho moc.</h3>
         {team_member_motto && <p> {team_member_motto}</p>}
-        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
+        <h3 className="text-2xl text-goldenBrown mt-4 font-recife">Ponaučení, které bych předal svému mladšímu já.</h3>
         {team_member_lesson && <p>{team_member_lesson}</p>}
-        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
+        <h3 className="text-2xl text-goldenBrown mt-4 font-recife">Co mi na mojí práci dává největší smysl a proč bych jí neměnil/a?</h3>
         {team_member_meaning && <p>{team_member_meaning}</p>}
-        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
+        <h3 className="text-2xl text-goldenBrown mt-4 font-recife">S jakými lidmi si nejvíce sednu a proč?</h3>
         {team_member_friends && <p>{team_member_friends}</p>}
-        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
+        <h3 className="text-2xl text-goldenBrown mt-4 font-recife">Jaký je můj „signature“ style, když jde o práci. </h3>
         {team_member_signature && <p>{team_member_signature}</p>}
-        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
+        <h3 className="text-2xl text-goldenBrown mt-4 font-recife">Kde všude se semnou můžete potkat naživo?</h3>
         {team_member_location && <p>{team_member_location}</p>}
-        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
+        <h3 className="text-2xl text-goldenBrown mt-4 font-recife">Možnost i spolupráce online?</h3>
         {team_member_online && <p>{team_member_online}</p>}
+        </div>
       </section>
 
       <section className="bg-silkBeige w-full py-12 md:py-16">
