@@ -236,8 +236,8 @@ export default async function MemberDetailPage({ params }) {
   } = member.acf || {};
 
   return (
-    <div className="flex flex-col items-center px-4 py-12 max-w-[1392px] mx-auto">
-      <section>
+    <div className="flex flex-col items-center py-12 max-w-[1392px] mx-auto">
+      <section className='px-4'>
         <img src={photo} alt={name} className="w-64 h-64 rounded-full object-cover mb-6" />
         <h2 className="text-3xl text-goldenBrown mb-2" dangerouslySetInnerHTML={{ __html: name }} />
         <p className="text-raisinBlack mb-4">{role}</p>
