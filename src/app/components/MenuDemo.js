@@ -217,6 +217,10 @@ export default function MenuDemo() {
             </li>
 
             <li>
+              <Link href={`${baseUrl}/nas-tym`}>Náš tým</Link>
+            </li>
+
+            <li>
               <Link href={`${baseUrl}/reference`}>Reference</Link>
             </li>
 
