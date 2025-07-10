@@ -236,13 +236,13 @@ export default async function MemberDetailPage({ params }) {
   } = member.acf || {};
 
   return (
-    <div className="flex flex-col items-center py-12 ">
-      <section className='px-4 max-w-[1392px] mx-auto'>
+    <div className="flex flex-col items-center ">
+      <section className='px-4 max-w-[1392px] mx-auto py-12'>
         <img src={photo} alt={name} className="w-64 h-64 rounded-full object-cover mb-6" />
         <h2 className="text-3xl text-goldenBrown mb-2" dangerouslySetInnerHTML={{ __html: name }} />
         <p className="text-raisinBlack mb-4">{role}</p>
 
-        {team_member_story && <p><strong>Příběh:</strong> {team_member_story}</p>}
+        {team_member_story && <h3><strong>Příběh:</strong> {team_member_story}</h3>}
         {team_member_proud && <p><strong>Hrdost:</strong> {team_member_proud}</p>}
         {team_member_motto && <p><strong>Motto:</strong> {team_member_motto}</p>}
         {team_member_lesson && <p><strong>Životní lekce:</strong> {team_member_lesson}</p>}
