@@ -22,6 +22,8 @@ async function fetchPageData() {
 
   const canonicalUrl = 'https://zabohatsicesko.cz/homepage';
 
+  
+
   return {
     title,
     description,
@@ -29,6 +31,23 @@ async function fetchPageData() {
     canonicalUrl,
   };
 }
+
+const res = await fetch(
+  'https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?per_page=100&_embed',
+  { next: { revalidate: 60 } }
+);
+if (!res.ok) throw new Error('Failed to fetch team members');
+const data = await res.json();
+
+const members = data.map((item) => {
+  const photo = item.acf?.team_member_photo?.url || '/placeholder.png';
+  return {
+    id: item.id,
+    slug: item.slug,
+    name: item.title.rendered,
+    role: item.acf?.role || '',
+  };
+});
 
 // generate metadata
 export async function generateMetadata() {
