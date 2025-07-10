@@ -1,4 +1,4 @@
-
+/*
 
 export default async function MemberDetailPage({ params }) {
   const { slug } = params;
@@ -47,7 +47,7 @@ export default async function MemberDetailPage({ params }) {
       {team_member_location && <p><strong>Lokace:</strong> {team_member_location}</p>}
       {team_member_online && <p><strong>Online spolupráce:</strong> {team_member_online}</p>}
       </section>
-      {/*<section className="bg-silkBeige w-full py-12 md:py-16">
+      <section className="bg-silkBeige w-full py-12 md:py-16">
   <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center">Kontaktujte nás</h2>
   <p className="text-center text-raisinBlack">Chcete mít ve financích jasno a klid? <strong>Začněte tady.</strong></p>
   
@@ -165,84 +165,143 @@ export default async function MemberDetailPage({ params }) {
   <p className="text-cardGrey text-center w-full max-w-[850px] p-6 m-auto">Odesláním formuláře berete na vědomí podmínky zpracování osobních údajů uvedené v informaci o zpracování osobních údajů</p>
   </div>
 
-      </section>*/}
-<section className="bg-silkBeige w-full py-12 md:py-16">
-  <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center">Kontaktujte nás</h2>
-  <p className="text-center text-raisinBlack">Chcete mít ve financích jasno a klid? <strong>Začněte tady.</strong></p>
-
-  <div className="flex flex-col w-full max-w-[1392px] mx-auto py-4 md:py-8 justify-center">
-    <form
-      action="https://formcarry.com/s/kY_1MuRL2um"
-      method="POST"
-      encType="multipart/form-data"
-      className="mx-auto p-6 space-y-5 w-full max-w-[850px]"
-      target="_self"
-      noValidate
-    >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <input
-            type="text"
-            name="firstName"
-            id="firstName"
-            placeholder="Jméno"
-            required
-            className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            name="lastName"
-            id="lastName"
-            placeholder="Příjmení"
-            required
-            className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-          />
-        </div>
-        <div>
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            placeholder="Telefon"
-            required
-            className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-          />
-        </div>
-        <div>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Email"
-            required
-            className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-          />
-        </div>
-
-        {/* Skryté pole pro poradce */}
-        <input type="hidden" name="role" value={name.replace(/(<([^>]+)>)/gi, '')} />
-      </div>
-
-      <div className="w-full flex justify-center">
-        <button
-          type="submit"
-          className="w-full md:w-auto md:mt-[24px] bg-goldenBrown text-white py-2 px-6 rounded font-satoshi-bold"
-        >
-          Kontaktujte mě
-        </button>
-      </div>
-    </form>
-
-    <p className="text-cardGrey text-center w-full max-w-[850px] p-6 m-auto">
-      Odesláním formuláře berete na vědomí podmínky zpracování osobních údajů uvedené v informaci o zpracování osobních údajů
-    </p>
-  </div>
-</section>
+      </section>
 
     </div>
     
   );
 }
 
+*/
+export default async function MemberDetailPage({ params }) {
+  const { slug } = params;
+
+  const res = await fetch(`https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?slug=${slug}&_embed`);
+  if (!res.ok) throw new Error('Failed to fetch team member');
+
+  const data = await res.json();
+  const member = data[0];
+
+  if (!member) {
+    return <p>Člen týmu nenalezen</p>;
+  }
+
+  const photo = member.acf?.team_member_photo?.url || 'https://via.placeholder.com/300';
+  const name = member.title.rendered;
+  const role = member.acf?.role || '';
+
+  // Další ACF pole
+  const {
+    team_member_story,
+    team_member_proud,
+    team_member_motto,
+    team_member_lesson,
+    team_member_meaning,
+    team_member_friends,
+    team_member_signature,
+    team_member_location,
+    team_member_online,
+  } = member.acf || {};
+
+  return (
+    <div className="flex flex-col items-center px-4 py-12 max-w-[1392px] mx-auto">
+      <section>
+        <img src={photo} alt={name} className="w-64 h-64 rounded-full object-cover mb-6" />
+        <h2 className="text-3xl text-goldenBrown mb-2" dangerouslySetInnerHTML={{ __html: name }} />
+        <p className="text-raisinBlack mb-4">{role}</p>
+
+        {team_member_story && <p><strong>Příběh:</strong> {team_member_story}</p>}
+        {team_member_proud && <p><strong>Hrdost:</strong> {team_member_proud}</p>}
+        {team_member_motto && <p><strong>Motto:</strong> {team_member_motto}</p>}
+        {team_member_lesson && <p><strong>Životní lekce:</strong> {team_member_lesson}</p>}
+        {team_member_meaning && <p><strong>Význam práce:</strong> {team_member_meaning}</p>}
+        {team_member_friends && <p><strong>Co říkají přátelé:</strong> {team_member_friends}</p>}
+        {team_member_signature && <p><strong>Podpis:</strong> {team_member_signature}</p>}
+        {team_member_location && <p><strong>Lokace:</strong> {team_member_location}</p>}
+        {team_member_online && <p><strong>Online spolupráce:</strong> {team_member_online}</p>}
+      </section>
+
+      {/* FORMULÁŘ */}
+      <section className="bg-silkBeige w-full py-12 md:py-16">
+        <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center">Kontaktujte nás</h2>
+        <p className="text-center text-raisinBlack">
+          Chcete mít ve financích jasno a klid? <strong>Začněte tady.</strong>
+        </p>
+
+        <div className="flex flex-col w-full max-w-[1392px] mx-auto py-4 md:py-8 justify-center">
+          <form
+            action="https://formcarry.com/s/kY_1MuRL2um"
+            method="POST"
+            encType="multipart/form-data"
+            className="mx-auto p-6 space-y-5 w-full max-w-[850px]"
+            target="_self"
+            noValidate
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <input
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  placeholder="Jméno"
+                  required
+                  className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  placeholder="Příjmení"
+                  required
+                  className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+                />
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  placeholder="Telefon"
+                  required
+                  className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+                />
+              </div>
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                  required
+                  className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+                />
+              </div>
+
+              {/* Skryté pole pro předvyplněného poradce */}
+              <input
+                type="hidden"
+                name="role"
+                value={name.replace(/(<([^>]+)>)/gi, '')}
+              />
+            </div>
+
+            <div className="w-full flex justify-center">
+              <button
+                type="submit"
+                className="w-full md:w-auto md:mt-[24px] bg-goldenBrown text-white py-2 px-6 rounded font-satoshi-bold"
+              >
+                Kontaktujte mě
+              </button>
+            </div>
+          </form>
+
+          <p className="text-cardGrey text-center w-full max-w-[850px] p-6 m-auto">
+            Odesláním formuláře berete na vědomí podmínky zpracování osobních údajů uvedené v informaci o zpracování osobních údajů
+          </p>
+        </div>
+      </section>
+    </div>
+  );
+}
