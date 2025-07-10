@@ -19,7 +19,7 @@ export default async function MemberLayout({ children, params }) {
 
   return (
     <>
-      <Menu/>
+      {/*<Menu/>*/}
       <PageHeader
         title={name}
         description={role}
