@@ -47,7 +47,7 @@ export default async function MemberDetailPage({ params }) {
 
   return (
     <div className="flex flex-col items-center ">
-      <section className='px-4 max-w-[1392px] mx-auto py-12 flex flex-row gap-8'>
+      <section className='px-4 max-w-[1392px] mx-auto py-12 flex flex-col lg:flex-row gap:10 lg:gap-20'>
         <div className='flex flex-col shrink-0'>
         <img src={photo} alt={name} className="w-64 h-64 rounded-full object-cover mb-6" />
         <h2 className="text-3xl text-goldenBrown mb-2" dangerouslySetInnerHTML={{ __html: name }} />
