@@ -1,4 +1,4 @@
-/*
+
 'use client';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
@@ -265,4 +265,3 @@ export default function MenuDemo() {
     </div>
   );
 }
-*/
