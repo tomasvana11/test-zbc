@@ -242,23 +242,23 @@ export default async function MemberDetailPage({ params }) {
         <h2 className="text-3xl text-goldenBrown mb-2" dangerouslySetInnerHTML={{ __html: name }} />
         <p className="text-raisinBlack mb-4">{role}</p>
 
-        <h3 className="text-2xl text-goldenBrown mb-2">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
+        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
         {team_member_story && <p>{team_member_story}</p>}
-        <h3 className="text-2xl text-goldenBrown mb-2"></h3>
+        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
         {team_member_proud && <p>{team_member_proud}</p>}
-        <h3 className="text-2xl text-goldenBrown mb-2"></h3>
+        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
         {team_member_motto && <p> {team_member_motto}</p>}
-        <h3 className="text-2xl text-goldenBrown mb-2"></h3>
+        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
         {team_member_lesson && <p>{team_member_lesson}</p>}
-        <h3 className="text-2xl text-goldenBrown mb-2"></h3>
+        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
         {team_member_meaning && <p>{team_member_meaning}</p>}
-        <h3 className="text-2xl text-goldenBrown mb-2"></h3>
+        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
         {team_member_friends && <p>{team_member_friends}</p>}
-        <h3 className="text-2xl text-goldenBrown mb-2"></h3>
+        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
         {team_member_signature && <p>{team_member_signature}</p>}
-        <h3 className="text-2xl text-goldenBrown mb-2"></h3>
+        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
         {team_member_location && <p>{team_member_location}</p>}
-        <h3 className="text-2xl text-goldenBrown mb-2"></h3>
+        <h3 className="text-2xl text-goldenBrown mb-2 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
         {team_member_online && <p>{team_member_online}</p>}
       </section>
 
