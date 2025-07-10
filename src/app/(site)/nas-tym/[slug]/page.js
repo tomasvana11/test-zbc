@@ -242,7 +242,7 @@ export default async function MemberDetailPage({ params }) {
         <h2 className="text-3xl text-goldenBrown mb-2" dangerouslySetInnerHTML={{ __html: name }} />
         <p className="text-raisinBlack mb-4">{role}</p>
 
-        <h3>Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
+        <h2>Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h2>
         {team_member_story && <p>{team_member_story}</p>}
         {team_member_proud && <p><strong>Hrdost:</strong> {team_member_proud}</p>}
         {team_member_motto && <p><strong>Motto:</strong> {team_member_motto}</p>}
