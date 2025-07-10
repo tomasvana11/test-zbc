@@ -223,6 +223,9 @@ export default function MenuDemo() {
             <li>
               <Link href={`${baseUrl}/reference`}>Reference</Link>
             </li>
+            <li>
+              <Link href={`${baseUrl}/kariera`}>Kariéra</Link>
+            </li>
 
             <li style={{ position: 'relative', cursor: 'pointer' }}>
               <div onClick={() => toggleDropdown('novinky')} style={{ display: 'flex', alignItems: 'center' }}>
