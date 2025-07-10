@@ -1,4 +1,4 @@
-'use client';
+/*'use client';
 
 import { useState } from 'react';
 
@@ -12,7 +12,6 @@ export default function MobileMenu() {
 
   return (
     <>
-      {/* Trigger button */}
       <button
         onClick={() => setMenuOpen(true)}
         className="p-2 text-orange-800"
@@ -21,10 +20,8 @@ export default function MobileMenu() {
         ☰
       </button>
 
-      {/* Fullscreen overlay */}
       {menuOpen && (
         <div className="fixed inset-0 z-50 bg-[#f8f1ec] text-orange-800 p-6 sm:p-8">
-          {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <h1 className="text-xl font-bold text-black">
               za boha<span className="text-orange-700 font-extrabold">+</span>ší česko
@@ -38,7 +35,6 @@ export default function MobileMenu() {
             </button>
           </div>
 
-          {/* Links */}
           <nav className="space-y-4 text-lg font-medium">
             <MenuLink label="Domů" href="/" />
             <Dropdown
@@ -121,4 +117,4 @@ function XIcon({ className }) {
       />
     </svg>
   );
-}
+}*/
