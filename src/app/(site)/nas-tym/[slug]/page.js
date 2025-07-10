@@ -295,7 +295,6 @@ export default async function MemberDetailPage({ params }) {
 
 // app/tym/[slug]/page.jsx
 import React from 'react';
-import { useParams } from 'next/navigation';
 
 
 async function fetchMember(slug) {
