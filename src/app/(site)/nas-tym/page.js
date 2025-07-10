@@ -389,20 +389,7 @@ export default async function TymPage() {
     </div>
 
     <div className="md:col-span-2 md:flex md:justify-center">
-  <div className="relative w-full md:w-1/2">
-    {/*<select
-      name="role"
-      id="role"
-      required
-      className="w-full appearance-none bg-inputLight text-black rounded p-2 pr-12 focus:outline-none focus:ring-1 focus:ring-silverSage text-inputPlacehoder"
-      style={{color:'#747271'}}
-    >
-      <option value="" disabled selected hidden>Vyberte poradce</option>
-      <option value="vaclav_svatos">Václav Svatoš</option>
-      <option value="sabina_vytiskova">Sabina Vytisková</option>
-      <option value="monika_kvasnickova">Monika Kvasničková</option>
-    </select>*/}
-    
+  <div className="relative w-full md:w-1/2">  
     <select
   name="role"
   id="role"
