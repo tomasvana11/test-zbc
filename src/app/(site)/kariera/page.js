@@ -379,7 +379,7 @@ export default async function CareerPage() {
       noValidate
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <select name="typ" id="typ" required className="hidden"><option value="spolupracovník" selected></option></select>
+        <select name="typ" id="typ" required className="hidden"><option value="spolupracovník " selected></option></select>
         <input
           type="text"
           name="firstName"
