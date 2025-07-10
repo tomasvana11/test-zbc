@@ -558,14 +558,29 @@ export default async function Page() {
 >
   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div>
-      <select
+      {/*<select
       name="typ"
       id="typ"
       required
       className="hidden"
     >
       <option value="klient" selected></option>
-    </select>
+    </select>*/}
+    <select
+  name="role"
+  id="role"
+  required
+  className="w-full appearance-none bg-inputLight text-black rounded p-2 pr-12 focus:outline-none focus:ring-1 focus:ring-silverSage text-inputPlacehoder"
+  style={{ color: '#747271' }}
+>
+  <option value="" disabled selected hidden>Vyberte poradce</option>
+  {members.map((member) => (
+    <option key={member.id} value={member.slug}>
+      {member.name.replace(/(<([^>]+)>)/gi, '')}
+    </option>
+  ))}
+</select>
+
       <input
         type="text"
         name="firstName"
