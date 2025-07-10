@@ -1,4 +1,4 @@
-/*'use client';
+'use client';
 
 import { useState } from 'react';
 
@@ -117,4 +117,4 @@ function XIcon({ className }) {
       />
     </svg>
   );
-}*/
+}

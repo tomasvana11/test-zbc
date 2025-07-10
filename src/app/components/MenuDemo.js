@@ -1,3 +1,4 @@
+/*
 'use client';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
@@ -86,7 +87,6 @@ export default function MenuDemo() {
   return (
     <div style={wrapperStyle}>
       <div ref={menuRef} style={containerStyle}>
-        {/* Logo vlevo */}
         <div style={{ flexShrink: 0 }}>
           <Link href={`${baseUrl}/`} passHref>
             <a href={`${baseUrl}/`}>
@@ -265,3 +265,4 @@ export default function MenuDemo() {
     </div>
   );
 }
+*/
