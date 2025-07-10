@@ -1,5 +1,5 @@
 import PageHeader from '../../../components/PageHeader';
-import Menu from '../../../components/Menu';
+//import Menu from '../../../components/Menu';
 
 
 export default async function MemberLayout({ children, params }) {
