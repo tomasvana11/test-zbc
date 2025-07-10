@@ -141,8 +141,19 @@ export default function MenuDemo() {
                   </Link>
                 </li>
                 <li>
+                  <Link href={`${baseUrl}/nas-tym`}>
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Náš tým</a>
+                  </Link>
+                </li>
+               
+                <li>
                   <Link href={`${baseUrl}/reference`}>
                     <a style={{ padding: '8px 20px', display: 'block' }}>Reference</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`${baseUrl}/kariera`}>
+                    <a style={{ padding: '8px 20px', display: 'block' }}>Kariéra</a>
                   </Link>
                 </li>
                 <li>
