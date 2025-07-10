@@ -54,6 +54,8 @@ export default async function MemberDetailPage({ params }) {
         <p className="text-raisinBlack mb-4">{role}</p>
         </div>
 
+        <hr className="border-lightDivGrey lg:hidden"/>
+
         <div className='flex flex-col gap-2 w-full max-w-[800px]'> 
 
         <h3 className="text-2xl text-goldenBrown mt-4 font-recife">Jaký příběh mě přivedl k tomu, že pomáhám lidem s financemi?</h3>
