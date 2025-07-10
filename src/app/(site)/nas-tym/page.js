@@ -390,7 +390,7 @@ export default async function TymPage() {
 
     <div className="md:col-span-2 md:flex md:justify-center">
   <div className="relative w-full md:w-1/2">
-    <select
+    {/*<select
       name="role"
       id="role"
       required
@@ -401,7 +401,22 @@ export default async function TymPage() {
       <option value="vaclav_svatos">Václav Svatoš</option>
       <option value="sabina_vytiskova">Sabina Vytisková</option>
       <option value="monika_kvasnickova">Monika Kvasničková</option>
-    </select>
+    </select>*/}
+    
+    <select
+  name="role"
+  id="role"
+  required
+  className="w-full appearance-none bg-inputLight text-black rounded p-2 pr-12 focus:outline-none focus:ring-1 focus:ring-silverSage text-inputPlacehoder"
+  style={{ color: '#747271' }}
+>
+  <option value="" disabled selected hidden>Vyberte poradce</option>
+  {members.map((member) => (
+    <option key={member.id} value={member.slug}>
+      {member.name.replace(/(<([^>]+)>)/gi, '')}
+    </option>
+  ))}
+</select>
 
     <div
       className="pointer-events-none absolute inset-y-[9px] right-[9px] flex items-center justify-center rounded"
