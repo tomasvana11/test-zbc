@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Hourglass } from 'ldrs/react';
 import 'ldrs/react/Hourglass.css';
+import ContactFormClient from '../../../components/ContactFormClient';
 
 
 export default function BlogPostPage({ params }) {
@@ -151,90 +152,7 @@ export default function BlogPostPage({ params }) {
         <p className="text-red-600 text-center mt-4">{latestError}</p>
       )}
 
-      <section className="bg-silkBeige w-full py-12 md:py-16">
-        <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center">Kontaktujte nás</h2>
-        <p className="text-center text-raisinBlack">
-          Chcete mít ve financích jasno a klid? <strong>Začněte tady.</strong>
-        </p>
-
-        <div className="flex flex-col w-full max-w-[1392px] mx-auto py-4 md:py-8 justify-center">
-          <form
-            action="https://formcarry.com/s/kY_1MuRL2um"
-            method="POST"
-            encType="multipart/form-data"
-            className="mx-auto p-6 space-y-5 w-full max-w-[850px]"
-            target="_self"
-            noValidate
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                name="firstName"
-                placeholder="Jméno"
-                required
-                className="w-full bg-inputLight rounded p-2"
-              />
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Příjmení"
-                required
-                className="w-full bg-inputLight rounded p-2"
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Telefon"
-                required
-                className="w-full bg-inputLight rounded p-2"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                required
-                className="w-full bg-inputLight rounded p-2"
-              />
-              <div className="md:col-span-2 md:flex md:justify-center">
-                <div className="relative w-full md:w-1/2">
-                  <select
-                    name="role"
-                    required
-                    className="w-full appearance-none bg-inputLight text-black rounded p-2 pr-12"
-                    style={{ color: '#747271' }}
-                  >
-                    <option value="" disabled selected hidden>
-                      Vyberte poradce
-                    </option>
-                    <option value="vaclav_svatos">Václav Svatoš</option>
-                    <option value="sabina_vytiskova">Sabina Vytisková</option>
-                    <option value="monika_kvasnickova">Monika Kvasničková</option>
-                  </select>
-                  <div
-                    className="pointer-events-none absolute inset-y-[9px] right-[9px] flex items-center justify-center rounded"
-                    style={{ width: '28px', height: '22px', backgroundColor: '#9D6219' }}
-                  >
-                    <img src="/images/chevron-down.svg" alt="šipka" className="w-4 h-4" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="w-full flex justify-center">
-              <button
-                type="submit"
-                className="w-full md:w-auto md:mt-[24px] bg-goldenBrown text-white py-2 px-6 rounded font-satoshi-bold"
-              >
-                Kontaktujte mě
-              </button>
-            </div>
-          </form>
-          <p className="text-cardGrey text-center w-full max-w-[850px] p-6 m-auto">
-            Odesláním formuláře berete na vědomí podmínky zpracování osobních údajů uvedené v informaci o
-            zpracování osobních údajů
-          </p>
-        </div>
-      </section>
+      <ContactFormClient/>
 
     </main>
   );
