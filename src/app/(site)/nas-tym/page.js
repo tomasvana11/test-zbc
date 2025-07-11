@@ -522,6 +522,7 @@ export default async function TymPage() {
                       <option value="" disabled selected hidden>
                         Vyberte poradce
                       </option>
+                      <option value="Nevim"> Důvěřuju vašemu výběru</option> 
                       {members.map((member) => (
                         <option key={member.id} value={member.slug}>
                           {member.name.replace(/(<([^>]+)>)/gi, '')}
