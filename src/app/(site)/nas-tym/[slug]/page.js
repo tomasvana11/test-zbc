@@ -370,6 +370,7 @@ export default async function MemberDetailPage({ params }) {
                     <option value="" disabled hidden>
                       Vyberte poradce
                     </option>
+                    <option value="Nevim"> Důvěřuju vašemu výběru</option> 
                     {members.map((m) => (
                       <option
                         key={m.id}
