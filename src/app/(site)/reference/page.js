@@ -1,4 +1,4 @@
-import ContactFormClient from '../../components/ContactFormClient.'; 
+import ContactFormClient from '../../components/ContactFormClient'; 
 // WP REST API
 async function fetchPageData() {
   const res = await fetch(
