@@ -41,7 +41,7 @@ export default function IntroSection({ hp_intro_title, hp_intro_detail }) {
               src="/images/intro-img.png"
               alt="Intro"
               loading="lazy"
-              className="w-full h-auto object-contain -mt-[100px]"
+              className="w-full h-auto object-contain"
             />
           </div>
         </div>
