@@ -3,7 +3,7 @@ import Image from 'next/image';
 import ContactFormClient from '../app/components/ContactFormClient'
 import HeroSection from './components/HeroSection';
 import IntroSectionHp from './components/IntroSectionHp';
-import HpNumbersSection from './components/HpNumbersSection';
+import HpNumbersSection from './components/NumbersSection';
 
 
 
