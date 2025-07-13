@@ -3,6 +3,7 @@ import Image from 'next/image';
 import ContactFormClient from '../app/components/ContactFormClient'
 import HeroSection from './components/HeroSection';
 import IntroSectionHp from './components/IntroSectionHp';
+import HodnotySection from './components/HodnotyHp';
 
 
 
@@ -174,6 +175,19 @@ export default async function Page() {
         hp_intro_title={hp_intro_title}
         hp_intro_detail={hp_intro_detail}
       />
+      <HodnotySection
+        hp_hodnoty_title={hp_hodnoty_title}
+        hodnota_1={hodnota_1}
+        hodnota_1_desc={hodnota_1_desc}
+        hodnota_2={hodnota_2}
+        hodnota_2_desc={hodnota_2_desc}
+        hodnota_3={hodnota_3}
+        hodnota_3_desc={hodnota_3_desc}
+        hodnota_4={hodnota_4}
+        hodnota_4_desc={hodnota_4_desc}
+        hodnota_5={hodnota_5}
+        hodnota_5_desc={hodnota_5_desc}
+      />
 
 
       <section className="px-4 w-full">
@@ -245,7 +259,6 @@ export default async function Page() {
 
       </section>
 
-      {/*produkce,funguje*/}
       <section className="relative bg-raisinBlack w-full px-4 py-12 md:py-16 overflow-hidden">
   <img
     src="/images/symbol-pattern-l.svg"
