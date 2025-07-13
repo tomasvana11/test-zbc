@@ -2,6 +2,8 @@
 import Image from 'next/image';
 import ContactFormClient from '../app/components/ContactFormClient'
 import HeroSection from './components/HeroSection';
+import IntroSectionHp from './components/IntroSectionHp';
+
 
 
 
@@ -167,7 +169,12 @@ export default async function Page() {
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-white">
-       <HeroSection brand_claim={brand_claim} />
+      <HeroSection brand_claim={brand_claim} />
+      <IntroSectionHp
+        hp_intro_title={hp_intro_title}
+        hp_intro_detail={hp_intro_detail}
+      />
+
 
 <section className="px-4 w-full bg-silkBeige">
 
