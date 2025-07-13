@@ -261,56 +261,6 @@ export default async function Page() {
         hp_number_desc_5={hp_number_desc_5}
       />
 
-
-
-
-      <section className="px-4 w-full py-12 md:py-24">
-
-        <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto ">
-
-        <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-16">
-          <div className="flex items-center justify-between mb-4 md:mb-6">
-            <h2 className="text-[28px] md:text-[40px] text-goldenBrown">{hp_adv_title}</h2>
-          </div>
-        </div>
-        <div className="w-full md:w-1/2 md:pr-4 lg:pr-8 xl:pr-12 pb-10 md:pb-0">
-          <div className="flex items-center justify-between mb-4 md:mb-6">
-            <div className="mt-4 md:mt-6 text-raisinBlack" dangerouslySetInnerHTML={{ __html: hp_adv_desc }} />
-          </div>
-        </div>
-        </div>
-        <hr className="border-lightDivGrey w-full max-w-[1392px] mx-auto mt-10 mb-20"/>
-        <div className="w-full max-w-[1392px] mx-auto text-center">
-          <h4 className="text-2xl md:text-3xl  kfp mb-16 text-goldenBrown">Naše komplexní finanční plánování zahrnuje</h4>
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              <div className="bg-cardBeige p-5 rounded-lg flex flex-col gap-5 items-center">
-                <img src="/images/icon-mag-glass.svg" alt="Symbol Gold" className="w-[68px] h-[68px]" />
-                <div className="mt-2 text-center card-text-fp text-goldenBrown" dangerouslySetInnerHTML={{ __html: hp_fp_card_1 }} />
-              </div>
-              <div className="bg-cardBeige p-5 rounded-lg flex flex-col gap-5 items-center">
-                <img src="/images/icon-graph.svg" alt="Symbol Silver" className="w-[68px] h-[68px]" />
-                <div className="mt-2 text-center card-text-fp text-goldenBrown" dangerouslySetInnerHTML={{ __html: hp_fp_card_2 }} />
-              </div>
-              <div className="bg-cardBeige p-5 rounded-lg flex flex-col gap-5 items-center">
-                <img src="/images/icon-trust.svg" alt="Symbol Gold" className="w-[68px] h-[68px]" />
-                <div className="mt-2 text-center card-text-fp text-goldenBrown" dangerouslySetInnerHTML={{ __html: hp_fp_card_3 }} />
-              </div>
-              <div className="bg-cardBeige p-5 rounded-lg flex flex-col gap-5 items-center">
-                <img src="/images/icon-mountain.svg" alt="Symbol Silver" className="w-[68px] h-[68px]" />
-                <div className="mt-2 text-center card-text-fp text-goldenBrown" dangerouslySetInnerHTML={{ __html: hp_fp_card_4 }} />
-              </div>
-              <div className="bg-cardBeige p-5 rounded-lg flex flex-col gap-5 items-center">
-                <img src="/images/icon-certificate.svg" alt="Symbol Gold" className="w-[68px] h-[68px]" />
-                <div className="mt-2 text-center card-text-fp text-goldenBrown" dangerouslySetInnerHTML={{ __html: hp_fp_card_5 }} />
-              </div>
-            </div>
-            
-          <a href="https://www.zabohatsicesko.cz/sluzby" className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center transition-colors duration-300 hover:bg-goldenBrownHover">Zjistit jak začít</a>
-        </div>
-        
-
-      </section>
-
       <Advantages
   hp_adv_title={hp_adv_title}
   hp_adv_desc={hp_adv_desc}

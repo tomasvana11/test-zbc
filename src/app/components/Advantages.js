@@ -12,6 +12,11 @@ export default function HodnotyAdvantages({
   hp_fp_card_4,
   hp_fp_card_5,
 }) {
+  const { ref: headerRef, inView: headerInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
   const { ref: cardsRef, inView: cardsInView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -27,20 +32,31 @@ export default function HodnotyAdvantages({
 
   return (
     <section className="px-4 w-full py-12 md:py-24">
-      <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto">
-        <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-16">
+      <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto" ref={headerRef}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={headerInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-16"
+        >
           <div className="flex items-center justify-between mb-4 md:mb-6">
             <h2 className="text-[28px] md:text-[40px] text-goldenBrown">{hp_adv_title}</h2>
           </div>
-        </div>
-        <div className="w-full md:w-1/2 md:pr-4 lg:pr-8 xl:pr-12 pb-10 md:pb-0">
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={headerInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="w-full md:w-1/2 md:pr-4 lg:pr-8 xl:pr-12 pb-10 md:pb-0"
+        >
           <div className="flex items-center justify-between mb-4 md:mb-6">
             <div
               className="mt-4 md:mt-6 text-raisinBlack"
               dangerouslySetInnerHTML={{ __html: hp_adv_desc }}
             />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <hr className="border-lightDivGrey w-full max-w-[1392px] mx-auto mt-10 mb-20" />
