@@ -26,7 +26,6 @@ export default function HodnotyNumbers({
       ref={ref}
       className="relative bg-raisinBlack w-full px-4 py-12 md:py-16 overflow-hidden"
     >
-      {/* Obrázky/textury */}
       <img
         src="/images/symbol-pattern-l.svg"
         alt="Symbol Pattern"
@@ -38,20 +37,22 @@ export default function HodnotyNumbers({
         className="lg:hidden absolute -right-[32px] -bottom-[32px] w-[205px] h-[205px] md:w-[280px] md:h-[280px]"
       />
 
-      <div className="max-w-[1392px] mx-auto flex flex-col lg:flex-row items-center">
-        <h2 className="text-[28px] md:pt-16 md:text-[40px] pb-8 md:pb-10 lg:w-1/3 text-center lg:text-left text-goldenBrown">
-          {hp_numbers_title}
-        </h2>
+      <div className="flex flex-col lg:flex-row w-full items-center max-w-[1392px] mx-auto">
+        <div className="w-full flex flex-col lg:flex-row">
+          <h2 className="text-[28px] md:pt-16 md:text-[40px] pb-8 md:pb-10 lg:w-1/3 text-center lg:text-left text-goldenBrown">
+            {hp_numbers_title}
+          </h2>
 
-        <div className="w-full lg:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-px bg-darkDivGrey">
-          <NumberCard number={hp_number_1} description={hp_number_desc_1} animate={inView} />
-          <NumberCard number={hp_number_2} description={hp_number_desc_2} animate={inView} />
-          <NumberCard number={hp_number_3} description={hp_number_desc_3} animate={inView} />
-          <NumberCard number={hp_number_4} description={hp_number_desc_4} animate={inView} />
-          <NumberCard number={hp_number_5} description={hp_number_desc_5} animate={inView} />
+          <div className="w-full lg:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-px bg-darkDivGrey">
+            <NumberCard number={hp_number_1} description={hp_number_desc_1} animate={inView} />
+            <NumberCard number={hp_number_2} description={hp_number_desc_2} animate={inView} />
+            <NumberCard number={hp_number_3} description={hp_number_desc_3} animate={inView} />
+            <NumberCard number={hp_number_4} description={hp_number_desc_4} animate={inView} />
+            <NumberCard number={hp_number_5} description={hp_number_desc_5} animate={inView} />
 
-          {/* Skrytý čtverec pro zachování gridu */}
-          <div className="aspect-square bg-raisinBlack p-6 flex" />
+            {/* Skrytý čtverec */}
+            <div className="aspect-square bg-raisinBlack p-6 flex" />
+          </div>
         </div>
       </div>
     </section>
@@ -65,8 +66,8 @@ function NumberCard({ number, description, animate }) {
     if (!animate) return;
 
     let start = 0;
-    const duration = 1500; // délka animace v ms
-    const stepTime = 30;
+    const duration = 1500; // animace trvá 1.5 sekundy
+    const stepTime = 30; // aktualizace každých 30ms
     const increment = number / (duration / stepTime);
 
     const interval = setInterval(() => {
