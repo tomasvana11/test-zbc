@@ -1,5 +1,8 @@
+
 import Image from 'next/image';
 import ContactFormClient from '../app/components/ContactFormClient'
+import HeroSection from './components/HeroSection';
+
 
 
 // WP REST API
@@ -164,6 +167,7 @@ export default async function Page() {
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-white">
+       <HeroSection brand_claim={brand_claim} />
 
       <section className="relative w-full min-h-[600px] md:min-h-[800px] bg-[url('/images/heroimage.webp')] bg-left bg-cover bg-no-repeat overflow-hidden">
   {/* Horní gradient */}

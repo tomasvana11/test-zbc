@@ -252,8 +252,8 @@ export default function ContactForm() {
             {selectedAdvisor === 'vaclav-svatos' && (
               <div className="md:col-span-2">
                 <textarea
-                  name="messageForVaclav"
-                  placeholder="Zpráva pro Václava"
+                  name="motivacniDopis"
+                  placeholder="Motivační dopis - proč bych se o vás měl starat právě já?"
                   className="w-full bg-inputLight rounded p-2 resize-none focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
                   rows={4}
                 />
