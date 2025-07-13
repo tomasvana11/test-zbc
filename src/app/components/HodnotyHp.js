@@ -17,7 +17,39 @@ export default function HodnotySection({
     hodnota_5,
     hodnota_5_desc,
 }) {
-  // hodnoty je pole objektů: [{title, desc, symbol, color}, ...]
+  // Seskupíme hodnoty do pole
+  const hodnoty = [
+    {
+      title: hodnota_1,
+      desc: hodnota_1_desc,
+      symbol: '/images/zbc-symbol-golden.svg',
+      color: '#9D6219', // goldenBrown barva
+    },
+    {
+      title: hodnota_2,
+      desc: hodnota_2_desc,
+      symbol: '/images/zbc-symbol-silver.svg',
+      color: '#747271', // silverSage barva
+    },
+    {
+      title: hodnota_3,
+      desc: hodnota_3_desc,
+      symbol: '/images/zbc-symbol-golden.svg',
+      color: '#9D6219',
+    },
+    {
+      title: hodnota_4,
+      desc: hodnota_4_desc,
+      symbol: '/images/zbc-symbol-silver.svg',
+      color: '#747271',
+    },
+    {
+      title: hodnota_5,
+      desc: hodnota_5_desc,
+      symbol: '/images/zbc-symbol-golden.svg',
+      color: '#9D6219',
+    },
+  ];
 
   // Detect screen width to enable only on desktop
   const [isDesktop, setIsDesktop] = useState(false);
@@ -36,7 +68,6 @@ export default function HodnotySection({
       <div className="max-w-[1392px] mx-auto flex flex-col items-center">
         <h2 className="text-[28px] md:text-[40px] pb-8 md:pb-10 text-white text-center">{hp_hodnoty_title}</h2>
 
-        {/* Wrapper pro scroll snap */}
         <div
           className={`
             w-full
@@ -70,7 +101,7 @@ export default function HodnotySection({
 function AnimatedCard({ title, desc, symbol, color, isDesktop }) {
   const controls = useAnimation();
   const [ref, inView] = useInView({
-    threshold: 0.6, // karta musí být ze 60% viditelná, aby se animace spustila
+    threshold: 0.6,
     triggerOnce: true,
   });
 
@@ -90,7 +121,7 @@ function AnimatedCard({ title, desc, symbol, color, isDesktop }) {
       style={{ borderColor: color }}
     >
       <img src={symbol} alt={`Symbol ${title}`} className="w-[32px] h-[32px]" />
-      <h4 className={`card-heading mt-2`} style={{ color }}>{title}</h4>
+      <h4 className="card-heading mt-2" style={{ color }}>{title}</h4>
       <p className="text-silkBeige">{desc}</p>
     </motion.div>
   );
