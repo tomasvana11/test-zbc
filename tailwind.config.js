@@ -18,6 +18,7 @@ module.exports = {
         inputLight: '#EEE9E6',
         inputPlaceholder: '#747271',
         socialDiv: '#5C5A58',
+        goldenBrownHover:'#7D4D13',
       },
     },
   },

@@ -37,7 +37,7 @@ export default function HeroSection({ brand_claim }) {
             </h1>
             <a
               href="https://www.zabohatsicesko.cz/sluzby"
-              className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center"
+              className="custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige mt-8 inline-block text-center hover:goldenBrownHover"
             >
               Chci zjistit víc
             </a>
