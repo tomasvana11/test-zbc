@@ -26,6 +26,18 @@ export default function HodnotyNumbers({
       ref={ref}
       className="relative bg-raisinBlack w-full px-4 py-12 md:py-16 overflow-hidden"
     >
+      {/* Obrázky/textury */}
+      <img
+        src="/images/symbol-pattern-l.svg"
+        alt="Symbol Pattern"
+        className="hidden lg:block absolute -left-[64px] -bottom-[64px] w-[420px] h-[420px]"
+      />
+      <img
+        src="/images/symbol-pattern-s.svg"
+        alt="Symbol Pattern"
+        className="lg:hidden absolute -right-[32px] -bottom-[32px] w-[205px] h-[205px] md:w-[280px] md:h-[280px]"
+      />
+
       <div className="max-w-[1392px] mx-auto flex flex-col lg:flex-row items-center">
         <h2 className="text-[28px] md:pt-16 md:text-[40px] pb-8 md:pb-10 lg:w-1/3 text-center lg:text-left text-goldenBrown">
           {hp_numbers_title}
@@ -38,7 +50,7 @@ export default function HodnotyNumbers({
           <NumberCard number={hp_number_4} description={hp_number_desc_4} animate={inView} />
           <NumberCard number={hp_number_5} description={hp_number_desc_5} animate={inView} />
 
-          {/* Skrytý čtverec */}
+          {/* Skrytý čtverec pro zachování gridu */}
           <div className="aspect-square bg-raisinBlack p-6 flex" />
         </div>
       </div>
@@ -53,7 +65,7 @@ function NumberCard({ number, description, animate }) {
     if (!animate) return;
 
     let start = 0;
-    const duration = 1500; // ms
+    const duration = 1500; // délka animace v ms
     const stepTime = 30;
     const increment = number / (duration / stepTime);
 
