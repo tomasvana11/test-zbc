@@ -4,6 +4,7 @@ import ContactFormClient from '../app/components/ContactFormClient'
 import HeroSection from './components/HeroSection';
 import IntroSectionHp from './components/IntroSectionHp';
 import HpNumbersSection from './components/NumbersSection';
+import Advantages from './components/Advantages';
 
 
 
@@ -246,82 +247,6 @@ export default async function Page() {
 
       </section>
 
-      <section className="relative bg-raisinBlack w-full px-4 py-12 md:py-16 overflow-hidden">
-  <img
-    src="/images/symbol-pattern-l.svg"
-    alt="Symbol Pattern"
-    className="hidden lg:block absolute -left-[64px] -bottom-[64px] w-[420px] h-[420px]"
-  />
-  <img
-    src="/images/symbol-pattern-s.svg"
-    alt="Symbol Pattern"
-    className="lg:hidden absolute -right-[32px] -bottom-[32px] w-[205px] h-[205px] md:w-[280px] md:h-[280px]"
-  />
-
-  <div className="flex flex-col lg:flex-row w-full items-center max-w-[1392px] mx-auto">
-    <div className="w-full flex flex-col lg:flex-row">
-      <h2 className="text-[28px] md:pt-16 md:text-[40px] pb-8 md:pb-10 lg:w-1/3 text-center lg:text-left text-goldenBrown">
-        {hp_numbers_title}
-      </h2>
-
-      {/* ČTVERCOVÁ MŘÍŽKA */}
-      <div className="w-full lg:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-px bg-darkDivGrey">
-        {/* Karta 1 */}
-        <div className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center">
-          <span className="text-silkBeige text-[36px] md:text-[70px] recife">
-            {hp_number_1}
-          </span>
-          <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">
-            {hp_number_desc_1}
-          </h4>
-        </div>
-
-        {/* Karta 2 */}
-        <div className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center">
-          <span className="text-silkBeige text-[36px] md:text-[70px] recife">
-            {hp_number_2}
-          </span>
-          <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">
-            {hp_number_desc_2}
-          </h4>
-        </div>
-
-        {/* Karta 3 */}
-        <div className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center">
-          <span className="text-silkBeige text-[36px] md:text-[70px] recife">
-            {hp_number_3}
-          </span>
-          <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">
-            {hp_number_desc_3}
-          </h4>
-        </div>
-
-        {/* Karta 4 */}
-        <div className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center">
-          <span className="text-silkBeige text-[36px] md:text-[70px] recife">
-            {hp_number_4}
-          </span>
-          <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">
-            {hp_number_desc_4}
-          </h4>
-        </div>
-
-        {/* Karta 5 */}
-        <div className="aspect-square bg-raisinBlack p-6 flex flex-col justify-center">
-          <span className="text-silkBeige text-[36px] md:text-[70px] recife">
-            {hp_number_5}
-          </span>
-          <h4 className="card-heading-v md:text-lg text-goldenBrown mt-2">
-            {hp_number_desc_5}
-          </h4>
-        </div>
-
-        {/* Šestý doplňkový čtverec – skrytý obsah, ale tmavý pozadí */}
-        <div className="aspect-square bg-raisinBlack p-6 flex" />
-      </div>
-    </div>
-  </div>
-      </section>
       <HpNumbersSection
         hp_numbers_title={hp_numbers_title}
         hp_number_1={hp_number_1}
@@ -385,6 +310,16 @@ export default async function Page() {
         
 
       </section>
+
+      <Advantages
+  hp_adv_title={hp_adv_title}
+  hp_adv_desc={hp_adv_desc}
+  hp_fp_card_1={hp_fp_card_1}
+  hp_fp_card_2={hp_fp_card_2}
+  hp_fp_card_3={hp_fp_card_3}
+  hp_fp_card_4={hp_fp_card_4}
+  hp_fp_card_5={hp_fp_card_5}
+/>
 
 
 
