@@ -262,14 +262,14 @@ export default async function Page() {
       />
 
       <Advantages
-  hp_adv_title={hp_adv_title}
-  hp_adv_desc={hp_adv_desc}
-  hp_fp_card_1={hp_fp_card_1}
-  hp_fp_card_2={hp_fp_card_2}
-  hp_fp_card_3={hp_fp_card_3}
-  hp_fp_card_4={hp_fp_card_4}
-  hp_fp_card_5={hp_fp_card_5}
-/>
+        hp_adv_title={hp_adv_title}
+        hp_adv_desc={hp_adv_desc}
+        hp_fp_card_1={hp_fp_card_1}
+        hp_fp_card_2={hp_fp_card_2}
+        hp_fp_card_3={hp_fp_card_3}
+        hp_fp_card_4={hp_fp_card_4}
+        hp_fp_card_5={hp_fp_card_5}
+      />
 
 
 
