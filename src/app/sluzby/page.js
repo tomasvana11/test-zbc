@@ -419,10 +419,10 @@ export default async function SluzbyPage() {
       />
       <div className='flex flex-col gap-2 absolute bottom-10 left-10'>
         {item.acf?.client_name && (
-          <p className="text-goldenBrown font-bold">{item.acf.client_name}</p>
+          <p className="text-goldenBrown text-left font-bold">{item.acf.client_name}</p>
         )}
         {item.acf?.client_since && (
-          <p className="text-raisinBlack opacity-75">Klient/ka od roku {item.acf.client_since}</p>
+          <p className="text-raisinBlack text-left opacity-75">Klient/ka od roku {item.acf.client_since}</p>
         )}
       </div>
     </div>
