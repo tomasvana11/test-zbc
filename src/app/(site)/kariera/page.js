@@ -449,13 +449,14 @@ export default async function CareerPage() {
 
         <div class="md:col-span-2 md:flex md:justify-center">
   <div class="relative w-full md:w-1/2">
+  <label for="cv" className='text-silverSage'>Životopis (PDF, DOCX):</label>
     <input
       type="file"
       id="cv"
       name="cv"
       accept=".pdf,.doc,.docx"
       required
-      class="block w-full text-center text-[rgb(151,167,165)] bg-inputLight file:bg-inputLight file:border-0 file:w-full file:py-3 file:rounded-md file:text-[rgb(151,167,165)]"
+      class="block w-full rounded text-center text-[rgb(151,167,165)] bg-inputLight file:bg-inputLight file:border-0 file:w-full file:py-3 file:rounded-md file:text-[rgb(151,167,165)]"
     ></input>
   </div>
 </div>
