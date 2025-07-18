@@ -428,7 +428,7 @@ export default async function CareerPage() {
                   {item.title}
                 </option>
               ))}
-            </select>
+            </select> 
 
             <div
               className="pointer-events-none absolute inset-y-[9px] right-[9px] flex items-center justify-center rounded cursor-pointer"
@@ -446,6 +446,13 @@ export default async function CareerPage() {
             </div>
           </div>
         </div>
+
+        <div className="md:col-span-2 md:flex md:justify-center">
+          <div className="relative w-full md:w-1/2">
+            <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required></input>
+          </div>
+        </div>
+       
       </div>
 
       <div className="w-full flex justify-center">
