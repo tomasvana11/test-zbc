@@ -86,7 +86,7 @@ export default function KarieraPozicePage({ params }) {
         
         {career_responsibility && (
           <div>
-            <h2 className="text-2xl font-semibold mb-2">Co bude náplní práce</h2>
+            <h2 className="text-2xl font-semibold mb-2">Co bude vaší náplní práce?</h2>
             <div
               className="prose max-w-full"
               dangerouslySetInnerHTML={{ __html: career_responsibility }}
@@ -96,7 +96,7 @@ export default function KarieraPozicePage({ params }) {
 
         {career_expectation && (
           <div>
-            <h2 className="text-2xl font-semibold mb-2">Co od vás očekáváme</h2>
+            <h2 className="text-2xl font-semibold mb-2">Co od vás očekáváme?</h2>
             <div
               className="prose max-w-full"
               dangerouslySetInnerHTML={{ __html: career_expectation }}
@@ -106,7 +106,7 @@ export default function KarieraPozicePage({ params }) {
 
         {career_offer && (
           <div>
-            <h2 className="text-2xl font-semibold mb-2">Co nabízíme</h2>
+            <h2 className="text-2xl font-semibold mb-2">A co vám nabízíme?</h2>
             <div
               className="prose max-w-full"
               dangerouslySetInnerHTML={{ __html: career_offer }}
@@ -126,7 +126,7 @@ export default function KarieraPozicePage({ params }) {
       </section>
 
       {/* Formulář sekce */}
-      <section className="bg-silkBeige w-full px-4 py-12 md:py-16 mt-16">
+      <section className="bg-silkBeige w-full px-4 pt-12 md:pt-16 mt-16">
         <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center mb-4">
           Přidej se k nám!
         </h2>
@@ -209,6 +209,20 @@ export default function KarieraPozicePage({ params }) {
                   </div>
                 </div>
               </div>
+
+              <div class="md:col-span-2 md:flex md:justify-center">
+  <div class="relative w-full md:w-1/2">
+  <label for="cv" className='text-silverSage'>Životopis (PDF, DOCX):</label>
+    <input
+      type="file"
+      id="cv"
+      name="cv"
+      accept=".pdf,.doc,.docx"
+      required
+      class="block w-full rounded text-center text-[rgb(151,167,165)] bg-inputLight file:bg-inputLight file:border-0 file:w-full file:py-3 file:rounded-md file:text-[rgb(151,167,165)]"
+    ></input>
+  </div>
+</div>
             </div>
 
             <div className="w-full flex justify-center">
