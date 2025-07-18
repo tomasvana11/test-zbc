@@ -123,6 +123,14 @@ export default async function RefPage() {
                     alt={item.title.rendered || 'Recenze'}
                     className="w-[200px] mt-[-80px] h-auto object-contain align-middle"
                   />
+                  <div className='flex flex-col gap-2 absolute bottom-10 left-10'>
+        {item.acf?.client_name && (
+          <p className="text-goldenBrown font-bold">{item.acf.client_name}</p>
+        )}
+        {item.acf?.client_since && (
+          <p className="text-raisinBlack opacity-75">Klient/ka od roku {item.acf.client_since}</p>
+        )}
+      </div>
                 </div>
               );
             })}

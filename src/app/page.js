@@ -301,7 +301,7 @@ export default async function Page() {
         alt="Recenze"
         className="w-[200px] mt-[-80px] h-auto object-contain align-middle"
       />
-      <div className='flex flex-column gap-2 absolute bottom-10 left-10'>
+      <div className='flex flex-col gap-2 absolute bottom-10 left-10'>
         {item.acf?.client_name && (
           <p className="text-goldenBrown font-bold">{item.acf.client_name}</p>
         )}
