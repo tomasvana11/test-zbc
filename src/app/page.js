@@ -286,10 +286,11 @@ export default async function Page() {
     >
       {/* Nový absolutní obrázek */}
       <img
-        src="/images/symbol-golden-s.svg" // ← nahraď svým obrázkem
+        src="/images/symbol-golden-s.svg" 
         alt="Dekorace"
         className="absolute top-0 left-0 w-[46px] h-[46px] -translate-x-1/2 -translate-y-1/2 z-10"
       />
+
 
       <p className="text-left text-raisinBlack w-1/2">
         {item.acf?.citation || 'Bez citace'}
@@ -300,6 +301,9 @@ export default async function Page() {
         alt="Recenze"
         className="w-[200px] mt-[-80px] h-auto object-contain align-middle"
       />
+      <div className='flex flex-row gap-2'>
+        <p className="text-raisinBlack">{item.acf?.client_name || ''}</p>
+      </div>
     </div>
   ))}
 </div>
