@@ -1,14 +1,14 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { Hourglass } from 'ldrs/react';
-import 'ldrs/react/Hourglass.css';
+"use client";
+import { useEffect, useState } from "react";
+import { Hourglass } from "ldrs/react";
+import "ldrs/react/Hourglass.css";
 
 export default function KarieraPozicePage({ params }) {
   const { slug } = params;
 
   const [post, setPost] = useState(null);
   const [positions, setPositions] = useState([]);
-  const [selectedRole, setSelectedRole] = useState(slug || '');
+  const [selectedRole, setSelectedRole] = useState(slug || "");
   const [error, setError] = useState(null);
   const [showLoader, setShowLoader] = useState(false);
 
@@ -21,15 +21,17 @@ export default function KarieraPozicePage({ params }) {
   }, [post]);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   // Načtení dat pro pozici podle slug
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await fetch(`https://api.zabohatsicesko.cz/wp-json/wp/v2/pracovni-pozice?slug=${slug}&_embed`);
-        if (!res.ok) throw new Error('Nepodařilo se načíst pracovní pozici');
+        const res = await fetch(
+          `https://api.zabohatsicesko.cz/wp-json/wp/v2/pracovni-pozice?slug=${slug}&_embed`
+        );
+        if (!res.ok) throw new Error("Nepodařilo se načíst pracovní pozici");
         const data = await res.json();
         setPost(data[0]);
       } catch (err) {
@@ -44,8 +46,10 @@ export default function KarieraPozicePage({ params }) {
   useEffect(() => {
     const fetchPositions = async () => {
       try {
-        const res = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/pracovni-pozice?per_page=100&_embed');
-        if (!res.ok) throw new Error('Nepodařilo se načíst pozice');
+        const res = await fetch(
+          "https://api.zabohatsicesko.cz/wp-json/wp/v2/pracovni-pozice?per_page=100&_embed"
+        );
+        if (!res.ok) throw new Error("Nepodařilo se načíst pozice");
         const data = await res.json();
         setPositions(data);
       } catch (err) {
@@ -83,10 +87,11 @@ export default function KarieraPozicePage({ params }) {
   return (
     <main className="flex min-h-screen flex-col items-center py-12">
       <section className="w-full max-w-[1000px] mx-auto px-4 space-y-10">
-        
         {career_responsibility && (
           <div>
-            <h2 className="text-2xl font-semibold mb-2">Co bude vaší náplní práce?</h2>
+            <h2 className="text-2xl font-semibold mb-2 text-goldenBrown">
+              Co bude vaše klíčová odpovědnost?
+            </h2>
             <div
               className="prose max-w-full"
               dangerouslySetInnerHTML={{ __html: career_responsibility }}
@@ -96,7 +101,9 @@ export default function KarieraPozicePage({ params }) {
 
         {career_expectation && (
           <div>
-            <h2 className="text-2xl font-semibold mb-2">Co od vás očekáváme?</h2>
+            <h2 className="text-2xl font-semibold mb-2 text-goldenBrown">
+              Co od vás očekáváme?
+            </h2>
             <div
               className="prose max-w-full"
               dangerouslySetInnerHTML={{ __html: career_expectation }}
@@ -106,7 +113,9 @@ export default function KarieraPozicePage({ params }) {
 
         {career_offer && (
           <div>
-            <h2 className="text-2xl font-semibold mb-2">A co vám nabízíme?</h2>
+            <h2 className="text-2xl font-semibold mb-2 text-goldenBrown">
+              A co vám nabízíme?
+            </h2>
             <div
               className="prose max-w-full"
               dangerouslySetInnerHTML={{ __html: career_offer }}
@@ -116,7 +125,9 @@ export default function KarieraPozicePage({ params }) {
 
         {career_place && (
           <div>
-            <h2 className="text-2xl font-semibold mb-2">Místo výkonu práce</h2>
+            <h2 className="text-2xl font-semibold mb-2 text-goldenBrown">
+              Místo výkonu práce
+            </h2>
             <div
               className="prose max-w-full"
               dangerouslySetInnerHTML={{ __html: career_place }}
@@ -181,7 +192,7 @@ export default function KarieraPozicePage({ params }) {
                     className="w-full appearance-none bg-inputLight text-black rounded p-2 pr-12 focus:outline-none focus:ring-1 focus:ring-silverSage"
                     value={selectedRole}
                     onChange={handleSelectChange}
-                    style={{ color: selectedRole ? '#000' : '#747271' }}
+                    style={{ color: selectedRole ? "#000" : "#747271" }}
                   >
                     <option value="" disabled hidden>
                       Jaká role tě láká nejvíce?
@@ -196,9 +207,9 @@ export default function KarieraPozicePage({ params }) {
                   <div
                     className="pointer-events-none absolute inset-y-[9px] right-[9px] flex items-center justify-center rounded cursor-pointer"
                     style={{
-                      width: '28px',
-                      height: '22px',
-                      backgroundColor: '#9D6219',
+                      width: "28px",
+                      height: "22px",
+                      backgroundColor: "#9D6219",
                     }}
                   >
                     <img
@@ -211,18 +222,20 @@ export default function KarieraPozicePage({ params }) {
               </div>
 
               <div class="md:col-span-2 md:flex md:justify-center">
-  <div class="relative w-full md:w-1/2">
-  <label for="cv" className='text-silverSage'>Životopis (PDF, DOCX):</label>
-    <input
-      type="file"
-      id="cv"
-      name="cv"
-      accept=".pdf,.doc,.docx"
-      required
-      class="block w-full rounded text-center text-[rgb(151,167,165)] bg-inputLight file:bg-inputLight file:border-0 file:w-full file:py-3 file:rounded-md file:text-[rgb(151,167,165)]"
-    ></input>
-  </div>
-</div>
+                <div class="relative w-full md:w-1/2">
+                  <label for="cv" className="text-silverSage">
+                    Životopis (PDF, DOCX):
+                  </label>
+                  <input
+                    type="file"
+                    id="cv"
+                    name="cv"
+                    accept=".pdf,.doc,.docx"
+                    required
+                    class="block w-full rounded text-center text-[rgb(151,167,165)] bg-inputLight file:bg-inputLight file:border-0 file:w-full file:py-3 file:rounded-md file:text-[rgb(151,167,165)]"
+                  ></input>
+                </div>
+              </div>
             </div>
 
             <div className="w-full flex justify-center">
@@ -236,7 +249,8 @@ export default function KarieraPozicePage({ params }) {
           </form>
 
           <p className="text-cardGrey text-center w-full max-w-[850px] p-6 m-auto">
-            Odesláním formuláře berete na vědomí podmínky zpracování osobních údajů uvedené v informaci o zpracování osobních údajů
+            Odesláním formuláře berete na vědomí podmínky zpracování osobních
+            údajů uvedené v informaci o zpracování osobních údajů
           </p>
         </div>
       </section>

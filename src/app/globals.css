@@ -7,83 +7,129 @@
   --foreground: #171717;
 }
 @font-face {
-  font-family: 'RecifeDisplay';
-  src: url('../fonts/RecifeDisplay-SemiBold.woff2') format('woff2');
+  font-family: "RecifeDisplay";
+  src: url("../fonts/RecifeDisplay-SemiBold.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'SatoshiBold';
-  src: url('../fonts/Satoshi-Bold.woff2') format('woff2');
+  font-family: "SatoshiBold";
+  src: url("../fonts/Satoshi-Bold.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'SatoshiMedium';
-  src: url('../fonts/Satoshi-Medium.woff2') format('woff2');
+  font-family: "SatoshiMedium";
+  src: url("../fonts/Satoshi-Medium.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 html {
-    touch-action: pan-y;
-    overscroll-behavior-x: none;
+  touch-action: pan-y;
+  overscroll-behavior-x: none;
 }
-.article p{font-size: 18px;opacity: 0.8;} .article li{font-size: 18px;opacity: 0.8;}
-@media (max-width:768px){.article p,.article li{font-size: 16px}}
-.article strong,.article p b,.article li b{color: #232323;}
-.article h2{font-size:32px; margin-top: 32px; margin-bottom: 16px;}
-@media (max-width:768px){.article h2{font-size: 28px; margin-top: 24px; margin-bottom: 12px;}}
-.article h3{font-family: 'RecifeDisplay', sans-serif;font-size:24px; margin-top: 24px; margin-bottom: 12px;}
-.article h2, .article h3{color:#9D6219}
+.article p {
+  font-size: 18px;
+  opacity: 0.8;
+}
+.article li {
+  font-size: 18px;
+  opacity: 0.8;
+}
+@media (max-width: 768px) {
+  .article p,
+  .article li {
+    font-size: 16px;
+  }
+}
+.article strong,
+.article p b,
+.article li b {
+  color: #232323;
+}
+.article h2 {
+  font-size: 32px;
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+@media (max-width: 768px) {
+  .article h2 {
+    font-size: 28px;
+    margin-top: 24px;
+    margin-bottom: 12px;
+  }
+}
+.article h3 {
+  font-family: "RecifeDisplay", sans-serif;
+  font-size: 24px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+.article h2,
+.article h3 {
+  color: #9d6219;
+}
 ul {
-  list-style-type: disc; /* bullet */
-  padding-left: 1.5rem;   /* trochu odsazení */
+  list-style-type: disc;
+  padding-left: 1.5rem;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
 }
 
 .font-recife {
-  font-family: 'RecifeDisplay', sans-serif;
+  font-family: "RecifeDisplay", sans-serif;
 }
 .font-satoshi-bold {
-  font-family: 'SatoshiBold', sans-serif;
+  font-family: "SatoshiBold", sans-serif;
 }
 .font-satoshi-medium {
-  font-family: 'SatoshiMedium', sans-serif;
+  font-family: "SatoshiMedium", sans-serif;
 }
 
-h1, h2, .ep_num, .footer_h, .recife{
-  font-family: 'RecifeDisplay', sans-serif;
+h1,
+h2,
+.ep_num,
+.footer_h,
+.recife {
+  font-family: "RecifeDisplay", sans-serif;
 }
-.card-heading{
-  font-family: 'SatoshiBold', sans-serif;
+.card-heading {
+  font-family: "SatoshiBold", sans-serif;
   font-size: 18px;
   text-transform: uppercase;
 }
-.card-heading-v{
-  font-family: 'SatoshiBold', sans-serif;
+.card-heading-v {
+  font-family: "SatoshiBold", sans-serif;
   text-transform: uppercase;
 }
-.card-heading-d, .card-text-fp{
+.card-heading-d,
+.card-text-fp {
   font-size: 18px;
 }
-.card-text-fp strong{color:#232323;}
-.custom-btn, .kfp{
-  font-family: 'SatoshiBold', sans-serif;
+.card-text-fp strong {
+  color: #232323;
+}
+.custom-btn,
+.kfp {
+  font-family: "SatoshiBold", sans-serif;
 }
 .recenze .bg-gradient-to-b {
-  background: linear-gradient(to bottom, rgba(226, 219, 213, 1) 0%, rgba(226, 219, 213, 0.5) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(226, 219, 213, 1) 0%,
+    rgba(226, 219, 213, 0.5) 100%
+  );
 }
-
 
 body {
-  font-family: 'SatoshiMedium', sans-serif;
+  font-family: "SatoshiMedium", sans-serif;
 }
-body b, strong:not(.article strong, .card-text-fp strong){
-  color: #9D6219;
+body b,
+strong:not(.article strong, .card-text-fp strong) {
+  color: #9d6219;
 }
 
 html,
@@ -95,7 +141,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'SatoshiMedium', Arial, Helvetica, sans-serif;
+  font-family: "SatoshiMedium", Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
