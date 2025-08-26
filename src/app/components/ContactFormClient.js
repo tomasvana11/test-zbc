@@ -149,7 +149,7 @@ export default function ContactForm() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-1">
+            <div className="w-full">
               <div>
                 <input
                   type="bydliste"
