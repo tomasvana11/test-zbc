@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 export default function ContactForm() {
   const [teamMembers, setTeamMembers] = useState([]);
@@ -10,8 +10,10 @@ export default function ContactForm() {
   useEffect(() => {
     async function fetchTeam() {
       try {
-        const res = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/tym');
-        if (!res.ok) throw new Error('Failed to fetch team members');
+        const res = await fetch(
+          "https://api.zabohatsicesko.cz/wp-json/wp/v2/tym"
+        );
+        if (!res.ok) throw new Error("Failed to fetch team members");
         const data = await res.json();
         setTeamMembers(data);
       } catch (err) {
@@ -25,7 +27,9 @@ export default function ContactForm() {
 
   return (
     <section className="bg-silkBeige w-full py-12 md:py-16">
-      <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center">Kontaktujte nás</h2>
+      <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center">
+        Kontaktujte nás
+      </h2>
       <p className="text-center text-raisinBlack">
         Chcete mít ve financích jasno a klid? <strong>Začněte tady.</strong>
       </p>
@@ -37,7 +41,6 @@ export default function ContactForm() {
           encType="multipart/form-data"
           className="mx-auto p-6 space-y-5 w-full max-w-[850px]"
           target="_self"
-          
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -81,10 +84,25 @@ export default function ContactForm() {
               />
             </div>
           </div>
+          <div className="grid grid-cols-1">
+            <div>
+              <input
+                type="bydliste"
+                name="bydliste"
+                id="bydliste"
+                placeholder="Zadejte místo, kde aktuálně žijete"
+                required
+                className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+              />
+            </div>
+          </div>
 
           {/* Select field s načtenými jmény */}
           <div>
-            <label htmlFor="teamMember" className="block mb-2 text-raisinBlack font-medium">
+            <label
+              htmlFor="teamMember"
+              className="block mb-2 text-raisinBlack font-medium"
+            >
               Vyberte člena týmu
             </label>
             {loading ? (
@@ -98,16 +116,16 @@ export default function ContactForm() {
                 required
                 defaultValue=""
                 className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-                >
+              >
                 <option value="" disabled>
-                    Vyberte poradce
+                  Vyberte poradce
                 </option>
-                    {teamMembers.map((member) => (
-                <option key={member.id} value={member.slug}>
-                {member.title.rendered}
-                </option>
-  ))}
-</select>
+                {teamMembers.map((member) => (
+                  <option key={member.id} value={member.slug}>
+                    {member.title.rendered}
+                  </option>
+                ))}
+              </select>
             )}
           </div>
 
@@ -132,7 +150,8 @@ export default function ContactForm() {
         </form>
 
         <p className="text-cardGrey w-full max-w-[850px] p-6 m-auto text-center text-sm">
-          Odesláním formuláře berete na vědomí podmínky zpracování osobních údajů uvedené v informaci o zpracování osobních údajů
+          Odesláním formuláře berete na vědomí podmínky zpracování osobních
+          údajů uvedené v informaci o zpracování osobních údajů
         </p>
       </div>
     </section>
