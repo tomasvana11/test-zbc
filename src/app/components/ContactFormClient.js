@@ -149,18 +149,6 @@ export default function ContactForm() {
                 </div>
               </div>
             </div>
-            <div className="w-full">
-              <div>
-                <input
-                  type="bydliste"
-                  name="bydliste"
-                  id="bydliste"
-                  placeholder="Zadejte místo, kde aktuálně žijete"
-                  required
-                  className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
-                />
-              </div>
-            </div>
 
             {selectedAdvisor === "vaclav-svatos" && (
               <div className="md:col-span-2">
@@ -172,6 +160,19 @@ export default function ContactForm() {
                 />
               </div>
             )}
+          </div>
+
+          <div className="w-full">
+            <div>
+              <input
+                type="bydliste"
+                name="bydliste"
+                id="bydliste"
+                placeholder="Zadejte místo, kde aktuálně žijete"
+                required
+                className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+              />
+            </div>
           </div>
 
           <div className="w-full flex justify-center">
