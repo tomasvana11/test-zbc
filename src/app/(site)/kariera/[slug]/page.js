@@ -186,6 +186,19 @@ export default function KarieraPozicePage({ params }) {
 
               <div className="md:col-span-2 md:flex md:justify-center">
                 <div className="relative w-full md:w-1/2">
+                  <input
+                    type="bydliste"
+                    name="bydliste"
+                    id="bydliste"
+                    placeholder="Zadejte místo, kde aktuálně žijete"
+                    required
+                    className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+                  />
+                </div>
+              </div>
+
+              <div className="md:col-span-2 md:flex md:justify-center">
+                <div className="relative w-full md:w-1/2">
                   <select
                     name="role"
                     required

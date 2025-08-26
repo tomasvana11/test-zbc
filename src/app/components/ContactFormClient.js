@@ -162,8 +162,8 @@ export default function ContactForm() {
             )}
           </div>
 
-          <div className="w-full">
-            <div>
+          <div className="md:col-span-2 md:flex md:justify-center">
+            <div className="relative w-full md:w-1/2">
               <input
                 type="bydliste"
                 name="bydliste"
