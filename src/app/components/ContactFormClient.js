@@ -1,16 +1,18 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function ContactForm() {
   const [members, setMembers] = useState([]);
-  const [selectedAdvisor, setSelectedAdvisor] = useState('');
+  const [selectedAdvisor, setSelectedAdvisor] = useState("");
 
   useEffect(() => {
     async function fetchMembers() {
       try {
-        const res = await fetch('https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?per_page=100&_embed');
+        const res = await fetch(
+          "https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?per_page=100&_embed"
+        );
         const data = await res.json();
         const cleaned = data.map((item) => ({
           id: item.id,
@@ -19,7 +21,7 @@ export default function ContactForm() {
         }));
         setMembers(cleaned);
       } catch (err) {
-        console.error('Chyba při načítání týmu:', err);
+        console.error("Chyba při načítání týmu:", err);
       }
     }
 
@@ -33,7 +35,7 @@ export default function ContactForm() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7, ease: 'easeOut' }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
       >
         Kontaktujte nás
       </motion.h2>
@@ -43,7 +45,7 @@ export default function ContactForm() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
       >
         Chcete mít ve financích jasno a klid? <strong>Začněte tady.</strong>
       </motion.p>
@@ -53,7 +55,7 @@ export default function ContactForm() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7, ease: 'easeOut', delay: 0.4 }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
       >
         <form
           action="https://formcarry.com/s/kY_1MuRL2um"
@@ -117,7 +119,7 @@ export default function ContactForm() {
                   value={selectedAdvisor}
                   onChange={(e) => setSelectedAdvisor(e.target.value)}
                   className="w-full appearance-none bg-inputLight text-black rounded p-2 pr-12 focus:outline-none focus:ring-1 focus:ring-silverSage text-inputPlacehoder"
-                  style={{ color: '#747271' }}
+                  style={{ color: "#747271" }}
                 >
                   <option value="" disabled hidden>
                     Vyberte poradce
@@ -125,7 +127,7 @@ export default function ContactForm() {
                   <option value="Nevim">Důvěřuju vašemu výběru</option>
                   {members.map((member) => (
                     <option key={member.id} value={member.slug}>
-                      {member.name.replace(/(<([^>]+)>)/gi, '')}
+                      {member.name.replace(/(<([^>]+)>)/gi, "")}
                     </option>
                   ))}
                 </select>
@@ -133,22 +135,34 @@ export default function ContactForm() {
                 <div
                   className="pointer-events-none absolute inset-y-[9px] right-[9px] flex items-center justify-center rounded"
                   style={{
-                    width: '28px',
-                    height: '22px',
-                    backgroundColor: '#9D6219',
+                    width: "28px",
+                    height: "22px",
+                    backgroundColor: "#9D6219",
                   }}
                 >
                   <img
                     src="/images/chevron-down.svg"
                     alt="šipka"
                     className="w-4 h-4"
-                    style={{ display: 'block' }}
+                    style={{ display: "block" }}
                   />
                 </div>
               </div>
             </div>
+            <div className="grid grid-cols-1">
+              <div>
+                <input
+                  type="bydliste"
+                  name="bydliste"
+                  id="bydliste"
+                  placeholder="Zadejte místo, kde aktuálně žijete"
+                  required
+                  className="w-full bg-inputLight rounded p-2 focus:outline-none focus:ring-1 focus:ring-silverSage placeholder-inputPlacehoder"
+                />
+              </div>
+            </div>
 
-            {selectedAdvisor === 'vaclav-svatos' && (
+            {selectedAdvisor === "vaclav-svatos" && (
               <div className="md:col-span-2">
                 <textarea
                   name="motivacniDopis"
@@ -171,10 +185,10 @@ export default function ContactForm() {
         </form>
 
         <p className="text-cardGrey text-center w-full max-w-[850px] p-6 m-auto">
-          Odesláním formuláře berete na vědomí podmínky zpracování osobních údajů uvedené v informaci o zpracování osobních údajů
+          Odesláním formuláře berete na vědomí podmínky zpracování osobních
+          údajů uvedené v informaci o zpracování osobních údajů
         </p>
       </motion.div>
     </section>
   );
 }
-
