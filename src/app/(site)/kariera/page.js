@@ -353,6 +353,36 @@ export default async function CareerPage() {
           </div>
         </section>
         {/*Pozice*/}
+<section className="flex flex-col items-center w-full max-w-[1392px] mx-auto px-4 py-12 md:py-24">
+  <div className="max-w-[1392px] w-full">
+    <h2 className="text-[28px] md:text-[40px] mb-6 md:mb-12 text-center text-goldenBrown">
+      Koho hledáme?
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {positions.map((position) => (
+        <Link
+          key={position.id}
+          href={`/kariera/${position.slug}`}
+          className="bg-silkBeige rounded-lg p-6 md:p-8 hover:shadow-lg transition-shadow duration-300 flex flex-col group"
+        >
+          <h3 className="text-[22px] md:text-[24px] font-satoshi-bold text-goldenBrown mb-4"
+              dangerouslySetInnerHTML={{ __html: position.title }}
+          />
+          
+          <div
+            className="text-raisinBlack mb-6 flex-grow leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: position.excerpt }}
+          />
+          
+          <span className="inline-block text-goldenBrown font-satoshi-bold border-b-2 border-goldenBrown pb-1 group-hover:opacity-80 transition-opacity self-start">
+            Detail pozice
+          </span>
+        </Link>
+      ))}
+    </div>
+  </div>
+</section>
+        {/*Pozice*/}
         <section className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto px-4 py-12 md:py-24">
           <div className="max-w-[1392px] w-full">
             <h2 className="text-[28px] md:text-[40px] mb-6 md:mb-12 text-center text-goldenBrown">
