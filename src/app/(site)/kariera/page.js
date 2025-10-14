@@ -581,7 +581,6 @@ export default async function CareerPage() {
   );
 }
 */
-
 import PageHeader from "../../components/PageHeader";
 import Link from "next/link";
 
@@ -860,26 +859,9 @@ export default async function CareerPage() {
           </div>
         </section>
 
-        {/* Vize a Mise sekce z Homepage */}
+        {/* Mise a Vize sekce z Homepage */}
         <section className="px-4 w-full bg-white py-12 md:py-16">
           <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto">
-            <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
-              <div className="flex items-center justify-between mb-4 md:mb-6">
-                <h2 className="text-[28px] md:text-[40px] text-goldenBrown">
-                  {hp_v_title}
-                </h2>
-                <img
-                  src="/images/IconVize.svg"
-                  alt="Ikona Vize"
-                  className="w-[34px] h-[24px] md:w-[38px] md:h-[38px]"
-                />
-              </div>
-              <hr className="border-lightDivGrey" />
-              <div
-                className="mt-4 md:mt-6 text-raisinBlack"
-                dangerouslySetInnerHTML={{ __html: hp_v_desc }}
-              />
-            </div>
             <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
               <div className="flex items-center justify-between mb-4 md:mb-6">
                 <h2 className="text-[28px] md:text-[40px] text-goldenBrown">
@@ -895,6 +877,23 @@ export default async function CareerPage() {
               <div
                 className="mt-4 md:mt-6 text-raisinBlack"
                 dangerouslySetInnerHTML={{ __html: hp_m_desc }}
+              />
+            </div>
+            <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
+              <div className="flex items-center justify-between mb-4 md:mb-6">
+                <h2 className="text-[28px] md:text-[40px] text-goldenBrown">
+                  {hp_v_title}
+                </h2>
+                <img
+                  src="/images/IconVize.svg"
+                  alt="Ikona Vize"
+                  className="w-[34px] h-[24px] md:w-[38px] md:h-[38px]"
+                />
+              </div>
+              <hr className="border-lightDivGrey" />
+              <div
+                className="mt-4 md:mt-6 text-raisinBlack"
+                dangerouslySetInnerHTML={{ __html: hp_v_desc }}
               />
             </div>
           </div>
