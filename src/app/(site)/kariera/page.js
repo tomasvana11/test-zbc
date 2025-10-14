@@ -3,6 +3,15 @@ import Link from "next/link";
 
 // WP REST API
 async function fetchPageData() {
+  const homepageRes = await fetch(
+    "https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=homepage",
+    { cache: "no-store" }
+  );
+
+  const hp_m_title = homepage.acf?.hp_m_title || "";
+const hp_m_desc = homepage.acf?.hp_m_desc || "";
+const hp_v_title = homepage.acf?.hp_v_title || "";
+const hp_v_desc = homepage.acf?.hp_v_desc || "";
   const res = await fetch(
     "https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=kariera&_embed",
     { next: { revalidate: 60 } }
@@ -363,7 +372,7 @@ export default async function CareerPage() {
         <Link
           key={position.id}
           href={`/kariera/${position.slug}`}
-          className="bg-silkBeige rounded-lg p-6 md:p-8 hover:shadow-lg transition-shadow duration-300 flex flex-col group"
+          className="bg-silkBeige/30 rounded-lg p-6 md:p-8 hover:shadow-lg transition-shadow duration-300 flex flex-col group"
         >
           <h3 className="text-[22px] md:text-[24px] font-satoshi-bold text-goldenBrown mb-4"
               dangerouslySetInnerHTML={{ __html: position.title }}
@@ -374,7 +383,7 @@ export default async function CareerPage() {
             dangerouslySetInnerHTML={{ __html: position.excerpt }}
           />
           
-          <span className="inline-block text-goldenBrown font-satoshi-bold border-b-2 border-goldenBrown pb-1 group-hover:opacity-80 transition-opacity self-start">
+          <span className="inline-block text-goldenBrown font-satoshi-bold group-hover:underline transition-all self-start">
             Detail pozice
           </span>
         </Link>
@@ -382,7 +391,7 @@ export default async function CareerPage() {
     </div>
   </div>
 </section>
-        {/*Pozice*/}
+        {/*Pozice
         <section className="flex flex-col md:flex-row items-center w-full max-w-[1392px] mx-auto px-4 py-12 md:py-24">
           <div className="max-w-[1392px] w-full">
             <h2 className="text-[28px] md:text-[40px] mb-6 md:mb-12 text-center text-goldenBrown">
@@ -424,7 +433,7 @@ export default async function CareerPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section>*/}
 
         {/*recenze*/}
         <section className="px-4 w-full py-12 md:py-24 bg-silverSage recenze">
