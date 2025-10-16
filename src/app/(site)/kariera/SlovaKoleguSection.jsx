@@ -19,7 +19,7 @@ export default function SlovaKoleguSection({ slovaKolegu }) {
         </h2>
 
         {/* 2 sloupce místo 3 */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8">
           {visibleItems.map((item) => (
             <div
               key={item.id}
