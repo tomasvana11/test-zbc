@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import ContactFormClient from "../app/components/ContactFormClient";
 import HeroSection from "./components/HeroSection";
@@ -313,7 +314,6 @@ export default async function Page() {
                 key={item.id}
                 className="relative bg-gradient-to-b pt-10 pl-10 ml-2 md:ml-6 mb-2 md:mb-0 rounded-lg flex flex-row gap-5 items-start overflow-visible"
               >
-                {/* Nový absolutní obrázek */}
                 <img
                   src="/images/symbol-golden-s.svg"
                   alt="Dekorace"
@@ -396,15 +396,12 @@ export default async function Page() {
                   rel="noopener noreferrer"
                   className="relative rounded-lg overflow-hidden h-[300px] block"
                 >
-                  {/* Background image */}
                   <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: `url(${image})` }}
                   ></div>
 
-                  {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-b from-[rgba(35,35,35,0.5)] to-[rgba(0,0,0,0.7)]"></div>
-                  {/* Play button - circle with triangle */}
                   <div className="absolute top-1/2 left-1/2 w-[48px] h-[48px] -translate-x-1/2 -translate-y-1/2 bg-[#E2DBD5] rounded-full flex items-center justify-center">
                     <svg
                       width="18"
@@ -417,7 +414,6 @@ export default async function Page() {
                     </svg>
                   </div>
 
-                  {/* Text content */}
                   <div className="relative z-10 flex flex-col justify-between items-start h-full p-5 text-left text-silkBeige">
                     <span className="text-[28px] md:text-[40px] text-goldenBrown ep_num">
                       #{episodeNumber}
@@ -441,4 +437,4 @@ export default async function Page() {
       <ContactFormClient />
     </main>
   );
-}
+} 

@@ -176,6 +176,8 @@ export default async function TymPage() {
 }
 */
 
+
+/*
 import PageHeader from '../../components/PageHeader';
 import fetchPageData from '../../../lib/fetchPageData';
 import ContactFormClient from '../../components/ContactFormClient'; 
@@ -351,6 +353,217 @@ export default async function TymPage() {
         description={nasTymPage?.acf?.page_desc || null}
       />
       <main className="flex flex-col items-center">
+        <section className="px-4 w-full -mt-8 md:-mt-20 z-[50]">
+          <div className="flex flex-col lg:flex-row items-end w-full max-w-[1392px] mx-auto bg-white xl:bg-transparent">
+            <div className="flex w-full lg:w-1/2 mr-0 xl:mr-6 justify-center items-center bg-white xl:bg-transparent">
+              <img
+                src={team_intro_img}
+                alt={introImgAlt}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+            <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:pl-12 lg:mb-12">
+              <h2 className="text-[28px] lg:text-[40px] mb-4 text-goldenBrown">{team_intro_title}</h2>
+              <div
+                className="text-raisinBlack"
+                dangerouslySetInnerHTML={{ __html: team_intro_desc }}
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="px-4 w-full py-12 md:py-24">
+          <div className="max-w-[1392px] mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-10 gap-y-14">
+            {members.map((member) => (
+              <a
+                key={member.id}
+                href={`/nas-tym/${member.slug}`}
+                className="flex flex-col w-full items-center no-underline hover:opacity-80"
+              >
+                <img
+                  src={member.photo}
+                  alt={member.name}
+                  className="w-full aspect-square rounded-full object-cover mb-3"
+                  loading="lazy"
+                />
+                <h3
+                  className="text-[18px] md:text-[20px] text-goldenBrown recife mb-1 text-center"
+                  dangerouslySetInnerHTML={{ __html: member.name }}
+                />
+                <p className="text-raisinBlack text-[15px] text-center">{member.role}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <ContactFormClient/>
+      </main>
+    </div>
+  );
+}
+  */
+import PageHeader from '../../components/PageHeader';
+import ContactFormClient from '../../components/ContactFormClient';
+import SlovaKlientuSection from '../kariera/SlovaKoleguSection';
+
+// WP REST API pro metadata
+async function fetchMetaPageData() {
+  const res = await fetch(
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=nas-tym&_embed',
+    { next: { revalidate: 60 } }
+  );
+  const data = await res.json();
+  const page = data[0];
+
+  const acf = page?.acf || {};
+  const featuredImage =
+    page?._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/default-og.jpg';
+
+  const rawDescription = acf.seo_description || page?.excerpt?.rendered || '';
+  const description = rawDescription.replace(/(<([^>]+)>)/gi, '').trim();
+
+  const title =
+    acf.seo_title || page?.title?.rendered || 'Náš tým | Za bohatší Česko';
+
+  const canonicalUrl = 'https://zabohatsicesko.cz/nas-tym';
+
+  return {
+    title,
+    description,
+    featuredImage,
+    canonicalUrl,
+  };
+}
+
+// generate metadata
+export async function generateMetadata() {
+  const { title, description, featuredImage, canonicalUrl } = await fetchMetaPageData();
+  return {
+    title,
+    description,
+    metadataBase: new URL('https://zabohatsicesko.cz'),
+    alternates: { canonical: canonicalUrl },
+    robots: { index: true, follow: true, nocache: false, googleBot: 'index, follow' },
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      siteName: 'Za bohatší Česko',
+      locale: 'cs_CZ',
+      url: canonicalUrl,
+      images: [featuredImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [featuredImage],
+      site: '@zabohatsicesko',
+    },
+  };
+}
+
+// Inline komponenta pro sekci „Očima našich kolegů"
+function SlovaKoleguSection({ slovaKolegu }) {
+  if (!slovaKolegu || slovaKolegu.length === 0) return null;
+
+  return (
+    <section className="px-4 w-full py-12 md:py-24 bg-lightGrey">
+      <div className="max-w-[1392px] mx-auto text-center">
+        <h2 className="text-[28px] md:text-[40px] mb-8 text-goldenBrown">
+          Očima našich kolegů
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {slovaKolegu.map((item, idx) => (
+            <div key={idx} className="bg-white p-6 rounded-lg shadow-md">
+              <p className="text-raisinBlack mb-2">{item.citation}</p>
+              {item.author && <p className="text-goldenBrown font-bold">{item.author}</p>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default async function TymPage() {
+  // 1️⃣ Fetch členů týmu
+  const res = await fetch(
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/tym?per_page=100&_embed',
+    { next: { revalidate: 60 } }
+  );
+  if (!res.ok) throw new Error('Failed to fetch team members');
+  const data = await res.json();
+
+  let members = data.map((item) => ({
+    id: item.id,
+    slug: item.slug,
+    photo: item.acf?.team_member_photo?.url || '/placeholder.png',
+    name: item.title.rendered,
+    role: item.acf?.role || '',
+  }));
+
+  // 2️⃣ Řazení členů týmu
+  members.sort((a, b) => {
+    const prioritizedSlugs = ['vaclav-svatos','sabina-vytiskova','jan-holinka','otto-urma'];
+    const aIndex = prioritizedSlugs.indexOf(a.slug);
+    const bIndex = prioritizedSlugs.indexOf(b.slug);
+    if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+    if (aIndex !== -1) return -1;
+    if (bIndex !== -1) return 1;
+
+    const roleOrder = {
+      'specialista': 1,
+      'relationship manažer': 2,
+      'poradce': 3,
+      'asistent': 4,
+      'asistentka': 4
+    };
+    const getRolePriority = (role) => {
+      const r = role.toLowerCase();
+      for (const [key, val] of Object.entries(roleOrder)) if (r.includes(key)) return val;
+      if (r.includes('specialist')) return roleOrder['specialista'];
+      if (r.includes('manažer') || r.includes('manager')) return roleOrder['relationship manažer'];
+      if (r.includes('poradc')) return roleOrder['poradce'];
+      if (r.includes('asisten')) return roleOrder['asistent'];
+      return 999;
+    };
+    const aPriority = getRolePriority(a.role);
+    const bPriority = getRolePriority(b.role);
+    if (aPriority !== bPriority) return aPriority - bPriority;
+    return a.name.localeCompare(b.name, 'cs');
+  });
+
+  // 3️⃣ Fetch ACF ze stránky /nas-tym
+  const nasTymRes = await fetch(
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/pages?slug=nas-tym&_embed',
+    { next: { revalidate: 60 } }
+  );
+  if (!nasTymRes.ok) throw new Error('Failed to fetch team page');
+  const nasTymData = await nasTymRes.json();
+  const nasTymPage = nasTymData[0];
+
+  const team_intro_title = nasTymPage.acf?.team_intro_title || '';
+  const team_intro_desc = nasTymPage.acf?.team_intro_desc || '';
+  const team_intro_img = nasTymPage.acf?.team_intro_img?.url || '/placeholder.png';
+  const introImgAlt = nasTymPage.acf?.team_intro_img?.alt || 'Intro';
+  const slovaKoleguData = nasTymPage.acf?.slova_kolegu || [];
+
+  // 4️⃣ Fetch slov klientů z custom post type
+  const slovaKlientuRes = await fetch(
+    'https://api.zabohatsicesko.cz/wp-json/wp/v2/slova-kolegu?per_page=100&_embed',
+    { next: { revalidate: 60 } }
+  );
+  const slovaKlientu = await slovaKlientuRes.json();
+
+  return (
+    <div>
+      <PageHeader
+        title={nasTymPage?.acf?.page_name || nasTymPage?.title?.rendered || 'Náš tým'}
+        description={nasTymPage?.acf?.page_desc || null}
+      />
+      <main className="flex flex-col items-center">
+
         {/* Úvodní sekce */}
         <section className="px-4 w-full -mt-8 md:-mt-20 z-[50]">
           <div className="flex flex-col lg:flex-row items-end w-full max-w-[1392px] mx-auto bg-white xl:bg-transparent">
@@ -395,6 +608,12 @@ export default async function TymPage() {
             ))}
           </div>
         </section>
+
+        {/* Sekce „Očima našich kolegů" */}
+        <SlovaKoleguSection slovaKolegu={slovaKoleguData} />
+
+        {/* Sekce „Očima našich klientů" */}
+        <SlovaKlientuSection slovaKolegu={slovaKlientu} />
 
         {/* Kontaktujte nás */}
         <ContactFormClient/>
