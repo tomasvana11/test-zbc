@@ -1215,6 +1215,7 @@ export default async function CareerPage() {
     */
   import PageHeader from "../../components/PageHeader";
   import Link from "next/link";
+  import SmoothScrollButton from '../../components/SmoothScrollButton';
 
   // WP REST API - METADATA
   async function fetchPageData() {
@@ -1432,19 +1433,13 @@ export default async function CareerPage() {
       
       {/* Tlačítka */}
       <div className="flex flex-col sm:flex-row gap-4 mt-8">
-        {/* Primární tlačítko - Volné pozice */}
-        <Link
-          href="https://zabohatsicesko.cz/kariera#volne-pozice"
-          className="w-full sm:w-auto custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige inline-flex items-center justify-center text-center"
-        >
-          Volné pozice
-          <img
-            src="/images/chevron-down.svg"
-            alt="šipka"
-            className="w-4 h-4 ml-2"
-          />
-        </Link>
-        
+      <SmoothScrollButton
+  targetId="volne-pozice"
+  className="w-full sm:w-auto custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige inline-flex items-center justify-center text-center"
+>
+  Volné pozice
+  <img src="/images/chevron-down.svg" alt="šipka" className="w-4 h-4 ml-2" />
+</SmoothScrollButton>
         {/* Sekundární tlačítko - Chci poznat celý tým */}
         <Link
           href="/nas-tym"
