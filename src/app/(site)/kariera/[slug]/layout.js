@@ -1,7 +1,8 @@
 import PageHeader from '../../../components/PosHeader';
 
 export default async function PostLayout({ children, params }) {
-  const { slug } = params;
+  const resolvedParams = await params;
+const { slug } = resolvedParams;
 
   const res = await fetch(`https://api.zabohatsicesko.cz/wp-json/wp/v2/pracovni-pozice?slug=${slug}&_embed`, {
     next: { revalidate: 60 }, // ISR - pokud chceš refresh každou minutu

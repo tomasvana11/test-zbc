@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://zabohatsicesko.cz
+
+# Sitemaps
+Sitemap: https://zabohatsicesko.cz/sitemap.xml

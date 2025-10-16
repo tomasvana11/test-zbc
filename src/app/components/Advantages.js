@@ -31,7 +31,9 @@ export default function HodnotyAdvantages({
   ];
 
   return (
-    <section className="px-4 w-full py-12 md:py-24">
+    <section className="px-4 w-full pb-12 md:pb-24">
+            <hr className="border-lightDivGrey w-full max-w-[1392px] mx-auto mb-12 md:mb-24" />
+
       <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto" ref={headerRef}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

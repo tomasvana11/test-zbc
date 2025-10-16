@@ -1383,7 +1383,7 @@ export default async function CareerPage() {
         />
 
         <main className="flex min-h-screen flex-col items-center">
-          {/* Úvodní intro sekce */}
+          {/* Úvodní intro sekce 
           <section className="px-4 w-full -mt-8 md:-mt-20 z-[50]">
             <div className="flex flex-col lg:flex-row items-end w-full max-w-[1392px] mx-auto bg-white xl:bg-transparent pb-12 md:pb-16">
               <div className="flex w-full lg:w-1/2 mr-0 xl:mr-6 justify-center items-center bg-white xl:bg-transparent">
@@ -1409,7 +1409,53 @@ export default async function CareerPage() {
                 </Link>
               </div>
             </div>
-          </section>
+          </section>*/}
+
+          {/* Úvodní intro sekce */}
+<section className="px-4 w-full -mt-8 md:-mt-20 z-[50]">
+  <div className="flex flex-col lg:flex-row items-end w-full max-w-[1392px] mx-auto bg-white xl:bg-transparent pb-12 md:pb-16">
+    <div className="flex w-full lg:w-1/2 mr-0 xl:mr-6 justify-center items-center bg-white xl:bg-transparent">
+      <img
+        src={career_intro_img}
+        alt={career_intro_imgAlt}
+        className="w-full h-auto object-contain"
+      />
+    </div>
+    <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:pl-12 lg:mb-12">
+      <h2 className="text-[28px] lg:text-[40px] mb-4 text-goldenBrown">
+        {career_intro_title}
+      </h2>
+      <div
+        className="text-raisinBlack"
+        dangerouslySetInnerHTML={{ __html: career_intro_detail }}
+      />
+      
+      {/* Tlačítka */}
+      <div className="flex flex-col sm:flex-row gap-4 mt-8">
+        {/* Primární tlačítko - Volné pozice */}
+        <Link
+          href="https://zabohatsicesko.cz/kariera#volne-pozice"
+          className="w-full sm:w-auto custom-btn py-3 px-4 rounded bg-goldenBrown text-silkBeige inline-flex items-center justify-center text-center"
+        >
+          Volné pozice
+          <img
+            src="/images/chevron-down.svg"
+            alt="šipka"
+            className="w-4 h-4 ml-2"
+          />
+        </Link>
+        
+        {/* Sekundární tlačítko - Chci poznat celý tým */}
+        <Link
+          href="/nas-tym"
+          className="w-full sm:w-auto custom-btn py-3 px-4 rounded bg-white text-goldenBrown border border-goldenBrown inline-block text-center"
+        >
+          Chci poznat celý tým
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
 
           {/*Proč*/}
           <section className="bg-raisinBlack w-full px-4 py-12 md:py-16">
@@ -1640,7 +1686,7 @@ export default async function CareerPage() {
           </section>
 
           {/*Pozice*/}
-          <section className="flex flex-col items-center w-full max-w-[1392px] mx-auto px-4 py-12 md:py-24">
+          <section className="flex flex-col items-center w-full max-w-[1392px] mx-auto px-4 py-12 md:py-24" id="volne-pozice">
             <div className="max-w-[1392px] w-full">
               <h2 className="text-[28px] md:text-[40px] mb-6 md:mb-12 text-center text-goldenBrown">
                 Koho hledáme?
@@ -1830,12 +1876,10 @@ export default async function CareerPage() {
           </section>
 
           <section className="bg-silkBeige w-full py-12 md:py-16">
-            <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center mb-4">
+            <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center mb-8">
               Přidej se k nám!
             </h2> 
-            <p className="text-center text-raisinBlack mb-8">
-              Chcete mít ve financích jasno a klid? <strong>Začněte tady.</strong>
-            </p>
+            
 
             <div className="flex flex-col w-full max-w-[1392px] mx-auto justify-center">
               <form
