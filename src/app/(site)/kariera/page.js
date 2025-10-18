@@ -840,7 +840,7 @@ export default async function CareerPage() {
 
   // Fetch pracovních pozic
   const positionsRes = await fetch(
-    "https://api.zabohatsicesko.cz/wp-json/wp/v2/pracovni-pozice?per_page=100&_embed",
+    "https://api.zabohatsicesko.cz/wp-json/wp/v2/pracovni-pozice?per_page=100&_embed&orderby=menu_order&order=asc",
     { cache: "no-store" }
   );
   if (!positionsRes.ok) throw new Error("Failed to fetch positions");
@@ -1057,12 +1057,12 @@ export default async function CareerPage() {
         </section>
 
         {/* Mise a Vize sekce z Homepage */}
-        <section className="px-4 w-full bg-white py-12 md:py-16">
+        <section className="px-4 w-full bg-white py-12 md:py-16 space-y-12">
           <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto">
             <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
               <div className="flex items-center justify-between mb-4 md:mb-6">
                 <h2 className="text-[28px] md:text-[40px] text-goldenBrown">
-                  {hp_m_title}
+                  Svoboda
                 </h2>
                 <img
                   src="/images/IconMise.svg"
@@ -1071,15 +1071,12 @@ export default async function CareerPage() {
                 />
               </div>
               <hr className="border-lightDivGrey" />
-              <div
-                className="mt-4 md:mt-6 text-raisinBlack"
-                dangerouslySetInnerHTML={{ __html: hp_m_desc }}
-              />
+              <div className="mt-4 md:mt-6 text-raisinBlack">Dostanete velkou volnost v tom, jak pracujete – ale zároveň očekáváme zodpovědnost za výsledky.</div>
             </div>
             <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
               <div className="flex items-center justify-between mb-4 md:mb-6">
                 <h2 className="text-[28px] md:text-[40px] text-goldenBrown">
-                  {hp_v_title}
+                  Win-win přístup
                 </h2>
                 <img
                   src="/images/IconVize.svg"
@@ -1088,10 +1085,37 @@ export default async function CareerPage() {
                 />
               </div>
               <hr className="border-lightDivGrey" />
-              <div
-                className="mt-4 md:mt-6 text-raisinBlack"
-                dangerouslySetInnerHTML={{ __html: hp_v_desc }}
-              />
+              <div className="mt-4 md:mt-6 text-raisinBlack">Hledáme lidi, kteří chtějí růst s námi. Když dáváte maximum Vy, dáváme ho i my.</div>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row w-full max-w-[1392px] mx-auto">
+            <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
+              <div className="flex items-center justify-between mb-4 md:mb-6">
+                <h2 className="text-[28px] md:text-[40px] text-goldenBrown">
+                  Svoboda
+                </h2>
+                <img
+                  src="/images/IconMise.svg"
+                  alt="Ikona mise"
+                  className="w-[30px] h-[30px] md:w-[38px] md:h-[38px]"
+                />
+              </div>
+              <hr className="border-lightDivGrey" />
+              <div className="mt-4 md:mt-6 text-raisinBlack">Dostanete velkou volnost v tom, jak pracujete – ale zároveň očekáváme zodpovědnost za výsledky.</div>
+            </div>
+            <div className="w-full md:w-1/2 md:pr-12 lg:pr-16 xl:pr-20 pb-10 md:pb-0">
+              <div className="flex items-center justify-between mb-4 md:mb-6">
+                <h2 className="text-[28px] md:text-[40px] text-goldenBrown">
+                  Win-win přístup
+                </h2>
+                <img
+                  src="/images/IconVize.svg"
+                  alt="Ikona Vize"
+                  className="w-[34px] h-[24px] md:w-[38px] md:h-[38px]"
+                />
+              </div>
+              <hr className="border-lightDivGrey" />
+              <div className="mt-4 md:mt-6 text-raisinBlack">Hledáme lidi, kteří chtějí růst s námi. Když dáváte maximum Vy, dáváme ho i my.</div>
             </div>
           </div>
         </section>
@@ -1235,11 +1259,7 @@ export default async function CareerPage() {
           
           <div className="w-full max-w-[1392px] mx-auto text-center relative z-10">
             {/* Citace nahoře - stejný font jako nadpis */}
-            <h2 className="text-[24px] md:text-[28px] pb-8 text-goldenBrown text-center max-w-[1000px] text-raisinBlack mx-auto">
-              {career_nabor_title_teaser}
-            </h2>
             
-            <hr className="border-t border-raisinBlack/10 mb-8 md:mb-10" />
 
             <h2 className="text-[28px] md:text-[40px] pb-8 md:pb-10 text-goldenBrown text-center">
               {career_nabor_title}
@@ -1329,7 +1349,7 @@ export default async function CareerPage() {
 
         <section className="bg-silkBeige w-full py-12 md:py-16">
           <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center mb-8">
-            Přidej se k nám!
+          Pokud hledáš víc než práci, napiš nám.
           </h2> 
 
           <div className="flex flex-col w-full max-w-[1392px] mx-auto justify-center">
