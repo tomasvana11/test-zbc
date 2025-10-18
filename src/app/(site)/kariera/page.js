@@ -621,7 +621,7 @@ export default async function CareerPage() {
 
         <section className="bg-silkBeige w-full py-12 md:py-16">
           <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center mb-8">
-          Pokud hledáš víc než práci, napiš nám.
+          Pokud hledáte víc než práci, napište nám.
           </h2> 
 
           <div className="flex flex-col w-full max-w-[1392px] mx-auto justify-center">
@@ -689,7 +689,7 @@ export default async function CareerPage() {
                       defaultValue=""
                     >
                       <option value="" disabled hidden>
-                        Jaká role tě láká nejvíce?
+                        Jaká role vás láká nejvíce?
                       </option>
                       {positions.map((item) => (
                         <option key={item.id} value={item.title}>

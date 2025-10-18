@@ -423,7 +423,7 @@ export default function KarieraPozicePage({ params }) {
       {/* Formulář sekce */}
       <section className="bg-silkBeige w-full px-4 py-12 md:py-16 mt-16">
         <h2 className="text-[28px] md:text-[40px] text-goldenBrown text-center mb-8">
-          Přidej se k nám!
+        Pokud hledáte víc než práci, napište nám.
         </h2>
 
         <div className="flex flex-col w-full max-w-[1392px] mx-auto justify-center">
@@ -489,7 +489,7 @@ export default function KarieraPozicePage({ params }) {
                     style={{ color: selectedRole ? "#000" : "#747271" }}
                   >
                     <option value="" disabled hidden>
-                      Jaká role tě láká nejvíce?
+                      Jaká role vás láká nejvíce?
                     </option>
                     {positions.map((item) => (
                       <option key={item.id} value={item.slug}>
