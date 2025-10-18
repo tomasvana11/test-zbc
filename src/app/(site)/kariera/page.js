@@ -332,7 +332,7 @@ export default async function CareerPage() {
           {kar_hodnota_t2}
         </h2>
         <img
-          src="/images/IconVize.svg"
+          src="/images/IconMise.svg"
           alt="Ikona Vize"
           className="w-[30px] h-[30px] md:w-[38px] md:h-[38px]"
         />
@@ -368,7 +368,7 @@ export default async function CareerPage() {
           {kar_hodnota_t4}
         </h2>
         <img
-          src="/images/IconVize.svg"
+          src="/images/IconMise.svg"
           alt="Ikona Vize"
           className="w-[30px] h-[30px] md:w-[38px] md:h-[38px]"
         />

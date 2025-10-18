@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="md:w-2/3 items-start pr-8">
             <p className="text-silkBeige pl-8">
               Za bohatší Česko s.r.o<br />
-              Jankovcova 1569/2c 170 00, Praha 7<br />
+              Jankovcova 1569/2c <br className="lg:hidden"/>170 00, Praha 7<br />
               +420 603 818 647 <br />
               info@zabohatsicesko.cz
             </p>

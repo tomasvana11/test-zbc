@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.19",
     "framer-motion": "^12.23.3",
     "ldrs": "^1.1.7",
     "next": "15.3.2",
